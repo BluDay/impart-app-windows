@@ -1,0 +1,1 @@
+C:\Code\impart-app\src\BluDay.Impart.App.WinUI\BluDay.Impart.App.WinUI.csproj;x64

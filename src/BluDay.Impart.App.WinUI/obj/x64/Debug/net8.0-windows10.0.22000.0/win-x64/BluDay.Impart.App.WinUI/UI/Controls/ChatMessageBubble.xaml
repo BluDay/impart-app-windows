@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<UserControl x:ConnectionId='1' d:HorizontalAlignment="Left"
+             d:RequestedTheme="Dark"
+             mc:Ignorable="d"
+             x:Class="BluDay.Impart.App.WinUI.UI.Controls.ChatMessageBubble"
+                                       
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                                                >
+    <Grid x:ConnectionId='2' x:Name="RootGrid"
+          Background="{ThemeResource ChatMessageBubbleBackgroundBrush}"
+          CornerRadius="{ThemeResource ControlCornerRadius}"
+          Padding="{ThemeResource ChatMessageBubblePadding}">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:ConnectionId='3' x:Name="SideStates">
+                <VisualState x:ConnectionId='4' x:Name="Left">
+                    <VisualState.StateTriggers>
+                        <StateTrigger IsActive="True" d:IsActive="True"/>
+                    </VisualState.StateTriggers>
+                    
+                    <VisualState.Setters>
+                        <Setter Target="RootGrid.Background" Value="{ThemeResource ChatMessageBubbleRecipientBackgroundBrush}"/>
+                    </VisualState.Setters>
+                </VisualState>
+                
+                <VisualState x:ConnectionId='5' x:Name="Right"/>
+            </VisualStateGroup>    
+        </VisualStateManager.VisualStateGroups>
+
+        <RichTextBlock x:ConnectionId='6' x:Name="ContentEditTextBlock"
+                       Foreground="{ThemeResource ChatMessageBubbleTextBrush}"
+                       TextTrimming="CharacterEllipsis"
+                       TextWrapping="WrapWholeWords"
+                       FontSize="12">
+            <Paragraph>
+                <Run x:ConnectionId='7'                      d:Text="Impart 🫐"/>
+            </Paragraph>
+        </RichTextBlock>
+    </Grid>
+</UserControl>
+

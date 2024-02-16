@@ -1,0 +1,15 @@
+App.xbf
+BluDay.Impart.App.WinUI\UI\Controls\ChatInputBox.xbf
+BluDay.Impart.App.WinUI\UI\Controls\ChatListItem.xbf
+BluDay.Impart.App.WinUI\UI\Controls\ChatMessageBubble.xbf
+BluDay.Impart.App.WinUI\UI\Controls\Shell.xbf
+BluDay.Impart.App.WinUI\UI\Controls\TitleBar.xbf
+BluDay.Impart.App.WinUI\UI\Controls\UserAvatar.xbf
+BluDay.Impart.App.WinUI\UI\Styles\ChatMessageBubbleStyle.xbf
+BluDay.Impart.App.WinUI\UI\Styles\NavigationViewStyle.xbf
+BluDay.Impart.App.WinUI\UI\Styles\PersonPictureStyle.xbf
+BluDay.Impart.App.WinUI\UI\Styles\UserControlStyle.xbf
+BluDay.Impart.App.WinUI\UI\Views\ConversationsPage.xbf
+BluDay.Impart.App.WinUI\UI\Views\IntroductionPage.xbf
+BluDay.Impart.App.WinUI\UI\Views\MainPage.xbf
+BluDay.Impart.App.WinUI\UI\Views\SettingsPage.xbf
