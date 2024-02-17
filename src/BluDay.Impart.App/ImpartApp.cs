@@ -6,18 +6,22 @@ public sealed class ImpartApp : IImpartApp
 
     private readonly ImpartAppContainer _container;
 
-    public ImpartAppArgs Args => _args;
+    public IImpartAppArgs Args => _args;
 
     public bool IsDisposed { get; private set; }
 
     public bool IsInitialized { get; private set; }
 
-    public ImpartApp(string[] args)
+    internal ImpartApp(ImpartAppArgs args)
     {
-        _args = new();
+        _args = args;
 
         _container = new(app: this);
     }
+
+    public ImpartApp(string args) : this(ImpartAppArgs.Parse(args)) { }
+
+    public ImpartApp(string[] args) : this(ImpartAppArgs.Parse(args)) { }
 
     private void InitializeCoreServices()
     {

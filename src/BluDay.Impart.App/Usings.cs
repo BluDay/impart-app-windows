@@ -1,4 +1,5 @@
-﻿global using BluDay.Common.Parsing;
+﻿global using BluDay.Common;
+global using BluDay.Common.Extensions;
 global using BluDay.Common.Infrastructure.Models;
 global using BluDay.Common.Infrastructure.ViewModels;
 global using BluDay.Common.Services;
