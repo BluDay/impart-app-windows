@@ -2,17 +2,17 @@ namespace BluDay.Common.Parsing;
 
 public interface IArgInfo
 {
-    ArgActionType ActionType { get; init; }
+    ArgActionType ActionType { get; }
 
-    object? Constant { get; init; }
+    object? Constant { get; }
 
     string MainIdentifier { get; }
 
-    string? Description { get; init; }
+    string? Description { get; }
 
     Guid Id { get; }
 
-    Type ValueType { get; init; }
+    Type ValueType { get; }
 
     IReadOnlyList<string> Identifiers { get; }
 }
