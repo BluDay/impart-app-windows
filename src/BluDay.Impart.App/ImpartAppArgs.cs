@@ -2,7 +2,7 @@ namespace BluDay.Impart.App;
 
 public sealed class ImpartAppArgs : IImpartAppArgs
 {
-    internal IReadOnlyList<string> OriginalArgs { get; }
+    internal IReadOnlyList<string> Args { get; }
 
     public bool DemoMode { get; init; }
 
@@ -16,7 +16,7 @@ public sealed class ImpartAppArgs : IImpartAppArgs
 
     public ImpartAppArgs(string[] args)
     {
-        OriginalArgs = args.AsReadOnly();
+        Args = args.AsReadOnly();
     }
 
     public static ImpartAppArgs Parse(string args)
