@@ -2,21 +2,11 @@ namespace BluDay.Common.Attributes;
 
 public sealed class ArgAttribute : Attribute, IArgInfo
 {
-    private readonly List<string> _identifiers;
+    private readonly List<string> _aliases;
 
     public ArgActionType ActionType { get; }
 
-    public int IdentifiersCount
-    {
-        get => _identifiers.Count;
-    }
-
     public object? Constant { get; }
-
-    public string MainIdentifier
-    {
-        get => _identifiers[0];
-    }
 
     public string? Description { get; }
 
@@ -24,24 +14,21 @@ public sealed class ArgAttribute : Attribute, IArgInfo
 
     public Type ValueType { get; }
 
-    public IReadOnlyList<string> Identifiers
-    {
-        get => _identifiers.AsReadOnly();
-    }
+    public IReadOnlyList<string> Aliases => _aliases.AsReadOnly();
 
     public ArgAttribute(
-        string[]      identifiers,
+        string[]      aliases,
         Type?         valueType   = null,
         ArgActionType actionType  = ArgActionType.ParseIdentifier,
         object?       constant    = null,
         string?       description = null)
     {
-        if (identifiers.Length < 1)
+        if (aliases.Length < 1)
         {
             throw new ArgumentException("Identifiers list must contain at least one element.");
         }
 
-        _identifiers = new(identifiers);
+        _aliases = new(aliases);
 
         ActionType = actionType;
 

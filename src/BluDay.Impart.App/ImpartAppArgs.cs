@@ -4,7 +4,7 @@ public sealed class ImpartAppArgs : IArgs
 {
     [
         Arg(
-            identifiers: ["-d", "--demo-mode"],
+            aliases:     ["-d", "--demo-mode"],
             description: "To run the app in a demo mode."
         )
     ]
@@ -12,7 +12,7 @@ public sealed class ImpartAppArgs : IArgs
 
     [
         Arg(
-            identifiers: ["-b", "--performance-mode"],
+            aliases:     ["-b", "--performance-mode"],
             description: "Not a real arg yet haha."
         )
     ]
@@ -20,7 +20,7 @@ public sealed class ImpartAppArgs : IArgs
 
     [
         Arg(
-            identifiers: ["--skip-intro"],
+            aliases:     ["--skip-intro"],
             description: "Skip first-time launch introduction."
         )
     ]
@@ -28,7 +28,7 @@ public sealed class ImpartAppArgs : IArgs
 
     [
         Arg(
-            identifiers: ["-v", "--verbose"],
+            aliases:     ["-v", "--verbose"],
             valueType:   typeof(uint),
             constant:    (uint)1,
             description: "Verbosity level for logs from 1 to 4."
@@ -38,7 +38,7 @@ public sealed class ImpartAppArgs : IArgs
 
     [
         Arg(
-            identifiers: ["-t", "--theme"],
+            aliases:     ["-t", "--theme"],
             valueType:   typeof(string),
             actionType:  ArgActionType.ParseValue,
             description: "Application theme to use."
