@@ -4,44 +4,44 @@ public sealed class ImpartAppArgs : IArgs
 {
     [
         Arg(
-            aliases:     ["-d", "--demo-mode"],
-            description: "To run the app in a demo mode."
+            ["-d", "--demo-mode"],
+            Description = "To run the app in a demo mode."
         )
     ]
     public bool DemoMode { get; }
 
     [
         Arg(
-            aliases:     ["-b", "--performance-mode"],
-            description: "Not a real arg yet haha."
+            ["-b", "--performance-mode"],
+            Description = "Not a real arg yet haha."
         )
     ]
     public bool PerformanceMode { get; }
 
     [
         Arg(
-            aliases:     ["--skip-intro"],
-            description: "Skip first-time launch introduction."
+            ["--skip-intro"],
+            Description = "Skip first-time launch introduction."
         )
     ]
     public bool SkipIntro { get; }
 
     [
         Arg(
-            aliases:     ["-v", "--verbose"],
-            valueType:   typeof(uint),
-            constant:    (uint)1,
-            description: "Verbosity level for logs from 1 to 4."
+            ["-v", "--verbose"],
+            ValueType   = typeof(uint),
+            Constant    = (uint)1,
+            Description = "Verbosity level for logs from 1 to 4."
         )
     ]
     public uint Verbosity { get; }
 
     [
         Arg(
-            aliases:     ["-t", "--theme"],
-            valueType:   typeof(string),
-            actionType:  ArgActionType.ParseValue,
-            description: "Application theme to use."
+            ["-t", "--theme"],
+            ValueType   = typeof(string),
+            ActionType  = ArgActionType.ParseValue,
+            Description = "Application theme to use."
         )
     ]
     public string? AppTheme { get; }
