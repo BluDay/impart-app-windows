@@ -6,9 +6,17 @@ public sealed class ArgAttribute : Attribute, IArgInfo
 
     public ArgActionType ActionType { get; }
 
+    public int IdentifiersCount
+    {
+        get => _identifiers.Count;
+    }
+
     public object? Constant { get; }
 
-    public string MainIdentifier => _identifiers[0];
+    public string MainIdentifier
+    {
+        get => _identifiers[0];
+    }
 
     public string? Description { get; }
 
@@ -16,7 +24,10 @@ public sealed class ArgAttribute : Attribute, IArgInfo
 
     public Type ValueType { get; }
 
-    public IReadOnlyList<string> Identifiers => _identifiers.AsReadOnly();
+    public IReadOnlyList<string> Identifiers
+    {
+        get => _identifiers.AsReadOnly();
+    }
 
     public ArgAttribute(
         string[]      identifiers,
@@ -27,19 +38,19 @@ public sealed class ArgAttribute : Attribute, IArgInfo
     {
         if (identifiers.Length < 1)
         {
-            throw new ArgumentException("Identifiers collection must contain at least one element.");
+            throw new ArgumentException("Identifiers list must contain at least one element.");
         }
 
         _identifiers = new(identifiers);
 
         ActionType = actionType;
 
+        ValueType = valueType ?? typeof(bool);
+
         Constant = constant;
 
         Description = description;
 
         Id = Guid.NewGuid();
-
-        ValueType = valueType ?? typeof(bool);
     }
 }
