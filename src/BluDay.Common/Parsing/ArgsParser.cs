@@ -13,14 +13,14 @@ public static class ArgsParser
             | BindingFlags.Public;
     }
 
-    public static TArgs? Parse<TArgs>(string args) where TArgs : IArgs, new()
+    public static TArgs Parse<TArgs>(string args) where TArgs : IArgs, new()
     {
-        // ArgumentException.ThrowIfNullOrWhiteSpace(args);
+        ArgumentException.ThrowIfNullOrWhiteSpace(args);
 
         return Parse<TArgs>(values: args.Split(Constants.Whitespace));
     }
 
-    public static TArgs? Parse<TArgs>(params string[] values) where TArgs : IArgs, new()
+    public static TArgs Parse<TArgs>(params string[] values) where TArgs : IArgs, new()
     {
         if (values.Length < 1)
         {
