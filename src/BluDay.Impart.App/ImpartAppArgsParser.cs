@@ -9,7 +9,9 @@ public static class ImpartAppArgsParser
             return new();
         }
 
-        return Parse(args.Split(Constants.Whitespace));
+        string[] values = args.Split(Constants.Whitespace);
+
+        return Parse(args: values);
     }
 
     public static ImpartAppArgs Parse(string[] args)
