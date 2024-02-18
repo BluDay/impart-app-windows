@@ -9,7 +9,9 @@ public sealed partial class App : Application
 
     private void Application_Startup(object sender, StartupEventArgs e)
     {
-        _app = new ImpartApp(args: e.Args);
+        var args = ImpartAppArgsParser.Parse(e.Args);
+
+        _app = new ImpartApp(args);
 
         _app.Initialize();
     }
