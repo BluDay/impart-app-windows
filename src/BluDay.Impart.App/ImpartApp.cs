@@ -21,9 +21,11 @@ public sealed class ImpartApp : IImpartApp
 
     private void InitializeCoreServices()
     {
+        /*
         _container.ServiceProvider
             .GetRequiredService<IAppWindowService>()
             .CreateWindow();
+        */
     }
 
     public void Initialize()
