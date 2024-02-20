@@ -4,6 +4,8 @@ public static class Constants
 {
     public const char Whitespace = ' ';
 
+    public const string ARG_EXPLICIT_IDENTIFIER = "--";
+
     public const string Default = "Default";
 
     public const string None = "None";
