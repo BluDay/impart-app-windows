@@ -28,7 +28,9 @@ public class ArgsParser<TArgs> where TArgs : class, new()
     {
         // ArgumentException.ThrowIfNullOrWhiteSpace(args);
 
-        return Parse(args.Split(Constants.Whitespace));
+        string[] values = args.Split(Constants.Whitespace);
+
+        return Parse(args: values);
     }
 
     public TArgs Parse(string[] args)
