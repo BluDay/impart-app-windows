@@ -26,8 +26,6 @@ public sealed class ArgGroupInfo
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(name);
 
-        valueType ??= typeof(bool);
-
         // TODO: Add missing value type validation here.
 
         ActionType = actionType;
@@ -36,7 +34,7 @@ public sealed class ArgGroupInfo
 
         Description = description;
 
-        ValueType = valueType;
+        ValueType = valueType ?? typeof(bool);
 
         Identifiers = identifiers
             .Where(value => !value.IsNullOrWhiteSpace())
