@@ -45,12 +45,12 @@ public static class ImpartAppArgsParser
         ];
     }
 
-    public static IImpartAppArgs Parse(string args)
+    public static ImpartAppArgs Parse(string args)
     {
         return Parser.Parse(args);
     }
 
-    public static IImpartAppArgs Parse(string[] args)
+    public static ImpartAppArgs Parse(string[] args)
     {
         return Parser.Parse(args);
     }
