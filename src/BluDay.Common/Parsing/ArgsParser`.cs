@@ -26,16 +26,24 @@ public class ArgsParser<TArgs> where TArgs : class, new()
 
     public TArgs Parse(string args)
     {
-        ArgumentException.ThrowIfNullOrWhiteSpace(args);
+        // ArgumentException.ThrowIfNullOrWhiteSpace(args);
 
         return Parse(args.Split(Constants.Whitespace));
     }
 
     public TArgs Parse(string[] args)
     {
+        if (args.Length < 1)
+        {
+            throw new ArgumentException("Args array must contain at least one element.");
+        }
+
         TArgs? instance = Activator.CreateInstance<TArgs>();
 
-        // ( 0 _ o )
+        foreach (PropertyInfo property in ParsableProperties)
+        {
+            // :)
+        }
 
         return instance;
     }
