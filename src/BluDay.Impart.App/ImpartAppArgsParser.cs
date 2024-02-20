@@ -11,7 +11,8 @@ public static class ImpartAppArgsParser
 
     private static IReadOnlyList<ArgGroupInfo> CreateArgs()
     {
-        return [
+        return new List<ArgGroupInfo>()
+        {
             new(
                 name:        nameof(ImpartAppArgs.DemoMode),
                 description: "Launch the app in demo mode.",
@@ -42,7 +43,7 @@ public static class ImpartAppArgsParser
                 actionType:  ArgActionType.ParseValue,
                 valueType:   typeof(string)
             )
-        ];
+        };
     }
 
     public static ImpartAppArgs Parse(string args)
