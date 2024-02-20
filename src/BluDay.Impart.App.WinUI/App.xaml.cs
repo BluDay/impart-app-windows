@@ -19,7 +19,10 @@ public sealed partial class App : Application
     /// <param name="args">Details about the launch request and process.</param>
     protected override void OnLaunched(LaunchActivatedEventArgs e)
     {
-        _app = new(args: ImpartAppArgsParser.Parse(e.Arguments));
+        // I need to do this instead of using e.Arguments? Seriously, Microsoft?
+        string[] args = Environment.GetCommandLineArgs();
+
+        _app = new(args: ImpartAppArgsParser.Parse(args));
 
         _app.Initialize();
     }
