@@ -40,9 +40,14 @@ public sealed class ArgGroupInfo
 
         Identifiers = identifiers
             .Where(value => !value.IsNullOrWhiteSpace())
-            .Select(value => new ArgInfo(value, valueType))
+            .Select(CreateArg)
             .ToList();
 
         Constant = constant;
+    }
+
+    private ArgInfo CreateArg(string identifier)
+    {
+        return new(identifier, group: this);
     }
 }
