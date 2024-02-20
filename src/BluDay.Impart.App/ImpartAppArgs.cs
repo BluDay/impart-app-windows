@@ -1,6 +1,6 @@
 namespace BluDay.Impart.App;
 
-public sealed class ImpartAppArgs
+public sealed class ImpartAppArgs : IImpartAppArgs
 {
     [CommandLineArg]
     public bool DemoMode { get; }

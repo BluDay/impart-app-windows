@@ -4,13 +4,13 @@ public sealed class ImpartApp : IImpartApp
 {
     private readonly ImpartAppContainer _container;
 
-    public ImpartAppArgs Args { get; }
+    public IImpartAppArgs Args { get; }
 
     public bool IsDisposed { get; private set; }
 
     public bool IsInitialized { get; private set; }
 
-    public ImpartApp(ImpartAppArgs args)
+    public ImpartApp(IImpartAppArgs args)
     {
         Args = args;
 
