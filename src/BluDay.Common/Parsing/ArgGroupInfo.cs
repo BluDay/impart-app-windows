@@ -26,8 +26,6 @@ public sealed class ArgGroupInfo
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(name);
 
-        // TODO: Add missing value type validation here.
-
         ActionType = actionType;
 
         Name = name;

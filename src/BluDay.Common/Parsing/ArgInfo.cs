@@ -14,8 +14,6 @@ public readonly struct ArgInfo
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(identifier);
 
-        // TODO: Add missing value type validation here.
-
         Group = group;
 
         IsExplicit = identifier.StartsWith(Constants.ARG_EXPLICIT_IDENTIFIER);
