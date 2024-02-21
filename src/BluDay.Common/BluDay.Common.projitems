@@ -12,7 +12,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)attributes\CommandLineArgAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Attributes\NotEmptyOrWhiteSpaceAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Attributes\UseViewModelAttribute.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)CommandLine\IArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\CommandLine\IArgs.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Constants.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Exceptions\InvalidArgIdentifierException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Models\IModel.cs" />
@@ -31,9 +31,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\TypeExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CommandLine\ArgActionType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CommandLine\ParsedArg.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)CommandLine\IArgInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\CommandLine\IArgInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CommandLine\ArgsParser`.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)UI\AppTheme.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UI\Appearance\AppTheme.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\AppDialogService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\IAppDialogService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\IAppThemeService.cs" />
@@ -46,8 +46,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Services\AppWindowService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Infrastructure\CommandLine\" />
     <Folder Include="$(MSBuildThisFileDirectory)Infrastructure\ViewModels\" />
     <Folder Include="$(MSBuildThisFileDirectory)Services\" />
-    <Folder Include="$(MSBuildThisFileDirectory)UI\Interactions\" />
+    <Folder Include="$(MSBuildThisFileDirectory)UI\Appearance\" />
   </ItemGroup>
 </Project>
