@@ -10,7 +10,7 @@ public interface IArgInfo
 
     string? Description { get; init; }
 
-    string? ExplicitIdentifier { get; init; }
+    string? ExplicitIdentifier { get; }
 
     Type ValueType { get; init; }
 

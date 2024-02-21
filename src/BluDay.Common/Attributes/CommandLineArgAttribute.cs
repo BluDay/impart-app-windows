@@ -1,3 +1,5 @@
+using BluDay.Common.Exceptions;
+
 namespace BluDay.Common.Attributes;
 
 public sealed class CommandLineArgAttribute : Attribute, IArgInfo
@@ -10,32 +12,32 @@ public sealed class CommandLineArgAttribute : Attribute, IArgInfo
 
     public string? Description { get; init; }
 
-    public string? ExplicitIdentifier { get; init; }
+    public string? ExplicitIdentifier { get; }
 
     public Type ValueType { get; init; } = typeof(bool);
 
     public Guid Id { get; } = Guid.NewGuid();
 
-    public CommandLineArgAttribute(string identifier) : this(identifier, explicitIdentifier: null) { }
+    public CommandLineArgAttribute(string identifier) : this(identifier, null) { }
 
     public CommandLineArgAttribute(string identifier, string? explicitIdentifier)
     {
-        ArgumentException.ThrowIfNullOrWhiteSpace(identifier);
+        InvalidArgIdentifierException.ThrowIfInvalid(identifier);
 
-        if (!identifier.StartsWith(Constants.ARG_IMPLICIT_IDENTIFIER_DASH))
+        if (explicitIdentifier!.IsNullOrWhiteSpace())
         {
-            throw new ArgumentException("Implicit identifier must start with one dash character.");
+            explicitIdentifier = identifier;
         }
-
-        bool hasExplicit = explicitIdentifier!.IsNullOrWhiteSpace();
-
-        if (!hasExplicit && !explicitIdentifier!.StartsWith(Constants.ARG_EXPLICIT_IDENTIFIER_DASHES))
+        else
         {
-            throw new ArgumentException("Explicit identifier must start with two dash characters.");
+            InvalidArgIdentifierException.ThrowIfInvalid(
+                identifier: explicitIdentifier!,
+                isExplicit: true
+            );
         }
 
         Identifier = identifier;
 
-        ExplicitIdentifier = hasExplicit ? explicitIdentifier : identifier;
+        ExplicitIdentifier = explicitIdentifier;
     }
 }
