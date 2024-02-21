@@ -32,10 +32,10 @@ public sealed class ImpartAppArgs : IImpartAppArgs
         CommandLineArg(
             "-v",
             "--verbosity",
-            Description        = "Verbosity level.",
-            ActionType         = ArgActionType.AddConstant,
-            ValueType          = typeof(uint),
-            Constant           = (uint)1
+            Description = "Verbosity level.",
+            ActionType  = ArgActionType.AddConstant,
+            ValueType   = typeof(uint),
+            Constant    = (uint)1
         )
     ]
     public uint Verbosity { get; init; }

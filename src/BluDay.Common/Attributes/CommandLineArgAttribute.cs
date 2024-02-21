@@ -14,9 +14,9 @@ public sealed class CommandLineArgAttribute : Attribute, IArgInfo
 
     public string? ExplicitIdentifier { get; }
 
-    public Type ValueType { get; init; } = typeof(bool);
-
     public Guid Id { get; } = Guid.NewGuid();
+
+    public Type ValueType { get; init; } = typeof(bool);
 
     public CommandLineArgAttribute(string identifier) : this(identifier, null) { }
 

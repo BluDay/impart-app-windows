@@ -12,7 +12,7 @@ public interface IArgInfo
 
     string? ExplicitIdentifier { get; }
 
-    Type ValueType { get; init; }
-
     Guid Id { get; }
+
+    Type ValueType { get; init; }
 }
