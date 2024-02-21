@@ -2,16 +2,18 @@ namespace BluDay.Common.CommandLine;
 
 public readonly struct ParsedArg
 {
-    public bool HasValue { get; }
+    public IArgInfo Info { get; }
 
-    public bool IsExplicit { get; }
-
-    public string Identifier { get; }
+    public bool HasValue => Value is not null;
 
     public object? Value { get; }
 
-    public ParsedArg(string identifier)
+    public ParsedArg(IArgInfo info, object? value)
     {
-        // TODO: Redo this whole thing.
+        ArgumentNullException.ThrowIfNull(info);
+
+        Info = info;
+
+        Value = value;
     }
 }
