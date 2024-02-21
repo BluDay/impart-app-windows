@@ -24,15 +24,6 @@ public class ArgsParser<TArgs> where TArgs : class, new()
         return property.GetCustomAttribute<CommandLineArgAttribute>() is not null;
     }
 
-    public TArgs Parse(string args)
-    {
-        // ArgumentException.ThrowIfNullOrWhiteSpace(args);
-
-        string[] values = args.Split(Constants.Whitespace);
-
-        return Parse(args: values);
-    }
-
     public TArgs Parse(string[] args)
     {
         if (args.Length < 1)
@@ -44,7 +35,7 @@ public class ArgsParser<TArgs> where TArgs : class, new()
 
         foreach (PropertyInfo property in ParsableProperties)
         {
-            // :)
+            System.Diagnostics.Debug.WriteLine(property);
         }
 
         return instance;

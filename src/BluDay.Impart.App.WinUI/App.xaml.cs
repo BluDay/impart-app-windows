@@ -21,7 +21,7 @@ public sealed partial class App : Application
     {
         string[] args = Environment.GetCommandLineArgs();
 
-        _app = new(args: ImpartAppArgsParser.Parse(args));
+        _app = new(args: ImpartAppArgsParser.Default.Parse(args));
 
         _app.Initialize();
     }

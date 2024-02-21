@@ -2,103 +2,49 @@ namespace BluDay.Common.Parsing;
 
 public sealed class ArgGroupInfo
 {
-    public ArgInfo MainIdentifier => Identifiers[0];
+    private readonly HashSet<ArgInfo> _args = new();
 
-    public ArgActionType ActionType { get; } = ArgActionType.ParseValueByIdentifier;
+    public ArgInfo MainArg => Args[0];
 
-    public object? Constant { get; }
+    public ArgActionType ActionType { get; init; } = ArgActionType.ParseValueByIdentifier;
 
-    public string Name { get; }
+    public object? Constant { get; init; }
 
-    public string? Description { get; }
+    public required string Name { get; init; }
 
-    public Type ValueType { get; } = typeof(bool);
+    public string? Description { get; init; }
 
-    public IReadOnlyList<ArgInfo> Identifiers { get; }
+    public Type ValueType { get; init; } = typeof(bool);
 
-    public ArgGroupInfo(string name, string[] identifiers)
-        : this(
-           name:        name,
-           identifiers: identifiers,
-           description: null,
-           actionType:  ArgActionType.ParseValueByIdentifier,
-           valueType:   null,
-           constant:    null
-        )
-    { }
-
-    public ArgGroupInfo(string name, string[] identifiers, string? description)
-        : this(
-            name:        name,
-            identifiers: identifiers,
-            description: description,
-            actionType:  ArgActionType.ParseValueByIdentifier,
-            valueType:   null,
-            constant:    null
-        )
-    { }
-
-    public ArgGroupInfo(
-        string        name,
-        string[]      identifiers,
-        string?       description,
-        ArgActionType actionType
-    )
-        : this(
-            name:        name,
-            identifiers: identifiers,
-            description: description,
-            actionType:  actionType,
-            valueType:   null,
-            constant:    null
-        )
-    { }
-
-    public ArgGroupInfo(
-        string        name,
-        string[]      identifiers,
-        string?       description,
-        ArgActionType actionType,
-        Type?         valueType
-    )
-        : this(
-            name:        name,
-            identifiers: identifiers,
-            description: description,
-            actionType:  actionType,
-            valueType:   valueType,
-            constant:    null
-        )
-    { }
-
-    public ArgGroupInfo(
-        string        name,
-        string[]      identifiers,
-        string?       description,
-        ArgActionType actionType,
-        Type?         valueType,
-        object?       constant)
+    public IReadOnlyList<ArgInfo> Args
     {
-        ArgumentException.ThrowIfNullOrWhiteSpace(name);
+        get => _args.ToList().AsReadOnly();
+    }
 
-        ActionType = actionType;
-
-        Name = name;
-
-        Description = description;
-
-        ValueType = valueType ?? typeof(bool);
-
-        Identifiers = identifiers
-            .Where(value => !value.IsNullOrWhiteSpace())
-            .Select(CreateArg)
-            .ToList();
-
-        Constant = constant;
+    public required IReadOnlyList<string> Identifiers
+    {
+        get
+        {
+            return _args
+                .Select(arg => arg.Identifier)
+                .ToList()
+                .AsReadOnly();
+        }
+        init
+        {
+            foreach (string identifier in value)
+            {
+                CreateArg(identifier);
+            }
+        }
     }
 
     private ArgInfo CreateArg(string identifier)
     {
-        return new(identifier, group: this);
+        ArgInfo arg = new(identifier, group: this);
+
+        _args.Add(arg);
+
+        return arg;
     }
 }

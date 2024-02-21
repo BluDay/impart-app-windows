@@ -29,6 +29,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\TypeExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)parsing\ArgActionType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Parsing\ArgGroupInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Parsing\ParsedArg.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)parsing\ArgInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)parsing\ArgsParser`.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UI\AppTheme.cs" />

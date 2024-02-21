@@ -1,58 +1,49 @@
 namespace BluDay.Impart.App;
 
-public static class ImpartAppArgsParser
+public sealed class ImpartAppArgsParser : ArgsParser<ImpartAppArgs>
 {
-    public static ArgsParser<ImpartAppArgs> Parser { get; }
+    public static ImpartAppArgsParser Default { get; } = new();
 
-    static ImpartAppArgsParser()
-    {
-        Parser = new(args: CreateArgs());
-    }
+    public ImpartAppArgsParser() : base(args: CreateArgs()) { }
 
     private static IReadOnlyList<ArgGroupInfo> CreateArgs()
     {
-        return new List<ArgGroupInfo>()
-        {
-            new(
-                name:        nameof(ImpartAppArgs.DemoMode),
-                description: "Launch the app in demo mode.",
-                identifiers: ["-d", "--demo-mode"]
-            ),
-            new(
-                name:        nameof(ImpartAppArgs.PerformanceMode),
-                description: "Launch the app in performance mode.",
-                identifiers: ["-b", "--peformance-mode"]
-            ),
-            new(
-                name:        nameof(ImpartAppArgs.SkipIntro),
-                description: "Skip the first-time launch introduction.",
-                identifiers: ["--skip-intro"]
-            ),
-            new(
-                name:        nameof(ImpartAppArgs.Verbosity),
-                description: "Verbosity level.",
-                identifiers: ["-v", "--verbosity"],
-                actionType:  ArgActionType.AddConstant,
-                valueType:   typeof(uint),
-                constant:    (uint)1
-            ),
-            new(
-                name:        nameof(ImpartAppArgs.AppTheme),
-                identifiers: ["-t", "--app-theme"],
-                description: "App theme to use at launch.",
-                actionType:  ArgActionType.ParseValue,
-                valueType:   typeof(string)
-            )
-        };
-    }
-
-    public static ImpartAppArgs Parse(string args)
-    {
-        return Parser.Parse(args);
-    }
-
-    public static ImpartAppArgs Parse(string[] args)
-    {
-        return Parser.Parse(args);
+        return [
+            new()
+            {
+                Name        = nameof(ImpartAppArgs.DemoMode),
+                Description = "Launch the app in demo mode.",
+                Identifiers = ["-d", "--demo-mode"]
+            },
+            new()
+            {
+                Name        = nameof(ImpartAppArgs.PerformanceMode),
+                Description = "Launch the app in performance mode.",
+                Identifiers = ["-b", "--peformance-mode"]
+            },
+            new()
+            {
+                Name        = nameof(ImpartAppArgs.SkipIntro),
+                Description = "Skip the first-time launch introduction.",
+                Identifiers = ["--skip-intro"]
+            },
+            new()
+            {
+                Name        = nameof(ImpartAppArgs.Verbosity),
+                Description = "Verbosity level.",
+                ActionType  = ArgActionType.AddConstant,
+                ValueType   = typeof(uint),
+                Constant    = (uint)1,
+                Identifiers = ["-v", "--verbosity"]
+            },
+            new()
+            {
+                Name        = nameof(ImpartAppArgs.AppTheme),
+                Description = "App theme to use at launch.",
+                ActionType  = ArgActionType.ParseValue,
+                ValueType   = typeof(string),
+                Identifiers = ["-t", "--app-theme"]
+            }
+        ];
     }
 }
