@@ -8,7 +8,7 @@ public sealed class CommandLineArgAttribute : Attribute, IArgInfo
 
     public bool Required { get; init; }
 
-    public object? Constant { get; init; } = true;
+    public object? Constant { get; init; }
 
     public string Identifier { get; }
 
