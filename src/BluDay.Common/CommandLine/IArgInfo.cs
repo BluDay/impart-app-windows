@@ -4,6 +4,8 @@ public interface IArgInfo
 {
     ArgActionType ActionType { get; init; }
 
+    bool Required { get; init; }
+
     object? Constant { get; init; }
 
     string Identifier { get; }

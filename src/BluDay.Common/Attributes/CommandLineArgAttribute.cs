@@ -6,6 +6,8 @@ public sealed class CommandLineArgAttribute : Attribute, IArgInfo
 {
     public ArgActionType ActionType { get; init; } = ArgActionType.ParseValueByIdentifier;
 
+    public bool Required { get; init; }
+
     public object? Constant { get; init; } = true;
 
     public string Identifier { get; }
