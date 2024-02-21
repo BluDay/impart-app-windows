@@ -12,6 +12,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)attributes\CommandLineArgAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Attributes\NotEmptyOrWhiteSpaceAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Attributes\UseViewModelAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CommandLine\IArgs.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Constants.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Models\IModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Models\Model.cs" />
@@ -27,11 +28,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\DependencyInjection\ObjectFactorySite`.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\StringExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\TypeExtensions.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)parsing\ArgActionType.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Parsing\ArgGroupInfo.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Parsing\ParsedArg.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)parsing\ArgInfo.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)parsing\ArgsParser`.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CommandLine\ArgActionType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CommandLine\ParsedArg.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CommandLine\IArgInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CommandLine\ArgsParser`.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UI\AppTheme.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\AppDialogService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\IAppDialogService.cs" />

@@ -4,7 +4,9 @@ public static class Constants
 {
     public const char Whitespace = ' ';
 
-    public const string ARG_EXPLICIT_IDENTIFIER = "--";
+    public const string ARG_EXPLICIT_IDENTIFIER_DASHES = "--";
+
+    public const string ARG_IMPLICIT_IDENTIFIER_DASH = "-";
 
     public const string Default = "Default";
 

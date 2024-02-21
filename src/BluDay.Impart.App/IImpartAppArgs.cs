@@ -1,14 +1,14 @@
 namespace BluDay.Impart.App;
 
-public interface IImpartAppArgs
+public interface IImpartAppArgs : IArgs
 {
-    bool DemoMode { get; }
+    bool DemoMode { get; init; }
 
-    bool PerformanceMode { get; }
+    bool PerformanceMode { get; init; }
 
-    bool SkipIntro { get; }
+    bool SkipIntro { get; init; }
 
-    uint Verbosity { get; }
+    uint Verbosity { get; init; }
 
-    string? AppTheme { get; }
+    string? AppTheme { get; init; }
 }

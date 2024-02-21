@@ -1,4 +1,4 @@
-namespace BluDay.Common.Parsing;
+namespace BluDay.Common.CommandLine;
 
 public enum ArgActionType
 {
