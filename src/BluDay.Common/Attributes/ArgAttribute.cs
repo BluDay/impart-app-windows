@@ -6,17 +6,17 @@ public sealed class ArgAttribute : Attribute, IArgInfo
 {
     public ArgActionType ActionType { get; init; } = ArgActionType.ParseValueByIdentifier;
 
+    public ImplicitArgIdentifier ImplicitIdentifier { get; }
+
+    public ExplicitArgIdentifier? ExplicitIdentifier { get; }
+
     public bool ExpectsValue => ActionType is ArgActionType.ParseValue;
 
     public bool Required { get; init; }
 
     public object? Constant { get; init; }
 
-    public string Identifier { get; }
-
     public string? Description { get; init; }
-
-    public string? ExplicitIdentifier { get; }
 
     public uint ExpectedValueCount { get; init; }
 
@@ -24,40 +24,25 @@ public sealed class ArgAttribute : Attribute, IArgInfo
 
     public Type ValueType { get; init; } = typeof(bool);
 
-    public ArgAttribute(string identifier) : this(identifier, null) { }
+    public ArgAttribute(string implicitIdentifier) : this(implicitIdentifier, null!) { }
 
-    public ArgAttribute(string identifier, string? explicitIdentifier)
+    public ArgAttribute(string implicitIdentifier, string explicitIdentifier)
     {
-        InvalidArgIdentifierException.ThrowIfInvalid(identifier);
+        InvalidArgIdentifierException.ThrowIfInvalid(implicitIdentifier);
 
-        if (!explicitIdentifier!.IsNullOrWhiteSpace())
+        if (!explicitIdentifier.IsNullOrWhiteSpace())
         {
             InvalidArgIdentifierException.ThrowIfInvalid(
-                identifier: explicitIdentifier!,
+                identifier: explicitIdentifier,
                 isExplicit: true
             );
         }
         else
         {
-            explicitIdentifier = identifier;
+            explicitIdentifier = implicitIdentifier;
         }
 
-        Identifier = identifier;
-
-        ExplicitIdentifier = explicitIdentifier;
-    }
-
-    public bool IsMatch(string identifier)
-    {
-        bool isExplicit = identifier.StartsWith(Constants.ARG_EXPLICIT_IDENTIFIER_DASHES);
-
-        bool isValid = identifier.StartsWith(Identifier) || isExplicit;
-
-        if (ActionType is ArgActionType.AddConstant)
-        {
-            // TODO: Handle arguments like "-vv" or "--verbosity 4".
-        }
-
-        return isValid;
+        ImplicitIdentifier = new(implicitIdentifier, arg: this);
+        ExplicitIdentifier = new(explicitIdentifier, arg: this);
     }
 }

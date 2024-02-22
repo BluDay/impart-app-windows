@@ -28,8 +28,6 @@ public class ArgsParser<TArgs> where TArgs : IArgs, new()
 
     private IEnumerable<ParsedArg> CreateParsedArgEnumerable(IReadOnlyList<string> args)
     {
-        // ( 0 _ o )
-
         yield break;
     }
 
