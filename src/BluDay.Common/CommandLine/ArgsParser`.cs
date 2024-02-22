@@ -10,7 +10,7 @@ public class ArgsParser<TArgs> where TArgs : IArgs, new()
     {
         ParsablePropertyToArgMap = typeof(TArgs)
             .GetProperties()
-            .Where(HasArgInfo)
+            .Where(property => GetArgInfo(property) is not null)
             .ToDictionary(
                 keySelector:     property => property,
                 elementSelector: GetArgInfo
@@ -18,19 +18,9 @@ public class ArgsParser<TArgs> where TArgs : IArgs, new()
             .AsReadOnly()!;
     }
 
-    private IArgInfo? GetArgInfo(string identifier)
-    {
-        return ParsablePropertyToArgMap.Values.FirstOrDefault(arg => arg.IsMatch(identifier));
-    }
-
     private IArgInfo? GetArgInfo(PropertyInfo property)
     {
         return property.GetCustomAttribute<CommandLineArgAttribute>();
-    }
-
-    private bool HasArgInfo(PropertyInfo property)
-    {
-        return GetArgInfo(property) is not null;
     }
 
     private IReadOnlyList<ParsedArg> CreateParsedArgsList(IReadOnlyList<string> args)
