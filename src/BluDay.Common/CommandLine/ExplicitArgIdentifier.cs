@@ -6,14 +6,14 @@ public readonly struct ExplicitArgIdentifier : IArgIdentifier
 {
     public IArgInfo Arg { get; }
 
-    public string Identifier { get; }
+    public string Value { get; }
 
-    public ExplicitArgIdentifier(string identifier, IArgInfo arg)
+    public ExplicitArgIdentifier(string value, IArgInfo arg)
     {
-        InvalidArgIdentifierException.ThrowIfInvalid(identifier, isExplicit: true);
-
-        Identifier = identifier;
+        InvalidArgIdentifierException.ThrowIfInvalid(value, isExplicit: true);
 
         Arg = arg;
+
+        Value = value;
     }
 }

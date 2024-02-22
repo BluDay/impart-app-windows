@@ -4,5 +4,5 @@ public interface IArgIdentifier
 {
     IArgInfo Arg { get; }
 
-    string Identifier { get; }
+    string Value { get; }
 }
