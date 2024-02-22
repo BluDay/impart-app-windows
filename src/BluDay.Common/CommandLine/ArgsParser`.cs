@@ -26,7 +26,7 @@ public class ArgsParser<TArgs> where TArgs : IArgs, new()
             .AsReadOnly();
     }
 
-    private IReadOnlyList<ParsedArg> CreateParsedArgsList(IReadOnlyList<string> args)
+    private IEnumerable<ParsedArg> CreateParsedArgEnumerable(IReadOnlyList<string> args)
     {
         List<ParsedArg> parsedArg = new();
 
@@ -37,7 +37,7 @@ public class ArgsParser<TArgs> where TArgs : IArgs, new()
 
     public TArgs Parse(IReadOnlyList<string> args)
     {
-        IReadOnlyList<ParsedArg> parsedArgs = CreateParsedArgsList(args);
+        IEnumerable<ParsedArg> parsedArgs = CreateParsedArgEnumerable(args);
 
         TArgs? argsObject = Activator.CreateInstance<TArgs>();
 
