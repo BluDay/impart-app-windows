@@ -49,11 +49,15 @@ public sealed class ArgAttribute : Attribute, IArgInfo
 
     public bool IsMatch(string identifier)
     {
+        bool isExplicit = identifier.StartsWith(Constants.ARG_EXPLICIT_IDENTIFIER_DASHES);
+
+        bool isValid = identifier.StartsWith(Identifier) || isExplicit;
+
         if (ActionType is ArgActionType.AddConstant)
         {
             // TODO: Handle arguments like "-vv" or "--verbosity 4".
         }
 
-        return identifier == Identifier || identifier == ExplicitIdentifier;
+        return isValid;
     }
 }
