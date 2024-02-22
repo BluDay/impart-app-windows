@@ -16,10 +16,12 @@ public class ArgsParser<TArgs> where TArgs : IArgs, new()
                     Arg:      property.GetCustomAttribute<CommandLineArgAttribute>() as IArgInfo
                 )
             )
-            .Where(pair => pair.Arg is not null)
+            .Where(
+                pair => pair.Arg is not null
+            )
             .ToDictionary(
-                keySelector:     pair => pair.Property,
-                elementSelector: pair => pair.Arg!
+                pair => pair.Property,
+                pair => pair.Arg!
             )
             .AsReadOnly();
     }
