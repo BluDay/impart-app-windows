@@ -6,17 +6,17 @@ public sealed class ArgAttribute : Attribute, IArgInfo
 {
     public ArgActionType ActionType { get; init; } = ArgActionType.ParseValueByIdentifier;
 
-    public ImplicitArgIdentifier ImplicitIdentifier { get; }
-
-    public ExplicitArgIdentifier? ExplicitIdentifier { get; }
-
     public bool ExpectsValue => ActionType is ArgActionType.ParseValue;
 
     public bool Required { get; init; }
 
     public object? Constant { get; init; }
 
+    public string ImplicitIdentifier { get; }
+
     public string? Description { get; init; }
+
+    public string? ExplicitIdentifier { get; }
 
     public uint ExpectedValueCount { get; init; }
 
@@ -42,7 +42,7 @@ public sealed class ArgAttribute : Attribute, IArgInfo
             explicitIdentifier = implicitIdentifier;
         }
 
-        ImplicitIdentifier = new(this, implicitIdentifier);
-        ExplicitIdentifier = new(this, explicitIdentifier);
+        ImplicitIdentifier = implicitIdentifier;
+        ExplicitIdentifier = explicitIdentifier;
     }
 }

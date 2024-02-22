@@ -12,9 +12,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)attributes\ArgAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Attributes\NotEmptyOrWhiteSpaceAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Attributes\UseViewModelAttribute.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)CommandLine\ImplicitArgIdentifier.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)commandline\ExplicitArgIdentifier.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\CommandLine\IArgIdentifier.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\CommandLine\IArgs.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Constants.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Exceptions\InvalidArgIdentifierException.cs" />

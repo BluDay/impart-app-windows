@@ -4,17 +4,17 @@ public interface IArgInfo
 {
     ArgActionType ActionType { get; init; }
 
-    ImplicitArgIdentifier ImplicitIdentifier { get; }
-
-    ExplicitArgIdentifier? ExplicitIdentifier { get; }
-
     bool ExpectsValue { get; }
 
     bool Required { get; init; }
 
     object? Constant { get; init; }
 
+    string ImplicitIdentifier { get; }
+
     string? Description { get; init; }
+
+    string? ExplicitIdentifier { get; }
 
     uint ExpectedValueCount { get; init; }
 
