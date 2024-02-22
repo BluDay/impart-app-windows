@@ -1,18 +1,22 @@
+using BluDay.Common.Exceptions;
+
 namespace BluDay.Common.CommandLine;
 
 public readonly struct ParsedArg
 {
-    public IArgInfo Info { get; }
+    public string Identifier { get; }
 
     public bool HasValue => Value is not null;
 
     public object? Value { get; }
 
-    public ParsedArg(IArgInfo info, object? value)
+    public ParsedArg(string identifier, object? value)
     {
-        ArgumentNullException.ThrowIfNull(info);
+        bool isExplicit = identifier.StartsWith(Constants.ARG_EXPLICIT_IDENTIFIER_DASHES);
 
-        Info = info;
+        InvalidArgIdentifierException.ThrowIfInvalid(identifier, isExplicit);
+
+        Identifier = identifier;
 
         Value = value;
     }

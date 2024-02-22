@@ -6,6 +6,8 @@ public sealed class CommandLineArgAttribute : Attribute, IArgInfo
 {
     public ArgActionType ActionType { get; init; } = ArgActionType.ParseValueByIdentifier;
 
+    public bool ExpectsValue => ActionType is ArgActionType.ParseValue;
+
     public bool Required { get; init; }
 
     public object? Constant { get; init; }
@@ -41,5 +43,27 @@ public sealed class CommandLineArgAttribute : Attribute, IArgInfo
         Identifier = identifier;
 
         ExplicitIdentifier = explicitIdentifier;
+    }
+
+    public bool IsMatch(string identifier)
+    {
+        // TODO: Handle arguments like "-vv" or "--verbosity 4".
+        if (ActionType is ArgActionType.AddConstant)
+        {
+            if (!identifier.StartsWith(Identifier))
+            {
+                return false;
+            }
+
+            identifier = identifier[1..];
+
+            string[] identifiers = identifier
+                .Split('\0')
+                .ToArray();
+
+            System.Diagnostics.Debug.WriteLine($"{identifier} -> {identifiers.Length}");
+        }
+
+        return identifier == Identifier || identifier == ExplicitIdentifier;
     }
 }

@@ -4,36 +4,77 @@ namespace BluDay.Common.CommandLine;
 
 public class ArgsParser<TArgs> where TArgs : IArgs, new()
 {
-    public IReadOnlyList<IArgInfo> Args { get; }
-
-    public IReadOnlyList<PropertyInfo> ParsableProperties { get; }
+    public IReadOnlyDictionary<PropertyInfo, IArgInfo> ParsablePropertyToArgMap { get; }
 
     public ArgsParser()
     {
-        ParsableProperties = typeof(TArgs)
+        ParsablePropertyToArgMap = typeof(TArgs)
             .GetProperties()
-            .Where(HasCommandLineArgAttribute)
-            .ToList()
-            .AsReadOnly();
-
-        Args = ParsableProperties
-            .Select(GetCommandLineArgAttribute)
-            .ToList()
+            .Where(HasArgInfo)
+            .ToDictionary(
+                keySelector:     property => property,
+                elementSelector: GetArgInfo
+            )
             .AsReadOnly()!;
     }
 
-    private bool HasCommandLineArgAttribute(PropertyInfo property)
+    private IArgInfo? GetArgInfo(string identifier)
     {
-        return GetCommandLineArgAttribute(property) is not null;
+        return ParsablePropertyToArgMap.Values.FirstOrDefault(arg => arg.IsMatch(identifier));
     }
 
-    private CommandLineArgAttribute? GetCommandLineArgAttribute(PropertyInfo property)
+    private IArgInfo? GetArgInfo(PropertyInfo property)
     {
         return property.GetCustomAttribute<CommandLineArgAttribute>();
     }
 
+    private bool HasArgInfo(PropertyInfo property)
+    {
+        return GetArgInfo(property) is not null;
+    }
+
+    private IReadOnlyList<ParsedArg> CreateParsedArgsList(IReadOnlyList<string> args)
+    {
+        IReadOnlyDictionary<PropertyInfo, IArgInfo> propertyToArgMap = ParsablePropertyToArgMap;
+
+        List<ParsedArg> parsedArg = new();
+
+        for (int i = 0; i < args.Count; i++)
+        {
+            string identifier = args[i];
+
+            if (!IsValidIdentifier(identifier))
+            {
+                continue;
+            }
+
+            IArgInfo? argInfo = GetArgInfo(identifier);
+
+            if (argInfo is null) continue;
+
+            if (argInfo.ExpectsValue)
+            {
+                for (int j = i; j < args.Count; j++)
+                {
+                    // :)
+                }
+            }
+        }
+
+        return parsedArg.AsReadOnly();
+    }
+
     public TArgs Parse(IReadOnlyList<string> args)
     {
+        IReadOnlyList<ParsedArg> parsedArgs = CreateParsedArgsList(args);
+
         return default!;
+    }
+
+    public static bool IsValidIdentifier(string value)
+    {
+        return
+            value.StartsWith(Constants.ARG_IMPLICIT_IDENTIFIER_DASH) ||
+            value.StartsWith(Constants.ARG_EXPLICIT_IDENTIFIER_DASHES);
     }
 }

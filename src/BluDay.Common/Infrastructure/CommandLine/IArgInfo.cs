@@ -4,6 +4,8 @@ public interface IArgInfo
 {
     ArgActionType ActionType { get; init; }
 
+    bool ExpectsValue { get; }
+
     bool Required { get; init; }
 
     object? Constant { get; init; }
@@ -17,4 +19,6 @@ public interface IArgInfo
     Guid Id { get; }
 
     Type ValueType { get; init; }
+
+    bool IsMatch(string identifier);
 }
