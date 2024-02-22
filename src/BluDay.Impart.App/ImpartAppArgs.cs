@@ -2,13 +2,30 @@ namespace BluDay.Impart.App;
 
 public sealed class ImpartAppArgs : IImpartAppArgs
 {
-    [Arg("-d", "--demo-mode", Description = "Launch the app in demo mode.")]
+    [
+        Arg(
+            "-d",
+            "--demo-mode",
+            Description = "Launch the app in demo mode."
+        )
+    ]
     public bool DemoMode { get; init; }
 
-    [Arg("-b", "--peformance-mode", Description = "Launch the app in performance mode.")]
+    [
+        Arg(
+            "-b",
+            "--peformance-mode",
+            Description = "Launch the app in performance mode."
+        )
+    ]
     public bool PerformanceMode { get; init; }
 
-    [Arg("--skip-intro", Description = "Skip the first-time launch introduction.")]
+    [
+        Arg(
+            "--skip-intro",
+            Description = "Skip the first-time launch introduction."
+        )
+    ]
     public bool SkipIntro { get; init; }
 
     [
