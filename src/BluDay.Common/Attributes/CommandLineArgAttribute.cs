@@ -47,21 +47,9 @@ public sealed class CommandLineArgAttribute : Attribute, IArgInfo
 
     public bool IsMatch(string identifier)
     {
-        // TODO: Handle arguments like "-vv" or "--verbosity 4".
         if (ActionType is ArgActionType.AddConstant)
         {
-            if (!identifier.StartsWith(Identifier))
-            {
-                return false;
-            }
-
-            identifier = identifier[1..];
-
-            string[] identifiers = identifier
-                .Split('\0')
-                .ToArray();
-
-            System.Diagnostics.Debug.WriteLine($"{identifier} -> {identifiers.Length}");
+            // TODO: Handle arguments like "-vv" or "--verbosity 4".
         }
 
         return identifier == Identifier || identifier == ExplicitIdentifier;

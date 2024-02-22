@@ -35,31 +35,9 @@ public class ArgsParser<TArgs> where TArgs : IArgs, new()
 
     private IReadOnlyList<ParsedArg> CreateParsedArgsList(IReadOnlyList<string> args)
     {
-        IReadOnlyDictionary<PropertyInfo, IArgInfo> propertyToArgMap = ParsablePropertyToArgMap;
-
         List<ParsedArg> parsedArg = new();
 
-        for (int i = 0; i < args.Count; i++)
-        {
-            string identifier = args[i];
-
-            if (!IsValidIdentifier(identifier))
-            {
-                continue;
-            }
-
-            IArgInfo? argInfo = GetArgInfo(identifier);
-
-            if (argInfo is null) continue;
-
-            if (argInfo.ExpectsValue)
-            {
-                for (int j = i; j < args.Count; j++)
-                {
-                    // :)
-                }
-            }
-        }
+        // ( 0 _ o )
 
         return parsedArg.AsReadOnly();
     }
@@ -67,6 +45,8 @@ public class ArgsParser<TArgs> where TArgs : IArgs, new()
     public TArgs Parse(IReadOnlyList<string> args)
     {
         IReadOnlyList<ParsedArg> parsedArgs = CreateParsedArgsList(args);
+
+        // ( 0 _ o )
 
         return default!;
     }
