@@ -10,17 +10,18 @@ public class ArgsParser<TArgs> where TArgs : IArgs, new()
     {
         ParsablePropertyToArgMap = typeof(TArgs)
             .GetProperties()
-            .Where(property => GetArgInfo(property) is not null)
-            .ToDictionary(
-                keySelector:     property => property,
-                elementSelector: GetArgInfo
+            .Select(
+                property => (
+                    Property: property,
+                    Arg:      property.GetCustomAttribute<CommandLineArgAttribute>() as IArgInfo
+                )
             )
-            .AsReadOnly()!;
-    }
-
-    private IArgInfo? GetArgInfo(PropertyInfo property)
-    {
-        return property.GetCustomAttribute<CommandLineArgAttribute>();
+            .Where(pair => pair.Arg is not null)
+            .ToDictionary(
+                keySelector:     pair => pair.Property,
+                elementSelector: pair => pair.Arg!
+            )
+            .AsReadOnly();
     }
 
     private IReadOnlyList<ParsedArg> CreateParsedArgsList(IReadOnlyList<string> args)
@@ -36,8 +37,10 @@ public class ArgsParser<TArgs> where TArgs : IArgs, new()
     {
         IReadOnlyList<ParsedArg> parsedArgs = CreateParsedArgsList(args);
 
+        TArgs? argsObject = Activator.CreateInstance<TArgs>();
+
         // ( 0 _ o )
 
-        return default!;
+        return argsObject;
     }
 }
