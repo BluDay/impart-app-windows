@@ -6,14 +6,14 @@ public class ArgsParser<TArgs> where TArgs : IArgs, new()
 {
     public IReadOnlyDictionary<PropertyInfo, IArgInfo> ParsablePropertyToArgMap { get; }
 
-    public ArgsParser()
+    public ArgsParser(IEnumerable<IArgInfo> args)
     {
         ParsablePropertyToArgMap = typeof(TArgs)
             .GetProperties()
             .Select(
                 property => (
                     Property: property,
-                    Arg:      property.GetCustomAttribute<ArgAttribute>() as IArgInfo
+                    Arg:      GetArgInfo(property, args)
                 )
             )
             .Where(
@@ -24,6 +24,16 @@ public class ArgsParser<TArgs> where TArgs : IArgs, new()
                 pair => pair.Arg!
             )
             .AsReadOnly();
+    }
+
+    private IArgInfo? GetArgInfo(PropertyInfo property, IEnumerable<IArgInfo> args)
+    {
+        return args.FirstOrDefault(arg => arg.Name == GetArgName(property));
+    }
+
+    private string? GetArgName(PropertyInfo property)
+    {
+        return property.GetCustomAttribute<CommandLineArgAttribute>()?.ArgName ?? property.Name;
     }
 
     private IEnumerable<ParsedArg> CreateParsedArgEnumerable(IReadOnlyList<string> args)

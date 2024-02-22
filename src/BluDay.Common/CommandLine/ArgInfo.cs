@@ -1,18 +1,20 @@
 using BluDay.Common.Exceptions;
 
-namespace BluDay.Common.Attributes;
+namespace BluDay.Common.CommandLine;
 
-public sealed class ArgAttribute : Attribute, IArgInfo
+public sealed class ArgInfo : IArgInfo
 {
-    public ArgActionType ActionType { get; init; } = ArgActionType.ParseValueByIdentifier;
+    public ArgActionType ActionType { get; init; }
 
-    public bool ExpectsValue => ActionType is ArgActionType.ParseValue;
+    public bool ExpectsValue { get; }
 
     public bool Required { get; init; }
 
     public object? Constant { get; init; }
 
     public string ImplicitIdentifier { get; }
+
+    public required string Name { get; init; }
 
     public string? Description { get; init; }
 
@@ -24,9 +26,9 @@ public sealed class ArgAttribute : Attribute, IArgInfo
 
     public Type ValueType { get; init; } = typeof(bool);
 
-    public ArgAttribute(string implicitIdentifier) : this(implicitIdentifier, null!) { }
+    public ArgInfo(string implicitIdentifier) : this(implicitIdentifier, null!) { }
 
-    public ArgAttribute(string implicitIdentifier, string explicitIdentifier)
+    public ArgInfo(string implicitIdentifier, string explicitIdentifier)
     {
         InvalidArgIdentifierException.ThrowIfInvalid(implicitIdentifier);
 

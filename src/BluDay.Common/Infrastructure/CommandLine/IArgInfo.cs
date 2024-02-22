@@ -12,6 +12,8 @@ public interface IArgInfo
 
     string ImplicitIdentifier { get; }
 
+    string Name { get; }
+
     string? Description { get; init; }
 
     string? ExplicitIdentifier { get; }
