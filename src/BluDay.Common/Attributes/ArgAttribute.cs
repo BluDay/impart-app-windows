@@ -42,7 +42,7 @@ public sealed class ArgAttribute : Attribute, IArgInfo
             explicitIdentifier = implicitIdentifier;
         }
 
-        ImplicitIdentifier = new(implicitIdentifier, arg: this);
-        ExplicitIdentifier = new(explicitIdentifier, arg: this);
+        ImplicitIdentifier = new(this, implicitIdentifier);
+        ExplicitIdentifier = new(this, explicitIdentifier);
     }
 }

@@ -8,8 +8,10 @@ public readonly struct ExplicitArgIdentifier : IArgIdentifier
 
     public string Value { get; }
 
-    public ExplicitArgIdentifier(string value, IArgInfo arg)
+    public ExplicitArgIdentifier(IArgInfo arg, string value)
     {
+        ArgumentNullException.ThrowIfNull(arg);
+
         InvalidArgIdentifierException.ThrowIfInvalid(value, isExplicit: true);
 
         Arg = arg;
