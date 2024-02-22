@@ -18,6 +18,8 @@ public sealed class CommandLineArgAttribute : Attribute, IArgInfo
 
     public string? ExplicitIdentifier { get; }
 
+    public uint ExpectedValueCount { get; init; }
+
     public Guid Id { get; } = Guid.NewGuid();
 
     public Type ValueType { get; init; } = typeof(bool);
@@ -28,16 +30,13 @@ public sealed class CommandLineArgAttribute : Attribute, IArgInfo
     {
         InvalidArgIdentifierException.ThrowIfInvalid(identifier);
 
-        if (explicitIdentifier!.IsNullOrWhiteSpace())
+        if (!explicitIdentifier!.IsNullOrWhiteSpace())
         {
-            explicitIdentifier = identifier;
+            InvalidArgIdentifierException.ThrowIfInvalid(explicitIdentifier!, true);
         }
         else
         {
-            InvalidArgIdentifierException.ThrowIfInvalid(
-                identifier: explicitIdentifier!,
-                isExplicit: true
-            );
+            explicitIdentifier = identifier;
         }
 
         Identifier = identifier;

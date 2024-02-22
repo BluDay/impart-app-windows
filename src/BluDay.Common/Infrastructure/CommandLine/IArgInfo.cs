@@ -16,6 +16,8 @@ public interface IArgInfo
 
     string? ExplicitIdentifier { get; }
 
+    uint ExpectedValueCount { get; init; }
+
     Guid Id { get; }
 
     Type ValueType { get; init; }
