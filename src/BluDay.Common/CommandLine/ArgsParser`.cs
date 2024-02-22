@@ -28,11 +28,9 @@ public class ArgsParser<TArgs> where TArgs : IArgs, new()
 
     private IEnumerable<ParsedArg> CreateParsedArgEnumerable(IReadOnlyList<string> args)
     {
-        List<ParsedArg> parsedArg = new();
-
         // ( 0 _ o )
 
-        return parsedArg.AsReadOnly();
+        yield break;
     }
 
     public TArgs Parse(IReadOnlyList<string> args)
