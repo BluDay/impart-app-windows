@@ -12,22 +12,22 @@ public sealed class ImpartAppArgsParser : ArgsParser<ImpartAppArgs>
         {
             new("-d", "--demo-mode")
             {
-                Name        = "DemoMode",
+                Name        = nameof(ImpartAppArgs.DemoMode),
                 Description = "Launch the app in demo mode."
             },
             new("-b", "--peformance-mode")
             {
-                Name        = "PerformanceMode",
+                Name        = nameof(ImpartAppArgs.PerformanceMode),
                 Description = "Launch the app in performance mode."
             },
             new("--skip-intro")
             {
-                Name        = "SkipIntro",
+                Name        = nameof(ImpartAppArgs.SkipIntro),
                 Description = "Skip the first-time launch introduction."
             },
             new("-v", "--verbosity")
             {
-                Name        = "Verbosity",
+                Name        = nameof(ImpartAppArgs.Verbosity),
                 Description = "Verbosity level.",
                 ActionType  = ArgActionType.AddConstant,
                 ValueType   = typeof(uint),
@@ -35,7 +35,7 @@ public sealed class ImpartAppArgsParser : ArgsParser<ImpartAppArgs>
             },
             new("-t", "--theme")
             {
-                Name        = "Theme",
+                Name        = nameof(ImpartAppArgs.AppTheme),
                 Description = "App theme to use at launch.",
                 ActionType  = ArgActionType.ParseValue,
                 ValueType   = typeof(string)
