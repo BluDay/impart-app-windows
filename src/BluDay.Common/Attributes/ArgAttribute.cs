@@ -32,7 +32,10 @@ public sealed class ArgAttribute : Attribute, IArgInfo
 
         if (!explicitIdentifier!.IsNullOrWhiteSpace())
         {
-            InvalidArgIdentifierException.ThrowIfInvalid(explicitIdentifier!, true);
+            InvalidArgIdentifierException.ThrowIfInvalid(
+                identifier: explicitIdentifier!,
+                isExplicit: true
+            );
         }
         else
         {
