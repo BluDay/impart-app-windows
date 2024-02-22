@@ -40,11 +40,4 @@ public class ArgsParser<TArgs> where TArgs : IArgs, new()
 
         return default!;
     }
-
-    public static bool IsValidIdentifier(string value)
-    {
-        return
-            value.StartsWith(Constants.ARG_IMPLICIT_IDENTIFIER_DASH) ||
-            value.StartsWith(Constants.ARG_EXPLICIT_IDENTIFIER_DASHES);
-    }
 }
