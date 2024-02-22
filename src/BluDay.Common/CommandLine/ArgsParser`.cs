@@ -13,7 +13,7 @@ public class ArgsParser<TArgs> where TArgs : IArgs, new()
             .Select(
                 property => (
                     Property: property,
-                    Arg:      property.GetCustomAttribute<CommandLineArgAttribute>() as IArgInfo
+                    Arg:      property.GetCustomAttribute<ArgAttribute>() as IArgInfo
                 )
             )
             .Where(

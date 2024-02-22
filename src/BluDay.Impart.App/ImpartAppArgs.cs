@@ -2,34 +2,17 @@ namespace BluDay.Impart.App;
 
 public sealed class ImpartAppArgs : IImpartAppArgs
 {
-    [
-        CommandLineArg(
-            "-d",
-            "--demo-mode",
-            Description = "Launch the app in demo mode."
-        )
-    ]
+    [Arg("-d", "--demo-mode", Description = "Launch the app in demo mode.")]
     public bool DemoMode { get; init; }
 
-    [
-        CommandLineArg(
-            "-b",
-            "--peformance-mode",
-            Description = "Launch the app in performance mode."
-        )
-    ]
+    [Arg("-b", "--peformance-mode", Description = "Launch the app in performance mode.")]
     public bool PerformanceMode { get; init; }
 
-    [
-        CommandLineArg(
-            "--skip-intro",
-            Description = "Skip the first-time launch introduction."
-        )
-    ]
+    [Arg("--skip-intro", Description = "Skip the first-time launch introduction.")]
     public bool SkipIntro { get; init; }
 
     [
-        CommandLineArg(
+        Arg(
             "-v",
             "--verbosity",
             Description = "Verbosity level.",
@@ -41,7 +24,7 @@ public sealed class ImpartAppArgs : IImpartAppArgs
     public uint Verbosity { get; init; }
 
     [
-        CommandLineArg(
+        Arg(
             "-t",
             "--theme",
             Description = "App theme to use at launch.",
