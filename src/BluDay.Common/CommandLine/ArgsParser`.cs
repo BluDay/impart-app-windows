@@ -45,10 +45,8 @@ public class ArgsParser<TArgs> where TArgs : IArgs, new()
     {
         IEnumerable<ParsedArg> parsedArgs = CreateParsedArgEnumerable(args);
 
-        TArgs? argsObject = Activator.CreateInstance<TArgs>();
-
         // ( 0 _ o )
 
-        return argsObject;
+        return default!;
     }
 }
