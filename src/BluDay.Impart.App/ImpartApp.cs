@@ -12,9 +12,9 @@ public sealed class ImpartApp : IImpartApp
 
     public bool IsInitialized { get; private set; }
 
-    public ImpartApp(ImpartAppArgs args)
+    public ImpartApp(string[] args)
     {
-        _args = args;
+        _args = ImpartAppArgsParser.Default.Parse(args);
 
         _container = new(app: this);
     }
