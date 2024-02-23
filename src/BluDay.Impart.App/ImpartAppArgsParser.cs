@@ -4,7 +4,7 @@ public sealed class ImpartAppArgsParser : ArgsParser<ImpartAppArgs>
 {
     public static ImpartAppArgsParser Default { get; } = new();
 
-    public ImpartAppArgsParser() : base(args: CreateArgs()) { }
+    public ImpartAppArgsParser() : base(CreateArgs()) { }
 
     private static IEnumerable<ArgInfo> CreateArgs()
     {
