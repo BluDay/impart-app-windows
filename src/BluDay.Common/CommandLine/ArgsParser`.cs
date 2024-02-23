@@ -36,12 +36,12 @@ public class ArgsParser<TArgs> where TArgs : IArgs, new()
         return property.GetCustomAttribute<CommandLineArgAttribute>()?.ArgName ?? property.Name;
     }
 
-    private IEnumerable<ParsedArg> CreateParsedArgEnumerable(IReadOnlyList<string> args)
+    private IEnumerable<ParsedArg> CreateParsedArgEnumerable(string[] args)
     {
         yield break;
     }
 
-    public TArgs Parse(IReadOnlyList<string> args)
+    public TArgs Parse(string[] args)
     {
         IEnumerable<ParsedArg> parsedArgs = CreateParsedArgEnumerable(args);
 
