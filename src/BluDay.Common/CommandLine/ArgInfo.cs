@@ -7,12 +7,12 @@ public sealed class ArgInfo : IArgInfo
     public ArgActionType ActionType { get; init; }
 
     public bool ExpectsValue { get; }
-
+    
     public bool Required { get; init; }
 
     public object? Constant { get; init; }
 
-    public string ImplicitIdentifier { get; }
+    public string Identifier { get; }
 
     public required string Name { get; init; }
 
@@ -26,11 +26,11 @@ public sealed class ArgInfo : IArgInfo
 
     public Type ValueType { get; init; } = typeof(bool);
 
-    public ArgInfo(string implicitIdentifier) : this(implicitIdentifier, null!) { }
+    public ArgInfo(string identifier) : this(identifier, explicitIdentifier: null!) { }
 
-    public ArgInfo(string implicitIdentifier, string explicitIdentifier)
+    public ArgInfo(string identifier, string explicitIdentifier)
     {
-        InvalidArgIdentifierException.ThrowIfInvalid(implicitIdentifier);
+        InvalidArgIdentifierException.ThrowIfInvalid(identifier);
 
         if (!explicitIdentifier.IsNullOrWhiteSpace())
         {
@@ -38,10 +38,11 @@ public sealed class ArgInfo : IArgInfo
         }
         else
         {
-            explicitIdentifier = implicitIdentifier;
+            explicitIdentifier = identifier;
         }
 
-        ImplicitIdentifier = implicitIdentifier;
+        Identifier = identifier;
+
         ExplicitIdentifier = explicitIdentifier;
     }
 }

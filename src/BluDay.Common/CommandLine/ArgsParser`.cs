@@ -4,46 +4,46 @@ namespace BluDay.Common.CommandLine;
 
 public class ArgsParser<TArgs> where TArgs : IArgs, new()
 {
-    public IReadOnlyDictionary<PropertyInfo, IArgInfo> ParsablePropertyToArgMap { get; }
+    public IReadOnlyDictionary<IArgInfo, PropertyInfo> ArgToParsablePropertyMap { get; }
 
     public ArgsParser(IEnumerable<IArgInfo> args)
     {
-        ParsablePropertyToArgMap = typeof(TArgs)
+        ArgToParsablePropertyMap = typeof(TArgs)
             .GetProperties()
+            .Where(
+                property => GetCommandLineArgAttribute(property) is not null
+            )
             .Select(
                 property => (
                     Property: property,
-                    Arg:      GetArgInfo(property, args)
+                    Arg:      args.First(arg => GetArgName(property) == arg.Name)
                 )
             )
-            .Where(
-                pair => pair.Arg is not null
-            )
             .ToDictionary(
-                pair => pair.Property,
-                pair => pair.Arg!
+                pair => pair.Arg,
+                pair => pair.Property
             )
             .AsReadOnly();
     }
 
-    private IArgInfo? GetArgInfo(PropertyInfo property, IEnumerable<IArgInfo> args)
-    {
-        return args.FirstOrDefault(arg => GetArgName(property) == arg.Name);
-    }
-
-    private string? GetArgName(PropertyInfo property)
-    {
-        return property.GetCustomAttribute<CommandLineArgAttribute>()?.ArgName ?? property.Name;
-    }
-
-    private IEnumerable<ParsedArg> CreateParsedArgEnumerable(string[] args)
+    private IEnumerable<ParsedArg> GetParsedArgs(string[] args)
     {
         yield break;
     }
 
+    private static CommandLineArgAttribute? GetCommandLineArgAttribute(PropertyInfo property)
+    {
+        return property.GetCustomAttribute<CommandLineArgAttribute>();
+    }
+
+    private static string? GetArgName(PropertyInfo property)
+    {
+        return GetCommandLineArgAttribute(property)?.ArgName ?? property.Name;
+    }
+
     public TArgs Parse(string[] args)
     {
-        IEnumerable<ParsedArg> parsedArgs = CreateParsedArgEnumerable(args);
+        IEnumerable<ParsedArg> parsedArgs = GetParsedArgs(args);
 
         // ( 0 _ o )
 

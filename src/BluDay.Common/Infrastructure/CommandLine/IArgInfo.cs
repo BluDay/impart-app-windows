@@ -10,7 +10,7 @@ public interface IArgInfo
 
     object? Constant { get; init; }
 
-    string ImplicitIdentifier { get; }
+    string Identifier { get; }
 
     string Name { get; }
 
