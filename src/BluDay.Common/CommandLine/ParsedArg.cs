@@ -12,9 +12,7 @@ public readonly struct ParsedArg
 
     public ParsedArg(string identifier, object? value)
     {
-        bool isExplicit = identifier.StartsWith(Constants.ARG_EXPLICIT_IDENTIFIER_DASHES);
-
-        InvalidArgIdentifierException.ThrowIfInvalid(identifier, isExplicit);
+        InvalidArgIdentifierException.ThrowIfInvalid(identifier);
 
         Identifier = identifier;
 

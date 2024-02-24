@@ -12,13 +12,15 @@ public sealed class ImpartApp : IImpartApp
 
     public bool IsInitialized { get; private set; }
 
+    public ImpartApp(string args) : this(args.Split(Constants.Whitespace)) { }
+
     public ImpartApp(string[] args) : this(ParseArgs(args)) { }
 
     public ImpartApp(ImpartAppArgs args)
     {
         _args = args;
 
-        _container = new(app: this);
+        _container = new ImpartAppContainer(this);
     }
 
     private void InitializeCoreServices()

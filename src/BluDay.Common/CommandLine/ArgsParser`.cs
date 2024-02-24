@@ -28,7 +28,7 @@ public class ArgsParser<TArgs> where TArgs : IArgs, new()
 
     private IArgInfo? GetArgInfo(PropertyInfo property, IEnumerable<IArgInfo> args)
     {
-        return args.FirstOrDefault(arg => arg.Name == GetArgName(property));
+        return args.FirstOrDefault(arg => GetArgName(property) == arg.Name);
     }
 
     private string? GetArgName(PropertyInfo property)

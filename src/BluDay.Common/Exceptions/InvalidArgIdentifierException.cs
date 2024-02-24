@@ -19,7 +19,7 @@ public sealed class InvalidArgIdentifierException : Exception
 
     public static void ThrowIfInvalid(string identifier)
     {
-        ThrowIfInvalid(identifier, isExplicit: false);
+        ThrowIfInvalid(identifier, false);
     }
 
     public static void ThrowIfInvalid(string identifier, bool isExplicit)
@@ -33,6 +33,22 @@ public sealed class InvalidArgIdentifierException : Exception
         if (!identifier.StartsWith(preface))
         {
             throw new InvalidArgIdentifierException(identifier, isExplicit);
+        }
+    }
+
+    public static void ThrowIfNotExplicit(string identifier)
+    {
+        if (!identifier.StartsWith(Constants.ARG_EXPLICIT_IDENTIFIER_DASHES))
+        {
+            throw new InvalidArgIdentifierException(identifier, true);
+        }
+    }
+
+    public static void ThrowIfNotImplicit(string identifier)
+    {
+        if (!identifier.StartsWith(Constants.ARG_IMPLICIT_IDENTIFIER_DASH))
+        {
+            throw new InvalidArgIdentifierException(identifier);
         }
     }
 }

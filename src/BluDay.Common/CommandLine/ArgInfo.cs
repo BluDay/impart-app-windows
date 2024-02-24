@@ -34,10 +34,7 @@ public sealed class ArgInfo : IArgInfo
 
         if (!explicitIdentifier.IsNullOrWhiteSpace())
         {
-            InvalidArgIdentifierException.ThrowIfInvalid(
-                identifier: explicitIdentifier,
-                isExplicit: true
-            );
+            InvalidArgIdentifierException.ThrowIfNotExplicit(explicitIdentifier);
         }
         else
         {
