@@ -1,4 +1,5 @@
-﻿global using BluDay.Common.Extensions;
+﻿global using BluDay.Common;
+global using BluDay.Common.Extensions;
 global using BluDay.Common.Extensions.DependencyInjection;
 global using BluDay.Common.Models;
 global using BluDay.Common.ViewModels;
