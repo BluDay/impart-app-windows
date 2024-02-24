@@ -26,7 +26,7 @@ public class ArgsParser<TArgs> where TArgs : IArgs, new()
             .AsReadOnly();
     }
 
-    private IEnumerable<ParsedArg> GetParsedArgs(string[] args)
+    private IEnumerable<ParsedArg> GetParsedArgs(IEnumerable<string> args)
     {
         yield break;
     }
