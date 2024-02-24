@@ -20,7 +20,7 @@ public sealed class ImpartApp : IImpartApp
     {
         _args = args;
 
-        _container = new ImpartAppContainer(this);
+        _container = new(app: this);
     }
 
     private void InitializeCoreServices()

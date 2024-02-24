@@ -2,10 +2,11 @@ namespace BluDay.Common.Exceptions;
 
 public sealed class InvalidArgIdentifierException : Exception
 {
-    public InvalidArgIdentifierException(string identifier) : this(identifier, false) { }
+    public InvalidArgIdentifierException(string identifier)
+        : this(identifier, isExplicit: false) { }
 
     public InvalidArgIdentifierException(string identifier, bool isExplicit)
-        : base(GetExceptionMessage(identifier, isExplicit)) { }
+        : base(message: GetExceptionMessage(identifier, isExplicit)) { }
 
     private static string GetExceptionMessage(string identifier, bool isExplicit)
     {
@@ -19,7 +20,7 @@ public sealed class InvalidArgIdentifierException : Exception
 
     public static void ThrowIfInvalid(string identifier)
     {
-        ThrowIfInvalid(identifier, false);
+        ThrowIfInvalid(identifier, isExplicit: false);
     }
 
     public static void ThrowIfInvalid(string identifier, bool isExplicit)
@@ -40,7 +41,7 @@ public sealed class InvalidArgIdentifierException : Exception
     {
         if (!identifier.StartsWith(Constants.ARG_EXPLICIT_IDENTIFIER_DASHES))
         {
-            throw new InvalidArgIdentifierException(identifier, true);
+            throw new InvalidArgIdentifierException(identifier, isExplicit: true);
         }
     }
 
@@ -48,7 +49,7 @@ public sealed class InvalidArgIdentifierException : Exception
     {
         if (!identifier.StartsWith(Constants.ARG_IMPLICIT_IDENTIFIER_DASH))
         {
-            throw new InvalidArgIdentifierException(identifier);
+            throw new InvalidArgIdentifierException(identifier, isExplicit: false);
         }
     }
 }
