@@ -13,7 +13,7 @@ public class ArgumentsParser<TArguments> where TArguments : class, new()
             .Select(
                 property => (
                     Property: property,
-                    Argument: property.GetArgumentInfoByProperty(args)
+                    Argument: property.GetArgumentInfo(args)
                 )
             )
             .Where(

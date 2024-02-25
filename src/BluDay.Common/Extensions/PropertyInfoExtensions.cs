@@ -9,7 +9,7 @@ public static class PropertyInfoExtensions
         return attribute?.ArgName ?? source.Name;
     }
 
-    public static ArgumentInfo? GetArgumentInfoByProperty(this PropertyInfo source, IEnumerable<ArgumentInfo> args)
+    public static ArgumentInfo? GetArgumentInfo(this PropertyInfo source, IEnumerable<ArgumentInfo> args)
     {
         return args.FirstOrDefault(arg => source.GetArgumentInfoName() == arg.Name);
     }
