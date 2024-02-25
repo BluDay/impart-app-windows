@@ -8,7 +8,7 @@ public interface IAppWindowService
 
     IEnumerable<IWindow> Windows { get; }
 
-    IWindow? CreateWindow();
+    IWindow CreateWindow();
 
     bool HasWindow(IWindow window);
 }

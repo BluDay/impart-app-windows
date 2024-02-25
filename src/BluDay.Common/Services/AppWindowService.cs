@@ -17,17 +17,9 @@ public sealed class AppWindowService : IAppWindowService
         _navigationService = navigationService;
     }
 
-    public IWindow? CreateWindow()
+    public IWindow CreateWindow()
     {
-        /*
-        IWindow window = new...
-
-        bool added = _windows.Add(window);
-
-        return added ? window : null;
-        */
-
-        return null;
+        return null!;
     }
 
     public bool HasWindow(IWindow window)
