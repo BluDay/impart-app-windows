@@ -15,7 +15,7 @@ public class ArgsParser<TArgs> where TArgs : IArgs, new()
             .Select(
                 property => (
                     Property: property,
-                    Arg:      args.FirstOrDefault(arg => GetTargetedArgName(property) == arg.Name)
+                    Arg:      GetArgFromProperty(property, args)
                 )
             )
             .Where(
@@ -33,9 +33,14 @@ public class ArgsParser<TArgs> where TArgs : IArgs, new()
             .AsReadOnly();
     }
 
-    private IEnumerable<ParsedArg> GetParsedArgs(IEnumerable<string> args)
+    private IEnumerable<ParsedArg> GetParsedArgs(string[] args)
     {
         yield break;
+    }
+
+    private static ArgInfo? GetArgFromProperty(PropertyInfo property, IEnumerable<ArgInfo> args)
+    {
+        return args.FirstOrDefault(arg => GetTargetedArgName(property) == arg.Name);
     }
 
     private static CommandLineArgAttribute? GetCommandLineArgAttribute(PropertyInfo property)
