@@ -15,7 +15,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)CommandLine\ArgInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\CommandLine\IArgs.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Constants.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Exceptions\InvalidArgIdentifierException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Models\IModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Models\Model.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\ViewModels\IViewModel.cs" />
@@ -32,7 +31,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\TypeExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CommandLine\ArgActionType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CommandLine\ParsedArg.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\CommandLine\IArgInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CommandLine\ArgsParser`.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UI\Appearance\AppTheme.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\AppDialogService.cs" />
@@ -47,6 +45,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Services\AppWindowService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Exceptions\" />
     <Folder Include="$(MSBuildThisFileDirectory)Infrastructure\ViewModels\" />
     <Folder Include="$(MSBuildThisFileDirectory)Services\" />
     <Folder Include="$(MSBuildThisFileDirectory)UI\Appearance\" />

@@ -4,11 +4,11 @@ namespace BluDay.Common.CommandLine;
 
 public class ArgsParser<TArgs> where TArgs : IArgs, new()
 {
-    public IReadOnlyDictionary<IArgInfo, PropertyInfo> ArgToParsablePropertyMap { get; }
+    public IReadOnlyDictionary<ArgInfo, PropertyInfo> ArgToParsablePropertyMap { get; }
 
-    public IReadOnlyDictionary<string, IArgInfo> IdentifierToArgMap { get; }
+    public IReadOnlyDictionary<string, ArgInfo> IdentifierToArgMap { get; }
 
-    public ArgsParser(IEnumerable<IArgInfo> args)
+    public ArgsParser(IEnumerable<ArgInfo> args)
     {
         ArgToParsablePropertyMap = typeof(TArgs)
             .GetProperties()
@@ -26,6 +26,11 @@ public class ArgsParser<TArgs> where TArgs : IArgs, new()
                 pair => pair.Property
             )
             .AsReadOnly();
+
+        IdentifierToArgMap = ArgToParsablePropertyMap.Keys
+            .SelectMany(GetIdentifiersFromSharedArg)
+            .ToDictionary()
+            .AsReadOnly();
     }
 
     private IEnumerable<ParsedArg> GetParsedArgs(IEnumerable<string> args)
@@ -41,6 +46,16 @@ public class ArgsParser<TArgs> where TArgs : IArgs, new()
     private static string? GetTargetedArgName(PropertyInfo property)
     {
         return GetCommandLineArgAttribute(property)?.ArgName ?? property.Name;
+    }
+
+    private static IEnumerable<KeyValuePair<string, ArgInfo>> GetIdentifiersFromSharedArg(ArgInfo arg)
+    {
+        yield return new(arg.Identifier, arg);
+
+        if (arg.ExplicitIdentifier is not null)
+        {
+            yield return new(arg.ExplicitIdentifier, arg);
+        }
     }
 
     public TArgs Parse(string args)

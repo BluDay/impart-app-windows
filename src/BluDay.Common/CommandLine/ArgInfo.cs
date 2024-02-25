@@ -1,6 +1,6 @@
 namespace BluDay.Common.CommandLine;
 
-public sealed class ArgInfo : IArgInfo
+public sealed class ArgInfo
 {
     public ArgActionType ActionType { get; init; }
 
