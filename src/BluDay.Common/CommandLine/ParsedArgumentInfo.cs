@@ -6,5 +6,5 @@ public sealed class ParsedArgumentInfo
 
     public required ParsedArgument Argument { get; init; }
 
-    public bool Recognized => ArgumentInfo is not null;
+    public bool IsArgumentRecognized => ArgumentInfo is not null;
 }

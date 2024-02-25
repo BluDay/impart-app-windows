@@ -14,6 +14,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Attributes\UseViewModelAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CommandLine\ArgumentInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CommandLine\ParsedArgumentInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)exceptions\InvalidArgumentIdentifierException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)extensions\ArgumentInfoExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)extensions\PropertyInfoExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Constants.cs" />
