@@ -6,15 +6,15 @@ public sealed class ImpartApp : IImpartApp
 
     private readonly ImpartAppContainer _container;
 
-    public IImpartAppArgs Args => _args;
+    public IImpartAppArgs Arguments => _args;
 
     public bool IsDisposed { get; private set; }
 
     public bool IsInitialized { get; private set; }
 
-    public ImpartApp(string args) : this(ParseArgs(args)) { }
+    public ImpartApp(string args) : this(ParseArguments(args)) { }
 
-    public ImpartApp(string[] args) : this(ParseArgs(args)) { }
+    public ImpartApp(string[] args) : this(ParseArguments(args)) { }
 
     public ImpartApp(ImpartAppArgs args)
     {
@@ -32,14 +32,14 @@ public sealed class ImpartApp : IImpartApp
         */
     }
 
-    private static ImpartAppArgs ParseArgs(string args)
+    private static ImpartAppArgs ParseArguments(string args)
     {
         string[] values = args.Split(Constants.WHITESPACE_CHAR);
 
-        return ParseArgs(values);
+        return ParseArguments(values);
     }
 
-    private static ImpartAppArgs ParseArgs(string[] args)
+    private static ImpartAppArgs ParseArguments(string[] args)
     {
         return ImpartAppArgsParser.Default.Parse(args);
     }

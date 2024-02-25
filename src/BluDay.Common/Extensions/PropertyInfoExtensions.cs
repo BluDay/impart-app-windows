@@ -1,18 +1,16 @@
-using System.Reflection;
-
 namespace BluDay.Common.Extensions;
 
 public static class PropertyInfoExtensions
 {
-    public static string? GetArgInfoName(this PropertyInfo source)
+    public static string? GetArgumentInfoName(this PropertyInfo source)
     {
         CommandLineArgAttribute? attribute = source.GetCustomAttribute<CommandLineArgAttribute>();
 
         return attribute?.ArgName ?? source.Name;
     }
 
-    public static ArgInfo? GetArgInfoByProperty(this PropertyInfo source, IEnumerable<ArgInfo> args)
+    public static ArgumentInfo? GetArgumentInfoByProperty(this PropertyInfo source, IEnumerable<ArgumentInfo> args)
     {
-        return args.FirstOrDefault(arg => source.GetArgInfoName() == arg.Name);
+        return args.FirstOrDefault(arg => source.GetArgumentInfoName() == arg.Name);
     }
 }

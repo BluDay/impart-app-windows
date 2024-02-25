@@ -1,6 +1,6 @@
 namespace BluDay.Impart.App;
 
-public interface IImpartAppArgs : IArgs
+public interface IImpartAppArgs
 {
     bool DemoMode { get; }
 

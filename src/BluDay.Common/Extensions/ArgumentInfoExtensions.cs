@@ -1,8 +1,8 @@
 namespace BluDay.Common.Extensions;
 
-public static class ArgInfoExtensions
+public static class ArgumentInfoExtensions
 {
-    public static IEnumerable<KeyValuePair<string, ArgInfo>> GetIdentifierToSharedArgPairs(this ArgInfo source)
+    public static IEnumerable<KeyValuePair<string, ArgumentInfo>> GetIdentifierToSharedArgumentPairs(this ArgumentInfo source)
     {
         yield return new(source.Identifier, source);
 

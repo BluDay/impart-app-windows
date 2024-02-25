@@ -1,6 +1,6 @@
 namespace BluDay.Common.CommandLine;
 
-public readonly struct ParsedArg
+public readonly struct ParsedArgument
 {
     public string Identifier { get; }
 
@@ -8,7 +8,7 @@ public readonly struct ParsedArg
 
     public object? Value { get; }
 
-    public ParsedArg(string identifier, object? value)
+    public ParsedArgument(string identifier, object? value)
     {
         // TODO: Add validity check for identifier.
 

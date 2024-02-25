@@ -1,8 +1,8 @@
 namespace BluDay.Common.CommandLine;
 
-public sealed class ArgInfo
+public sealed class ArgumentInfo
 {
-    public ArgActionType ActionType { get; init; }
+    public ArgumentActionType ActionType { get; init; }
 
     public bool ExpectsValue { get; }
     
@@ -24,9 +24,9 @@ public sealed class ArgInfo
 
     public Type ValueType { get; init; }
 
-    public ArgInfo(string identifier) : this(identifier, null!) { }
+    public ArgumentInfo(string identifier) : this(identifier, null!) { }
 
-    public ArgInfo(string identifier, string explicitIdentifier)
+    public ArgumentInfo(string identifier, string explicitIdentifier)
     {
         // TODO: Add validity checks for both identifiers.
 
