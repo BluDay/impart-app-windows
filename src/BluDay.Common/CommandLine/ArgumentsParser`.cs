@@ -13,7 +13,7 @@ public class ArgumentsParser<TArguments> where TArguments : class, new()
             .Select(
                 property => (
                     Property: property,
-                    Argument:      property.GetArgumentInfoByProperty(args)
+                    Argument: property.GetArgumentInfoByProperty(args)
                 )
             )
             .Where(
@@ -38,7 +38,7 @@ public class ArgumentsParser<TArguments> where TArguments : class, new()
 
     public TArguments Parse(string[] args)
     {
-        IEnumerable<ParsedArgument> parsedArguments = GetParsedArguments(args);
+        IEnumerable<ParsedArgument> parsedArgs = GetParsedArguments(args);
 
         // ( 0 _ o )
 
