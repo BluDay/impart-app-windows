@@ -28,7 +28,7 @@ public class ArgsParser<TArgs> where TArgs : IArgs, new()
             .AsReadOnly();
 
         IdentifierToArgMap = ArgToParsablePropertyMap.Keys
-            .SelectMany(GetIdentifiersFromSharedArg)
+            .SelectMany(GetIdentifierToSharedArgPairs)
             .ToDictionary()
             .AsReadOnly();
     }
@@ -53,7 +53,7 @@ public class ArgsParser<TArgs> where TArgs : IArgs, new()
         return GetCommandLineArgAttribute(property)?.ArgName ?? property.Name;
     }
 
-    private static IEnumerable<KeyValuePair<string, ArgInfo>> GetIdentifiersFromSharedArg(ArgInfo arg)
+    private static IEnumerable<KeyValuePair<string, ArgInfo>> GetIdentifierToSharedArgPairs(ArgInfo arg)
     {
         yield return new(arg.Identifier, arg);
 
