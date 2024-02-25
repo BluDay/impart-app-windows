@@ -1,5 +1,3 @@
-using BluDay.Common.Exceptions;
-
 namespace BluDay.Common.CommandLine;
 
 public readonly struct ParsedArg
@@ -12,7 +10,7 @@ public readonly struct ParsedArg
 
     public ParsedArg(string identifier, object? value)
     {
-        InvalidArgIdentifierException.ThrowIfInvalid(identifier);
+        // TODO: Add validity check for identifier.
 
         Identifier = identifier;
 

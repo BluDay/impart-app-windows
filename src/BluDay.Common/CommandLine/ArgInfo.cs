@@ -1,5 +1,3 @@
-using BluDay.Common.Exceptions;
-
 namespace BluDay.Common.CommandLine;
 
 public sealed class ArgInfo : IArgInfo
@@ -22,24 +20,19 @@ public sealed class ArgInfo : IArgInfo
 
     public uint ExpectedValueCount { get; init; }
 
-    public Guid Id { get; } = Guid.NewGuid();
+    public Guid Id { get; }
 
-    public Type ValueType { get; init; } = typeof(bool);
+    public Type ValueType { get; init; }
 
-    public ArgInfo(string identifier) : this(identifier, explicitIdentifier: null!) { }
+    public ArgInfo(string identifier) : this(identifier, null!) { }
 
     public ArgInfo(string identifier, string explicitIdentifier)
     {
-        InvalidArgIdentifierException.ThrowIfInvalid(identifier);
+        // TODO: Add validity checks for both identifiers.
 
-        if (!explicitIdentifier.IsNullOrWhiteSpace())
-        {
-            InvalidArgIdentifierException.ThrowIfNotExplicit(explicitIdentifier);
-        }
-        else
-        {
-            explicitIdentifier = identifier;
-        }
+        Id = Guid.NewGuid();
+
+        ValueType = typeof(bool);
 
         Identifier = identifier;
 
