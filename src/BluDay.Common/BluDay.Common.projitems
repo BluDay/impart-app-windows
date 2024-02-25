@@ -13,6 +13,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Attributes\NotEmptyOrWhiteSpaceAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Attributes\UseViewModelAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CommandLine\ArgInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CommandLine\ParsedArgInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)extensions\ArgInfoExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)extensions\PropertyInfoExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\CommandLine\IArgs.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Constants.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Models\IModel.cs" />

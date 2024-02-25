@@ -15,7 +15,7 @@ public class ArgsParser<TArgs> where TArgs : IArgs, new()
             .Select(
                 property => (
                     Property: property,
-                    Arg:      GetArgInfoByProperty(property, args)
+                    Arg:      property.GetArgInfoByProperty(args)
                 )
             )
             .Where(
@@ -28,7 +28,7 @@ public class ArgsParser<TArgs> where TArgs : IArgs, new()
             .AsReadOnly();
 
         IdentifierToArgMap = ArgToParsablePropertyMap.Keys
-            .SelectMany(GetIdentifierToSharedArgPairs)
+            .SelectMany(ArgInfoExtensions.GetIdentifierToSharedArgPairs)
             .ToDictionary()
             .AsReadOnly();
     }
@@ -38,44 +38,12 @@ public class ArgsParser<TArgs> where TArgs : IArgs, new()
         yield break;
     }
 
-    private static ArgInfo? GetArgInfoByProperty(PropertyInfo property, IEnumerable<ArgInfo> args)
-    {
-        return args.FirstOrDefault(arg => GetArgInfoByName(property) == arg.Name);
-    }
-
-    private static CommandLineArgAttribute? GetCommandLineArgAttribute(PropertyInfo property)
-    {
-        return property.GetCustomAttribute<CommandLineArgAttribute>();
-    }
-
-    private static string? GetArgInfoByName(PropertyInfo property)
-    {
-        return GetCommandLineArgAttribute(property)?.ArgName ?? property.Name;
-    }
-
-    private static IEnumerable<KeyValuePair<string, ArgInfo>> GetIdentifierToSharedArgPairs(ArgInfo arg)
-    {
-        yield return new(arg.Identifier, arg);
-
-        if (arg.ExplicitIdentifier is not null)
-        {
-            yield return new(arg.ExplicitIdentifier, arg);
-        }
-    }
-
-    public TArgs Parse(string args)
-    {
-        string[] values = args.Split(Constants.Whitespace);
-
-        return Parse(args: values);
-    }
-
     public TArgs Parse(string[] args)
     {
         IEnumerable<ParsedArg> parsedArgs = GetParsedArgs(args);
 
         // ( 0 _ o )
 
-        return default!;
+        return Activator.CreateInstance<TArgs>();
     }
 }
