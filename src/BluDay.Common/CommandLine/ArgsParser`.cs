@@ -16,7 +16,7 @@ public class ArgsParser<TArgs> where TArgs : IArgs, new()
             .Select(
                 property => (
                     Property: property,
-                    Arg:      args.First(arg => GetArgName(property) == arg.Name)
+                    Arg:      args.First(arg => GetTargetedArgName(property) == arg.Name)
                 )
             )
             .ToDictionary(
@@ -36,7 +36,7 @@ public class ArgsParser<TArgs> where TArgs : IArgs, new()
         return property.GetCustomAttribute<CommandLineArgAttribute>();
     }
 
-    private static string? GetArgName(PropertyInfo property)
+    private static string? GetTargetedArgName(PropertyInfo property)
     {
         return GetCommandLineArgAttribute(property)?.ArgName ?? property.Name;
     }
