@@ -22,14 +22,14 @@ public class ArgumentsParser<TArguments> where TArguments : class, new()
             .AsReadOnly();
     }
 
-    private IEnumerable<ParsedArgument> GetParsedArguments(string[] args)
+    private IEnumerable<ParsedArgumentInfo> CreateParsedArgumentInfos(string[] args)
     {
         yield break;
     }
 
     public TArguments Parse(string[] args)
     {
-        IEnumerable<ParsedArgument> parsedArgs = GetParsedArguments(args);
+        IEnumerable<ParsedArgumentInfo> parsedArgInfos = CreateParsedArgumentInfos(args);
 
         // ( 0 _ o )
 
