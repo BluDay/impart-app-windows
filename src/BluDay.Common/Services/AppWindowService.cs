@@ -10,10 +10,7 @@ public sealed class AppWindowService : IAppWindowService
 
     public int WindowCount => _windows.Count;
 
-    public IReadOnlyList<IWindow> Windows
-    {
-        get => _windows.ToList().AsReadOnly();
-    }
+    public IEnumerable<IWindow> Windows => _windows;
 
     public AppWindowService(IAppNavigationService navigationService)
     {

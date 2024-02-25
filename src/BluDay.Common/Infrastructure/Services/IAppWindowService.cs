@@ -6,7 +6,7 @@ public interface IAppWindowService
 
     int WindowCount { get; }
 
-    IReadOnlyList<IWindow> Windows { get; }
+    IEnumerable<IWindow> Windows { get; }
 
     IWindow? CreateWindow();
 
