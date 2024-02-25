@@ -2,30 +2,21 @@ namespace BluDay.Common.CommandLine;
 
 public class ArgumentsParser<TArguments> where TArguments : class, new()
 {
-    public IReadOnlyDictionary<ArgumentInfo, PropertyInfo> ArgumentToParsablePropertyMap { get; }
+    public IReadOnlyDictionary<ArgumentInfo, PropertyInfo> ArgumentToPropertyMap { get; }
 
     public IReadOnlyDictionary<string, ArgumentInfo> IdentifierToArgumentMap { get; }
 
     public ArgumentsParser(IEnumerable<ArgumentInfo> args)
     {
-        ArgumentToParsablePropertyMap = typeof(TArguments)
+        ArgumentToPropertyMap = typeof(TArguments)
             .GetProperties()
-            .Select(
-                property => (
-                    Property: property,
-                    Argument: property.GetArgumentInfo(args)
-                )
-            )
-            .Where(
-                pair => pair.Argument is not null
-            )
-            .ToDictionary(
-                pair => pair.Argument!,
-                pair => pair.Property
-            )
+            .Select(property => property.GetArgumentToPropertyPair(args))
+            .Where(pair => pair.Key is not null)
+            .ToDictionary()
             .AsReadOnly();
 
-        IdentifierToArgumentMap = ArgumentToParsablePropertyMap.Keys
+        IdentifierToArgumentMap = ArgumentToPropertyMap
+            .Keys
             .SelectMany(ArgumentInfoExtensions.GetIdentifierToSharedArgumentPairs)
             .ToDictionary()
             .AsReadOnly();
