@@ -18,10 +18,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)extensions\ArgumentInfoExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)extensions\PropertyInfoExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Constants.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Models\IModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Models\Model.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\ViewModels\IViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\ViewModels\ViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Domain\Models\IModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Domain\Models\Model.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\UI\Navigation\INavigator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Domain\ViewModels\IViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Domain\ViewModels\ViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\DependencyInjection\IImplementationProvider.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\DependencyInjection\IImplementationProvider`.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\DependencyInjection\ImplementationProvider`.cs" />
@@ -35,23 +36,27 @@
     <Compile Include="$(MSBuildThisFileDirectory)CommandLine\ArgumentActionType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CommandLine\ParsedArgument.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CommandLine\ArgumentsParser`.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\UI\WindowManagement\IWindow.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UI\Appearance\AppTheme.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\AppDialogService.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\IAppDialogService.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\IAppThemeService.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\IAppNavigationService.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)UI\Navigation\INavigator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Services\IAppDialogService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Services\IAppThemeService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Services\IAppNavigationService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\AppNavigationService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\AppThemeService.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)UI\WindowManagement\IWindow.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\IAppWindowService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Services\IAppWindowService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\AppWindowService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Usings.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Exceptions\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Infrastructure\ViewModels\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Infrastructure\Domain\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Infrastructure\UI\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Infrastructure\Services\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Infrastructure\Domain\ViewModels\" />
     <Folder Include="$(MSBuildThisFileDirectory)Services\" />
     <Folder Include="$(MSBuildThisFileDirectory)UI\Appearance\" />
+    <Folder Include="$(MSBuildThisFileDirectory)UI\Navigation\" />
+    <Folder Include="$(MSBuildThisFileDirectory)UI\WindowManagement\" />
   </ItemGroup>
 </Project>
