@@ -2,13 +2,13 @@ namespace BluDay.Common.CommandLine;
 
 public class ArgumentsParser<TArguments> where TArguments : class, new()
 {
-    public IReadOnlyDictionary<ArgumentInfo, PropertyInfo> ArgumentToPropertyMap { get; }
-
-    public IReadOnlyDictionary<string, ArgumentInfo> ArgumentIdentifierToInstanceMap { get; }
-
     public IEnumerable<ArgumentInfo> Arguments => ArgumentToPropertyMap.Keys;
 
     public IEnumerable<PropertyInfo> ParsableProperties => ArgumentToPropertyMap.Values;
+
+    public IReadOnlyDictionary<ArgumentInfo, PropertyInfo> ArgumentToPropertyMap { get; }
+
+    public IReadOnlyDictionary<string, ArgumentInfo> ArgumentIdentifierToInstanceMap { get; }
 
     public ArgumentsParser(IEnumerable<ArgumentInfo> args)
     {
