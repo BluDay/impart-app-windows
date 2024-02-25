@@ -6,6 +6,16 @@ public class ArgumentsParser<TArguments> where TArguments : class, new()
 
     public IReadOnlyDictionary<string, ArgumentInfo> IdentifierToArgumentMap { get; }
 
+    public IReadOnlyList<ArgumentInfo> RegisteredArguments
+    {
+        get => ArgumentToPropertyMap.Keys.ToList().AsReadOnly();
+    }
+
+    public IReadOnlyList<PropertyInfo> ParsableProperties
+    {
+        get => ArgumentToPropertyMap.Values.ToList().AsReadOnly();
+    }
+
     public ArgumentsParser(IEnumerable<ArgumentInfo> args)
     {
         ArgumentToPropertyMap = typeof(TArguments)
@@ -19,8 +29,7 @@ public class ArgumentsParser<TArguments> where TArguments : class, new()
             .ToDictionary()
             .AsReadOnly();
 
-        IdentifierToArgumentMap = ArgumentToPropertyMap
-            .Keys
+        IdentifierToArgumentMap = ArgumentToPropertyMap.Keys
             .SelectMany(ArgumentInfoExtensions.GetIdentifierToSharedArgumentPairs)
             .ToDictionary()
             .AsReadOnly();
