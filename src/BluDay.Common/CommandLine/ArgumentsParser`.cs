@@ -23,7 +23,7 @@ public class ArgumentsParser<TArguments> where TArguments : class, new()
             .ToDictionary()
             .AsReadOnly();
 
-        ArgumentIdentifierToInstanceMap = ArgumentToPropertyMap.Keys
+        ArgumentIdentifierToInstanceMap = Arguments
             .SelectMany(ArgumentInfoExtensions.GetIdentifierToSharedArgumentPairs)
             .ToDictionary()
             .AsReadOnly();
