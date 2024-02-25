@@ -6,15 +6,9 @@ public class ArgumentsParser<TArguments> where TArguments : class, new()
 
     public IReadOnlyDictionary<string, ArgumentInfo> ArgumentIdentifierToInstanceMap { get; }
 
-    public IReadOnlyList<ArgumentInfo> RegisteredArguments
-    {
-        get => ArgumentToPropertyMap.Keys.ToList().AsReadOnly();
-    }
+    public IEnumerable<ArgumentInfo> Arguments => ArgumentToPropertyMap.Keys;
 
-    public IReadOnlyList<PropertyInfo> ParsableProperties
-    {
-        get => ArgumentToPropertyMap.Values.ToList().AsReadOnly();
-    }
+    public IEnumerable<PropertyInfo> ParsableProperties => ArgumentToPropertyMap.Values;
 
     public ArgumentsParser(IEnumerable<ArgumentInfo> args)
     {
