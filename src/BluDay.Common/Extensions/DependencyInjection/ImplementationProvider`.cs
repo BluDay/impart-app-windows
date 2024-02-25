@@ -35,8 +35,8 @@ public class ImplementationProvider<TService> : IImplementationProvider<TService
             .GetImplementationTypes()
             .Select(ObjectFactorySiteFactory.Create<TService>)
             .ToDictionary(
-                keySelector:     site => site.Info.ImplementationType,
-                elementSelector: site => site
+                site => site.Info.ImplementationType,
+                site => site
             )
             .AsReadOnly();
     }
