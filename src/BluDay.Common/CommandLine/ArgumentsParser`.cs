@@ -4,7 +4,7 @@ public class ArgumentsParser<TArguments> where TArguments : class, new()
 {
     public IReadOnlyDictionary<ArgumentInfo, PropertyInfo> ArgumentToPropertyMap { get; }
 
-    public IReadOnlyDictionary<string, ArgumentInfo> IdentifierToArgumentMap { get; }
+    public IReadOnlyDictionary<string, ArgumentInfo> ArgumentIdentifierToInstanceMap { get; }
 
     public IReadOnlyList<ArgumentInfo> RegisteredArguments
     {
@@ -29,7 +29,7 @@ public class ArgumentsParser<TArguments> where TArguments : class, new()
             .ToDictionary()
             .AsReadOnly();
 
-        IdentifierToArgumentMap = ArgumentToPropertyMap.Keys
+        ArgumentIdentifierToInstanceMap = ArgumentToPropertyMap.Keys
             .SelectMany(ArgumentInfoExtensions.GetIdentifierToSharedArgumentPairs)
             .ToDictionary()
             .AsReadOnly();
