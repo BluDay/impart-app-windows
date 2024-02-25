@@ -6,21 +6,23 @@ public class ArgsParser<TArgs> where TArgs : IArgs, new()
 {
     public IReadOnlyDictionary<IArgInfo, PropertyInfo> ArgToParsablePropertyMap { get; }
 
+    public IReadOnlyDictionary<string, IArgInfo> IdentifierToArgMap { get; }
+
     public ArgsParser(IEnumerable<IArgInfo> args)
     {
         ArgToParsablePropertyMap = typeof(TArgs)
             .GetProperties()
-            .Where(
-                property => GetCommandLineArgAttribute(property) is not null
-            )
             .Select(
                 property => (
                     Property: property,
-                    Arg:      args.First(arg => GetTargetedArgName(property) == arg.Name)
+                    Arg:      args.FirstOrDefault(arg => GetTargetedArgName(property) == arg.Name)
                 )
             )
+            .Where(
+                pair => pair.Arg is not null
+            )
             .ToDictionary(
-                pair => pair.Arg,
+                pair => pair.Arg!,
                 pair => pair.Property
             )
             .AsReadOnly();
