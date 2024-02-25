@@ -2,7 +2,7 @@ namespace BluDay.Common.CommandLine;
 
 public sealed class ParsedArgumentInfo
 {
-    public ArgumentInfo? ArgumentInfo { get; init; }
+    public required ArgumentInfo? ArgumentInfo { get; init; }
 
     public required ParsedArgument Argument { get; init; }
 

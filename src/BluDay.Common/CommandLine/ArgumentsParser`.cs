@@ -10,8 +10,12 @@ public class ArgumentsParser<TArguments> where TArguments : class, new()
     {
         ArgumentToPropertyMap = typeof(TArguments)
             .GetProperties()
-            .Select(property => property.GetArgumentToPropertyPair(args))
-            .Where(pair => pair.Key is not null)
+            .Select(
+                property => property.GetArgumentToPropertyPair(args)
+            )
+            .Where(
+                pair => pair.Key is not null
+            )
             .ToDictionary()
             .AsReadOnly();
 
@@ -22,17 +26,13 @@ public class ArgumentsParser<TArguments> where TArguments : class, new()
             .AsReadOnly();
     }
 
-    private IEnumerable<ParsedArgumentInfo> CreateParsedArgumentInfos(string[] args)
+    private IEnumerable<ParsedArgumentInfo> CreateParsedArgumentInfos(IReadOnlyList<string> args)
     {
         yield break;
     }
 
     public TArguments Parse(string[] args)
     {
-        IEnumerable<ParsedArgumentInfo> parsedArgInfos = CreateParsedArgumentInfos(args);
-
-        // ( 0 _ o )
-
         return Activator.CreateInstance<TArguments>();
     }
 }

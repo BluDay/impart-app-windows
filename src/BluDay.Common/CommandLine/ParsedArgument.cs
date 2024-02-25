@@ -10,6 +10,8 @@ public readonly struct ParsedArgument
 
     public ParsedArgument(string identifier, object? value)
     {
+        ArgumentException.ThrowIfNullOrWhiteSpace(identifier);
+
         // TODO: Add validity check for identifier.
 
         Identifier = identifier;

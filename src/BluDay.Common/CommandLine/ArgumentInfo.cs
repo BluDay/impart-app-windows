@@ -4,7 +4,10 @@ public sealed class ArgumentInfo
 {
     public ArgumentActionType ActionType { get; init; }
 
-    public bool ExpectsValue { get; }
+    public bool ExpectsValue
+    {
+        get => ActionType is not ArgumentActionType.ParseValueByIdentifier;
+    }
     
     public bool Required { get; init; }
 
@@ -28,6 +31,8 @@ public sealed class ArgumentInfo
 
     public ArgumentInfo(string identifier, string explicitIdentifier)
     {
+        ArgumentException.ThrowIfNullOrWhiteSpace(identifier);
+
         // TODO: Add validity checks for both identifiers.
 
         Id = Guid.NewGuid();
