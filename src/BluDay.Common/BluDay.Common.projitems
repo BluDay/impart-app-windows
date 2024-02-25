@@ -46,6 +46,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)UI\WindowManagement\IWindow.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\IAppWindowService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\AppWindowService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Usings.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Exceptions\" />

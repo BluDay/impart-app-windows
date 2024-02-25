@@ -2,14 +2,9 @@ namespace BluDay.Common.CommandLine;
 
 public sealed class ParsedArgInfo
 {
-    public ArgInfo ArgInfo { get; }
+    public ArgInfo? ArgInfo { get; init; }
 
-    public ParsedArg Arg { get; }
+    public required ParsedArg Arg { get; init; }
 
-    public ParsedArgInfo(ArgInfo argInfo, ParsedArg arg)
-    {
-        Arg = arg;
-
-        ArgInfo = argInfo;
-    }
+    public bool RecognizedArg => ArgInfo is not null;
 }

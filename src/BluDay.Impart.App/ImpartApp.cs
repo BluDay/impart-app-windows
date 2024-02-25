@@ -34,7 +34,7 @@ public sealed class ImpartApp : IImpartApp
 
     private static ImpartAppArgs ParseArgs(string args)
     {
-        string[] values = args.Split(Constants.Whitespace);
+        string[] values = args.Split(Constants.WHITESPACE_CHAR);
 
         return ParseArgs(values);
     }

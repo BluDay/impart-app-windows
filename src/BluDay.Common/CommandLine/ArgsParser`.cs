@@ -1,5 +1,3 @@
-using System.Reflection;
-
 namespace BluDay.Common.CommandLine;
 
 public class ArgsParser<TArgs> where TArgs : IArgs, new()

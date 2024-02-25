@@ -2,7 +2,7 @@
 
 public static class Constants
 {
-    public const char Whitespace = ' ';
+    public const char WHITESPACE_CHAR = ' ';
 
     public const string ARG_EXPLICIT_IDENTIFIER_DASHES = "--";
 
