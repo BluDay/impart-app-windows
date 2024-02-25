@@ -41,6 +41,13 @@ public class ArgsParser<TArgs> where TArgs : IArgs, new()
         return GetCommandLineArgAttribute(property)?.ArgName ?? property.Name;
     }
 
+    public TArgs Parse(string args)
+    {
+        string[] values = args.Split(Constants.Whitespace);
+
+        return Parse(args: values);
+    }
+
     public TArgs Parse(string[] args)
     {
         IEnumerable<ParsedArg> parsedArgs = GetParsedArgs(args);
