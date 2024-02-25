@@ -15,7 +15,7 @@ public class ArgsParser<TArgs> where TArgs : IArgs, new()
             .Select(
                 property => (
                     Property: property,
-                    Arg:      GetArgInfoFromProperty(property, args)
+                    Arg:      GetArgInfoByProperty(property, args)
                 )
             )
             .Where(
@@ -38,7 +38,7 @@ public class ArgsParser<TArgs> where TArgs : IArgs, new()
         yield break;
     }
 
-    private static ArgInfo? GetArgInfoFromProperty(PropertyInfo property, IEnumerable<ArgInfo> args)
+    private static ArgInfo? GetArgInfoByProperty(PropertyInfo property, IEnumerable<ArgInfo> args)
     {
         return args.FirstOrDefault(arg => GetArgInfoByName(property) == arg.Name);
     }
