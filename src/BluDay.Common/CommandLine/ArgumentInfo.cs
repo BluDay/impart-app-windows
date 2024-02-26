@@ -18,7 +18,7 @@ public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
 
     public string? ExplicitIdentifier { get; }
 
-    public uint MaxValueCount { get; init; }
+    public int MaxValueCount { get; init; }
 
     public Type ValueType { get; init; }
 
@@ -31,6 +31,8 @@ public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
         // TODO: Add validity checks for both identifiers.
 
         ValueType = typeof(bool);
+
+        DefaultValue = (bool)default;
 
         Identifier = identifier;
 
