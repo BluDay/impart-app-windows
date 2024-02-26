@@ -42,7 +42,19 @@ public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
 
     public bool Match(string identifier)
     {
-        return false;
+        ArgumentActionType actionType = ActionType;
+
+        if (actionType is ArgumentActionType.AddConstant)
+        {
+            // :)
+        }
+
+        if (actionType is ArgumentActionType.ParseValue)
+        {
+            // :)
+        }
+
+        return Identifier == identifier || ExplicitIdentifier == identifier;
     }
 
     public bool Equals(ArgumentInfo? other)
