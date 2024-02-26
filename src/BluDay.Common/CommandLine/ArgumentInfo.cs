@@ -1,6 +1,6 @@
 namespace BluDay.Common.CommandLine;
 
-public sealed class ArgumentInfo
+public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
 {
     public ArgumentActionType ActionType { get; init; }
 
@@ -47,5 +47,10 @@ public sealed class ArgumentInfo
     public bool Match(string identifier)
     {
         return false;
+    }
+
+    public bool Equals(ArgumentInfo? other)
+    {
+        return Name == other?.Name;
     }
 }
