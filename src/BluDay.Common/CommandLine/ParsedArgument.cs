@@ -2,9 +2,9 @@ namespace BluDay.Common.CommandLine;
 
 public readonly struct ParsedArgument
 {
-    public string Identifier { get; }
-
     public bool HasValue => Values.Count > 0;
+
+    public string Identifier { get; }
 
     public IReadOnlyList<object> Values { get; }
 
