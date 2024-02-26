@@ -14,7 +14,7 @@ public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
             Description = "Launch the app in demo mode."
         };
 
-        yield return new("-b", "--peformance-mode")
+        yield return new("-b", "--performance-mode")
         {
             Name        = nameof(ImpartAppArgs.PerformanceMode),
             Description = "Launch the app in performance mode."
@@ -37,11 +37,10 @@ public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
 
         yield return new("-t", "--theme")
         {
-            Name         = nameof(ImpartAppArgs.AppTheme),
-            Description  = "App theme to use at launch.",
-            ActionType   = ArgumentActionType.ParseValue,
-            ValueType    = typeof(string),
-            DefaultValue = Constants.System
+            Name        = nameof(ImpartAppArgs.AppTheme),
+            Description = "App theme to use at launch.",
+            ActionType  = ArgumentActionType.ParseValue,
+            ValueType   = typeof(string)
         };
     }
 }

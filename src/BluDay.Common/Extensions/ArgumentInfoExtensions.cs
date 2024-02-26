@@ -6,9 +6,9 @@ public static class ArgumentInfoExtensions
     {
         yield return new(source.Identifier, source);
 
-        if (source.ExplicitIdentifier is not null)
+        if (source.FullIdentifier is not null)
         {
-            yield return new(source.ExplicitIdentifier, source);
+            yield return new(source.FullIdentifier, source);
         }
     }
 }

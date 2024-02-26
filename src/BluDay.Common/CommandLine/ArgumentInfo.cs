@@ -16,15 +16,15 @@ public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
 
     public string? Description { get; init; }
 
-    public string? ExplicitIdentifier { get; }
+    public string? FullIdentifier { get; }
 
     public int MaxValueCount { get; init; }
 
     public Type ValueType { get; init; }
 
-    public ArgumentInfo(string identifier) : this(identifier, identifier) { }
+    public ArgumentInfo(string identifier) : this(identifier, null!) { }
 
-    public ArgumentInfo(string identifier, string explicitIdentifier)
+    public ArgumentInfo(string identifier, string fullIdentifier)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(identifier);
 
@@ -36,14 +36,14 @@ public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
 
         Identifier = identifier;
 
-        ExplicitIdentifier = explicitIdentifier;
+        FullIdentifier = fullIdentifier;
     }
 
     public bool Match(string identifier)
     {
         // TODO: Parse identifier differently based on the current property values.
 
-        return Identifier == identifier || ExplicitIdentifier == identifier;
+        return Identifier == identifier || FullIdentifier == identifier;
     }
 
     public bool Equals(ArgumentInfo? other)

@@ -15,7 +15,7 @@ public static class StringExtensions
     public static bool IsValidArgumentIdentifier(this string source)
     {
         return
-            source.StartsWith(Constants.ARG_IMPLICIT_IDENTIFIER_DASH) ||
-            source.StartsWith(Constants.ARG_EXPLICIT_IDENTIFIER_DASHES);
+            source.StartsWith(Constants.ARG_SHORT_ARGUMENT_IDENTIFIER_PREFIX) ||
+            source.StartsWith(Constants.ARG_LONG_ARGUMENT_IDENTIFIER_PREFIX);
     }
 }
