@@ -21,7 +21,7 @@ public sealed class ArgumentInfo
 
     public string? ExplicitIdentifier { get; }
 
-    public uint ExpectedValueCount { get; init; }
+    public uint MaxValueCount { get; init; }
 
     public Guid Id { get; }
 
@@ -42,5 +42,10 @@ public sealed class ArgumentInfo
         Identifier = identifier;
 
         ExplicitIdentifier = explicitIdentifier;
+    }
+
+    public bool Match(string identifier)
+    {
+        return false;
     }
 }

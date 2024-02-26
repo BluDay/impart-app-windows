@@ -2,17 +2,33 @@ namespace BluDay.Common.CommandLine;
 
 public class ArgumentsParser<TArguments> where TArguments : class, new()
 {
-    public IEnumerable<ArgumentInfo> Arguments => ArgumentToPropertyMap.Keys;
+    private readonly IReadOnlyDictionary<ArgumentInfo, PropertyInfo> _argumentToPropertyMap;
 
-    public IEnumerable<PropertyInfo> ParsableProperties => ArgumentToPropertyMap.Values;
+    private readonly IReadOnlyDictionary<string, ArgumentInfo> _argumentIdentifierToInstanceMap;
 
-    public IReadOnlyDictionary<ArgumentInfo, PropertyInfo> ArgumentToPropertyMap { get; }
+    public IEnumerable<ArgumentInfo> Arguments
+    {
+        get => _argumentToPropertyMap.Keys;
+    }
 
-    public IReadOnlyDictionary<string, ArgumentInfo> ArgumentIdentifierToInstanceMap { get; }
+    public IEnumerable<PropertyInfo> ParsableProperties
+    {
+        get => _argumentToPropertyMap.Values;
+    }
+
+    public IReadOnlyDictionary<ArgumentInfo, PropertyInfo> ArgumentToPropertyMap
+    {
+        get => _argumentToPropertyMap;
+    }
+
+    public IReadOnlyDictionary<string, ArgumentInfo> ArgumentIdentifierToInstanceMap
+    {
+        get => _argumentIdentifierToInstanceMap;
+    }
 
     public ArgumentsParser(IEnumerable<ArgumentInfo> args)
     {
-        ArgumentToPropertyMap = typeof(TArguments)
+        _argumentToPropertyMap = typeof(TArguments)
             .GetProperties()
             .Select(
                 property => property.GetArgumentToPropertyPair(args)
@@ -23,19 +39,35 @@ public class ArgumentsParser<TArguments> where TArguments : class, new()
             .ToDictionary()
             .AsReadOnly();
 
-        ArgumentIdentifierToInstanceMap = Arguments
+        _argumentIdentifierToInstanceMap = Arguments
             .SelectMany(ArgumentInfoExtensions.GetIdentifierToSharedArgumentPairs)
             .ToDictionary()
             .AsReadOnly();
     }
 
+    private ArgumentInfo? FindArgumentInfoByIdentifier(string identifier)
+    {
+        return _argumentToPropertyMap.Keys.FirstOrDefault(argInfo => argInfo.Match(identifier));
+    }
+
     private IEnumerable<ParsedArgumentInfo> CreateParsedArgumentInfos(IReadOnlyList<string> args)
     {
+        for (int index = 0; index < args.Count; index++)
+        {
+            string identifier = args[index];
+
+            ArgumentInfo? argInfo = FindArgumentInfoByIdentifier(identifier);
+        }
+
         yield break;
     }
 
     public TArguments Parse(string[] args)
     {
+        IEnumerable<ParsedArgumentInfo> parsedArgumentInfos = CreateParsedArgumentInfos(args);
+
+        parsedArgumentInfos.ToList();
+
         return Activator.CreateInstance<TArguments>();
     }
 }
