@@ -3,7 +3,7 @@ namespace BluDay.Common.CommandLine;
 public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
 {
     public ArgumentActionType ActionType { get; init; }
-    
+
     public bool Required { get; init; }
 
     public object? Constant { get; init; }
@@ -20,7 +20,7 @@ public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
 
     public Type ValueType { get; init; }
 
-    public ArgumentInfo(string identifier) : this(identifier, null!) { }
+    public ArgumentInfo(string identifier) : this(identifier, identifier) { }
 
     public ArgumentInfo(string identifier, string explicitIdentifier)
     {
@@ -37,17 +37,7 @@ public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
 
     public bool Match(string identifier)
     {
-        ArgumentActionType actionType = ActionType;
-
-        if (actionType is ArgumentActionType.AddConstant)
-        {
-            // :)
-        }
-
-        if (actionType is ArgumentActionType.ParseValue)
-        {
-            // :)
-        }
+        // TODO: Parse identifier differently based on the current property values.
 
         return Identifier == identifier || ExplicitIdentifier == identifier;
     }
