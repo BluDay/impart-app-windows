@@ -23,8 +23,6 @@ public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
 
     public uint MaxValueCount { get; init; }
 
-    public Guid Id { get; }
-
     public Type ValueType { get; init; }
 
     public ArgumentInfo(string identifier) : this(identifier, null!) { }
@@ -34,8 +32,6 @@ public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
         ArgumentException.ThrowIfNullOrWhiteSpace(identifier);
 
         // TODO: Add validity checks for both identifiers.
-
-        Id = Guid.NewGuid();
 
         ValueType = typeof(bool);
 
