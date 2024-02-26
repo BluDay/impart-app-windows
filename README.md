@@ -8,3 +8,8 @@ Windows app implementations for Impart.
 * Uses a shared namespace for the app core
 * MVVM-based
 * Loosely coupled architecture
+
+## Available platforms
+
+* WinUI 3 (64-bit)
+* Windows Presentation Foundation (WPF) (64-bit)
