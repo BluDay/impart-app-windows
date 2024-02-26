@@ -37,10 +37,11 @@ public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
 
         yield return new("-t", "--theme")
         {
-            Name        = nameof(ImpartAppArgs.AppTheme),
-            Description = "App theme to use at launch.",
-            ActionType  = ArgumentActionType.ParseValue,
-            ValueType   = typeof(string)
+            Name         = nameof(ImpartAppArgs.AppTheme),
+            Description  = "App theme to use at launch.",
+            ActionType   = ArgumentActionType.ParseValue,
+            ValueType    = typeof(string),
+            DefaultValue = Constants.System
         };
     }
 }

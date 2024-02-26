@@ -8,6 +8,8 @@ public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
 
     public object? Constant { get; init; }
 
+    public object? DefaultValue { get; init; }
+    
     public string Identifier { get; }
 
     public required string Name { get; init; }
