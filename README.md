@@ -11,5 +11,5 @@ Windows app implementations for Impart.
 
 ## Available platforms
 
-* WinUI 3 (64-bit)
-* Windows Presentation Foundation (WPF) (64-bit)
+* WinUI 3 (x64)
+* Windows Presentation Foundation (WPF) (x64)
