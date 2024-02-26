@@ -56,7 +56,7 @@ public class ArgumentsParser<TArguments> where TArguments : class, new()
         {
             string identifier = args[index];
 
-            ArgumentInfo? argument = FindArgumentInfoByIdentifier(identifier);
+            ArgumentInfo? argumentInfo = FindArgumentInfoByIdentifier(identifier);
 
             // :)
         }
