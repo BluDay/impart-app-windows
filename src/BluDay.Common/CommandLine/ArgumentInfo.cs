@@ -34,6 +34,8 @@ public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
 
         DefaultValue = (bool)default;
 
+        MaxValueCount = 1;
+
         Identifier = identifier;
 
         FullIdentifier = fullIdentifier;
