@@ -2,8 +2,6 @@
 
 public sealed class AppWindowService : IAppWindowService
 {
-    private readonly IAppNavigationService _navigationService;
-
     private readonly HashSet<IWindow> _windows = new();
 
     public IWindow? MainWindow => _windows.FirstOrDefault();
@@ -11,11 +9,6 @@ public sealed class AppWindowService : IAppWindowService
     public int WindowCount => _windows.Count;
 
     public IEnumerable<IWindow> Windows => _windows;
-
-    public AppWindowService(IAppNavigationService navigationService)
-    {
-        _navigationService = navigationService;
-    }
 
     public IWindow CreateWindow()
     {
