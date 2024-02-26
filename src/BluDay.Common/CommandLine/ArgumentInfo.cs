@@ -3,11 +3,6 @@ namespace BluDay.Common.CommandLine;
 public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
 {
     public ArgumentActionType ActionType { get; init; }
-
-    public bool ExpectsValue
-    {
-        get => ActionType is not ArgumentActionType.ParseValueByIdentifier;
-    }
     
     public bool Required { get; init; }
 
