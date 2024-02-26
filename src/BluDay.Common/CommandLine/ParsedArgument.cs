@@ -4,9 +4,9 @@ public readonly struct ParsedArgument
 {
     public string Identifier { get; }
 
-    public bool HasValue => Values.Length > 0;
+    public bool HasValue => Values.Count > 0;
 
-    public object[] Values { get; }
+    public IReadOnlyList<object> Values { get; }
 
     public ParsedArgument(string identifier) : this(identifier, []) { }
 
@@ -20,6 +20,6 @@ public readonly struct ParsedArgument
 
         Identifier = identifier;
 
-        Values = values;
+        Values = values.AsReadOnly();
     }
 }
