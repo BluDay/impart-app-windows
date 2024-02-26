@@ -1,4 +1,4 @@
-G# impart-app-windows
+# impart-app-windows
 
 Windows app implementations for Impart.
 
