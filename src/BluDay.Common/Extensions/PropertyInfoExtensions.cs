@@ -4,14 +4,14 @@ public static class PropertyInfoExtensions
 {
     public static ArgumentInfo? GetArgument(this PropertyInfo source, IEnumerable<ArgumentInfo> args)
     {
-        return args.FirstOrDefault(arg => source.GetArgumentName() == arg.Name);
+        return args.FirstOrDefault(arg => source.GetTargetArgumentName() == arg.Name);
     }
 
-    public static string? GetArgumentName(this PropertyInfo source)
+    public static string? GetTargetArgumentName(this PropertyInfo source)
     {
-        CommandLineArgAttribute? attribute = source.GetCustomAttribute<CommandLineArgAttribute>();
+        ArgumentAttribute? attribute = source.GetCustomAttribute<ArgumentAttribute>();
 
-        return attribute?.ArgName ?? source.Name;
+        return attribute?.TargetName ?? source.Name;
     }
 
     public static KeyValuePair<ArgumentInfo, PropertyInfo> GetArgumentToPropertyPair(

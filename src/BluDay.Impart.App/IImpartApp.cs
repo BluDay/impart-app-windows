@@ -2,7 +2,7 @@ namespace BluDay.Impart.App;
 
 public interface IImpartApp : IDisposable
 {
-    IImpartAppArgs Arguments { get; }
+    IImpartAppArguments Arguments { get; }
 
     bool IsDisposed { get; }
 

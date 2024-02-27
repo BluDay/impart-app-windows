@@ -2,11 +2,11 @@ namespace BluDay.Impart.App;
 
 public sealed class ImpartApp : IImpartApp
 {
-    private readonly ImpartAppArgs _args;
+    private readonly ImpartAppArguments _args;
 
     private readonly ImpartAppContainer _container;
 
-    public IImpartAppArgs Arguments => _args;
+    public IImpartAppArguments Arguments => _args;
 
     public bool IsDisposed { get; private set; }
 
@@ -21,7 +21,7 @@ public sealed class ImpartApp : IImpartApp
 
     public ImpartApp(string[] args) : this(ArgumentParser.Parse(args)) { }
 
-    public ImpartApp(ImpartAppArgs args)
+    public ImpartApp(ImpartAppArguments args)
     {
         _args = args;
 
