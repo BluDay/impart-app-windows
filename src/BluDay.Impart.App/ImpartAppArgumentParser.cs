@@ -1,10 +1,10 @@
 namespace BluDay.Impart.App;
 
-public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
+public sealed class ImpartAppArgumentParser : ArgumentParser<ImpartAppArgs>
 {
-    public static ImpartAppArgsParser Default { get; } = new();
+    public static ImpartAppArgumentParser Default { get; } = new();
 
-    public ImpartAppArgsParser() : base(CreateArguments()) { }
+    public ImpartAppArgumentParser() : base(CreateArguments()) { }
 
     private static IEnumerable<ArgumentInfo> CreateArguments()
     {

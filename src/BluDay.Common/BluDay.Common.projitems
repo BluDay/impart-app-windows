@@ -35,7 +35,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\TypeExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CommandLine\ArgumentActionType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CommandLine\ParsedArgument.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)CommandLine\ArgumentsParser`.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CommandLine\ArgumentParser`.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\UI\WindowManagement\IWindow.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UI\Appearance\AppTheme.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\AppDialogService.cs" />

@@ -12,9 +12,14 @@ public sealed class ImpartApp : IImpartApp
 
     public bool IsInitialized { get; private set; }
 
-    public ImpartApp(string args) : this(ParseArguments(args)) { }
+    public static ImpartAppArgumentParser ArgumentParser
+    {
+        get => ImpartAppArgumentParser.Default;
+    }
 
-    public ImpartApp(string[] args) : this(ParseArguments(args)) { }
+    public ImpartApp(string args) : this(ArgumentParser.Parse(args)) { }
+
+    public ImpartApp(string[] args) : this(ArgumentParser.Parse(args)) { }
 
     public ImpartApp(ImpartAppArgs args)
     {
@@ -30,18 +35,6 @@ public sealed class ImpartApp : IImpartApp
             .GetRequiredService<IAppWindowService>()
             .CreateWindow();
         */
-    }
-
-    private static ImpartAppArgs ParseArguments(string args)
-    {
-        string[] values = args.Split(Constants.WHITESPACE_CHAR);
-
-        return ParseArguments(values);
-    }
-
-    private static ImpartAppArgs ParseArguments(string[] args)
-    {
-        return ImpartAppArgsParser.Default.Parse(args);
     }
 
     public void Initialize()
