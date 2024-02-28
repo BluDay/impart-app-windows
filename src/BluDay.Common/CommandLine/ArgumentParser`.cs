@@ -64,7 +64,7 @@ public class ArgumentParser<TArguments> where TArguments : class, new()
         yield break;
     }
 
-    public TArguments Parse(string[] args)
+    public TArguments ParseArguments(string[] args)
     {
         IEnumerable<ParsedArgumentInfo> parsedArgumentInfos = CreateParsedArgumentInfos(args);
 
