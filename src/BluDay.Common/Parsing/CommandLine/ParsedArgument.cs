@@ -2,26 +2,16 @@ namespace BluDay.Common.Parsing.CommandLine;
 
 public readonly struct ParsedArgument
 {
-    public ArgumentInfo? Info { get; }
+    public bool IsFlag { get; }
 
-    public bool HasValue => Values.Count > 0;
+    public string Value { get; }
 
-    public string Flag { get; }
-
-    public IReadOnlyList<object> Values { get; }
-
-    public ParsedArgument(ArgumentInfo info, string flag, params object[] values)
+    public ParsedArgument(string value)
     {
-        InvalidArgumentFlagException.ThrowIfInvalid(flag);
+        ArgumentException.ThrowIfNullOrWhiteSpace(value);
 
-        ArgumentNullException.ThrowIfNull(values);
+        IsFlag = value.IsValidArgumentFlag();
 
-        // TODO: Add validity check for flag.
-
-        Info = info;
-
-        Flag = flag;
-
-        Values = values.AsReadOnly();
+        Value = value;
     }
 }

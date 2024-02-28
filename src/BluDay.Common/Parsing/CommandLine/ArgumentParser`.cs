@@ -1,12 +1,12 @@
 namespace BluDay.Common.Parsing.CommandLine;
 
-public class ArgumentParser<TArgs> where TArgs : class, new()
+public class ArgumentParser<TArguments> where TArguments : class, new()
 {
     private readonly IReadOnlyDictionary<ArgumentInfo, PropertyInfo> _argumentToPropertyMap;
 
     private readonly IReadOnlyDictionary<string, ArgumentInfo> _flagToArgumentMap;
 
-    public IEnumerable<ArgumentInfo> Args
+    public IEnumerable<ArgumentInfo> Arguments
     {
         get => _argumentToPropertyMap.Keys;
     }
@@ -28,10 +28,10 @@ public class ArgumentParser<TArgs> where TArgs : class, new()
 
     public ArgumentParser(IEnumerable<ArgumentInfo> arguments)
     {
-        _argumentToPropertyMap = typeof(TArgs)
+        _argumentToPropertyMap = typeof(TArguments)
             .GetProperties()
             .Select(
-                property => property.GetArgToPropertyPair(arguments)
+                property => property.ToArgumentPropertyPair(arguments)
             )
             .Where(
                 pair => pair.Key is not null
@@ -64,12 +64,12 @@ public class ArgumentParser<TArgs> where TArgs : class, new()
         yield break;
     }
 
-    public TArgs ParseArgs(string[] args)
+    public TArguments ParseArguments(string[] args)
     {
         IEnumerable<ParsedArgument> parsedArguments = GetParsedArguments(args);
 
-        parsedArguments.ToList();
+        // :)
 
-        return Activator.CreateInstance<TArgs>();
+        return Activator.CreateInstance<TArguments>();
     }
 }
