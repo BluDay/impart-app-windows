@@ -64,11 +64,6 @@ public class ArgumentParser<TArguments> where TArguments : class, new()
         yield break;
     }
 
-    public TArguments Parse(string args)
-    {
-        return Parse(args.Split(Constants.WHITESPACE_CHAR));
-    }
-
     public TArguments Parse(string[] args)
     {
         IEnumerable<ParsedArgumentInfo> parsedArgumentInfos = CreateParsedArgumentInfos(args);
