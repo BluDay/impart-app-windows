@@ -1,8 +1,8 @@
 namespace BluDay.Common.CommandLine;
 
-public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
+public sealed class ArgInfo : IEquatable<ArgInfo>
 {
-    public ArgumentActionType ActionType { get; init; }
+    public ArgActionType ActionType { get; init; }
 
     public bool Required { get; init; }
 
@@ -22,9 +22,9 @@ public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
 
     public Type ValueType { get; init; }
 
-    public ArgumentInfo(string identifier) : this(identifier, null!) { }
+    public ArgInfo(string identifier) : this(identifier, null!) { }
 
-    public ArgumentInfo(string identifier, string fullIdentifier)
+    public ArgInfo(string identifier, string fullIdentifier)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(identifier);
 
@@ -48,7 +48,7 @@ public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
         return Identifier == identifier || FullIdentifier == identifier;
     }
 
-    public bool Equals(ArgumentInfo? other)
+    public bool Equals(ArgInfo? other)
     {
         return Name == other?.Name;
     }

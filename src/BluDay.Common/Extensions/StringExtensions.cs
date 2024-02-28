@@ -12,7 +12,7 @@ public static class StringExtensions
         return string.IsNullOrEmpty(source);
     }
 
-    public static bool IsValidArgumentIdentifier(this string source)
+    public static bool IsValidArgIdentifier(this string source)
     {
         return
             source.StartsWith(Constants.ARG_SHORT_ARGUMENT_IDENTIFIER_PREFIX) ||

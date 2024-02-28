@@ -1,6 +1,6 @@
 namespace BluDay.Common.CommandLine;
 
-public enum ArgumentActionType
+public enum ArgActionType
 {
     ParseValueByIdentifier,
     ParseValue,

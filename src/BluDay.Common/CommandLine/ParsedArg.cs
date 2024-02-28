@@ -1,6 +1,6 @@
 namespace BluDay.Common.CommandLine;
 
-public readonly struct ParsedArgument
+public readonly struct ParsedArg
 {
     public bool HasValue => Values.Count > 0;
 
@@ -8,9 +8,9 @@ public readonly struct ParsedArgument
 
     public IReadOnlyList<object> Values { get; }
 
-    public ParsedArgument(string identifier) : this(identifier, []) { }
+    public ParsedArg(string identifier) : this(identifier, []) { }
 
-    public ParsedArgument(string identifier, params object[] values)
+    public ParsedArg(string identifier, params object[] values)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(identifier);
 

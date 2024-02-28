@@ -12,8 +12,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)attributes\ArgumentAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Attributes\NotEmptyOrWhiteSpaceAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Attributes\UseViewModelAttribute.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)CommandLine\ArgumentInfo.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)CommandLine\ParsedArgumentInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CommandLine\ArgInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CommandLine\ParsedArgInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)exceptions\InvalidArgumentIdentifierException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)extensions\ArgumentInfoExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)extensions\PropertyInfoExtensions.cs" />
@@ -33,9 +33,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\DependencyInjection\ObjectFactorySite`.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\StringExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\TypeExtensions.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)CommandLine\ArgumentActionType.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)CommandLine\ParsedArgument.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)CommandLine\ArgumentParser`.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CommandLine\ArgActionType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CommandLine\ParsedArg.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CommandLine\ArgParser`.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\UI\WindowManagement\IWindow.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UI\Appearance\AppTheme.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\AppDialogService.cs" />
