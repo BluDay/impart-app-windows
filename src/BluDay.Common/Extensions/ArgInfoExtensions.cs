@@ -6,7 +6,7 @@ public static class ArgInfoExtensions
     {
         yield return new(source.Flag, source);
 
-        if (source.LongFlag is not null)
+        if (source.LongFlag is not null && source.Flag != source.LongFlag)
         {
             yield return new(source.LongFlag, source);
         }

@@ -14,21 +14,33 @@ public sealed class ArgInfo : IEquatable<ArgInfo>
     
     public string Flag { get; }
 
+    public string FlagName { get; }
+
     public required string Name { get; init; }
 
     public string? Description { get; init; }
 
     public string? LongFlag { get; }
 
+    public string? LongFlagName { get; }
+
     public int MaxValueCount { get; init; }
 
     public Type ValueType { get; init; }
 
-    public ArgInfo(string flag)
+    public ArgInfo(string flag) : this(flag, flag) { }
+
+    public ArgInfo(string flag, string longFlag)
     {
         InvalidArgFlagException.ThrowIfInvalid(flag);
 
         Flag = flag;
+
+        FlagName = GetFlagName(flag);
+
+        LongFlag = longFlag;
+
+        LongFlagName = GetFlagName(longFlag);
 
         ValueType = typeof(bool);
 
@@ -37,11 +49,13 @@ public sealed class ArgInfo : IEquatable<ArgInfo>
         MaxValueCount = 1;
     }
 
-    public ArgInfo(string flag, string longFlag) : this(flag)
+    public static string GetFlagName(string flag)
     {
-        InvalidArgFlagException.ThrowIfInvalid(longFlag);
+        string prefix = flag.IsValidShortArgFlag()
+            ? Constants.ARG_SHORT_FLAG_PREFIX
+            : Constants.ARG_LONG_FLAG_PREFIX;
 
-        LongFlag = longFlag;
+        return flag.TrimStart(prefix.ToCharArray());
     }
 
     public bool Match(string flag)

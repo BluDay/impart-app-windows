@@ -12,7 +12,7 @@ public readonly struct ParsedArg
 
     public ParsedArg(string flag, params object[] values)
     {
-        ArgumentException.ThrowIfNullOrWhiteSpace(flag);
+        InvalidArgFlagException.ThrowIfInvalid(flag);
 
         ArgumentNullException.ThrowIfNull(values);
 
