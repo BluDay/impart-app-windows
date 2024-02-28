@@ -10,9 +10,7 @@ public readonly struct ParsedArgument
 
     public IReadOnlyList<object> Values { get; }
 
-    public ParsedArgument(string flag) : this(flag, [], null) { }
-
-    public ParsedArgument(string flag, object[] values, ArgumentInfo? info)
+    public ParsedArgument(ArgumentInfo info, string flag, params object[] values)
     {
         InvalidArgumentFlagException.ThrowIfInvalid(flag);
 
