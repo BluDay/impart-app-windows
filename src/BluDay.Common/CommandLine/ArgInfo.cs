@@ -1,5 +1,3 @@
-using BluDay.Common.Exceptions;
-
 namespace BluDay.Common.CommandLine;
 
 public sealed class ArgInfo : IEquatable<ArgInfo>
