@@ -12,15 +12,6 @@ public sealed class ImpartApp : IImpartApp
 
     public bool IsInitialized { get; private set; }
 
-    public static ImpartAppArgumentParser ArgumentParser
-    {
-        get => ImpartAppArgumentParser.Default;
-    }
-
-    public ImpartApp(string args) : this(ArgumentParser.Parse(args)) { }
-
-    public ImpartApp(string[] args) : this(ArgumentParser.Parse(args)) { }
-
     public ImpartApp(ImpartAppArguments args)
     {
         _args = args;
