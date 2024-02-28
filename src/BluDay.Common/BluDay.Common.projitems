@@ -9,13 +9,14 @@
     <Import_RootNamespace>BluDay.Common</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)attributes\ArgAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)attributes\ArgumentAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Attributes\NotEmptyOrWhiteSpaceAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Attributes\UseViewModelAttribute.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Parsing\CommandLine\ArgInfo.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Parsing\CommandLine\ParsedArgInfo.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)exceptions\InvalidArgFlagException.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)extensions\ArgInfoExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)exceptions\UnrecognizedArgumentException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Parsing\CommandLine\ArgumentInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Parsing\CommandLine\ParsedArgumentInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)exceptions\InvalidArgumentFlagException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)extensions\ArgumentInfoExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)extensions\PropertyInfoExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Constants.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Domain\Models\IModel.cs" />
@@ -33,9 +34,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\DependencyInjection\ObjectFactorySite`.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\StringExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\TypeExtensions.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Parsing\CommandLine\ArgActionType.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Parsing\CommandLine\ParsedArg.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Parsing\CommandLine\ArgParser`.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Parsing\CommandLine\ArgumentActionType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Parsing\CommandLine\ParsedArgument.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Parsing\CommandLine\ArgumentParser`.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\UI\WindowManagement\IWindow.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UI\Appearance\AppTheme.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\AppDialogService.cs" />

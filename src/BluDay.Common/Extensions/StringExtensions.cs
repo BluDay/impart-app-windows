@@ -12,12 +12,12 @@ public static class StringExtensions
         return string.IsNullOrEmpty(source);
     }
 
-    public static bool IsValidArgFlag(this string source)
+    public static bool IsValidArgumentFlag(this string source)
     {
-        return source.IsValidShortArgFlag() || source.IsValidLongArgFlag();
+        return source.IsValidShortArgumentFlag() || source.IsValidLongArgumentFlag();
     }
 
-    public static bool IsValidShortArgFlag(this string source)
+    public static bool IsValidShortArgumentFlag(this string source)
     {
         if (source.Length < 2)
         {
@@ -29,7 +29,7 @@ public static class StringExtensions
         return source[0] == prefix && source[1] != prefix;
     }
 
-    public static bool IsValidLongArgFlag(this string source)
+    public static bool IsValidLongArgumentFlag(this string source)
     {
         if (source.Length < 3)
         {

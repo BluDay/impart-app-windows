@@ -1,12 +1,12 @@
 namespace BluDay.Impart.App;
 
-public sealed class ImpartAppArgParser : ArgParser<ImpartAppArgs>
+public sealed class ImpartAppArgParser : ArgumentParser<ImpartAppArgs>
 {
     public static ImpartAppArgParser Default { get; } = new();
 
-    public ImpartAppArgParser() : base(CreateArgs()) { }
+    public ImpartAppArgParser() : base(CreateArguments()) { }
 
-    private static IEnumerable<ArgInfo> CreateArgs()
+    private static IEnumerable<ArgumentInfo> CreateArguments()
     {
         yield return new("-d", "--demo-mode")
         {
@@ -30,7 +30,7 @@ public sealed class ImpartAppArgParser : ArgParser<ImpartAppArgs>
         {
             Name        = nameof(ImpartAppArgs.Verbosity),
             Description = "Verbosity level.",
-            ActionType  = ArgActionType.AddConstant,
+            ActionType  = ArgumentActionType.AddConstant,
             ValueType   = typeof(uint),
             Constant    = (uint)1
         };
@@ -39,7 +39,7 @@ public sealed class ImpartAppArgParser : ArgParser<ImpartAppArgs>
         {
             Name        = nameof(ImpartAppArgs.AppTheme),
             Description = "App theme to use at launch.",
-            ActionType  = ArgActionType.ParseValue,
+            ActionType  = ArgumentActionType.ParseValue,
             ValueType   = typeof(string)
         };
     }
