@@ -11,7 +11,7 @@ public class ArgParser<TArgs> where TArgs : class, new()
         get => _argToPropertyMap.Keys;
     }
 
-    public IEnumerable<PropertyInfo> ParsableProperties
+    public IEnumerable<PropertyInfo> Properties
     {
         get => _argToPropertyMap.Values;
     }
