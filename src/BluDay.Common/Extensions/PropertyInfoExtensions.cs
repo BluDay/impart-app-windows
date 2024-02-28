@@ -15,7 +15,7 @@ public static class PropertyInfoExtensions
     }
 
     public static KeyValuePair<ArgInfo, PropertyInfo> GetArgToPropertyPair(
-        this PropertyInfo              source,
+        this PropertyInfo         source,
              IEnumerable<ArgInfo> args)
     {
         ArgInfo? arg = source.GetArg(args);

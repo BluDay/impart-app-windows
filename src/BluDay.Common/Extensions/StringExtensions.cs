@@ -19,11 +19,13 @@ public static class StringExtensions
 
     public static bool IsValidShortArgFlag(this string source)
     {
-        return source.StartsWith(Constants.ARG_SHORT_FLAG_PREFIX);
+        char prefix = Constants.ARG_SHORT_FLAG_PREFIX[0];
+
+        return source[0] == prefix && source[1] != prefix;
     }
 
     public static bool IsValidLongArgFlag(this string source)
     {
-        return source.StartsWith(Constants.ARG_LONG_FLAG_PREFIX);
+        return source[..2] == Constants.ARG_LONG_FLAG_PREFIX;
     }
 }

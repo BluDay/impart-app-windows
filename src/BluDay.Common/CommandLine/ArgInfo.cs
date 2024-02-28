@@ -10,10 +10,6 @@ public sealed class ArgInfo : IEquatable<ArgInfo>
 
     public object? DefaultValue { get; init; }
     
-    public string Flag { get; }
-
-    public string FlagName { get; }
-
     public required string Name { get; init; }
 
     public string? Description { get; init; }
@@ -22,29 +18,50 @@ public sealed class ArgInfo : IEquatable<ArgInfo>
 
     public string? LongFlagName { get; }
 
+    public string? ShortFlag { get; }
+
+    public string? ShortFlagName { get; }
+
     public int MaxValueCount { get; init; }
 
     public Type ValueType { get; init; }
 
-    public ArgInfo(string flag) : this(flag, flag) { }
-
-    public ArgInfo(string flag, string longFlag)
+    public ArgInfo()
     {
-        InvalidArgFlagException.ThrowIfInvalid(flag);
-
-        Flag = flag;
-
-        FlagName = GetFlagName(flag);
-
-        LongFlag = longFlag;
-
-        LongFlagName = GetFlagName(longFlag);
-
         ValueType = typeof(bool);
 
         DefaultValue = (bool)default;
 
         MaxValueCount = 1;
+    }
+
+    public ArgInfo(string flag) : this()
+    {
+        InvalidArgFlagException.ThrowIfInvalid(flag);
+
+        string flagName = GetFlagName(flag);
+
+        if (flag.IsValidLongArgFlag())
+        {
+            LongFlag     = flag;
+            LongFlagName = flagName;
+        }
+        else
+        {
+            ShortFlag     = flag;
+            ShortFlagName = flagName;
+        }
+    }
+
+    public ArgInfo(string shortFlag, string longFlag) : this()
+    {
+        InvalidArgFlagException.ThrowIfInvalid(shortFlag, longFlag);
+
+        LongFlag     = longFlag;
+        LongFlagName = GetFlagName(longFlag);
+
+        ShortFlag     = shortFlag;
+        ShortFlagName = GetFlagName(shortFlag);
     }
 
     public static string GetFlagName(string flag)
@@ -60,7 +77,7 @@ public sealed class ArgInfo : IEquatable<ArgInfo>
     {
         // TODO: Parse flag differently based on the current property values.
 
-        return Flag == flag || LongFlag == flag;
+        return ShortFlag == flag || LongFlag == flag;
     }
 
     public bool Equals(ArgInfo? other)
