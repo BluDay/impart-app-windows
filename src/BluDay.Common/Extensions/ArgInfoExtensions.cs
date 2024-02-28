@@ -4,10 +4,7 @@ public static class ArgInfoExtensions
 {
     public static IEnumerable<KeyValuePair<string, ArgInfo>> GetFlagToSharedArgPairs(this ArgInfo source)
     {
-        if (source.ShortFlag is not null)
-        {
-            yield return new(source.ShortFlag, source);
-        }
+        yield return new(source.Flag, source);
 
         if (source.LongFlag is not null)
         {

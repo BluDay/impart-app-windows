@@ -12,20 +12,24 @@ public sealed class ArgInfo : IEquatable<ArgInfo>
 
     public object? DefaultValue { get; init; }
     
+    public string Flag { get; }
+
     public required string Name { get; init; }
 
     public string? Description { get; init; }
 
     public string? LongFlag { get; }
 
-    public string? ShortFlag { get; }
-
     public int MaxValueCount { get; init; }
 
     public Type ValueType { get; init; }
 
-    public ArgInfo()
+    public ArgInfo(string flag)
     {
+        InvalidArgFlagException.ThrowIfInvalid(flag);
+
+        Flag = flag;
+
         ValueType = typeof(bool);
 
         DefaultValue = (bool)default;
@@ -33,35 +37,18 @@ public sealed class ArgInfo : IEquatable<ArgInfo>
         MaxValueCount = 1;
     }
 
-    public ArgInfo(string flag) : this()
+    public ArgInfo(string flag, string longFlag) : this(flag)
     {
-        InvalidArgFlagException.ThrowIfInvalid(flag);
-
-        if (flag.IsValidShortArgFlag())
-        {
-            ShortFlag = flag;
-
-            return;
-        }
-
-        LongFlag = flag;
-    }
-
-    public ArgInfo(string shortFlag, string longFlag) : this()
-    {
-        InvalidArgFlagException.ThrowIfInvalid(shortFlag);
         InvalidArgFlagException.ThrowIfInvalid(longFlag);
 
         LongFlag = longFlag;
-
-        ShortFlag = shortFlag;
     }
 
     public bool Match(string flag)
     {
         // TODO: Parse flag differently based on the current property values.
 
-        return ShortFlag == flag || LongFlag == flag;
+        return Flag == flag || LongFlag == flag;
     }
 
     public bool Equals(ArgInfo? other)
