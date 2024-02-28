@@ -26,7 +26,7 @@ public class ImplementationProvider<TService> : IImplementationProvider<TService
 
     private object CreateInstance(IObjectFactorySite site)
     {
-        return site.Factory.Invoke(_serviceProvider, arguments: null);
+        return site.Factory.Invoke(_serviceProvider, args: null);
     }
 
     private static IReadOnlyDictionary<Type, IObjectFactorySite> CreateMappedObjectFactorySites()

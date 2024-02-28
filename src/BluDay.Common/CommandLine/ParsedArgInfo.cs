@@ -8,13 +8,13 @@ public sealed class ParsedArgInfo
 
     public bool IsArgRegistered => ArgInfo is not null;
 
-    public ParsedArgInfo(ParsedArg argument, ArgInfo argumentInfo)
+    public ParsedArgInfo(ParsedArg arg, ArgInfo argInfo)
     {
-        ArgumentNullException.ThrowIfNull(argument);
-        ArgumentNullException.ThrowIfNull(argumentInfo);
+        ArgumentNullException.ThrowIfNull(arg);
+        ArgumentNullException.ThrowIfNull(argInfo);
 
-        ArgInfo = argumentInfo;
+        ArgInfo = argInfo;
 
-        Arg = argument;
+        Arg = arg;
     }
 }

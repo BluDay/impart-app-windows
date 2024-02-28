@@ -2,33 +2,33 @@ namespace BluDay.Common.CommandLine;
 
 public class ArgParser<TArgs> where TArgs : class, new()
 {
-    private readonly IReadOnlyDictionary<ArgInfo, PropertyInfo> _argumentToPropertyMap;
+    private readonly IReadOnlyDictionary<ArgInfo, PropertyInfo> _argToPropertyMap;
 
-    private readonly IReadOnlyDictionary<string, ArgInfo> _argumentIdentifierToInstanceMap;
+    private readonly IReadOnlyDictionary<string, ArgInfo> _argIdentifierToInstanceMap;
 
     public IEnumerable<ArgInfo> Args
     {
-        get => _argumentToPropertyMap.Keys;
+        get => _argToPropertyMap.Keys;
     }
 
     public IEnumerable<PropertyInfo> ParsableProperties
     {
-        get => _argumentToPropertyMap.Values;
+        get => _argToPropertyMap.Values;
     }
 
     public IReadOnlyDictionary<ArgInfo, PropertyInfo> ArgToPropertyMap
     {
-        get => _argumentToPropertyMap;
+        get => _argToPropertyMap;
     }
 
     public IReadOnlyDictionary<string, ArgInfo> ArgIdentifierToInstanceMap
     {
-        get => _argumentIdentifierToInstanceMap;
+        get => _argIdentifierToInstanceMap;
     }
 
     public ArgParser(IEnumerable<ArgInfo> args)
     {
-        _argumentToPropertyMap = typeof(TArgs)
+        _argToPropertyMap = typeof(TArgs)
             .GetProperties()
             .Select(
                 property => property.GetArgToPropertyPair(args)
@@ -39,7 +39,7 @@ public class ArgParser<TArgs> where TArgs : class, new()
             .ToDictionary()
             .AsReadOnly();
 
-        _argumentIdentifierToInstanceMap = _argumentToPropertyMap.Keys
+        _argIdentifierToInstanceMap = _argToPropertyMap.Keys
             .SelectMany(ArgInfoExtensions.GetIdentifierToSharedArgPairs)
             .ToDictionary()
             .AsReadOnly();
@@ -47,7 +47,7 @@ public class ArgParser<TArgs> where TArgs : class, new()
 
     private ArgInfo? FindArgInfoByIdentifier(string identifier)
     {
-        return _argumentToPropertyMap.Keys.FirstOrDefault(argInfo => argInfo.Match(identifier));
+        return _argToPropertyMap.Keys.FirstOrDefault(argInfo => argInfo.Match(identifier));
     }
 
     private IEnumerable<ParsedArgInfo> CreateParsedArgInfos(IReadOnlyList<string> args)
@@ -56,7 +56,7 @@ public class ArgParser<TArgs> where TArgs : class, new()
         {
             string identifier = args[index];
 
-            ArgInfo? argumentInfo = FindArgInfoByIdentifier(identifier);
+            ArgInfo? argInfo = FindArgInfoByIdentifier(identifier);
 
             // :)
         }

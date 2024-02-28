@@ -17,9 +17,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)extensions\StringExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IImpartApp.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImpartApp.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)IImpartAppArguments.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ImpartAppArgumentParser.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ImpartAppArguments.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IImpartAppArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ImpartAppArgParser.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ImpartAppArgs.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImpartAppContainer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\IViewModelProvider.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\ViewModelProvider.cs" />
