@@ -3,7 +3,7 @@ global using BluDay.Common.Extensions;
 global using BluDay.Common.Extensions.DependencyInjection;
 global using BluDay.Common.Models;
 global using BluDay.Common.ViewModels;
-global using BluDay.Common.CommandLine;
+global using BluDay.Common.Parsing.CommandLine;
 global using BluDay.Common.Services;
 global using BluDay.Common.UI.Appearance;
 global using BluDay.Common.UI.Navigation;

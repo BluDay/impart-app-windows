@@ -12,8 +12,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)attributes\ArgAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Attributes\NotEmptyOrWhiteSpaceAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Attributes\UseViewModelAttribute.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)CommandLine\ArgInfo.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)CommandLine\ParsedArgInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Parsing\CommandLine\ArgInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Parsing\CommandLine\ParsedArgInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)exceptions\InvalidArgFlagException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)extensions\ArgInfoExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)extensions\PropertyInfoExtensions.cs" />
@@ -33,9 +33,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\DependencyInjection\ObjectFactorySite`.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\StringExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\TypeExtensions.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)CommandLine\ArgActionType.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)CommandLine\ParsedArg.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)CommandLine\ArgParser`.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Parsing\CommandLine\ArgActionType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Parsing\CommandLine\ParsedArg.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Parsing\CommandLine\ArgParser`.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\UI\WindowManagement\IWindow.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UI\Appearance\AppTheme.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\AppDialogService.cs" />
@@ -54,6 +54,7 @@
     <Folder Include="$(MSBuildThisFileDirectory)Infrastructure\UI\" />
     <Folder Include="$(MSBuildThisFileDirectory)Infrastructure\Services\" />
     <Folder Include="$(MSBuildThisFileDirectory)Infrastructure\Domain\ViewModels\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Parsing\" />
     <Folder Include="$(MSBuildThisFileDirectory)Services\" />
     <Folder Include="$(MSBuildThisFileDirectory)UI\Appearance\" />
     <Folder Include="$(MSBuildThisFileDirectory)UI\Navigation\" />

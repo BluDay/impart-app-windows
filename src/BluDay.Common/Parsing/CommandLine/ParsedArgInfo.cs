@@ -1,4 +1,4 @@
-namespace BluDay.Common.CommandLine;
+namespace BluDay.Common.Parsing.CommandLine;
 
 public sealed class ParsedArgInfo
 {
