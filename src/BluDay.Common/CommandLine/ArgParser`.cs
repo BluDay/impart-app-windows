@@ -4,7 +4,7 @@ public class ArgParser<TArgs> where TArgs : class, new()
 {
     private readonly IReadOnlyDictionary<ArgInfo, PropertyInfo> _argToPropertyMap;
 
-    private readonly IReadOnlyDictionary<string, ArgInfo> _argIdentifierToInstanceMap;
+    private readonly IReadOnlyDictionary<string, ArgInfo> _flagToArgInfoMap;
 
     public IEnumerable<ArgInfo> Args
     {
@@ -21,9 +21,9 @@ public class ArgParser<TArgs> where TArgs : class, new()
         get => _argToPropertyMap;
     }
 
-    public IReadOnlyDictionary<string, ArgInfo> ArgIdentifierToInstanceMap
+    public IReadOnlyDictionary<string, ArgInfo> FlagToArgInfoMap
     {
-        get => _argIdentifierToInstanceMap;
+        get => _flagToArgInfoMap;
     }
 
     public ArgParser(IEnumerable<ArgInfo> args)
@@ -39,24 +39,24 @@ public class ArgParser<TArgs> where TArgs : class, new()
             .ToDictionary()
             .AsReadOnly();
 
-        _argIdentifierToInstanceMap = _argToPropertyMap.Keys
-            .SelectMany(ArgInfoExtensions.GetIdentifierToSharedArgPairs)
+        _flagToArgInfoMap = _argToPropertyMap.Keys
+            .SelectMany(ArgInfoExtensions.GetFlagToSharedArgPairs)
             .ToDictionary()
             .AsReadOnly();
     }
 
-    private ArgInfo? FindArgInfoByIdentifier(string identifier)
+    private ArgInfo? FindArgInfoByFlag(string flag)
     {
-        return _argToPropertyMap.Keys.FirstOrDefault(argInfo => argInfo.Match(identifier));
+        return _argToPropertyMap.Keys.FirstOrDefault(argInfo => argInfo.Match(flag));
     }
 
     private IEnumerable<ParsedArgInfo> CreateParsedArgInfos(IReadOnlyList<string> args)
     {
         for (int index = 0; index < args.Count; index++)
         {
-            string identifier = args[index];
+            string flag = args[index];
 
-            ArgInfo? argInfo = FindArgInfoByIdentifier(identifier);
+            ArgInfo? argInfo = FindArgInfoByFlag(flag);
 
             // :)
         }

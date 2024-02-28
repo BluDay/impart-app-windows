@@ -2,13 +2,16 @@ namespace BluDay.Common.Extensions;
 
 public static class ArgInfoExtensions
 {
-    public static IEnumerable<KeyValuePair<string, ArgInfo>> GetIdentifierToSharedArgPairs(this ArgInfo source)
+    public static IEnumerable<KeyValuePair<string, ArgInfo>> GetFlagToSharedArgPairs(this ArgInfo source)
     {
-        yield return new(source.Identifier, source);
-
-        if (source.FullIdentifier is not null)
+        if (source.ShortFlag is not null)
         {
-            yield return new(source.FullIdentifier, source);
+            yield return new(source.ShortFlag, source);
+        }
+
+        if (source.LongFlag is not null)
+        {
+            yield return new(source.LongFlag, source);
         }
     }
 }

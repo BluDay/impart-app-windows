@@ -9,13 +9,13 @@
     <Import_RootNamespace>BluDay.Common</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)attributes\ArgumentAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)attributes\ArgAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Attributes\NotEmptyOrWhiteSpaceAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Attributes\UseViewModelAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CommandLine\ArgInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CommandLine\ParsedArgInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)exceptions\InvalidArgumentIdentifierException.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)extensions\ArgumentInfoExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)extensions\ArgInfoExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)extensions\PropertyInfoExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Constants.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Domain\Models\IModel.cs" />

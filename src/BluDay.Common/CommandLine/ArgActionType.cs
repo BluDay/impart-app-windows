@@ -2,7 +2,7 @@ namespace BluDay.Common.CommandLine;
 
 public enum ArgActionType
 {
-    ParseValueByIdentifier,
+    ParseValueByFlag,
     ParseValue,
     AddConstant
 };

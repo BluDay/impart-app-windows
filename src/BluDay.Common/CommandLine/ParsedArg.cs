@@ -4,21 +4,21 @@ public readonly struct ParsedArg
 {
     public bool HasValue => Values.Count > 0;
 
-    public string Identifier { get; }
+    public string Flag { get; }
 
     public IReadOnlyList<object> Values { get; }
 
-    public ParsedArg(string identifier) : this(identifier, []) { }
+    public ParsedArg(string flag) : this(flag, []) { }
 
-    public ParsedArg(string identifier, params object[] values)
+    public ParsedArg(string flag, params object[] values)
     {
-        ArgumentException.ThrowIfNullOrWhiteSpace(identifier);
+        ArgumentException.ThrowIfNullOrWhiteSpace(flag);
 
         ArgumentNullException.ThrowIfNull(values);
 
-        // TODO: Add validity check for identifier.
+        // TODO: Add validity check for flag.
 
-        Identifier = identifier;
+        Flag = flag;
 
         Values = values.AsReadOnly();
     }
