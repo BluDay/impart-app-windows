@@ -14,6 +14,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Domain\ViewModels\IntroductionViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Domain\ViewModels\MainViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Domain\ViewModels\SettingsViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)extensions\StringExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IImpartApp.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImpartApp.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IImpartAppArguments.cs" />
@@ -23,5 +24,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Services\IViewModelProvider.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\ViewModelProvider.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Usings.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Extensions\" />
   </ItemGroup>
 </Project>
