@@ -1,6 +1,6 @@
 namespace BluDay.Impart.App.Extensions;
 
-public static class ImpartAppExtensions
+public static class StringExtensions
 {
     public static ImpartApp CreateImpartApp(this string args)
     {
