@@ -20,9 +20,9 @@ public class ArgumentParser<TArguments> where TArguments : class, new()
             .AsReadOnly();
     }
 
-    private IEnumerable<ParsedArgument> GetParsedArguments(IReadOnlyList<string> args)
+    private IEnumerable<ParsedArgument> GetParsedArguments(string[] args)
     {
-        for (int index = 0; index < args.Count; index++)
+        for (int index = 0; index < args.Length; index++)
         {
             string flag = args[index];
 
