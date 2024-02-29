@@ -86,6 +86,9 @@ public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
 
     public bool Equals(ArgumentInfo? other)
     {
-        return Id == other?.Id || Name == other?.Name;
+        return ShortFlagName == other?.ShortFlag
+            || LongFlagName  == other?.LongFlagName
+            || Name          == other?.Name
+            || Id            == other?.Id;
     }
 }
