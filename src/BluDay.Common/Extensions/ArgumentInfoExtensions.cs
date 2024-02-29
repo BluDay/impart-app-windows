@@ -2,7 +2,7 @@ namespace BluDay.Common.Extensions;
 
 public static class ArgumentInfoExtensions
 {
-    public static IDictionary<ArgumentInfo, PropertyInfo> CreateArgumentToPropertyMap<TArguments>(
+    public static IDictionary<ArgumentInfo, PropertyInfo> CreateArgumentToParsablePropertyMap<TArguments>(
         this IEnumerable<ArgumentInfo> source
     )
         where TArguments : class, new()

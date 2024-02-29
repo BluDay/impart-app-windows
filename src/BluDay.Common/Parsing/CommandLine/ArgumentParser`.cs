@@ -2,21 +2,21 @@ namespace BluDay.Common.Parsing.CommandLine;
 
 public class ArgumentParser<TArguments> where TArguments : class, new()
 {
-    private readonly IReadOnlyDictionary<ArgumentInfo, PropertyInfo> _argumentToPropertyMap;
+    private readonly IReadOnlyDictionary<ArgumentInfo, PropertyInfo> _argumentToParsablePropertyMap;
 
-    public IEnumerable<ArgumentInfo> Arguments => _argumentToPropertyMap.Keys;
+    public IEnumerable<ArgumentInfo> Arguments => _argumentToParsablePropertyMap.Keys;
 
-    public IEnumerable<PropertyInfo> Properties => _argumentToPropertyMap.Values;
+    public IEnumerable<PropertyInfo> ParsableProperties => _argumentToParsablePropertyMap.Values;
 
-    public IReadOnlyDictionary<ArgumentInfo, PropertyInfo> ArgumentToPropertyMap
+    public IReadOnlyDictionary<ArgumentInfo, PropertyInfo> ArgumentToParsablePropertyMap
     {
-        get => _argumentToPropertyMap;
+        get => _argumentToParsablePropertyMap;
     }
 
     public ArgumentParser(IEnumerable<ArgumentInfo> arguments)
     {
-        _argumentToPropertyMap = arguments
-            .CreateArgumentToPropertyMap<TArguments>()
+        _argumentToParsablePropertyMap = arguments
+            .CreateArgumentToParsablePropertyMap<TArguments>()
             .AsReadOnly();
     }
 
@@ -36,7 +36,7 @@ public class ArgumentParser<TArguments> where TArguments : class, new()
 
     public ArgumentInfo? FindArgumentByFlag(string flag)
     {
-        return _argumentToPropertyMap.Keys.FirstOrDefault(argInfo => argInfo.Match(flag));
+        return _argumentToParsablePropertyMap.Keys.FirstOrDefault(argInfo => argInfo.Match(flag));
     }
 
     public TArguments ParseArguments(string[] args)
