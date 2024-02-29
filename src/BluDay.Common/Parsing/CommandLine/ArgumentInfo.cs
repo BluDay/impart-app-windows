@@ -24,10 +24,14 @@ public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
 
     public int MaxValueCount { get; init; }
 
+    public Guid Id { get; }
+
     public Type ValueType { get; init; }
 
     public ArgumentInfo()
     {
+        Id = Guid.NewGuid();
+
         ValueType = typeof(bool);
 
         DefaultValue = (bool)default;
