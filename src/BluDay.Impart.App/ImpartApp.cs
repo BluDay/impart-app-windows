@@ -2,15 +2,19 @@ namespace BluDay.Impart.App;
 
 public sealed class ImpartApp : IImpartApp
 {
+    private bool _isDisposed;
+
+    private bool _isInitialized;
+
     private readonly ImpartAppArgs _args;
 
     private readonly ImpartAppContainer _container;
 
     public IImpartAppArgs Args => _args;
 
-    public bool IsDisposed { get; private set; }
+    public bool IsDisposed => _isDisposed;
 
-    public bool IsInitialized { get; private set; }
+    public bool IsInitialized => _isInitialized;
 
     public ImpartApp(ImpartAppArgs args)
     {
@@ -21,28 +25,24 @@ public sealed class ImpartApp : IImpartApp
 
     private void InitializeCoreServices()
     {
-        /*
-        _container.ServiceProvider
-            .GetRequiredService<IAppWindowService>()
-            .CreateWindow();
-        */
+        // TODO: Resolve core services and call necessary methods.
     }
 
     public void Initialize()
     {
-        if (IsInitialized) return;
+        if (_isInitialized) return;
 
         InitializeCoreServices();
 
-        IsInitialized = true;
+        _isInitialized = true;
     }
 
     public void Dispose()
     {
-        if (IsDisposed) return;
+        if (_isDisposed) return;
 
         _container?.Dispose();
 
-        IsDisposed = true;
+        _isDisposed = true;
     }
 }
