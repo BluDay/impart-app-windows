@@ -74,15 +74,25 @@ public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
         _shortFlagName = shortFlagName;
     }
 
-    public bool MatchByFlag(string flag)
+    public bool MatchByFlagName(string flagName)
     {
         // TODO: Parse flag differently based on the current property values.
 
-        return ShortFlag == flag || LongFlag == flag;
+        return _shortFlagName == flagName || _longFlagName == flagName;
     }
 
     public bool Equals(ArgumentInfo? other)
     {
         return _id == other?.Id;
+    }
+
+    public static bool operator ==(string flagName, ArgumentInfo? argument)
+    {
+        return argument?.MatchByFlagName(flagName) is true;
+    }
+
+    public static bool operator !=(string flagName, ArgumentInfo? argument)
+    {
+        return !(flagName == argument);
     }
 }
