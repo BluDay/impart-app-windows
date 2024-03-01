@@ -22,7 +22,7 @@ public class ArgumentParser<TArguments> where TArguments : class, new()
 
     private IEnumerable<ParsedArgument> GetParsedArguments(IEnumerable<string> args)
     {
-        IEnumerable<ArgumentToken> argumentTokens = args.Select(arg => new ArgumentToken(arg));
+        IReadOnlyList<ArgumentToken> argumentTokens = GetArgumentTokens(args);
 
         int count = args.Count();
 
@@ -46,5 +46,13 @@ public class ArgumentParser<TArguments> where TArguments : class, new()
         // :)
 
         return Activator.CreateInstance<TArguments>();
+    }
+
+    public static IReadOnlyList<ArgumentToken> GetArgumentTokens(IEnumerable<string> args)
+    {
+        return args
+            .Select(arg => new ArgumentToken(arg))
+            .ToList()
+            .AsReadOnly();
     }
 }
