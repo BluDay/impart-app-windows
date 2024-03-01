@@ -1,17 +1,15 @@
 namespace BluDay.Common.Parsing.CommandLine;
 
-public readonly struct ParsedArgument
+public readonly struct ParsedArgument(ArgumentToken flag)
 {
-    public bool IsFlag { get; }
+    public required ArgumentToken Token { get; init; } = flag;
 
-    public string Value { get; }
+    public bool HasValues => Values.Count > 0;
 
-    public ParsedArgument(string value)
+    public IReadOnlyList<object> Values { get; init; } = [];
+
+    public ParsedArgument(ArgumentToken flag, params object[] values) : this(flag)
     {
-        ArgumentException.ThrowIfNullOrWhiteSpace(value);
-
-        IsFlag = value.IsValidArgumentFlag();
-
-        Value = value;
+        Values = values;
     }
 }
