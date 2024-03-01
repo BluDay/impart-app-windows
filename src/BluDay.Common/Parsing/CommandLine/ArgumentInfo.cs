@@ -2,6 +2,8 @@ namespace BluDay.Common.Parsing.CommandLine;
 
 public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
 {
+    private ArgumentActionType _actionType;
+
     private string? _longFlag;
 
     private string? _longFlagName;
@@ -10,21 +12,52 @@ public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
 
     private string? _shortFlagName;
 
+    private object? _constant;
+
+    private object? _defaultValue;
+
+    private Type _valueType;
+
     private readonly Guid _id;
 
-    public ArgumentActionType ActionType { get; init; }
+    public ArgumentActionType ActionType
+    {
+        get  => _actionType;
+        init => _actionType = value;
+    }
 
     public bool Required { get; init; }
 
-    public object? Constant { get; init; }
+    public object? Constant
+    {
+        get => _constant;
+        init
+        {
+            // TODO: Add value type check.
 
-    public object? DefaultValue { get; init; }
+            _constant = value;
+        }
+    }
+
+    public object? DefaultValue
+    {
+        get => _defaultValue;
+        init
+        {
+            // TODO: Add value type check.
+
+            _defaultValue = value;
+        }
+    }
     
     public required string Name { get; init; }
 
     public string? Description { get; init; }
 
-    public string? LongFlag => _longFlag;
+    public string? LongFlag
+    {
+        get => _longFlag;
+    }
 
     public string? LongFlagName
     {
@@ -37,7 +70,10 @@ public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
         }
     }
 
-    public string? ShortFlag => _shortFlag;
+    public string? ShortFlag
+    {
+        get => _shortFlag;
+    }
 
     public string? ShortFlagName
     {
@@ -54,15 +90,24 @@ public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
 
     public Guid Id => _id;
 
-    public Type ValueType { get; init; }
+    public Type ValueType
+    {
+        get => _valueType;
+        init
+        {
+            // TODO: Add support value type check here.
+
+            _valueType = value;
+        }
+    }
 
     public ArgumentInfo()
     {
         _id = Guid.NewGuid();
 
-        ValueType = typeof(bool);
+        _valueType = typeof(bool);
 
-        DefaultValue = (bool)default;
+        _defaultValue = (bool)default;
 
         MaxValueCount = 1;
     }
