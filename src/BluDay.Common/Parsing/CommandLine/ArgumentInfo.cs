@@ -4,11 +4,17 @@ public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
 {
     private ArgumentActionType _actionType;
 
-    private string? _longFlag, _longFlagName;
+    private string? _longFlag;
+    
+    private string? _longFlagName;
 
-    private string? _shortFlag, _shortFlagName;
+    private string? _shortFlag;
 
-    private object? _constant, _defaultValue;
+    private string? _shortFlagName;
+
+    private object? _constant;
+
+    private object? _defaultValue;
 
     private Type _valueType;
 
