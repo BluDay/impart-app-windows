@@ -8,25 +8,25 @@ public sealed class ImpartAppArgParser : ArgumentParser<ImpartAppArgs>
 
     private static IEnumerable<ArgumentInfo> CreateArguments()
     {
-        yield return new("-d", "--demo-mode")
+        yield return new("d", "demo-mode")
         {
             Name        = nameof(ImpartAppArgs.DemoMode),
             Description = "Launch the app in demo mode."
         };
 
-        yield return new("-b", "--performance-mode")
+        yield return new("b", "performance-mode")
         {
             Name        = nameof(ImpartAppArgs.PerformanceMode),
             Description = "Launch the app in performance mode."
         };
 
-        yield return new("--skip-intro")
+        yield return new("skip-intro")
         {
             Name        = nameof(ImpartAppArgs.SkipIntro),
-            Description = "Skip the first-time launch introduction."
+            Description = "Skip the firsttime launch introduction."
         };
 
-        yield return new("-v", "--verbosity")
+        yield return new("v", "verbosity")
         {
             Name        = nameof(ImpartAppArgs.Verbosity),
             Description = "Verbosity level.",
@@ -35,7 +35,7 @@ public sealed class ImpartAppArgParser : ArgumentParser<ImpartAppArgs>
             Constant    = (uint)1
         };
 
-        yield return new("-t", "--theme")
+        yield return new("t", "app-theme")
         {
             Name        = nameof(ImpartAppArgs.AppTheme),
             Description = "App theme to use at launch.",

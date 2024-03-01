@@ -18,11 +18,17 @@ public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
 
     public string? Description { get; init; }
 
-    public string? LongFlag { get; }
+    public string? LongFlag
+    {
+        get => _longFlagName?.Insert(0, Constants.ARG_LONG_FLAG_PREFIX);
+    }
 
     public string? LongFlagName => _longFlagName;
 
-    public string? ShortFlag { get; }
+    public string? ShortFlag
+    {
+        get => _shortFlagName?.Insert(0, Constants.ARG_SHORT_FLAG_PREFIX);
+    }
 
     public string? ShortFlagName => _shortFlagName;
 
