@@ -35,6 +35,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\StringExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\TypeExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Parsing\CommandLine\ArgumentActionType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Parsing\CommandLine\ArgumentToken.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Parsing\CommandLine\ParsedArgument.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Parsing\CommandLine\ArgumentParser`.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\UI\WindowManagement\IWindow.cs" />
@@ -55,7 +56,6 @@
     <Folder Include="$(MSBuildThisFileDirectory)Infrastructure\Domain\" />
     <Folder Include="$(MSBuildThisFileDirectory)Infrastructure\UI\" />
     <Folder Include="$(MSBuildThisFileDirectory)Infrastructure\Domain\ViewModels\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Parsing\" />
     <Folder Include="$(MSBuildThisFileDirectory)Services\" />
     <Folder Include="$(MSBuildThisFileDirectory)UI\Appearance\" />
     <Folder Include="$(MSBuildThisFileDirectory)UI\Navigation\" />

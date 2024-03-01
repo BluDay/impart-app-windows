@@ -50,9 +50,6 @@ public class ArgumentParser<TArguments> where TArguments : class, new()
 
     public static IReadOnlyList<ArgumentToken> GetArgumentTokens(IEnumerable<string> args)
     {
-        return args
-            .Select(arg => new ArgumentToken(arg))
-            .ToList()
-            .AsReadOnly();
+        return args.Select(arg => new ArgumentToken(arg)).ToList().AsReadOnly();
     }
 }
