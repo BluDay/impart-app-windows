@@ -6,6 +6,8 @@ public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
 
     private readonly string? _shortFlagName;
 
+    private readonly Guid _id;
+
     public ArgumentActionType ActionType { get; init; }
 
     public bool Required { get; init; }
@@ -34,13 +36,13 @@ public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
 
     public int MaxValueCount { get; init; }
 
-    public Guid Id { get; }
+    public Guid Id => _id;
 
     public Type ValueType { get; init; }
 
     public ArgumentInfo()
     {
-        Id = Guid.NewGuid();
+        _id = Guid.NewGuid();
 
         ValueType = typeof(bool);
 
@@ -81,9 +83,6 @@ public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
 
     public bool Equals(ArgumentInfo? other)
     {
-        return _shortFlagName == other?.ShortFlag
-            || _longFlagName  == other?.LongFlagName
-            || Name           == other?.Name
-            || Id             == other?.Id;
+        return _id == other?.Id;
     }
 }

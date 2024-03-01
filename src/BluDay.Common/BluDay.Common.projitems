@@ -13,6 +13,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Attributes\NotEmptyOrWhiteSpaceAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Attributes\UseViewModelAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)exceptions\UnrecognizedArgumentException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Services\IAppActivationService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Parsing\CommandLine\ArgumentInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)exceptions\InvalidArgumentFlagException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)extensions\ArgumentInfoExtensions.cs" />
@@ -37,6 +38,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Parsing\CommandLine\ParsedArgument.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Parsing\CommandLine\ArgumentParser`.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\UI\WindowManagement\IWindow.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)services\AppActivationService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UI\Appearance\AppTheme.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\AppDialogService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\Services\IAppDialogService.cs" />
@@ -52,7 +54,6 @@
     <Folder Include="$(MSBuildThisFileDirectory)Exceptions\" />
     <Folder Include="$(MSBuildThisFileDirectory)Infrastructure\Domain\" />
     <Folder Include="$(MSBuildThisFileDirectory)Infrastructure\UI\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Infrastructure\Services\" />
     <Folder Include="$(MSBuildThisFileDirectory)Infrastructure\Domain\ViewModels\" />
     <Folder Include="$(MSBuildThisFileDirectory)Parsing\" />
     <Folder Include="$(MSBuildThisFileDirectory)Services\" />
