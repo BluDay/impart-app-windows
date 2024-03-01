@@ -4,17 +4,11 @@ public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
 {
     private ArgumentActionType _actionType;
 
-    private string? _longFlag;
+    private string? _longFlag, _longFlagName;
 
-    private string? _longFlagName;
+    private string? _shortFlag, _shortFlagName;
 
-    private string? _shortFlag;
-
-    private string? _shortFlagName;
-
-    private object? _constant;
-
-    private object? _defaultValue;
+    private object? _constant, _defaultValue;
 
     private Type _valueType;
 
@@ -54,10 +48,7 @@ public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
 
     public string? Description { get; init; }
 
-    public string? LongFlag
-    {
-        get => _longFlag;
-    }
+    public string? LongFlag => _longFlag;
 
     public string? LongFlagName
     {
@@ -70,10 +61,7 @@ public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
         }
     }
 
-    public string? ShortFlag
-    {
-        get => _shortFlag;
-    }
+    public string? ShortFlag => _shortFlag;
 
     public string? ShortFlagName
     {
