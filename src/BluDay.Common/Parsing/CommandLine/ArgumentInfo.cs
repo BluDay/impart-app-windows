@@ -2,9 +2,13 @@ namespace BluDay.Common.Parsing.CommandLine;
 
 public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
 {
-    private string? _longFlag, _longFlagName;
+    private string? _longFlag;
 
-    private string? _shortFlag, _shortFlagName;
+    private string? _longFlagName;
+
+    private string? _shortFlag;
+
+    private string? _shortFlagName;
 
     private readonly Guid _id;
 
