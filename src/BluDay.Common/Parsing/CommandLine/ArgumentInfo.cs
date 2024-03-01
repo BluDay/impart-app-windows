@@ -2,9 +2,9 @@ namespace BluDay.Common.Parsing.CommandLine;
 
 public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
 {
-    private readonly string? _longFlagName;
+    private string? _longFlag, _longFlagName;
 
-    private readonly string? _shortFlagName;
+    private string? _shortFlag, _shortFlagName;
 
     private readonly Guid _id;
 
@@ -20,19 +20,31 @@ public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
 
     public string? Description { get; init; }
 
-    public string? LongFlag
+    public string? LongFlag => _longFlag;
+
+    public string? LongFlagName
     {
-        get => _longFlagName?.Insert(0, Constants.ARG_LONG_FLAG_PREFIX);
+        get => _longFlagName;
+        set
+        {
+            _longFlagName = value;
+
+            _longFlag = value?.ToLongArgumentFlag();
+        }
     }
 
-    public string? LongFlagName => _longFlagName;
+    public string? ShortFlag => _shortFlag;
 
-    public string? ShortFlag
+    public string? ShortFlagName
     {
-        get => _shortFlagName?.Insert(0, Constants.ARG_SHORT_FLAG_PREFIX);
-    }
+        get => _shortFlagName;
+        set
+        {
+            _shortFlagName = value;
 
-    public string? ShortFlagName => _shortFlagName;
+            _shortFlag = value?.ToShortArgumentFlag();
+        }
+    }
 
     public int MaxValueCount { get; init; }
 
@@ -74,11 +86,16 @@ public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
         _shortFlagName = shortFlagName;
     }
 
-    public bool MatchByFlagName(string flagName)
+    public bool MatchByFlag(string flag)
     {
         // TODO: Parse flag differently based on the current property values.
 
-        return _shortFlagName == flagName || _longFlagName == flagName;
+        if (flag[0] != Constants.ARG_SHORT_FLAG_PREFIX[0])
+        {
+            return _shortFlagName == flag || _longFlagName == flag;
+        }
+
+        return _shortFlag == flag || _longFlag == flag;
     }
 
     public bool Equals(ArgumentInfo? other)
@@ -86,13 +103,23 @@ public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
         return _id == other?.Id;
     }
 
-    public static bool operator ==(string flagName, ArgumentInfo? argument)
+    public override bool Equals(object? obj)
     {
-        return argument?.MatchByFlagName(flagName) is true;
+        return Equals(obj as ArgumentInfo);
     }
 
-    public static bool operator !=(string flagName, ArgumentInfo? argument)
+    public override int GetHashCode()
     {
-        return !(flagName == argument);
+        return base.GetHashCode();
+    }
+
+    public static bool operator ==(string flag, ArgumentInfo? argument)
+    {
+        return argument?.MatchByFlag(flag) is true;
+    }
+
+    public static bool operator !=(string flag, ArgumentInfo? argument)
+    {
+        return !(flag == argument);
     }
 }

@@ -34,9 +34,9 @@ public class ArgumentParser<TArguments> where TArguments : class, new()
         yield break;
     }
 
-    public ArgumentInfo? FindArgumentByFlag(string flag)
+    public ArgumentInfo? FindArgumentByFlagName(string flagName)
     {
-        return _argumentToParsablePropertyMap.Keys.FirstOrDefault(argInfo => argInfo.MatchByFlag(flag));
+        return _argumentToParsablePropertyMap.Keys.FirstOrDefault(argInfo => flagName == argInfo);
     }
 
     public TArguments ParseArguments(string[] args)

@@ -38,4 +38,14 @@ public static class StringExtensions
 
         return source[..2] == Constants.ARG_LONG_FLAG_PREFIX;
     }
+
+    public static string? ToLongArgumentFlag(this string source)
+    {
+        return source?.Insert(0, Constants.ARG_LONG_FLAG_PREFIX);
+    }
+
+    public static string? ToShortArgumentFlag(this string source)
+    {
+        return source?.Insert(0, Constants.ARG_SHORT_FLAG_PREFIX);
+    }
 }
