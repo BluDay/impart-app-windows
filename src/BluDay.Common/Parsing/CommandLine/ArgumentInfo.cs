@@ -2,6 +2,10 @@ namespace BluDay.Common.Parsing.CommandLine;
 
 public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
 {
+    private readonly string? _longFlagName;
+
+    private readonly string? _shortFlagName;
+
     public ArgumentActionType ActionType { get; init; }
 
     public bool Required { get; init; }
@@ -16,11 +20,11 @@ public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
 
     public string? LongFlag { get; }
 
-    public string? LongFlagName { get; }
+    public string? LongFlagName => _longFlagName;
 
     public string? ShortFlag { get; }
 
-    public string? ShortFlagName { get; }
+    public string? ShortFlagName => _shortFlagName;
 
     public int MaxValueCount { get; init; }
 
@@ -39,42 +43,27 @@ public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
         MaxValueCount = 1;
     }
 
-    public ArgumentInfo(string flag) : this()
+    public ArgumentInfo(string flagName) : this()
     {
-        InvalidArgumentFlagException.ThrowIfInvalid(flag);
+        ArgumentException.ThrowIfNullOrWhiteSpace(flagName);
 
-        string flagName = GetFlagName(flag);
-
-        if (flag.IsValidLongArgumentFlag())
+        if (flagName.Length > 1)
         {
-            LongFlag     = flag;
-            LongFlagName = flagName;
+            _longFlagName = flagName;
         }
         else
         {
-            ShortFlag     = flag;
-            ShortFlagName = flagName;
+            _shortFlagName = flagName;
         }
     }
 
-    public ArgumentInfo(string shortFlag, string longFlag) : this()
+    public ArgumentInfo(string shortFlagName, string longFlagName) : this()
     {
-        InvalidArgumentFlagException.ThrowIfInvalid(shortFlag, longFlag);
+        ArgumentException.ThrowIfNullOrWhiteSpace(longFlagName);
+        ArgumentException.ThrowIfNullOrWhiteSpace(shortFlagName);
 
-        LongFlag     = longFlag;
-        LongFlagName = GetFlagName(longFlag);
-
-        ShortFlag     = shortFlag;
-        ShortFlagName = GetFlagName(shortFlag);
-    }
-
-    public static string GetFlagName(string flag)
-    {
-        string prefix = flag.IsValidShortArgumentFlag()
-            ? Constants.ARG_SHORT_FLAG_PREFIX
-            : Constants.ARG_LONG_FLAG_PREFIX;
-
-        return flag.TrimStart(prefix.ToCharArray());
+        _longFlagName  = longFlagName;
+        _shortFlagName = shortFlagName;
     }
 
     public bool Match(string flag)
@@ -86,9 +75,9 @@ public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
 
     public bool Equals(ArgumentInfo? other)
     {
-        return ShortFlagName == other?.ShortFlag
-            || LongFlagName  == other?.LongFlagName
-            || Name          == other?.Name
-            || Id            == other?.Id;
+        return _shortFlagName == other?.ShortFlag
+            || _longFlagName  == other?.LongFlagName
+            || Name           == other?.Name
+            || Id             == other?.Id;
     }
 }
