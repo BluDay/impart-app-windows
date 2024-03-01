@@ -36,7 +36,7 @@ public class ArgumentParser<TArguments> where TArguments : class, new()
 
     public ArgumentInfo? FindArgumentByFlag(string flag)
     {
-        return _argumentToParsablePropertyMap.Keys.FirstOrDefault(argInfo => argInfo.Match(flag));
+        return _argumentToParsablePropertyMap.Keys.FirstOrDefault(argInfo => argInfo.MatchByFlag(flag));
     }
 
     public TArguments ParseArguments(string[] args)

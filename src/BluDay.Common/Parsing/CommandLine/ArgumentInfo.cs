@@ -72,7 +72,7 @@ public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
         _shortFlagName = shortFlagName;
     }
 
-    public bool Match(string flag)
+    public bool MatchByFlag(string flag)
     {
         // TODO: Parse flag differently based on the current property values.
 
