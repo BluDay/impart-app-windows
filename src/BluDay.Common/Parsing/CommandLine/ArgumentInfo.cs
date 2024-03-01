@@ -112,11 +112,11 @@ public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
 
         if (flagName.Length > 1)
         {
-            _longFlagName = flagName;
+            LongFlagName = flagName;
         }
         else
         {
-            _shortFlagName = flagName;
+            ShortFlagName = flagName;
         }
     }
 
@@ -125,20 +125,20 @@ public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
         ArgumentException.ThrowIfNullOrWhiteSpace(longFlagName);
         ArgumentException.ThrowIfNullOrWhiteSpace(shortFlagName);
 
-        _longFlagName  = longFlagName;
-        _shortFlagName = shortFlagName;
+        LongFlagName  = longFlagName;
+        ShortFlagName = shortFlagName;
     }
 
-    public bool MatchByFlag(string flag)
+    public bool MatchByFlag(string value)
     {
         // TODO: Parse flag differently based on the current property values.
 
-        if (flag[0] != Constants.ARG_SHORT_FLAG_PREFIX[0])
-        {
-            return _shortFlagName == flag || _longFlagName == flag;
-        }
+        return _shortFlag == value || _longFlag == value;
+    }
 
-        return _shortFlag == flag || _longFlag == flag;
+    public bool MatchByFlagName(string value)
+    {
+        return _shortFlagName == value || _longFlagName == value;
     }
 
     public bool Equals(ArgumentInfo? other)
