@@ -15,12 +15,19 @@ public class ArgumentParser<TArguments> where TArguments : class, new()
 
     public ArgumentParser(IEnumerable<ArgumentInfo> arguments)
     {
-        _argumentToParsablePropertyMap = arguments
-            .CreateArgumentToParsablePropertyMap<TArguments>()
+        _argumentToParsablePropertyMap = typeof(TArguments)
+            .GetProperties()
+            .Select(
+                property => property.ToArgumentPropertyPair(arguments)
+            )
+            .Where(
+                pair => pair.Key is not null
+            )
+            .ToDictionary()
             .AsReadOnly();
     }
 
-    private IEnumerable<ParsedArgumentFlag> GetParsedArgumentFlags(IReadOnlyList<string> args)
+    private IEnumerable<ParsedArgumentFlag> GetParsedArgumentFlags(string[] args)
     {
         IEnumerable<ArgumentToken> argumentTokens = GetArgumentTokens(args);
 
@@ -34,7 +41,7 @@ public class ArgumentParser<TArguments> where TArguments : class, new()
         return _argumentToParsablePropertyMap.Keys.FirstOrDefault(argInfo => flag == argInfo);
     }
 
-    public TArguments ParseArguments(IReadOnlyList<string> args)
+    public TArguments ParseArguments(string[] args)
     {
         IEnumerable<ParsedArgumentFlag> parsedFlags = GetParsedArgumentFlags(args);
 
@@ -43,7 +50,7 @@ public class ArgumentParser<TArguments> where TArguments : class, new()
         return Activator.CreateInstance<TArguments>();
     }
 
-    public static IEnumerable<ArgumentToken> GetArgumentTokens(IReadOnlyList<string> args)
+    public static IEnumerable<ArgumentToken> GetArgumentTokens(string[] args)
     {
         return args.Select(value => new ArgumentToken(value));
     }
