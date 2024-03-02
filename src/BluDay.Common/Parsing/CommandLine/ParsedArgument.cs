@@ -1,6 +1,6 @@
 namespace BluDay.Common.Parsing.CommandLine;
 
-public readonly struct ParsedArgument
+public readonly struct ParsedArgumentFlag
 {
     public ArgumentInfo Info { get; }
 
@@ -10,16 +10,12 @@ public readonly struct ParsedArgument
 
     public IReadOnlyList<object> Values { get; } = [];
 
-    public ParsedArgument(ArgumentInfo info, ArgumentToken token) : this(info, token, []) { }
-
-    public ParsedArgument(ArgumentInfo info, ArgumentToken token, object[] values)
+    public ParsedArgumentFlag(ArgumentInfo info, ArgumentToken token, object[] values)
     {
         ArgumentNullException.ThrowIfNull(info);
 
-        Info = info;
-
-        Token = token;
-
+        Info   = info;
+        Token  = token;
         Values = values;
     }
 }

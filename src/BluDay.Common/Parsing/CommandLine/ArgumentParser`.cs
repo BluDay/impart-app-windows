@@ -20,9 +20,9 @@ public class ArgumentParser<TArguments> where TArguments : class, new()
             .AsReadOnly();
     }
 
-    private IEnumerable<ParsedArgument> GetParsedArguments(string[] args)
+    private IEnumerable<ParsedArgumentFlag> GetParsedArgumentFlags(IReadOnlyList<string> args)
     {
-        IEnumerable<ArgumentToken> argumentTokens = args.Select(value => new ArgumentToken(value));
+        IEnumerable<ArgumentToken> argumentTokens = GetArgumentTokens(args);
 
         // ( 0 _ o )
 
@@ -34,12 +34,17 @@ public class ArgumentParser<TArguments> where TArguments : class, new()
         return _argumentToParsablePropertyMap.Keys.FirstOrDefault(argInfo => flag == argInfo);
     }
 
-    public TArguments ParseArguments(string[] args)
+    public TArguments ParseArguments(IReadOnlyList<string> args)
     {
-        IReadOnlyList<ParsedArgument> parsedArguments = GetParsedArguments(args).ToList();
+        IEnumerable<ParsedArgumentFlag> parsedFlags = GetParsedArgumentFlags(args);
 
         // :)
 
         return Activator.CreateInstance<TArguments>();
+    }
+
+    public static IEnumerable<ArgumentToken> GetArgumentTokens(IReadOnlyList<string> args)
+    {
+        return args.Select(value => new ArgumentToken(value));
     }
 }
