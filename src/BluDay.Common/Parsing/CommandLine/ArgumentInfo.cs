@@ -4,19 +4,13 @@ public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
 {
     private ArgumentActionType _actionType;
 
-    private string? _longFlag;
-    
-    private string? _longFlagName;
-
-    private string? _shortFlag;
-
-    private string? _shortFlagName;
-
     private object? _constant;
 
     private object? _defaultValue;
 
     private Type _valueType;
+
+    private readonly ArgumentFlag _flag;
 
     private readonly Guid _id;
 
@@ -25,6 +19,8 @@ public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
         get  => _actionType;
         init => _actionType = value;
     }
+
+    public ArgumentFlag Flag => _flag;
 
     public bool Required { get; init; }
 
@@ -54,32 +50,6 @@ public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
 
     public string? Description { get; init; }
 
-    public string? LongFlag => _longFlag;
-
-    public string? LongFlagName
-    {
-        get => _longFlagName;
-        set
-        {
-            _longFlagName = value;
-
-            _longFlag = value?.ToLongArgumentFlag();
-        }
-    }
-
-    public string? ShortFlag => _shortFlag;
-
-    public string? ShortFlagName
-    {
-        get => _shortFlagName;
-        set
-        {
-            _shortFlagName = value;
-
-            _shortFlag = value?.ToShortArgumentFlag();
-        }
-    }
-
     public int MaxValueCount { get; init; }
 
     public Guid Id => _id;
@@ -95,9 +65,13 @@ public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
         }
     }
 
-    public ArgumentInfo()
+    public ArgumentInfo(ArgumentFlag flag)
     {
+        ArgumentNullException.ThrowIfNull(flag);
+
         _id = Guid.NewGuid();
+
+        _flag = flag;
 
         _valueType = typeof(bool);
 
@@ -106,63 +80,14 @@ public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
         MaxValueCount = 1;
     }
 
-    public ArgumentInfo(string flagName) : this()
-    {
-        ArgumentException.ThrowIfNullOrWhiteSpace(flagName);
+    public ArgumentInfo(string flag)
+        : this(new ArgumentFlag(flag)) { }
 
-        if (flagName.Length > 1)
-        {
-            LongFlagName = flagName;
-        }
-        else
-        {
-            ShortFlagName = flagName;
-        }
-    }
-
-    public ArgumentInfo(string shortFlagName, string longFlagName) : this()
-    {
-        ArgumentException.ThrowIfNullOrWhiteSpace(longFlagName);
-        ArgumentException.ThrowIfNullOrWhiteSpace(shortFlagName);
-
-        LongFlagName  = longFlagName;
-        ShortFlagName = shortFlagName;
-    }
-
-    public bool MatchByFlag(string value)
-    {
-        // TODO: Parse flag differently based on the current property values.
-
-        return _shortFlag == value || _longFlag == value;
-    }
-
-    public bool MatchByFlagName(string value)
-    {
-        return _shortFlagName == value || _longFlagName == value;
-    }
+    public ArgumentInfo(string shortFlag, string longFlag)
+        : this(new ArgumentFlag(shortFlag, longFlag)) { }
 
     public bool Equals(ArgumentInfo? other)
     {
         return _id == other?.Id;
-    }
-
-    public override bool Equals(object? obj)
-    {
-        return Equals(obj as ArgumentInfo);
-    }
-
-    public override int GetHashCode()
-    {
-        return base.GetHashCode();
-    }
-
-    public static bool operator ==(string flag, ArgumentInfo? argument)
-    {
-        return argument?.MatchByFlag(flag) is true;
-    }
-
-    public static bool operator !=(string flag, ArgumentInfo? argument)
-    {
-        return !(flag == argument);
     }
 }

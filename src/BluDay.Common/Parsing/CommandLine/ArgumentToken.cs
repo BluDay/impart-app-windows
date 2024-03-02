@@ -8,14 +8,16 @@ public readonly struct ArgumentToken
 
     public string Value { get; }
 
-    public ArgumentToken(string value, uint index)
+    public ArgumentToken(string value, int index)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(value);
 
-        IsFlag = value.IsValidArgumentFlag();
+        if (index < 0) throw new IndexOutOfRangeException();
+
+        IsFlag = false;
 
         Value = value;
 
-        Index = (int)index;
+        Index = index;
     }
 }

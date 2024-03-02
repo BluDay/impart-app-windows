@@ -42,11 +42,6 @@ public class ArgumentParser<TArguments> where TArguments : class, new()
         yield break;
     }
 
-    public ArgumentInfo? FindArgumentByFlag(string flag)
-    {
-        return _argumentToParsablePropertyMap.Keys.FirstOrDefault(argInfo => flag == argInfo);
-    }
-
     public TArguments ParseArguments(params string[] args)
     {
         IEnumerable<ParsedArgumentFlag> parsedFlags = GetParsedArgumentFlags(args);
@@ -58,6 +53,6 @@ public class ArgumentParser<TArguments> where TArguments : class, new()
 
     public static IEnumerable<ArgumentToken> GetArgumentTokens(string[] args)
     {
-        return args.Select(value => new ArgumentToken(value));
+        return args.Select((value, index) => new ArgumentToken(value, index));
     }
 }
