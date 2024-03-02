@@ -11,16 +11,16 @@ public sealed class InvalidArgumentFlagException : Exception
         // TODO: Validate flag.
     }
 
-    public static void ThrowIfInvalidLongFlag(string flag)
+    public static void ThrowIfInvalidLongFlag(string value)
     {
-        ArgumentException.ThrowIfNullOrWhiteSpace(flag);
+        ArgumentException.ThrowIfNullOrWhiteSpace(value);
 
         // TODO: Validate flag.
     }
 
-    public static void ThrowIfInvalidShortFlag(string flag)
+    public static void ThrowIfInvalidShortFlag(string value)
     {
-        ArgumentException.ThrowIfNullOrWhiteSpace(flag);
+        ArgumentException.ThrowIfNullOrWhiteSpace(value);
 
         // TODO: Validate flag.
     }
