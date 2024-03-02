@@ -2,7 +2,7 @@
   "profiles": {
     "WPF": {
       "commandName": "Project",
-      "commandLineArgs": "-b -vvvv -t Dark --skip-intro"
+      "commandLineArgs": "-b -d -vvvv -t Dark --skip-intro"
     }
   }
 }

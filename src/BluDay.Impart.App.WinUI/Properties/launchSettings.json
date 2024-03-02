@@ -2,7 +2,7 @@
   "profiles": {
     "WinUI": {
       "commandName": "MsixPackage",
-      "commandLineArgs": "-b -vvvv"
+      "commandLineArgs": "-b -d -vvvv -t Dark --skip-intro"
     }
   }
 }
