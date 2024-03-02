@@ -18,12 +18,18 @@ public class ArgumentParser<TArguments> where TArguments : class, new()
         _argumentToParsablePropertyMap = typeof(TArguments)
             .GetProperties()
             .Select(
-                property => property.ToArgumentPropertyPair(arguments)
+                property => (
+                    Property: property,
+                    Argument: property.GetArgument(arguments)
+                )
             )
             .Where(
-                pair => pair.Key is not null
+                pair => pair.Argument is not null
             )
-            .ToDictionary()
+            .ToDictionary(
+                pair => pair.Argument!,
+                pair => pair.Property
+            )
             .AsReadOnly();
     }
 

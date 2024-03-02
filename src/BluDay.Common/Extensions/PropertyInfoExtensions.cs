@@ -13,13 +13,4 @@ public static class PropertyInfoExtensions
 
         return attribute?.TargetName ?? source.Name;
     }
-
-    public static KeyValuePair<ArgumentInfo, PropertyInfo> ToArgumentPropertyPair(
-        this PropertyInfo              source,
-             IEnumerable<ArgumentInfo> arguments)
-    {
-        ArgumentInfo? argument = source.GetArgument(arguments);
-
-        return new(argument!, source);
-    }
 }
