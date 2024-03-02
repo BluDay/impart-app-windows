@@ -41,7 +41,7 @@ public class ArgumentParser<TArguments> where TArguments : class, new()
         return _argumentToParsablePropertyMap.Keys.FirstOrDefault(argInfo => flag == argInfo);
     }
 
-    public TArguments ParseArguments(string[] args)
+    public TArguments ParseArguments(params string[] args)
     {
         IEnumerable<ParsedArgumentFlag> parsedFlags = GetParsedArgumentFlags(args);
 
