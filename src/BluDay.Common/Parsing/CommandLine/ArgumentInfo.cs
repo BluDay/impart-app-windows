@@ -65,13 +65,11 @@ public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
         }
     }
 
-    public ArgumentInfo(ArgumentFlag flag)
+    public ArgumentInfo(string flagDescriptor)
     {
-        ArgumentNullException.ThrowIfNull(flag);
+        _flag = new(flagDescriptor);
 
         _id = Guid.NewGuid();
-
-        _flag = flag;
 
         _valueType = typeof(bool);
 
@@ -79,12 +77,6 @@ public sealed class ArgumentInfo : IEquatable<ArgumentInfo>
 
         MaxValueCount = 1;
     }
-
-    public ArgumentInfo(string flag)
-        : this(new ArgumentFlag(flag)) { }
-
-    public ArgumentInfo(string shortFlag, string longFlag)
-        : this(new ArgumentFlag(shortFlag, longFlag)) { }
 
     public bool Equals(ArgumentInfo? other)
     {

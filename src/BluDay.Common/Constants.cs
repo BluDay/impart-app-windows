@@ -2,6 +2,8 @@
 
 public static class Constants
 {
+    public const char VERTICAL_BAR_CHAR = '|';
+
     public const char WHITESPACE_CHAR = ' ';
 
     public const string ARG_LONG_FLAG_PREFIX = "--";

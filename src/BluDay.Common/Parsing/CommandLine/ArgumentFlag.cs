@@ -6,9 +6,28 @@ public readonly struct ArgumentFlag
 
     public string? Short { get; }
 
-    public ArgumentFlag(string value)
+    public ArgumentFlag(string descriptor)
     {
-        InvalidArgumentFlagException.ThrowIfInvalid(value);
+        ArgumentException.ThrowIfNullOrWhiteSpace(descriptor);
+
+        string[] flags = descriptor.Split(Constants.VERTICAL_BAR_CHAR);
+
+        string value = flags[0];
+
+        if (flags.Length > 1)
+        {
+            string full = flags[1];
+
+            InvalidArgumentFlagException.ThrowIfInvalid(
+                shortFlag: value,
+                longFlag:  full
+            );
+
+            Long  = full;
+            Short = value;
+
+            return;
+        }
 
         if (value.Length > 1)
         {
@@ -18,15 +37,6 @@ public readonly struct ArgumentFlag
         }
 
         Short = value;
-    }
-
-    public ArgumentFlag(string shortValue, string longValue)
-    {
-        InvalidArgumentFlagException.ThrowIfInvalidLongFlag(longValue);
-        InvalidArgumentFlagException.ThrowIfInvalidShortFlag(shortValue);
-
-        Long  = longValue;
-        Short = shortValue;
     }
 
     public static bool operator ==(string? value, ArgumentFlag flag)
