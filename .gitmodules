@@ -1,3 +1,6 @@
 [submodule "lib/bluday-common-dotnet"]
 	path = lib/bluday-common-dotnet
 	url = git@github.com:BluDay/bluday-common-dotnet
+[submodule "lib/BluDay.Net"]
+	path = lib/BluDay.Net
+	url = git@github.com:BluDay/BluDay.Net
