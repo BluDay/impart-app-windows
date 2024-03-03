@@ -11,17 +11,17 @@
     <Description>Developed by BluDay.</Description>
     <RepositoryUrl>https://github.com/BluDay/Impart</RepositoryUrl>
   </PropertyGroup>
-
+  
+  <Import Project="..\BluDay.Impart.App\BluDay.Impart.App.projitems" Label="Shared" />
+  
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
-    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.4">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.8.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
   </ItemGroup>
-  
-  <Import Project="..\BluDay.Net\BluDay.Net.projitems" Label="Shared" />
-  <Import Project="..\BluDay.Impart.App\BluDay.Impart.App.projitems" Label="Shared" />
+
+  <ItemGroup>
+    <Reference Include="BluDay.Net">
+      <HintPath>..\..\lib\BluDay.Net\src\bin\Debug\net8.0\BluDay.Net.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 </Project>
