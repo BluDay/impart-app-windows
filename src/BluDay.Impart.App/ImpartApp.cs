@@ -30,6 +30,8 @@ public sealed class ImpartApp : IImpartApp
 
     public void Initialize()
     {
+        ObjectDisposedException.ThrowIf(_isDisposed, this);
+
         if (_isInitialized) return;
 
         InitializeCoreServices();
