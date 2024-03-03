@@ -1,17 +1,11 @@
 ﻿global using BluDay.Impart.App.Domain.Models;
 global using BluDay.Impart.App.Domain.ViewModels;
-global using BluDay.Impart.App.Extensions;
 global using BluDay.Impart.App.Services;
-global using BluDay.Net;
-global using BluDay.Net.Extensions;
 global using BluDay.Net.Extensions.DependencyInjection;
 global using BluDay.Net.Models;
 global using BluDay.Net.ViewModels;
 global using BluDay.Net.Parsing.CommandLine;
 global using BluDay.Net.Services;
-global using BluDay.Net.UI.Appearance;
-global using BluDay.Net.UI.Navigation;
-global using BluDay.Net.UI.WindowManagement;
 global using CommunityToolkit.Mvvm.ComponentModel;
 global using CommunityToolkit.Mvvm.Messaging;
 global using System.ComponentModel.DataAnnotations;
