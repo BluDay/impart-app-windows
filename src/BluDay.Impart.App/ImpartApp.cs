@@ -45,4 +45,11 @@ public sealed class ImpartApp : IImpartApp
 
         _isDisposed = true;
     }
+
+    public static ImpartApp CreateFromEnvironmentArgs()
+    {
+        string[] args = Environment.GetCommandLineArgs()[1..];
+
+        return new(ImpartAppArgParser.Default.ParseArgs(args));
+    }
 }
