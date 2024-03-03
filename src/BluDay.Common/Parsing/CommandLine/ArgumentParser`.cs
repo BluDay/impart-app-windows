@@ -4,9 +4,15 @@ public class ArgumentParser<TArguments> where TArguments : class, new()
 {
     private readonly IReadOnlyDictionary<ArgumentInfo, PropertyInfo> _argumentToParsablePropertyMap;
 
-    public IEnumerable<ArgumentInfo> Arguments => _argumentToParsablePropertyMap.Keys;
+    public IEnumerable<ArgumentInfo> Arguments
+    {
+        get => _argumentToParsablePropertyMap.Keys.ToList().AsReadOnly();
+    }
 
-    public IEnumerable<PropertyInfo> ParsableProperties => _argumentToParsablePropertyMap.Values;
+    public IReadOnlyList<PropertyInfo> ParsableProperties
+    {
+        get => _argumentToParsablePropertyMap.Values.ToList().AsReadOnly();
+    }
 
     public IReadOnlyDictionary<ArgumentInfo, PropertyInfo> ArgumentToParsablePropertyMap
     {
@@ -15,44 +21,13 @@ public class ArgumentParser<TArguments> where TArguments : class, new()
 
     public ArgumentParser(IEnumerable<ArgumentInfo> arguments)
     {
-        _argumentToParsablePropertyMap = typeof(TArguments)
-            .GetProperties()
-            .Select(
-                property => (
-                    Property: property,
-                    Argument: property.GetArgument(arguments)
-                )
-            )
-            .Where(
-                pair => pair.Argument is not null
-            )
-            .ToDictionary(
-                pair => pair.Argument!,
-                pair => pair.Property
-            )
-            .AsReadOnly();
+        _argumentToParsablePropertyMap = null!;
     }
 
-    private IEnumerable<ParsedArgumentFlag> GetParsedArgumentFlags(string[] args)
+    public TArguments ParseArgs(params string[] values)
     {
-        IEnumerable<ArgumentToken> argumentTokens = GetArgumentTokens(args);
-
         // ( 0 _ o )
 
-        yield break;
-    }
-
-    public TArguments ParseArguments(params string[] args)
-    {
-        IEnumerable<ParsedArgumentFlag> parsedFlags = GetParsedArgumentFlags(args);
-
-        // :)
-
         return Activator.CreateInstance<TArguments>();
-    }
-
-    public static IEnumerable<ArgumentToken> GetArgumentTokens(string[] args)
-    {
-        return args.Select((value, index) => new ArgumentToken(value, index));
     }
 }

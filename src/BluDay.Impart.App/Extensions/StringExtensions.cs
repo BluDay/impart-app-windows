@@ -9,6 +9,6 @@ public static class StringExtensions
 
     public static ImpartApp CreateImpartApp(this string[] args)
     {
-        return new(args: ImpartAppArgParser.Default.ParseArguments(args));
+        return new(ImpartAppArgParser.Default.ParseArgs(args));
     }
 }
