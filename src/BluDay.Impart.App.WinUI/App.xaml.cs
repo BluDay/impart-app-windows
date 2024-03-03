@@ -5,7 +5,7 @@
 /// </summary>
 public sealed partial class App : Application
 {
-    private ImpartApp? _app;
+    private readonly ImpartApp _app = ImpartApp.CreateFromEnvironmentArgs();
 
     /// <summary>
     /// Initializes the singleton application object. This is the first line of authored
@@ -19,8 +19,6 @@ public sealed partial class App : Application
     /// <param name="e">Details about the launch request and process.</param>
     protected override void OnLaunched(LaunchActivatedEventArgs e)
     {
-        _app = ImpartApp.CreateFromEnvironmentArgs();
-
         _app.Initialize();
     }
 }
