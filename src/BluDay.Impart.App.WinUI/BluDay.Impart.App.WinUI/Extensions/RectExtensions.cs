@@ -1,4 +1,4 @@
-﻿namespace BluDay.Common.Extensions;
+﻿namespace BluDay.Net.Extensions;
 
 public static class RectExtensions
 {

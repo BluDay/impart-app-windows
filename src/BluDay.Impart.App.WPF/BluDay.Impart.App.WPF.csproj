@@ -22,6 +22,6 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
   </ItemGroup>
   
-  <Import Project="..\BluDay.Common\BluDay.Common.projitems" Label="Shared" />
+  <Import Project="..\BluDay.Net\BluDay.Net.projitems" Label="Shared" />
   <Import Project="..\BluDay.Impart.App\BluDay.Impart.App.projitems" Label="Shared" />
 </Project>
