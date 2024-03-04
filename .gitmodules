@@ -1,3 +1,3 @@
-[submodule "lib/BluDay.Net"]
+[submodule "BluDay.Net"]
 	path = lib/BluDay.Net
-	url = https://github.com/BluDay/BluDay.Net
+	url = https://github.com/BluDay/BluDay.Net.get
