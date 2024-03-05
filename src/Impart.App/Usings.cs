@@ -1,0 +1,10 @@
+﻿global using Impart.App.Domain.Models;
+global using Impart.App.Services;
+global using BluDay.Net.Extensions.DependencyInjection;
+global using BluDay.Net.Models;
+global using BluDay.Net.ViewModels;
+global using BluDay.Net.CommandLine;
+global using BluDay.Net.Services;
+global using CommunityToolkit.Mvvm.ComponentModel;
+global using CommunityToolkit.Mvvm.Messaging;
+global using System.ComponentModel.DataAnnotations;
