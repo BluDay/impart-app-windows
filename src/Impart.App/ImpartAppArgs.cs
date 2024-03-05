@@ -2,18 +2,18 @@ namespace Impart.App;
 
 public sealed class ImpartAppArgs : IImpartAppArgs
 {
-    [Argument]
+    [Arg]
     public bool DemoMode { get; init; }
 
-    [Argument]
+    [Arg]
     public bool PerformanceMode { get; init; }
 
-    [Argument]
+    [Arg]
     public bool SkipIntro { get; init; }
 
-    [Argument]
+    [Arg]
     public uint Verbosity { get; init; }
 
-    [Argument]
+    [Arg]
     public string? AppTheme { get; init; }
 }
