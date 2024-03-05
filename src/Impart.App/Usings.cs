@@ -1,6 +1,6 @@
-﻿global using BluDay.Net.Extensions.DependencyInjection;
+﻿global using BluDay.Net.CommandLine;
+global using BluDay.Net.Extensions.DependencyInjection;
 global using BluDay.Net.Models;
-global using BluDay.Net.CommandLine;
 global using BluDay.Net.Services;
 global using CommunityToolkit.Mvvm.ComponentModel;
 global using CommunityToolkit.Mvvm.Messaging;
