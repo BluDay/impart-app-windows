@@ -2,18 +2,18 @@ namespace BluDay.Impart.App;
 
 public sealed class ImpartAppArgs : IImpartAppArgs
 {
-    [Arg]
+    [Argument]
     public bool DemoMode { get; init; }
 
-    [Arg]
+    [Argument]
     public bool PerformanceMode { get; init; }
 
-    [Arg]
+    [Argument]
     public bool SkipIntro { get; init; }
 
-    [Arg]
+    [Argument]
     public uint Verbosity { get; init; }
 
-    [Arg]
+    [Argument]
     public string? AppTheme { get; init; }
 }
