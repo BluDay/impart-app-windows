@@ -25,7 +25,7 @@ public sealed class ImpartApp : IImpartApp
 
     private void InitializeCoreServices()
     {
-        // TODO: Resolve core services and call necessary methods.
+        // TODO: Resolve core services and activate the whole thing.
     }
 
     public void Initialize()
