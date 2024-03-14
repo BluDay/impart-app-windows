@@ -1,4 +1,4 @@
-namespace BluDay.Impart.App;
+﻿namespace BluDay.Impart.App;
 
 public sealed class ImpartApp : IImpartApp
 {
@@ -25,7 +25,7 @@ public sealed class ImpartApp : IImpartApp
 
     private void InitializeCoreServices()
     {
-        // TODO: Resolve core services and activate the whole thing.
+        // TODO: Resolve core services and activate the whole app. π-day!
     }
 
     public void Initialize()
