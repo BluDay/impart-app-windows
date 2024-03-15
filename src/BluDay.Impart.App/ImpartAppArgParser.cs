@@ -43,11 +43,4 @@ public sealed class ImpartAppArgParser : ArgumentParser<ImpartAppArgs>
             ValueType   = typeof(string)
         };
     }
-
-    public static ImpartAppArgs ParseFromCommandLine()
-    {
-        ImpartAppArgs args = Default.Parse(Environment.GetCommandLineArgs()[1..]);
-
-        return new(args);
-    }
 }
