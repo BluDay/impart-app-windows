@@ -31,8 +31,8 @@ public sealed class ImpartAppArgParser : ArgumentParser<ImpartAppArgs>
             Name        = nameof(ImpartAppArgs.Verbosity),
             Description = "Verbosity level.",
             ActionType  = ArgumentActionType.AddConstant,
-            ValueType   = typeof(uint),
-            Constant    = (uint)1
+            ValueType   = typeof(int),
+            Constant    = 1
         };
 
         yield return new("t|app-theme")
