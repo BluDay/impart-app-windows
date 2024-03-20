@@ -30,9 +30,7 @@ public sealed class ImpartAppArgParser : ArgumentParser<ImpartAppArgs>
         {
             Name        = nameof(ImpartAppArgs.Verbosity),
             Description = "Verbosity level.",
-            ActionType  = ArgumentActionType.Count,
-            StoreType   = ArgumentStoreType.Integer,
-            Constant    = 1
+            ActionType  = ArgumentActionType.Count
         };
 
         yield return new("t|app-theme")
