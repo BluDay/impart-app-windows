@@ -1,10 +1,10 @@
 namespace Impart.App;
 
-public sealed class ImpartAppArgParser : ArgumentParser<ImpartAppArgs>
+public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
 {
-    public static ImpartAppArgParser Default { get; } = new();
+    public static ImpartAppArgsParser Default { get; } = new();
 
-    public ImpartAppArgParser() : base(CreateArguments()) { }
+    public ImpartAppArgsParser() : base(CreateArguments()) { }
 
     private static IEnumerable<ArgumentInfo> CreateArguments()
     {
