@@ -30,7 +30,7 @@ public sealed class ImpartAppArgParser : ArgumentParser<ImpartAppArgs>
         {
             Name        = nameof(ImpartAppArgs.Verbosity),
             Description = "Verbosity level.",
-            ActionType  = ArgumentActionType.AddConstant,
+            ActionType  = ArgumentActionType.Count,
             StoreType   = ArgumentStoreType.Integer,
             Constant    = 1
         };
