@@ -31,7 +31,7 @@ public sealed class ImpartAppArgParser : ArgumentParser<ImpartAppArgs>
             Name        = nameof(ImpartAppArgs.Verbosity),
             Description = "Verbosity level.",
             ActionType  = ArgumentActionType.AddConstant,
-            ValueType   = typeof(int),
+            StoreType   = ArgumentStoreType.Integer,
             Constant    = 1
         };
 
@@ -40,7 +40,7 @@ public sealed class ImpartAppArgParser : ArgumentParser<ImpartAppArgs>
             Name        = nameof(ImpartAppArgs.AppTheme),
             Description = "App theme to use at launch.",
             ActionType  = ArgumentActionType.ParseValue,
-            ValueType   = typeof(string)
+            StoreType   = ArgumentStoreType.String
         };
     }
 }
