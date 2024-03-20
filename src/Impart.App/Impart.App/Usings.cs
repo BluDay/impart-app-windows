@@ -1,4 +1,4 @@
-﻿global using BluDay.Net.Common.CommandLine;
+﻿global using BluDay.Net.CommandLine;
 global using BluDay.Net.DependencyInjection;
 global using BluDay.Net.Models;
 global using BluDay.Net.Services;
