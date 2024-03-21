@@ -6,7 +6,7 @@ public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
 
     public ImpartAppArgsParser() : base(CreateArgs()) { }
 
-    private ArgumentInfo[] CreateArgs() =>
+    private static ArgumentInfo[] CreateArgs() =>
     [
         new("d|demo-mode")
         {
