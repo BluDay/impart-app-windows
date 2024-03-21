@@ -1,6 +1,6 @@
 namespace Impart.App;
 
-public sealed class ImpartAppArgs : IArgs
+public sealed class ImpartAppArgs
 {
     [Argument]
     public bool DemoMode { get; init; }
