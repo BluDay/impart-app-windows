@@ -4,9 +4,9 @@ public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
 {
     public static ImpartAppArgsParser Default { get; } = new();
 
-    public ImpartAppArgsParser() : base(CreateArguments()) { }
+    public ImpartAppArgsParser() : base(CreateArgs()) { }
 
-    private ArgumentInfo[] CreateArguments() =>
+    private ArgumentInfo[] CreateArgs() =>
     [
         new("d|demo-mode")
         {
