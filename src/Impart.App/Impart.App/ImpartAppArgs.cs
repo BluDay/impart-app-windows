@@ -15,5 +15,5 @@ public sealed class ImpartAppArgs
     public uint Verbosity { get; init; }
 
     [Argument]
-    public string? AppTheme { get; init; }
+    public AppTheme? AppTheme { get; init; }
 }
