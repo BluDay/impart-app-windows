@@ -1,6 +1,6 @@
 ﻿namespace Impart.App;
 
-public sealed class ImpartApp : IImpartApp
+public sealed class ImpartApp
 {
     private bool _isDisposed;
 
