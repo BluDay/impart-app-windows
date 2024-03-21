@@ -6,9 +6,9 @@ public sealed class ImpartApp
 
     private bool _isInitialized;
 
-    private readonly ImpartAppArgs _args;
+    internal readonly ImpartAppArgs _args;
 
-    private readonly ImpartAppContainer _container;
+    internal readonly ImpartAppContainer _container;
 
     public bool IsDisposed => _isDisposed;
 
