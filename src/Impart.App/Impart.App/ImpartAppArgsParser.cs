@@ -26,7 +26,7 @@ public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
             Name        = nameof(ImpartAppArgs.SkipIntro),
             Description = "Skip the firsttime launch introduction."
         },
-        new ArgumentInfo<int>()
+        new ArgumentInfo<uint>()
         {
             Flags       = new("v|verbosity"),
             Name        = nameof(ImpartAppArgs.Verbosity),
