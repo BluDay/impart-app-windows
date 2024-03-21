@@ -44,6 +44,12 @@
     <Content Include="Impart.App.WinUI\UI\Styles\PersonPictureStyle.xaml" />
     <Content Include="Impart.App.WinUI\UI\Styles\UserControlStyle.xaml" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="BluDay.Net">
+      <HintPath>..\..\..\bluday-dotnet\src\bin\x64\Release\net8.0\BluDay.Net.dll</HintPath>
+    </Reference>
+  </ItemGroup>
   
   <ItemGroup>
     <Page Update="Impart.App.WinUI.UI\Views\ConversationsPage.xaml">

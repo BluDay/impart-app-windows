@@ -31,16 +31,16 @@ public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
             Flags       = new("v|verbosity"),
             Name        = nameof(ImpartAppArgs.Verbosity),
             Description = "Verbosity level.",
-            ActionType  = ArgumentActionType.Count
+            ActionType  = ArgumentActionType.CountFlag
         },
         new ArgumentInfo<AppTheme>()
         {
-            Flags       = new("t|app-theme"),
-            Name        = nameof(ImpartAppArgs.AppTheme),
-            Description = "App theme to use at launch.",
-            ActionType  = ArgumentActionType.StoreValue,
-            StoreType   = ArgumentStoreType.String,
-            Handler     = Enum.Parse<AppTheme>
+            Flags        = new("t|app-theme"),
+            Name         = nameof(ImpartAppArgs.AppTheme),
+            Description  = "App theme to use at launch.",
+            ActionType   = ArgumentActionType.StoreValue,
+            StoreType    = ArgumentStoreType.String,
+            ValueHandler = Enum.Parse<AppTheme>
         }
     ];
 }

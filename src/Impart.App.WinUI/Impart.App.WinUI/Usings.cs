@@ -1,5 +1,4 @@
-﻿global using BluDay.Net.Attributes;
-global using BluDay.Net.ViewModels;
+﻿global using BluDay.Net.Domain.ViewModels;
 global using Impart.App.Domain.ViewModels;
 global using Impart.App.WinUI.Extensions;
 global using Microsoft.Extensions.DependencyInjection;

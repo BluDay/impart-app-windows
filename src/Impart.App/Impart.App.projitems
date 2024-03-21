@@ -9,19 +9,20 @@
     <Import_RootNamespace>Impart.App</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Domain\Models\UserModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Domain\ViewModels\ConversationsViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Domain\ViewModels\IntroductionViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Domain\ViewModels\MainViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Domain\ViewModels\SettingsViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)IImpartApp.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ImpartApp.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)IImpartAppArgs.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ImpartAppArgParser.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ImpartAppArgs.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ImpartAppContainer.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\IViewModelProvider.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\ViewModelProvider.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Usings.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Impart.App\Domain\Models\UserModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Impart.App\Domain\ViewModels\ConversationsViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Impart.App\Domain\ViewModels\IntroductionViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Impart.App\Domain\ViewModels\MainViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Impart.App\Domain\ViewModels\SettingsViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Impart.App\ImpartApp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Impart.App\ImpartAppArgsParser.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Impart.App\ImpartAppArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Impart.App\ImpartAppContainer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Impart.App\Services\IViewModelProvider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Impart.App\Services\ViewModelProvider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Impart.App\Usings.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Impart.App\" />
   </ItemGroup>
 </Project>
