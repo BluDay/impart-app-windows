@@ -1,7 +1,7 @@
-﻿global using BluDay.Net.Common.Attributes;
-global using BluDay.Net.Common.CommandLine;
-global using BluDay.Net.Common.DependencyInjection;
+﻿global using BluDay.Net.CommandLine;
+global using BluDay.Net.Common.Attributes;
 global using BluDay.Net.Common.Extensions;
+global using BluDay.Net.DependencyInjection;
 global using BluDay.Net.Domain.Models;
 global using BluDay.Net.Services;
 global using BluDay.Net.UI.Appearance;
