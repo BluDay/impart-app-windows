@@ -6,7 +6,7 @@ public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
 
     public ImpartAppArgsParser() : base(CreateArgs()) { }
 
-    private static ArgumentInfo[] CreateArgs() =>
+    private static IArgumentInfo[] CreateArgs() =>
     [
         new ArgumentInfo<bool>()
         {
