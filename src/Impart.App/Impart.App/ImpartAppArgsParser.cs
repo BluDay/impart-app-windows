@@ -1,6 +1,6 @@
 namespace Impart.App;
 
-public class ImpartAppArgsParser : ArgumentsParser
+public class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
 {
     public static ImpartAppArgsParser Default { get; } = new();
 
@@ -38,14 +38,4 @@ public class ImpartAppArgsParser : ArgumentsParser
             ValueHandler = arg => Enum.Parse<AppTheme>(arg)
         }
     ];
-
-    public static ImpartAppArgs Parse(string[] args)
-    {
-        return Default.Parse<ImpartAppArgs>(args);
-    }
-
-    public static ImpartAppArgs ParseFromCommandLine()
-    {
-        return Default.ParseFromCommandLine<ImpartAppArgs>();
-    }
 }
