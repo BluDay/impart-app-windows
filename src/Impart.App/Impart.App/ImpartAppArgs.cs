@@ -3,16 +3,16 @@ namespace Impart.App;
 public sealed class ImpartAppArgs
 {
     [Argument]
-    public bool DemoMode { get; init; }
+    public bool? DemoMode { get; init; }
 
     [Argument]
-    public bool PerformanceMode { get; init; }
+    public bool? PerformanceMode { get; init; }
 
     [Argument]
-    public bool SkipIntro { get; init; }
+    public bool? SkipIntro { get; init; }
 
     [Argument]
-    public uint Verbosity { get; init; }
+    public uint? Verbosity { get; init; }
 
     [Argument]
     public AppTheme? AppTheme { get; init; }
