@@ -1,10 +1,8 @@
 namespace Impart.App;
 
-public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
+public static class ImpartAppArgsParser
 {
-    public static ImpartAppArgsParser Default { get; } = new();
-
-    public ImpartAppArgsParser() : base(CreateArgs()) { }
+    public static readonly ArgumentsParser _parser = new(CreateArgs());
 
     private static Argument[] CreateArgs() =>
     [
@@ -38,4 +36,14 @@ public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
             ValueHandler = arg => Enum.Parse<AppTheme>(arg)
         }
     ];
+
+    public static ImpartAppArgs Parse(string[] args)
+    {
+        return _parser.Parse<ImpartAppArgs>(args);
+    }
+
+    public static ImpartAppArgs ParseFromCommandLine()
+    {
+        return _parser.ParseFromCommandLine<ImpartAppArgs>();
+    }
 }

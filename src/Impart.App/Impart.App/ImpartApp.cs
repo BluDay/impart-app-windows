@@ -48,6 +48,6 @@ public sealed class ImpartApp
 
     public static ImpartApp CreateFromEnvironmentArgs()
     {
-        return new(ImpartAppArgsParser.Default.ParseFromCommandLine());
+        return new(ImpartAppArgsParser.ParseFromCommandLine());
     }
 }
