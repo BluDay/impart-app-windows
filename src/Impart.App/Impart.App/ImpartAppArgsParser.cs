@@ -1,8 +1,12 @@
 namespace Impart.App;
 
-public static class ImpartAppArgsParser
+public class ImpartAppArgsParser : ArgumentsParser
 {
-    public static readonly ArgumentsParser _parser = new(
+    public static ImpartAppArgsParser Default { get; } = new();
+
+    public ImpartAppArgsParser() : base(CreateArgs()) { }
+
+    private static Argument[] CreateArgs() =>
     [
         new Argument("d|demo-mode")
         {
@@ -33,15 +37,15 @@ public static class ImpartAppArgsParser
             StoreType    = ArgumentStoreType.String,
             ValueHandler = arg => Enum.Parse<AppTheme>(arg)
         }
-    ]);
+    ];
 
     public static ImpartAppArgs Parse(string[] args)
     {
-        return _parser.Parse<ImpartAppArgs>(args);
+        return Default.Parse<ImpartAppArgs>(args);
     }
 
     public static ImpartAppArgs ParseFromCommandLine()
     {
-        return _parser.ParseFromCommandLine<ImpartAppArgs>();
+        return Default.ParseFromCommandLine<ImpartAppArgs>();
     }
 }
