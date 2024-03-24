@@ -2,9 +2,7 @@ namespace Impart.App;
 
 public static class ImpartAppArgsParser
 {
-    public static readonly ArgumentsParser _parser = new(CreateArgs());
-
-    private static Argument[] CreateArgs() =>
+    public static readonly ArgumentsParser _parser = new(
     [
         new Argument("d|demo-mode")
         {
@@ -19,7 +17,7 @@ public static class ImpartAppArgsParser
         new Argument("skip-intro")
         {
             Name        = nameof(ImpartAppArgs.SkipIntro),
-            Description = "Skip the firsttime launch introduction."
+            Description = "Skip the first-time launch introduction."
         },
         new Argument("v|verbosity")
         {
@@ -35,7 +33,7 @@ public static class ImpartAppArgsParser
             StoreType    = ArgumentStoreType.String,
             ValueHandler = arg => Enum.Parse<AppTheme>(arg)
         }
-    ];
+    ]);
 
     public static ImpartAppArgs Parse(string[] args)
     {
