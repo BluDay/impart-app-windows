@@ -5,7 +5,7 @@
 /// </summary>
 public sealed partial class App : Application
 {
-    private readonly ImpartApp _app = ImpartApp.CreateFromEnvironmentArgs();
+    private readonly ImpartApp _app = new(ImpartAppArgsParser.ParseFromCommandLine());
 
     /// <summary>
     /// Initializes the singleton application object. This is the first line of authored
