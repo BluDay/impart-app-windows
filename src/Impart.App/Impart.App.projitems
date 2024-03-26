@@ -24,5 +24,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Impart.App\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Resources\" />
   </ItemGroup>
 </Project>
