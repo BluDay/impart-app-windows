@@ -31,11 +31,10 @@ public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
         },
         new NamedArgument("t", "app-theme")
         {
-            Name         = nameof(ImpartAppArgs.AppTheme),
-            Description  = "App theme to use at launch.",
-            ActionType   = ArgumentActionType.StoreValue,
-            StoreType    = ArgumentStoreType.String,
-            ValueHandler = arg => Enum.Parse<AppTheme>(arg)
+            Name        = nameof(ImpartAppArgs.AppTheme),
+            Description = "App theme to use at launch.",
+            ActionType  = ArgumentActionType.StoreValue,
+            StoreType   = ArgumentStoreType.String,
         }
     ];
 }
