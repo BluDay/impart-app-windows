@@ -6,30 +6,30 @@ public class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
 
     public ImpartAppArgsParser() : base(CreateArgs()) { }
 
-    private static Argument[] CreateArgs() =>
+    private static IReadOnlyList<IArgument> CreateArgs() =>
     [
-        new Argument("d|demo-mode")
+        new NamedArgument("d|demo-mode")
         {
             Name        = nameof(ImpartAppArgs.DemoMode),
             Description = "Launch the app in demo mode."
         },
-        new Argument("b|performance-mode")
+        new NamedArgument("b|performance-mode")
         {
             Name        = nameof(ImpartAppArgs.PerformanceMode),
             Description = "Launch the app in performance mode."
         },
-        new Argument("skip-intro")
+        new NamedArgument("skip-intro")
         {
             Name        = nameof(ImpartAppArgs.SkipIntro),
             Description = "Skip the first-time launch introduction."
         },
-        new Argument("v|verbosity")
+        new NamedArgument("v|verbosity")
         {
             Name        = nameof(ImpartAppArgs.Verbosity),
             Description = "Verbosity level.",
             ActionType  = ArgumentActionType.CountFlag
         },
-        new Argument("t|app-theme")
+        new NamedArgument("t|app-theme")
         {
             Name         = nameof(ImpartAppArgs.AppTheme),
             Description  = "App theme to use at launch.",
