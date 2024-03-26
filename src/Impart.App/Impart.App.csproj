@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Platforms>x64;ARM64</Platforms>
+    <Title>Impart (WinUI)</Title>
+    <Copyright>© BluDay 2024</Copyright>
+    <Description>Developed by BluDay.</Description>
+    <RepositoryUrl>https://github.com/BluDay/impart-app-windows</RepositoryUrl>
+  </PropertyGroup>
+</Project>
