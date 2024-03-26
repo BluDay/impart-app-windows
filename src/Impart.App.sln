@@ -4,10 +4,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Impart.App.WinUI", "Impart.App.WinUI\Impart.App.WinUI.csproj", "{0C968C02-4347-46D8-9DA7-F832B3F60652}"
+	ProjectSection(ProjectDependencies) = postProject
+		{24D21082-C261-4350-BFAA-BF0C0F876B6F} = {24D21082-C261-4350-BFAA-BF0C0F876B6F}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Impart.App.WPF", "Impart.App.WPF\Impart.App.WPF.csproj", "{771235F8-471C-41CC-B895-ED5C97503C88}"
+	ProjectSection(ProjectDependencies) = postProject
+		{24D21082-C261-4350-BFAA-BF0C0F876B6F} = {24D21082-C261-4350-BFAA-BF0C0F876B6F}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Impart.App", "Impart.App\Impart.App.csproj", "{24D21082-C261-4350-BFAA-BF0C0F876B6F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Impart.App", "Impart.App\Impart.App.csproj", "{24D21082-C261-4350-BFAA-BF0C0F876B6F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,8 +45,8 @@ Global
 		{771235F8-471C-41CC-B895-ED5C97503C88}.Release|x64.Build.0 = Release|Any CPU
 		{24D21082-C261-4350-BFAA-BF0C0F876B6F}.Debug|ARM64.ActiveCfg = Debug|Any CPU
 		{24D21082-C261-4350-BFAA-BF0C0F876B6F}.Debug|ARM64.Build.0 = Debug|Any CPU
-		{24D21082-C261-4350-BFAA-BF0C0F876B6F}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{24D21082-C261-4350-BFAA-BF0C0F876B6F}.Debug|x64.Build.0 = Debug|Any CPU
+		{24D21082-C261-4350-BFAA-BF0C0F876B6F}.Debug|x64.ActiveCfg = Debug|x64
+		{24D21082-C261-4350-BFAA-BF0C0F876B6F}.Debug|x64.Build.0 = Debug|x64
 		{24D21082-C261-4350-BFAA-BF0C0F876B6F}.Release|ARM64.ActiveCfg = Release|Any CPU
 		{24D21082-C261-4350-BFAA-BF0C0F876B6F}.Release|ARM64.Build.0 = Release|Any CPU
 		{24D21082-C261-4350-BFAA-BF0C0F876B6F}.Release|x64.ActiveCfg = Release|Any CPU
