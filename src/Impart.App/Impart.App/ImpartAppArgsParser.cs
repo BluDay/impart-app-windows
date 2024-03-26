@@ -1,6 +1,6 @@
 namespace Impart.App;
 
-public class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
+public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
 {
     public static ImpartAppArgsParser Default { get; } = new();
 
