@@ -11,28 +11,28 @@ public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
         new NamedArgument("d", "demo-mode")
         {
             Name        = nameof(ImpartAppArgs.DemoMode),
-            Description = "Launch the app in demo mode."
+            Description = Resources.ArgumentDescriptions.DEMO_MODE
         },
         new NamedArgument("b", "performance-mode")
         {
             Name        = nameof(ImpartAppArgs.PerformanceMode),
-            Description = "Launch the app in performance mode."
+            Description = Resources.ArgumentDescriptions.PERFORMANCE_MODE
         },
         new NamedArgument("skip-intro")
         {
             Name        = nameof(ImpartAppArgs.SkipIntro),
-            Description = "Skip the first-time launch introduction."
+            Description = Resources.ArgumentDescriptions.SKIP_INTRO
         },
         new NamedArgument("v", "verbosity")
         {
             Name        = nameof(ImpartAppArgs.Verbosity),
-            Description = "Verbosity level.",
+            Description = Resources.ArgumentDescriptions.VERBOSITY,
             ActionType  = ArgumentActionType.CountFlag
         },
         new NamedArgument("t", "app-theme")
         {
             Name        = nameof(ImpartAppArgs.AppTheme),
-            Description = "App theme to use at launch.",
+            Description = Resources.ArgumentDescriptions.APP_THEME,
             ActionType  = ArgumentActionType.StoreValue,
             StoreType   = ArgumentStoreType.String,
         }
