@@ -41,7 +41,7 @@ public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
 
     public ImpartAppArgs ParseFromCommandLine()
     {
-        string[] args = Environment.GetCommandLineArgs()[1..];
+        IReadOnlyList<string> args = Environment.GetCommandLineArgs()[1..].AsReadOnly();
 
         return Parse(args);
     }
