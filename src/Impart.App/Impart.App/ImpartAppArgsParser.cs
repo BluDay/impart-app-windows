@@ -34,7 +34,7 @@ public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
             Name        = nameof(ImpartAppArgs.AppTheme),
             Description = Resources.ArgumentDescriptions.APP_THEME,
             ActionType  = ArgumentActionType.StoreValue,
-            StoreType   = ArgumentStoreType.String,
+            StoreType   = ArgumentStoreType.String
         }
     ];
 }
