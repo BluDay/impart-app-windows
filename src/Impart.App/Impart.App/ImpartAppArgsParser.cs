@@ -38,11 +38,4 @@ public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
             StoreType   = ArgumentStoreType.String
         }
     ];
-
-    public ImpartAppArgs ParseFromCommandLine()
-    {
-        string[] args = Environment.GetCommandLineArgs()[1..];
-
-        return Parse(args);
-    }
 }
