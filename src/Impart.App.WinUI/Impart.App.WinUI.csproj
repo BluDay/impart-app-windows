@@ -27,10 +27,6 @@
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22621.3233" />
     <Manifest Include="$(ApplicationManifest)" />
   </ItemGroup>
-  
-  <ImportGroup>
-    <Import Project="..\Impart.App\Impart.App.projitems" Label="Shared" />
-  </ImportGroup>
 
   <ItemGroup>
     <Content Include="..\..\assets\icons\winui\**" Label="Assets">
