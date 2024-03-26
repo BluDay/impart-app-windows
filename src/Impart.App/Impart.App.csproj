@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Resources\ArgumentDescriptions.Designer.cs">
+    <Compile Update="Impart.App\Resources\ArgumentDescriptions.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>ArgumentDescriptions.resx</DependentUpon>
@@ -33,7 +33,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Resources\ArgumentDescriptions.resx">
+    <EmbeddedResource Update="Impart.App\Resources\ArgumentDescriptions.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ArgumentDescriptions.Designer.cs</LastGenOutput>
     </EmbeddedResource>
