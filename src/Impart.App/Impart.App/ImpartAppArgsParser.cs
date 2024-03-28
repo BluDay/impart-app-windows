@@ -6,31 +6,31 @@ public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
 
     public ImpartAppArgsParser() : base(CreateArgs()) { }
 
-    private static IReadOnlyList<IArgument> CreateArgs() =>
+    private static IReadOnlyList<OptionalArgumentDescriptor> CreateArgs() =>
     [
-        new NamedArgument("d", "demo-mode")
+        new("d", "demo-mode")
         {
             Name        = nameof(ImpartAppArgs.DemoMode),
             Description = Resources.ArgumentDescriptions.DEMO_MODE
         },
-        new NamedArgument("b", "performance-mode")
+        new("b", "performance-mode")
         {
             Name        = nameof(ImpartAppArgs.PerformanceMode),
             Description = Resources.ArgumentDescriptions.PERFORMANCE_MODE
         },
-        new NamedArgument("skip-intro")
+        new("skip-intro")
         {
             Name        = nameof(ImpartAppArgs.SkipIntro),
             Description = Resources.ArgumentDescriptions.SKIP_INTRO
         },
-        new NamedArgument("v", "verbosity")
+        new("v", "verbosity")
         {
             Name        = nameof(ImpartAppArgs.Verbosity),
             Description = Resources.ArgumentDescriptions.VERBOSITY,
             ActionType  = ArgumentActionType.CountFlag,
             StoreType   = ArgumentStoreType.Integer
         },
-        new NamedArgument("t", "app-theme")
+        new("t", "app-theme")
         {
             Name        = nameof(ImpartAppArgs.AppTheme),
             Description = Resources.ArgumentDescriptions.APP_THEME,
