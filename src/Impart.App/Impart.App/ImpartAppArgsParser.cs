@@ -6,12 +6,12 @@ public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
 
     public ImpartAppArgsParser()
     {
-        AddOptionalArguments(CreateArgs());
+        AddOptionalArguments(CreateOptionals());
 
         AddPositionalArgument();
     }
 
-    private static OptionalArgumentDescriptor[] CreateArgs() =>
+    private static OptionalArgumentDescriptor[] CreateOptionals() =>
     [
         new(CommandLineArgumentFlagDescriptors.DEMO_MODE)
         {

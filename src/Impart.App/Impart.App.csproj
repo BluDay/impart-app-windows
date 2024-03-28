@@ -25,17 +25,26 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Resources\ArgumentDescriptions.Designer.cs">
+    <Compile Update="Resources\CommandLineArgumentDescriptions.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>ArgumentDescriptions.resx</DependentUpon>
+      <DependentUpon>CommandLineArgumentDescriptions.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\CommandLineArgumentFlagDescriptors.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CommandLineArgumentFlagDescriptors.resx</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Resources\ArgumentDescriptions.resx">
+    <EmbeddedResource Update="Resources\CommandLineArgumentDescriptions.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>ArgumentDescriptions.Designer.cs</LastGenOutput>
+      <LastGenOutput>CommandLineArgumentDescriptions.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\CommandLineArgumentFlagDescriptors.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CommandLineArgumentFlagDescriptors.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
 </Project>
