@@ -8,32 +8,32 @@ public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
 
     private static IReadOnlyList<OptionalArgumentDescriptor> CreateArgs() =>
     [
-        new("d", "demo-mode")
+        new(Resources.CommandLineArgumentFlagDescriptors.DEMO_MODE)
         {
             Name        = nameof(ImpartAppArgs.DemoMode),
-            Description = Resources.ArgumentDescriptions.DEMO_MODE
+            Description = Resources.CommandLineArgumentDescriptions.DEMO_MODE
         },
-        new("b", "performance-mode")
+        new(Resources.CommandLineArgumentFlagDescriptors.PERFORMANCE_MODE)
         {
             Name        = nameof(ImpartAppArgs.PerformanceMode),
-            Description = Resources.ArgumentDescriptions.PERFORMANCE_MODE
+            Description = Resources.CommandLineArgumentDescriptions.PERFORMANCE_MODE
         },
-        new("skip-intro")
+        new(Resources.CommandLineArgumentFlagDescriptors.SKIP_INTRO)
         {
             Name        = nameof(ImpartAppArgs.SkipIntro),
-            Description = Resources.ArgumentDescriptions.SKIP_INTRO
+            Description = Resources.CommandLineArgumentDescriptions.SKIP_INTRO
         },
-        new("v", "verbosity")
+        new(Resources.CommandLineArgumentFlagDescriptors.VERBOSITY)
         {
             Name        = nameof(ImpartAppArgs.Verbosity),
-            Description = Resources.ArgumentDescriptions.VERBOSITY,
+            Description = Resources.CommandLineArgumentDescriptions.VERBOSITY,
             ActionType  = ArgumentActionType.CountFlag,
             StoreType   = ArgumentStoreType.Integer
         },
-        new("t", "app-theme")
+        new(Resources.CommandLineArgumentFlagDescriptors.APP_THEME)
         {
             Name        = nameof(ImpartAppArgs.AppTheme),
-            Description = Resources.ArgumentDescriptions.APP_THEME,
+            Description = Resources.CommandLineArgumentDescriptions.APP_THEME,
             ActionType  = ArgumentActionType.StoreValue,
             StoreType   = ArgumentStoreType.String
         }
