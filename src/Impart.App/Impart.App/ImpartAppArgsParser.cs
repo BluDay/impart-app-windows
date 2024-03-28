@@ -39,8 +39,8 @@ public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
         }
     ];
 
-    public ImpartAppArgs ParseFromCommandLine()
+    public static ImpartAppArgs ParseFromCommandLine()
     {
-        return Parse(Environment.GetCommandLineArgs().AsReadOnly());
+        return Default.Parse(Environment.GetCommandLineArgs().AsReadOnly());
     }
 }
