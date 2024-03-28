@@ -9,6 +9,7 @@ global using BluDay.Net.UI.Appearance;
 global using CommunityToolkit.Mvvm.ComponentModel;
 global using CommunityToolkit.Mvvm.Messaging;
 global using Impart.App.Domain.Models;
+global using Impart.App.Resources;
 global using Impart.App.Services;
 global using Microsoft.Extensions.DependencyInjection;
 global using System.ComponentModel.DataAnnotations;

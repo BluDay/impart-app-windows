@@ -8,32 +8,32 @@ public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
 
     private static IReadOnlyList<OptionalArgumentDescriptor> CreateArgs() =>
     [
-        new(Resources.CommandLineArgumentFlagDescriptors.DEMO_MODE)
+        new(CommandLineArgumentFlagDescriptors.DEMO_MODE)
         {
             Name        = nameof(ImpartAppArgs.DemoMode),
-            Description = Resources.CommandLineArgumentDescriptions.DEMO_MODE
+            Description = CommandLineArgumentDescriptions.DEMO_MODE
         },
-        new(Resources.CommandLineArgumentFlagDescriptors.PERFORMANCE_MODE)
+        new(CommandLineArgumentFlagDescriptors.PERFORMANCE_MODE)
         {
             Name        = nameof(ImpartAppArgs.PerformanceMode),
-            Description = Resources.CommandLineArgumentDescriptions.PERFORMANCE_MODE
+            Description = CommandLineArgumentDescriptions.PERFORMANCE_MODE
         },
-        new(Resources.CommandLineArgumentFlagDescriptors.SKIP_INTRO)
+        new(CommandLineArgumentFlagDescriptors.SKIP_INTRO)
         {
             Name        = nameof(ImpartAppArgs.SkipIntro),
-            Description = Resources.CommandLineArgumentDescriptions.SKIP_INTRO
+            Description = CommandLineArgumentDescriptions.SKIP_INTRO
         },
-        new(Resources.CommandLineArgumentFlagDescriptors.VERBOSITY)
+        new(CommandLineArgumentFlagDescriptors.VERBOSITY)
         {
             Name        = nameof(ImpartAppArgs.Verbosity),
-            Description = Resources.CommandLineArgumentDescriptions.VERBOSITY,
+            Description = CommandLineArgumentDescriptions.VERBOSITY,
             ActionType  = ArgumentActionType.CountFlag,
             StoreType   = ArgumentStoreType.Integer
         },
-        new(Resources.CommandLineArgumentFlagDescriptors.APP_THEME)
+        new(CommandLineArgumentFlagDescriptors.APP_THEME)
         {
             Name        = nameof(ImpartAppArgs.AppTheme),
-            Description = Resources.CommandLineArgumentDescriptions.APP_THEME,
+            Description = CommandLineArgumentDescriptions.APP_THEME,
             ActionType  = ArgumentActionType.StoreValue,
             StoreType   = ArgumentStoreType.String
         }
