@@ -4,14 +4,12 @@ public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
 {
     public static ImpartAppArgsParser Default { get; } = new();
 
-    public ImpartAppArgsParser()
-    {
-        AddOptionalArguments(CreateOptionals());
+    public ImpartAppArgsParser() : base(
+        optionalArguments:  CreateOptionals(),
+        positionalArgument: CreatePositional()
+    ) { }
 
-        AddPositionalArgument();
-    }
-
-    private static OptionalArgumentDescriptor[] CreateOptionals() =>
+    private static OptionalArgument[] CreateOptionals() =>
     [
         new(CommandLineArgumentFlagDescriptors.DEMO_MODE)
         {
@@ -43,6 +41,15 @@ public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
             StoreType   = ArgumentStoreType.String
         }
     ];
+
+    private static PositionalArgument CreatePositional()
+    {
+        return new()
+        {
+            ActionType = ArgumentActionType.AppendValue,
+            StoreType  = ArgumentStoreType.String
+        };
+    }
 
     public static ImpartAppArgs ParseFromCommandLine()
     {
