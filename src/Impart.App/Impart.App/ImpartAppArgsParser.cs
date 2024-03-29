@@ -4,10 +4,7 @@ public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
 {
     public static ImpartAppArgsParser Default { get; } = new();
 
-    public ImpartAppArgsParser() : base(
-        optionalArguments:  CreateOptionals(),
-        positionalArgument: CreatePositional()
-    ) { }
+    public ImpartAppArgsParser() : base(CreateOptionals(), CreatePositional()) { }
 
     private static OptionalArgument[] CreateOptionals() =>
     [
