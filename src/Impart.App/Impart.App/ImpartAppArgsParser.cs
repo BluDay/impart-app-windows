@@ -2,8 +2,6 @@ namespace Impart.App;
 
 public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
 {
-    public static ImpartAppArgsParser Default { get; } = new();
-
     public ImpartAppArgsParser()
     {
         OptionalArguments = ImmutableList.Create<OptionalArgument>(
@@ -43,10 +41,5 @@ public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
             ActionType = ArgumentActionType.AppendValue,
             StoreType  = ArgumentStoreType.String
         };
-    }
-
-    public static ImpartAppArgs ParseFromCommandLine()
-    {
-        return Default.Parse(Environment.GetCommandLineArgs());
     }
 }
