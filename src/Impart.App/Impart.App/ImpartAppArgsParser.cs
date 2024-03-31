@@ -2,12 +2,7 @@ namespace Impart.App;
 
 public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
 {
-    public ImpartAppArgsParser()
-    {
-        OptionalArguments = CreateOptionals();
-
-        PositionalArgument = CreatePositional();
-    }
+    public ImpartAppArgsParser() : base(CreateOptionals(), CreatePositional()) { }
 
     private static IImmutableList<OptionalArgument> CreateOptionals() =>
     [
