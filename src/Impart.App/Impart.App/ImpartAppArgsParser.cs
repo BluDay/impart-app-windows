@@ -4,7 +4,7 @@ public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
 {
     public ImpartAppArgsParser() : base(CreateOptionals(), CreatePositional()) { }
 
-    private static IImmutableList<OptionalArgument> CreateOptionals() =>
+    private static IEnumerable<OptionalArgument> CreateOptionals() =>
     [
         new(ArgumentFlagDescriptors.DEMO_MODE)
         {
