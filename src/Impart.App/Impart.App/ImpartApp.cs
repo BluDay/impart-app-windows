@@ -43,7 +43,7 @@ public sealed class ImpartApp
     {
         if (_isDisposed) return;
 
-        _container?.Dispose();
+        _container.Dispose();
 
         _isDisposed = true;
     }
