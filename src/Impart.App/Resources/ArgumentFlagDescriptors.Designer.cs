@@ -22,14 +22,14 @@ namespace Impart.App.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class CommandLineArgumentDescriptions {
+    internal class ArgumentFlagDescriptors {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal CommandLineArgumentDescriptions() {
+        internal ArgumentFlagDescriptors() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Impart.App.Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Impart.App.Resources.CommandLineArgumentDescriptions", typeof(CommandLineArgumentDescriptions).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Impart.App.Resources.ArgumentFlagDescriptors", typeof(ArgumentFlagDescriptors).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,7 +61,7 @@ namespace Impart.App.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to App theme to use at launch..
+        ///   Looks up a localized string similar to t|app-theme=.
         /// </summary>
         internal static string APP_THEME {
             get {
@@ -70,7 +70,7 @@ namespace Impart.App.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Launch the app in demo mode..
+        ///   Looks up a localized string similar to d|demo-mode.
         /// </summary>
         internal static string DEMO_MODE {
             get {
@@ -79,7 +79,7 @@ namespace Impart.App.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Launch the app in performance mode..
+        ///   Looks up a localized string similar to b|performance-mode.
         /// </summary>
         internal static string PERFORMANCE_MODE {
             get {
@@ -88,7 +88,7 @@ namespace Impart.App.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Skip the first-time launch introduction..
+        ///   Looks up a localized string similar to skip-intro.
         /// </summary>
         internal static string SKIP_INTRO {
             get {
@@ -97,7 +97,7 @@ namespace Impart.App.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Verbosity level..
+        ///   Looks up a localized string similar to v|verbosity=.
         /// </summary>
         internal static string VERBOSITY {
             get {
