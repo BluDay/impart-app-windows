@@ -43,6 +43,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Page Remove="Impart.App.WinUI\App.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ApplicationDefinition Include="Impart.App.WinUI\App.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="Impart.App.WinUI\UI\Styles\ChatMessageBubbleStyle.xaml" />
     <Content Include="Impart.App.WinUI\UI\Styles\NavigationViewStyle.xaml" />
     <Content Include="Impart.App.WinUI\UI\Styles\PersonPictureStyle.xaml" />
