@@ -24,7 +24,7 @@ internal sealed class ImpartAppContainer : IDisposable
         _serviceProvider = _serviceDescriptors.BuildServiceProvider();
     }
 
-    private IServiceCollection CreateServiceDescriptors()
+    private static IServiceCollection CreateServiceDescriptors()
     {
         return new ServiceCollection()
             .AddSingleton<IMessenger>(WeakReferenceMessenger.Default)
