@@ -2,9 +2,7 @@ namespace Impart.App;
 
 public sealed class ImpartAppArgumentsParser : ArgumentsParser<ImpartAppArguments>
 {
-    public ImpartAppArgumentsParser() : base(CreateOptionals(), CreatePositional()) { }
-
-    private static IEnumerable<OptionalArgument> CreateOptionals()
+    protected override IEnumerable<OptionalArgument> CreateOptionals()
     {
         return new List<OptionalArgument>()
         {
@@ -41,7 +39,7 @@ public sealed class ImpartAppArgumentsParser : ArgumentsParser<ImpartAppArgument
         };
     }
 
-    private static PositionalArgument CreatePositional()
+    protected override PositionalArgument CreatePositional()
     {
         return new()
         {
