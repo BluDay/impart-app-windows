@@ -6,7 +6,8 @@ public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
 
     private static IEnumerable<OptionalArgument> CreateOptionals()
     {
-        return [
+        return new Collection<OptionalArgument>()
+        {
             new(ArgumentFlagDescriptors.DEMO_MODE)
             {
                 Name        = nameof(ImpartAppArgs.DemoMode),
@@ -37,7 +38,7 @@ public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
                 ActionType  = ArgumentActionType.StoreValue,
                 StoreType   = ArgumentStoreType.String
             }
-        ];
+        };
     }
 
     private static PositionalArgument CreatePositional()

@@ -14,4 +14,5 @@ global using Impart.App.Resources;
 global using Impart.App.Services;
 global using Microsoft.Extensions.DependencyInjection;
 global using System.Collections.Immutable;
+global using System.Collections.ObjectModel;
 global using System.ComponentModel.DataAnnotations;
