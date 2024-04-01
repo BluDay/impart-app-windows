@@ -27,7 +27,7 @@ public sealed class ImpartApp
 
     private void InitializeCoreServices()
     {
-        // "In my cycle, we flensed food from our teeth with our own biotic abilities" — Javik
+        // TODO: Resolve core services and activate the whole app.
     }
 
     public void Initialize()
