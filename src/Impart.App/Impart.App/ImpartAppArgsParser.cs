@@ -6,7 +6,7 @@ public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
 
     private static IEnumerable<OptionalArgument> CreateOptionals()
     {
-        return new Collection<OptionalArgument>()
+        return new List<OptionalArgument>()
         {
             new(ArgumentFlagDescriptors.DEMO_MODE)
             {
