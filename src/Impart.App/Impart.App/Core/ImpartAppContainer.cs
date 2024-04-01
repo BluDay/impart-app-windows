@@ -1,4 +1,4 @@
-namespace Impart.App;
+namespace Impart.App.Core;
 
 internal sealed class ImpartAppContainer : IDisposable
 {
