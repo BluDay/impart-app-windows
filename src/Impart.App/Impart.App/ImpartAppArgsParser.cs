@@ -27,7 +27,8 @@ public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
                 Name        = nameof(ImpartAppArgs.Verbosity),
                 Description = ArgumentDescriptions.VERBOSITY,
                 ActionType  = ArgumentActionType.CountFlag,
-                StoreType   = ArgumentStoreType.Integer
+                StoreType   = ArgumentStoreType.Integer,
+                Constant    = 1
             },
             new(ArgumentFlagDescriptors.APP_THEME)
             {
