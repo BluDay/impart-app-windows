@@ -1,8 +1,8 @@
 namespace Impart.App;
 
-public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
+public sealed class ImpartAppArgumentsParser : ArgumentsParser<ImpartAppArguments>
 {
-    public ImpartAppArgsParser() : base(CreateOptionals(), CreatePositional()) { }
+    public ImpartAppArgumentsParser() : base(CreateOptionals(), CreatePositional()) { }
 
     private static IEnumerable<OptionalArgument> CreateOptionals()
     {
@@ -10,22 +10,22 @@ public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
         {
             new(ArgumentFlagDescriptors.DEMO_MODE)
             {
-                Name        = nameof(ImpartAppArgs.DemoMode),
+                Name        = nameof(ImpartAppArguments.DemoMode),
                 Description = ArgumentDescriptions.DEMO_MODE
             },
             new(ArgumentFlagDescriptors.PERFORMANCE_MODE)
             {
-                Name        = nameof(ImpartAppArgs.PerformanceMode),
+                Name        = nameof(ImpartAppArguments.PerformanceMode),
                 Description = ArgumentDescriptions.PERFORMANCE_MODE
             },
             new(ArgumentFlagDescriptors.SKIP_INTRO)
             {
-                Name        = nameof(ImpartAppArgs.SkipIntro),
+                Name        = nameof(ImpartAppArguments.SkipIntro),
                 Description = ArgumentDescriptions.SKIP_INTRO
             },
             new(ArgumentFlagDescriptors.VERBOSITY)
             {
-                Name        = nameof(ImpartAppArgs.Verbosity),
+                Name        = nameof(ImpartAppArguments.Verbosity),
                 Description = ArgumentDescriptions.VERBOSITY,
                 ActionType  = ArgumentActionType.CountFlag,
                 StoreType   = ArgumentStoreType.Integer,
@@ -33,7 +33,7 @@ public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
             },
             new(ArgumentFlagDescriptors.APP_THEME)
             {
-                Name        = nameof(ImpartAppArgs.AppTheme),
+                Name        = nameof(ImpartAppArguments.AppTheme),
                 Description = ArgumentDescriptions.APP_THEME,
                 ActionType  = ArgumentActionType.StoreValue,
                 StoreType   = ArgumentStoreType.String

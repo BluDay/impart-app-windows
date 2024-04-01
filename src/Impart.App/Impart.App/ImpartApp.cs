@@ -6,7 +6,7 @@ public sealed class ImpartApp
 
     private bool _isInitialized;
 
-    private readonly ImpartAppArgs _args;
+    private readonly ImpartAppArguments _arguments;
 
     private readonly ImpartAppContainer _container;
 
@@ -14,11 +14,11 @@ public sealed class ImpartApp
 
     public bool IsInitialized => _isInitialized;
 
-    public ImpartApp(ImpartAppArgs args)
+    public ImpartApp(ImpartAppArguments arguments)
     {
-        ArgumentNullException.ThrowIfNull(args);
+        ArgumentNullException.ThrowIfNull(arguments);
 
-        _args = args;
+        _arguments = arguments;
 
         _container = new(this);
     }

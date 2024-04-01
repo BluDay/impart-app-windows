@@ -19,7 +19,7 @@ public sealed partial class App : Application
     /// <param name="e">Details about the launch request and process.</param>
     protected override void OnLaunched(LaunchActivatedEventArgs e)
     {
-        ImpartAppArgs args = new ImpartAppArgsParser().ParseFromCommandLine();
+        ImpartAppArguments args = new ImpartAppArgumentsParser().ParseFromCommandLine();
 
         _app = new(args);
 
