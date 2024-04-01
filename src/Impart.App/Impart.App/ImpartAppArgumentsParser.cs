@@ -27,16 +27,16 @@ public sealed class ImpartAppArgumentsParser : ArgumentsParser<ImpartAppArgument
             {
                 Name        = nameof(ImpartAppArguments.Verbosity),
                 Description = ArgumentDescriptions.VERBOSITY,
-                ActionType  = ArgumentActionType.CountFlag,
-                StoreType   = ArgumentStoreType.Integer,
+                ActionKind  = ArgumentActionKind.CountFlag,
+                StoreKind   = ArgumentStoreKind.Integer,
                 Constant    = 1
             },
             new(ArgumentFlagDescriptors.APP_THEME)
             {
                 Name        = nameof(ImpartAppArguments.AppTheme),
                 Description = ArgumentDescriptions.APP_THEME,
-                ActionType  = ArgumentActionType.StoreValue,
-                StoreType   = ArgumentStoreType.String
+                ActionKind  = ArgumentActionKind.StoreValue,
+                StoreKind   = ArgumentStoreKind.String
             }
         };
     }
@@ -45,8 +45,8 @@ public sealed class ImpartAppArgumentsParser : ArgumentsParser<ImpartAppArgument
     {
         return new()
         {
-            ActionType = ArgumentActionType.AppendValue,
-            StoreType  = ArgumentStoreType.String
+            ActionKind = ArgumentActionKind.AppendValue,
+            StoreKind  = ArgumentStoreKind.String
         };
     }
 }
