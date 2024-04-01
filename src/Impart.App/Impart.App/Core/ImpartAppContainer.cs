@@ -17,6 +17,8 @@ internal sealed class ImpartAppContainer : IDisposable
 
     public ImpartAppContainer(ImpartApp app)
     {
+        ArgumentNullException.ThrowIfNull(app);
+
         _app = app;
 
         _serviceDescriptors = CreateServiceDescriptors();
