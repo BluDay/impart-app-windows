@@ -14,7 +14,7 @@ public sealed class ImpartApp
     private readonly ImpartAppContainer _container;
 
     /// <summary>
-    /// Gets command-line arguments.
+    /// Gets instance of parsed command-line arguments.
     /// </summary>
     public ImpartAppArguments Arguments => _arguments;
 
@@ -31,7 +31,7 @@ public sealed class ImpartApp
     /// <summary>
     /// Initializes a new instance with an arguments instance.
     /// </summary>
-    /// <param name="arguments">Parsed command-line arguments.</param>
+    /// <param name="arguments">Instance of parsed command-line arguments.</param>
     public ImpartApp(ImpartAppArguments arguments)
     {
         ArgumentNullException.ThrowIfNull(arguments);
