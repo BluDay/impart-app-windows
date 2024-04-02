@@ -6,11 +6,18 @@ namespace Impart.App.Core;
 /// </summary>
 internal sealed class ImpartAppContainer : IDisposable
 {
+    private bool _isDisposed;
+
     private readonly ImpartApp _app;
 
     private readonly ServiceProvider _serviceProvider;
 
     private readonly IImmutableList<ServiceDescriptor> _serviceDescriptors;
+
+    /// <summary>
+    /// Gets a value indicative whether the container is disposed of.
+    /// </summary>
+    public bool IsDisposed => _isDisposed;
 
     /// <summary>
     /// Gets the service provider for resolving service instances.
