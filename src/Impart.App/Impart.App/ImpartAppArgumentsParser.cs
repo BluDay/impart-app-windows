@@ -6,7 +6,7 @@ namespace Impart.App;
 public sealed class ImpartAppArgumentsParser : ArgumentsParser<ImpartAppArguments>
 {
     /// <summary>
-    /// Initializes a new instance with optional and positional arguments for <see cref="ImpartAppArguments"/>.
+    /// Initializes a new instance with app-specific optional and positional arguments.
     /// </summary>
     public ImpartAppArgumentsParser() : base(CreateOptionals(), CreatePositional()) { }
 
