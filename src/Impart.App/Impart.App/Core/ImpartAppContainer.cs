@@ -41,9 +41,9 @@ internal sealed class ImpartAppContainer : IDisposable
 
         IServiceCollection serviceDescriptors = CreateServiceDescriptors();
 
-        _serviceDescriptors = serviceDescriptors.ToImmutableList();
-
         _serviceProvider = serviceDescriptors.BuildServiceProvider();
+
+        _serviceDescriptors = serviceDescriptors.ToImmutableList();
     }
 
     /// <summary>
