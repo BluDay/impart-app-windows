@@ -1,7 +1,7 @@
 namespace Impart.App;
 
 /// <summary>
-/// A derived <see cref="ArgumentsParser{TArguments}"/> class for parsing command-line arguments to an <see cref="ImpartAppArguments"/> instance.
+/// The command-line arguments parsing class for <see cref="ImpartApp"/>.
 /// </summary>
 public sealed class ImpartAppArgumentsParser : ArgumentsParser<ImpartAppArguments>
 {
