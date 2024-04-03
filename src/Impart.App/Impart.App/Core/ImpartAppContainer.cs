@@ -15,7 +15,7 @@ internal sealed class ImpartAppContainer : IDisposable
     private readonly IImmutableList<ServiceDescriptor> _serviceDescriptors;
 
     /// <summary>
-    /// Gets a value indicative whether the container is disposed of.
+    /// Gets a value indicating whether the container is disposed of.
     /// </summary>
     public bool IsDisposed => _isDisposed;
 
