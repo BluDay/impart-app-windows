@@ -6,11 +6,6 @@ namespace Impart.App;
 public sealed class ImpartAppArgumentsParser : ArgumentsParser<ImpartAppArguments>
 {
     /// <summary>
-    /// Gets the default instance.
-    /// </summary>
-    public static ImpartAppArgumentsParser Default { get; } = new();
-
-    /// <summary>
     /// Initializes a new instance with app-specific optional and positional arguments.
     /// </summary>
     public ImpartAppArgumentsParser() : base(CreateOptionals(), CreatePositional()) { }

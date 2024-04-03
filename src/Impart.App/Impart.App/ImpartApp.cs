@@ -32,7 +32,7 @@ public sealed class ImpartApp
     /// Initializes a new instance with unparsed command-line arguments.
     /// </summary>
     /// <param name="args">The arguments from the command-line.</param>
-    public ImpartApp(string[] args) : this(ImpartAppArgumentsParser.Default.Parse(args)) { }
+    public ImpartApp(string[] args) : this(new ImpartAppArgumentsParser().Parse(args)) { }
 
     /// <summary>
     /// Initializes a new instance with a parsed command-line arguments instance.
