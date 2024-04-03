@@ -1,5 +1,8 @@
 ﻿namespace Impart.App.Domain.ViewModels;
 
+/// <summary>
+/// View model for the main view.
+/// </summary>
 public sealed partial class MainViewModel : ViewModel
 {
     [ObservableProperty]
