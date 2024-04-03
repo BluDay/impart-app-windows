@@ -29,9 +29,15 @@ public sealed class ImpartApp
     public bool IsInitialized => _isInitialized;
 
     /// <summary>
-    /// Initializes a new instance with an arguments instance.
+    /// Initializes a new instance with unparsed command-line arguments.
     /// </summary>
-    /// <param name="arguments">Instance of parsed command-line arguments.</param>
+    /// <param name="args">The arguments from the command-line.</param>
+    public ImpartApp(string[] args) : this(ImpartAppArgumentsParser.Default.Parse(args)) { }
+
+    /// <summary>
+    /// Initializes a new instance with a parsed command-line arguments instance.
+    /// </summary>
+    /// <param name="arguments">Parsed command-line arguments.</param>
     public ImpartApp(ImpartAppArguments arguments)
     {
         ArgumentNullException.ThrowIfNull(arguments);
