@@ -8,13 +8,22 @@ public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
     /// <summary>
     /// Initializes a new instance with app-specific optional and positional arguments.
     /// </summary>
-    public ImpartAppArgsParser() : base(CreateOptionals(), CreatePositionals()) { }
+    public ImpartAppArgsParser() : base(CreateArguments()) { }
+
+    /// <summary>
+    /// Creates optional and positional command-line argument descriptors.
+    /// </summary>
+    /// <returns>An <see cref="ArgumentDescriptors"/> instance of different argument descriptors.</returns>
+    private static ArgumentDescriptors CreateArguments()
+    {
+        return new(CreateOptionals(), CreatePositionals());
+    }
 
     /// <summary>
     /// Creates optional argument descriptors to register.
     /// </summary>
-    /// <returns>An enumerable of optional arguments.</returns>
-    private static IEnumerable<OptionalArgument> CreateOptionals()
+    /// <returns>An enumerable of optional argument descriptors.</returns>
+    private static IEnumerable<OptionalArgumentDescriptor> CreateOptionals()
     {
         yield return new(ArgumentFlagDescriptors.DEMO_MODE)
         {
@@ -53,14 +62,14 @@ public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
     }
 
     /// <summary>
-    /// Creates a positional argument descriptors to register.
+    /// Creates positional argument descriptors to register.
     /// </summary>
-    /// <returns>An enumerable of positional arguments.</returns>
-    private static IEnumerable<PositionalArgument> CreatePositionals()
+    /// <returns>An enumerable of positional argument descriptors.</returns>
+    private static IEnumerable<PositionalArgumentDescriptor> CreatePositionals()
     {
         yield return new()
         {
-            Name       = nameof(PositionalArgument),
+            Name       = nameof(PositionalArgumentDescriptor),
             ActionKind = ArgumentActionKind.AppendValue,
             StoreKind  = ArgumentStoreKind.String
         };
