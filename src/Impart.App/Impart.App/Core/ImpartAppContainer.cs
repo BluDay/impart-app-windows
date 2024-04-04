@@ -12,7 +12,7 @@ internal sealed class ImpartAppContainer : IDisposable
 
     private readonly ServiceProvider _serviceProvider;
 
-    private readonly IImmutableList<ServiceDescriptor> _serviceDescriptors;
+    private readonly IReadOnlyList<ServiceDescriptor> _serviceDescriptors;
 
     /// <summary>
     /// Gets a value indicating whether the container is disposed of.
@@ -27,7 +27,7 @@ internal sealed class ImpartAppContainer : IDisposable
     /// <summary>
     /// Gets a read-only list of descriptors for all registered services.
     /// </summary>
-    public IImmutableList<ServiceDescriptor> ServiceDescriptors => _serviceDescriptors;
+    public IReadOnlyList<ServiceDescriptor> ServiceDescriptors => _serviceDescriptors;
 
     /// <summary>
     /// Initializes a new instance for the provided app instance.
@@ -43,7 +43,7 @@ internal sealed class ImpartAppContainer : IDisposable
 
         _serviceProvider = serviceDescriptors.BuildServiceProvider();
 
-        _serviceDescriptors = serviceDescriptors.ToImmutableList();
+        _serviceDescriptors = serviceDescriptors.AsReadOnly();
     }
 
     /// <summary>
