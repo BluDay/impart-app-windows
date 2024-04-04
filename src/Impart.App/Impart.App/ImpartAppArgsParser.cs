@@ -25,39 +25,39 @@ public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
     /// <returns>An enumerable of optional argument descriptors.</returns>
     private static IEnumerable<OptionalArgumentDescriptor> CreateOptionals()
     {
-        yield return new(ArgumentFlagDescriptors.DEMO_MODE)
+        yield return new(nameof(ImpartAppArgs.DemoMode))
         {
-            Name        = nameof(ImpartAppArgs.DemoMode),
-            Description = ArgumentDescriptions.DEMO_MODE
+            FlagDescriptor = ArgumentFlagDescriptors.DEMO_MODE,
+            Description    = ArgumentDescriptions.DEMO_MODE
         };
 
-        yield return new(ArgumentFlagDescriptors.PERFORMANCE_MODE)
+        yield return new(nameof(ImpartAppArgs.PerformanceMode))
         {
-            Name        = nameof(ImpartAppArgs.PerformanceMode),
-            Description = ArgumentDescriptions.PERFORMANCE_MODE
+            FlagDescriptor = ArgumentFlagDescriptors.PERFORMANCE_MODE,
+            Description    = ArgumentDescriptions.PERFORMANCE_MODE
         };
 
-        yield return new(ArgumentFlagDescriptors.SKIP_INTRO)
+        yield return new(nameof(ImpartAppArgs.SkipIntro))
         {
-            Name        = nameof(ImpartAppArgs.SkipIntro),
-            Description = ArgumentDescriptions.SKIP_INTRO
+            FlagDescriptor = ArgumentFlagDescriptors.SKIP_INTRO,
+            Description    = ArgumentDescriptions.SKIP_INTRO
         };
 
-        yield return new(ArgumentFlagDescriptors.VERBOSITY)
+        yield return new(nameof(ImpartAppArgs.Verbosity))
         {
-            Name        = nameof(ImpartAppArgs.Verbosity),
-            Description = ArgumentDescriptions.VERBOSITY,
-            ActionKind  = ArgumentActionKind.CountFlag,
-            StoreKind   = ArgumentStoreKind.Integer,
-            Constant    = 1
+            FlagDescriptor = ArgumentFlagDescriptors.VERBOSITY,
+            Description    = ArgumentDescriptions.VERBOSITY,
+            ActionKind     = ArgumentActionKind.CountFlag,
+            StoreKind      = ArgumentStoreKind.Integer,
+            Constant       = 1
         };
 
-        yield return new(ArgumentFlagDescriptors.APP_THEME)
+        yield return new(nameof(ImpartAppArgs.AppTheme))
         {
-            Name        = nameof(ImpartAppArgs.AppTheme),
-            Description = ArgumentDescriptions.APP_THEME,
-            ActionKind  = ArgumentActionKind.StoreValue,
-            StoreKind   = ArgumentStoreKind.String
+            FlagDescriptor = ArgumentFlagDescriptors.APP_THEME,
+            Description    = ArgumentDescriptions.APP_THEME,
+            ActionKind     = ArgumentActionKind.StoreValue,
+            StoreKind      = ArgumentStoreKind.String
         };
     }
 
@@ -67,9 +67,8 @@ public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
     /// <returns>An enumerable of positional argument descriptors.</returns>
     private static IEnumerable<PositionalArgumentDescriptor> CreatePositionals()
     {
-        yield return new()
+        yield return new(nameof(PositionalArgumentDescriptor))
         {
-            Name       = nameof(PositionalArgumentDescriptor),
             ActionKind = ArgumentActionKind.AppendValue,
             StoreKind  = ArgumentStoreKind.String
         };
