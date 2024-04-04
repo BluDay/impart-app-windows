@@ -8,7 +8,7 @@ public sealed class ImpartAppArgumentsParser : ArgumentsParser<ImpartAppArgument
     /// <summary>
     /// Initializes a new instance with app-specific optional and positional arguments.
     /// </summary>
-    public ImpartAppArgumentsParser() : base(CreateOptionals(), CreatePositional()) { }
+    public ImpartAppArgumentsParser() : base(CreateOptionals(), CreatePositionals()) { }
 
     /// <summary>
     /// Creates optional argument descriptors to register.
@@ -53,13 +53,14 @@ public sealed class ImpartAppArgumentsParser : ArgumentsParser<ImpartAppArgument
     }
 
     /// <summary>
-    /// Creates a positional argument descriptor to register.
+    /// Creates a positional argument descriptors to register.
     /// </summary>
-    /// <returns>A positional argument instance.</returns>
-    private static PositionalArgument CreatePositional()
+    /// <returns>An enumerable of positional arguments.</returns>
+    private static IEnumerable<PositionalArgument> CreatePositionals()
     {
-        return new()
+        yield return new()
         {
+            Name       = nameof(PositionalArgument),
             ActionKind = ArgumentActionKind.AppendValue,
             StoreKind  = ArgumentStoreKind.String
         };
