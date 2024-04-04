@@ -3,7 +3,7 @@ namespace Impart.App;
 /// <summary>
 /// Represents parsed command-line arguments. Parsed arguments will have non-null values.
 /// </summary>
-public sealed class ImpartAppArguments
+public sealed class ImpartAppArgs
 {
     /// <summary>
     /// Gets a value indicating whether the app be run in demo mode.

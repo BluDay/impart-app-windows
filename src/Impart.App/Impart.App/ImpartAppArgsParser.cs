@@ -3,12 +3,12 @@ namespace Impart.App;
 /// <summary>
 /// The command-line arguments parsing class for <see cref="ImpartApp"/>.
 /// </summary>
-public sealed class ImpartAppArgumentsParser : ArgumentsParser<ImpartAppArguments>
+public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
 {
     /// <summary>
     /// Initializes a new instance with app-specific optional and positional arguments.
     /// </summary>
-    public ImpartAppArgumentsParser() : base(CreateOptionals(), CreatePositionals()) { }
+    public ImpartAppArgsParser() : base(CreateOptionals(), CreatePositionals()) { }
 
     /// <summary>
     /// Creates optional argument descriptors to register.
@@ -18,25 +18,25 @@ public sealed class ImpartAppArgumentsParser : ArgumentsParser<ImpartAppArgument
     {
         yield return new(ArgumentFlagDescriptors.DEMO_MODE)
         {
-            Name        = nameof(ImpartAppArguments.DemoMode),
+            Name        = nameof(ImpartAppArgs.DemoMode),
             Description = ArgumentDescriptions.DEMO_MODE
         };
 
         yield return new(ArgumentFlagDescriptors.PERFORMANCE_MODE)
         {
-            Name        = nameof(ImpartAppArguments.PerformanceMode),
+            Name        = nameof(ImpartAppArgs.PerformanceMode),
             Description = ArgumentDescriptions.PERFORMANCE_MODE
         };
 
         yield return new(ArgumentFlagDescriptors.SKIP_INTRO)
         {
-            Name        = nameof(ImpartAppArguments.SkipIntro),
+            Name        = nameof(ImpartAppArgs.SkipIntro),
             Description = ArgumentDescriptions.SKIP_INTRO
         };
 
         yield return new(ArgumentFlagDescriptors.VERBOSITY)
         {
-            Name        = nameof(ImpartAppArguments.Verbosity),
+            Name        = nameof(ImpartAppArgs.Verbosity),
             Description = ArgumentDescriptions.VERBOSITY,
             ActionKind  = ArgumentActionKind.CountFlag,
             StoreKind   = ArgumentStoreKind.Integer,
@@ -45,7 +45,7 @@ public sealed class ImpartAppArgumentsParser : ArgumentsParser<ImpartAppArgument
 
         yield return new(ArgumentFlagDescriptors.APP_THEME)
         {
-            Name        = nameof(ImpartAppArguments.AppTheme),
+            Name        = nameof(ImpartAppArgs.AppTheme),
             Description = ArgumentDescriptions.APP_THEME,
             ActionKind  = ArgumentActionKind.StoreValue,
             StoreKind   = ArgumentStoreKind.String

@@ -9,14 +9,14 @@ public sealed class ImpartApp
 
     private bool _isInitialized;
 
-    private readonly ImpartAppArguments _arguments;
+    private readonly ImpartAppArgs _args;
 
     private readonly ImpartAppContainer _container;
 
     /// <summary>
     /// Gets instance of parsed command-line arguments.
     /// </summary>
-    public ImpartAppArguments Arguments => _arguments;
+    public ImpartAppArgs Args => _args;
 
     /// <summary>
     /// Gets a value indicating whether the app has been disposed.
@@ -32,17 +32,17 @@ public sealed class ImpartApp
     /// Initializes a new instance with unparsed command-line arguments.
     /// </summary>
     /// <param name="args">The arguments from the command-line.</param>
-    public ImpartApp(string[] args) : this(new ImpartAppArgumentsParser().Parse(args)) { }
+    public ImpartApp(string[] args) : this(new ImpartAppArgsParser().Parse(args)) { }
 
     /// <summary>
     /// Initializes a new instance with a parsed command-line arguments instance.
     /// </summary>
-    /// <param name="arguments">Parsed command-line arguments.</param>
-    public ImpartApp(ImpartAppArguments arguments)
+    /// <param name="args">Parsed command-line arguments.</param>
+    public ImpartApp(ImpartAppArgs args)
     {
-        ArgumentNullException.ThrowIfNull(arguments);
+        ArgumentNullException.ThrowIfNull(args);
 
-        _arguments = arguments;
+        _args = args;
 
         _container = new(app: this);
     }
