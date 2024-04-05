@@ -38,6 +38,7 @@ public sealed class ImpartApp
     /// Initializes a new instance with a parsed command-line arguments instance.
     /// </summary>
     /// <param name="args">Parsed command-line arguments.</param>
+    /// <exception cref="ArgumentNullException">Throws if <paramref name="args"/> is null.</exception>
     public ImpartApp(ImpartAppArgs args)
     {
         ArgumentNullException.ThrowIfNull(args);
@@ -58,6 +59,7 @@ public sealed class ImpartApp
     /// <summary>
     /// Initializes the entire application.
     /// </summary>
+    /// <exception cref="ObjectDisposedException">Throws if instance has been disposed of.</exception>
     public void Initialize()
     {
         ObjectDisposedException.ThrowIf(_isDisposed, this);
