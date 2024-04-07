@@ -1,7 +1,7 @@
 ﻿namespace Impart.App;
 
 /// <summary>
-/// The app core for Impart.
+/// The application core for Impart.
 /// </summary>
 public sealed class ImpartApp
 {
