@@ -31,7 +31,7 @@ public sealed class ImpartApp
     /// <summary>
     /// Initializes a new instance with a default args instance.
     /// </summary>
-    public ImpartApp() : this(new()) { }
+    public ImpartApp() : this(args: new()) { }
 
     /// <summary>
     /// Initializes a new instance with a parsed command-line arguments instance.
