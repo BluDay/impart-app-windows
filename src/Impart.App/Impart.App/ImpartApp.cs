@@ -29,6 +29,11 @@ public sealed class ImpartApp
     public bool IsInitialized => _isInitialized;
 
     /// <summary>
+    /// Initializes a new instance with a default args instance.
+    /// </summary>
+    public ImpartApp() : this(new()) { }
+
+    /// <summary>
     /// Initializes a new instance with a parsed command-line arguments instance.
     /// </summary>
     /// <param name="args">Parsed command-line arguments.</param>
