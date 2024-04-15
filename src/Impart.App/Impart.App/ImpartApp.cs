@@ -1,4 +1,6 @@
-﻿namespace Impart.App;
+﻿// ( 0 _ o )
+
+namespace Impart.App;
 
 /// <summary>
 /// The application core for Impart.
