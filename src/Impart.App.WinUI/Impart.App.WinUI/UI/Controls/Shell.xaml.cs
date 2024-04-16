@@ -24,8 +24,8 @@ public sealed partial class Shell : Window
     {
         _appWindow = AppWindow;
 
-        _nonClientPointerSource = AppWindow.GetNonClientPointerSource();
-        _displayArea            = AppWindow.GetDisplayArea();
+        _nonClientPointerSource = _appWindow.GetNonClientPointerSource();
+        _displayArea            = _appWindow.GetDisplayArea();
         
         ExtendsContentIntoTitleBar = true;
 
@@ -34,6 +34,14 @@ public sealed partial class Shell : Window
         _appWindow.MakeTitleBarTransparent();
 
         InitializeComponent();
+    }
+
+    private void ConfigureAppWindow()
+    {
+        _appWindow.MakeTitleBarTransparent();
+        _appWindow.SetIsResizable(false);
+        _appWindow.Resize(size: 1200);
+        _appWindow.MoveToCenter(_displayArea);
     }
 
     private void Window_Activated(object sender, WindowActivatedEventArgs args)
