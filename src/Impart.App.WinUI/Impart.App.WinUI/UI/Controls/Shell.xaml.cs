@@ -5,9 +5,11 @@ namespace Impart.App.WinUI.UI.Controls;
 /// </summary>
 public sealed partial class Shell : Window
 {
-    public InputNonClientPointerSource NonClientPointerSource { get; }
+    private readonly AppWindow _appWindow;
 
-    public DisplayArea DisplayArea { get; }
+    private readonly InputNonClientPointerSource _nonClientPointerSource;
+
+    private readonly DisplayArea _displayArea;
 
     public WindowActivationState? ActivationState { get; private set; }
 
@@ -20,14 +22,16 @@ public sealed partial class Shell : Window
 
     public Shell()
     {
-        NonClientPointerSource = AppWindow.GetNonClientPointerSource();
-        DisplayArea            = AppWindow.GetDisplayArea();
+        _appWindow = AppWindow;
+
+        _nonClientPointerSource = AppWindow.GetNonClientPointerSource();
+        _displayArea            = AppWindow.GetDisplayArea();
         
         ExtendsContentIntoTitleBar = true;
 
         SetTitleBar(TitleBar);
 
-        AppWindow.MakeTitleBarTransparent();
+        _appWindow.MakeTitleBarTransparent();
 
         InitializeComponent();
     }
