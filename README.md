@@ -1,6 +1,6 @@
 # impart-app-windows
 
-Impart app clients for Windows.
+Windows app clients for Impart.
 
 ## Features
 
