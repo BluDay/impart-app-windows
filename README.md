@@ -1,6 +1,6 @@
 # impart-app-windows
 
-Windows app clients for Impart.
+Windows desktop clients for [Impart](https:/github.com/BluDay/impart).
 
 ## Features
 
