@@ -13,7 +13,7 @@ public sealed partial class App : Application
     /// <param name="e">Event with a command-line args property.</param>
     private void Application_Startup(object sender, StartupEventArgs e)
     {
-        _app = new();
+        _app = new ImpartApp();
 
         _app.Initialize();
     }
