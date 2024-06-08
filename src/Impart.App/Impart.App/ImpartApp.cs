@@ -44,7 +44,7 @@ public sealed class ImpartApp
 
         _args = args;
 
-        _container = new(app: this);
+        _container = new ImpartAppContainer(this);
     }
 
     /// <summary>
