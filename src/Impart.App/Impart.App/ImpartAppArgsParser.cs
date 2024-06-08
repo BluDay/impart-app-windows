@@ -16,61 +16,61 @@ public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
     /// <returns>An <see cref="ArgumentDescriptors"/> instance of different argument descriptors.</returns>
     private static ArgumentDescriptors CreateArguments()
     {
-        return new(CreateOptionals(), CreatePositionals());
+        return new ArgumentDescriptors(CreateOptionals(), CreatePositionals());
     }
 
     /// <summary>
     /// Creates optional argument descriptors to register.
     /// </summary>
     /// <returns>An enumerable of optional argument descriptors.</returns>
-    private static IEnumerable<OptionalArgumentDescriptor> CreateOptionals()
+    private static OptionalArgumentDescriptor[] CreateOptionals()
     {
-        yield return new(nameof(ImpartAppArgs.DemoMode))
-        {
-            FlagDescriptor = ArgumentFlagDescriptors.DEMO_MODE,
-            Description    = ArgumentDescriptions.DEMO_MODE
-        };
-
-        yield return new(nameof(ImpartAppArgs.PerformanceMode))
-        {
-            FlagDescriptor = ArgumentFlagDescriptors.PERFORMANCE_MODE,
-            Description    = ArgumentDescriptions.PERFORMANCE_MODE
-        };
-
-        yield return new(nameof(ImpartAppArgs.SkipIntro))
-        {
-            FlagDescriptor = ArgumentFlagDescriptors.SKIP_INTRO,
-            Description    = ArgumentDescriptions.SKIP_INTRO
-        };
-
-        yield return new(nameof(ImpartAppArgs.Verbosity))
-        {
-            FlagDescriptor = ArgumentFlagDescriptors.VERBOSITY,
-            Description    = ArgumentDescriptions.VERBOSITY,
-            ActionKind     = ArgumentActionKind.CountFlag,
-            StoreKind      = ArgumentStoreKind.Integer,
-            Constant       = 1
-        };
-
-        yield return new(nameof(ImpartAppArgs.AppTheme))
-        {
-            FlagDescriptor = ArgumentFlagDescriptors.APP_THEME,
-            Description    = ArgumentDescriptions.APP_THEME,
-            ActionKind     = ArgumentActionKind.StoreValue,
-            StoreKind      = ArgumentStoreKind.String
-        };
+        return [
+            new OptionalArgumentDescriptor(nameof(ImpartAppArgs.DemoMode))
+            {
+                FlagDescriptor = ArgumentFlagDescriptors.DEMO_MODE,
+                Description    = ArgumentDescriptions.DEMO_MODE
+            },
+            new OptionalArgumentDescriptor(nameof(ImpartAppArgs.PerformanceMode))
+            {
+                FlagDescriptor = ArgumentFlagDescriptors.PERFORMANCE_MODE,
+                Description    = ArgumentDescriptions.PERFORMANCE_MODE
+            },
+            new OptionalArgumentDescriptor(nameof(ImpartAppArgs.SkipIntro))
+            {
+                FlagDescriptor = ArgumentFlagDescriptors.SKIP_INTRO,
+                Description    = ArgumentDescriptions.SKIP_INTRO
+            },
+            new OptionalArgumentDescriptor(nameof(ImpartAppArgs.Verbosity))
+            {
+                FlagDescriptor = ArgumentFlagDescriptors.VERBOSITY,
+                Description    = ArgumentDescriptions.VERBOSITY,
+                ActionKind     = ArgumentActionKind.CountFlag,
+                StoreKind      = ArgumentStoreKind.Integer,
+                Constant       = 1
+            },
+            new OptionalArgumentDescriptor(nameof(ImpartAppArgs.AppTheme))
+            {
+                FlagDescriptor = ArgumentFlagDescriptors.APP_THEME,
+                Description    = ArgumentDescriptions.APP_THEME,
+                ActionKind     = ArgumentActionKind.StoreValue,
+                StoreKind      = ArgumentStoreKind.String
+            }
+        ];
     }
 
     /// <summary>
     /// Creates positional argument descriptors to register.
     /// </summary>
     /// <returns>An enumerable of positional argument descriptors.</returns>
-    private static IEnumerable<PositionalArgumentDescriptor> CreatePositionals()
+    private static PositionalArgumentDescriptor[] CreatePositionals()
     {
-        yield return new(nameof(PositionalArgumentDescriptor))
-        {
-            ActionKind = ArgumentActionKind.AppendValue,
-            StoreKind  = ArgumentStoreKind.String
-        };
+        return [
+            new PositionalArgumentDescriptor(nameof(PositionalArgumentDescriptor))
+            {
+                ActionKind = ArgumentActionKind.AppendValue,
+                StoreKind  = ArgumentStoreKind.String
+            }
+        ];
     }
 }
