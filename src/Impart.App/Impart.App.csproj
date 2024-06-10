@@ -11,12 +11,20 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Platforms>x64;ARM64</Platforms>
     <PlatformTarget>x64</PlatformTarget>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
     <Reference Include="BluDay.Net">
       <HintPath>..\..\..\bluday-dotnet\src\BluDay.Net\bin\x64\Debug\net8.0\BluDay.Net.dll</HintPath>
     </Reference>
+  </ItemGroup>
+
+   <ItemGroup>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
