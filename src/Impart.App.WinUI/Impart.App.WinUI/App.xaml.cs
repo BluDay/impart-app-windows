@@ -7,6 +7,8 @@ public sealed partial class App : Application
 {
     private ImpartApp? _app;
 
+    private Window? _mainWindow;
+
     /// <summary>
     /// Initializes the singleton application object. This is the first line of authored
     /// code executed, and as such is the logical equivalent of main() or WinMain().
@@ -22,5 +24,9 @@ public sealed partial class App : Application
         _app = new ImpartApp();
 
         _app.Initialize();
+
+        _mainWindow = new UI.Controls.Shell();
+
+        _mainWindow.Activate();
     }
 }
