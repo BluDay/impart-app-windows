@@ -33,6 +33,7 @@ internal sealed class ImpartAppContainer : IDisposable
     /// Initializes a new instance for the provided app instance.
     /// </summary>
     /// <param name="app">The app instance.</param>
+    /// <exception cref="ArgumentNullException"></exception>
     public ImpartAppContainer(ImpartApp app)
     {
         ArgumentNullException.ThrowIfNull(app);
