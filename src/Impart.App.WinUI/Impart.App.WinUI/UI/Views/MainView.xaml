@@ -12,8 +12,32 @@
             <AutoSuggestBox PlaceholderText="Search for chats, users, or files"/>
         </NavigationView.AutoSuggestBox>
 
+        <NavigationView.MenuItems>
+            <NavigationViewItem Content="Direct messages">
+                <NavigationViewItem.Icon>
+                    <FontIcon Glyph="&#xe8f2;"/>
+                </NavigationViewItem.Icon>
+            </NavigationViewItem>
+
+            <NavigationViewItem Content="Groups">
+                <NavigationViewItem.Icon>
+                    <FontIcon Glyph="&#xe902;"/>
+                </NavigationViewItem.Icon>
+            </NavigationViewItem>
+        </NavigationView.MenuItems>
+
         <NavigationView.Content>
             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{x:Bind}"/>
         </NavigationView.Content>
+
+        <NavigationView.FooterMenuItems>
+            <NavigationViewItem Icon="Add" Content="New chat" SelectsOnInvoked="False"/>
+
+            <NavigationViewItem Content="User">
+                <NavigationViewItem.Icon>
+                    <FontIcon Glyph="&#xe77b;"/>
+                </NavigationViewItem.Icon>
+            </NavigationViewItem>
+        </NavigationView.FooterMenuItems>
     </NavigationView>
 </UserControl>
