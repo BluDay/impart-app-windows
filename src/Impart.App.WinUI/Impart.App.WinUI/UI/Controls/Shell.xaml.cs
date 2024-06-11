@@ -31,7 +31,7 @@ public sealed partial class Shell : Window
 
         InitializeComponent();
 
-        ContentFrame.Navigate(typeof(Views.MainPage));
+        ContentControl.Content = new Views.MainView();
     }
 
     private void ConfigureAppWindow()

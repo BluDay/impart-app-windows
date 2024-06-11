@@ -12,7 +12,7 @@
     <Window.SystemBackdrop>
         <MicaBackdrop Kind="Base"/>
     </Window.SystemBackdrop>
-    
+
     <Grid x:Name="RootGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -23,9 +23,11 @@
                            Icon="{StaticResource AppIconImageSource}"
                            Title="{x:Bind Title}"/>
 
-        <Frame x:Name="ContentFrame"
-               ContentTransitions="{StaticResource FrameContentTransitions}"
-               Grid.Row="1"/>
+        <ContentControl x:Name="ContentControl"
+                        ContentTransitions="{StaticResource FrameContentTransitions}"
+                        VerticalContentAlignment="Stretch"
+                        HorizontalContentAlignment="Stretch"
+                        Grid.Row="1"/>
 
         <ContentDialog Grid.RowSpan="2"/>
     </Grid>

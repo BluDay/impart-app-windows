@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UserControl d:DataContext="{d:DesignInstance Type=viewModels:ConversationsViewModel}"
+             mc:Ignorable="d"
+             x:Class="Impart.App.WinUI.UI.Views.ConversationsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="using:Impart.App.Domain.ViewModels"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{x:Bind}"/>
+    </Grid>
+</UserControl>
