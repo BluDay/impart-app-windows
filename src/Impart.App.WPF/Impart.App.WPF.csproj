@@ -6,16 +6,20 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
     <StartupObject>Impart.App.WPF.App</StartupObject>
-    <Title>Impart (WPF)</Title>
     <Copyright>© BluDay 2024</Copyright>
     <Description>Developed by BluDay.</Description>
     <RepositoryUrl>https://github.com/BluDay/impart-app-windows</RepositoryUrl>
     <PlatformTarget>x64</PlatformTarget>
     <Platforms>x64;ARM64</Platforms>
+    <Title>Impart (WPF)</Title>
+    <Authors>BluDay</Authors>
+    <Product>$(Title)</Product>
+    <PackageId />
   </PropertyGroup>
   <ItemGroup>
     <Page Remove="Impart.App.WPF\App.xaml" />
   </ItemGroup>
+  
   <ItemGroup>
     <ApplicationDefinition Include="Impart.App.WPF\App.xaml" />
   </ItemGroup>

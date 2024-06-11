@@ -6,7 +6,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         Background="#222"
         Height="600"
-        Title="Impart.App.WPF"
         Width="800"
         WindowStartupLocation="CenterScreen">
     <TextBlock Foreground="#FFF" HorizontalAlignment="Center" Text="( 0 _ o )" VerticalAlignment="Center"/>

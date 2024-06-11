@@ -1,4 +1,6 @@
-﻿namespace Impart.App.WPF;
+﻿using System.Reflection;
+
+namespace Impart.App.WPF;
 
 /// <summary>
 /// Interaction logic for App.xaml.
@@ -6,6 +8,8 @@
 public sealed partial class App : Application
 {
     private ImpartApp? _app;
+
+    private Window? _mainWindow;
 
     /// <summary>
     /// Invokes when the applications starts.
@@ -16,5 +20,16 @@ public sealed partial class App : Application
         _app = new ImpartApp();
 
         _app.Initialize();
+
+        _mainWindow = new UI.Controls.Shell()
+        {
+            Title = Assembly
+                .GetExecutingAssembly()
+                .GetCustomAttribute<AssemblyProductAttribute>()?
+                .Product
+        };
+
+        _mainWindow.Activate();
+        _mainWindow.Show();
     }
 }
