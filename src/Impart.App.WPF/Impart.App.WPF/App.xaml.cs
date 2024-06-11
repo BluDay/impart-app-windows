@@ -23,10 +23,7 @@ public sealed partial class App : Application
 
         _mainWindow = new UI.Controls.Shell()
         {
-            Title = Assembly
-                .GetExecutingAssembly()
-                .GetCustomAttribute<AssemblyTitleAttribute>()?
-                .Title
+            Title = "Impart"
         };
 
         _mainWindow.Activate();
