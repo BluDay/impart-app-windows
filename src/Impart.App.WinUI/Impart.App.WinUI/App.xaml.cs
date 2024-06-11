@@ -1,4 +1,6 @@
-﻿namespace Impart.App.WinUI;
+﻿using Windows.ApplicationModel;
+
+namespace Impart.App.WinUI;
 
 /// <summary>
 /// Provides application-specific behavior to supplement the default Application class.
@@ -25,7 +27,10 @@ public sealed partial class App : Application
 
         _app.Initialize();
 
-        _mainWindow = new UI.Controls.Shell();
+        _mainWindow = new UI.Controls.Shell()
+        {
+            Title = AppInfo.Current.DisplayInfo.DisplayName
+        };
 
         _mainWindow.Activate();
     }

@@ -18,6 +18,7 @@
     <Copyright>© BluDay 2024</Copyright>
     <Description>Developed by BluDay.</Description>
     <RepositoryUrl>https://github.com/BluDay/impart-app-windows</RepositoryUrl>
+    <NoWarn>CA1416;</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>

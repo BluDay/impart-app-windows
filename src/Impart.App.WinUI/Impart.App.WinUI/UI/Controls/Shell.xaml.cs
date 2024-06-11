@@ -26,21 +26,21 @@ public sealed partial class Shell : Window
 
         _nonClientPointerSource = _appWindow.GetNonClientPointerSource();
         _displayArea            = _appWindow.GetDisplayArea();
-        
-        ExtendsContentIntoTitleBar = true;
 
-        SetTitleBar(TitleBar);
-
-        _appWindow.MakeTitleBarTransparent();
+        ConfigureAppWindow();
 
         InitializeComponent();
     }
 
     private void ConfigureAppWindow()
     {
+        ExtendsContentIntoTitleBar = true;
+
+        SetTitleBar(TitleBar);
+
         _appWindow.MakeTitleBarTransparent();
         _appWindow.SetIsResizable(false);
-        _appWindow.Resize(size: 1200);
+        _appWindow.Resize(1600, 1280);
         _appWindow.MoveToCenter(_displayArea);
     }
 
