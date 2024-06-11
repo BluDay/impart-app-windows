@@ -30,6 +30,8 @@ public sealed partial class Shell : Window
         ConfigureAppWindow();
 
         InitializeComponent();
+
+        ContentFrame.Navigate(typeof(Views.MainPage));
     }
 
     private void ConfigureAppWindow()
