@@ -25,8 +25,8 @@ public sealed partial class App : Application
         {
             Title = Assembly
                 .GetExecutingAssembly()
-                .GetCustomAttribute<AssemblyProductAttribute>()?
-                .Product
+                .GetCustomAttribute<AssemblyTitleAttribute>()?
+                .Title
         };
 
         _mainWindow.Activate();
