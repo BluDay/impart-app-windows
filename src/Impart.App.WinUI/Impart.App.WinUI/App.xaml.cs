@@ -29,7 +29,7 @@ public sealed partial class App : Application
 
         _mainWindow = new UI.Controls.Shell()
         {
-            Title = AppInfo.Current.DisplayInfo.DisplayName
+            Title = "Impart"
         };
 
         _mainWindow.Activate();
