@@ -54,7 +54,7 @@ internal sealed class ImpartAppContainer : IDisposable
     private static IServiceCollection CreateServiceDescriptors()
     {
         return new ServiceCollection()
-            .AddSingleton<IMessenger, WeakReferenceMessenger>()
+            .AddSingleton<IMessenger>(WeakReferenceMessenger.Default)
             .AddSingleton<IAppActivationService, AppActivationService>()
             .AddSingleton<IAppDialogService, AppDialogService>()
             .AddSingleton<IAppNavigationService, AppNavigationService>()
