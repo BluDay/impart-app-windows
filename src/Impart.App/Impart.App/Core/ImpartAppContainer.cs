@@ -59,8 +59,7 @@ internal sealed class ImpartAppContainer : IDisposable
             .AddSingleton<IAppDialogService, AppDialogService>()
             .AddSingleton<IAppNavigationService, AppNavigationService>()
             .AddSingleton<IAppThemeService, AppThemeService>()
-            .AddSingleton<IAppWindowService, AppWindowService>()
-            .AddSingleton<IViewModelProvider, ViewModelProvider>();
+            .AddSingleton<IAppWindowService, AppWindowService>();
     }
 
     /// <summary>

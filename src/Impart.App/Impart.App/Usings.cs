@@ -1,7 +1,5 @@
 ﻿global using BluDay.Net.CommandLine;
 global using BluDay.Net.Common.Attributes;
-global using BluDay.Net.Common.Extensions;
-global using BluDay.Net.DependencyInjection;
 global using BluDay.Net.Domain.Models;
 global using BluDay.Net.Domain.ViewModels;
 global using BluDay.Net.Services;
@@ -11,6 +9,5 @@ global using CommunityToolkit.Mvvm.Messaging;
 global using Impart.App.Core;
 global using Impart.App.Domain.Models;
 global using Impart.App.Resources;
-global using Impart.App.Services;
 global using Microsoft.Extensions.DependencyInjection;
 global using System.ComponentModel.DataAnnotations;
