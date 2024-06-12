@@ -1,6 +1,4 @@
-﻿using Windows.ApplicationModel;
-
-namespace Impart.App.WinUI;
+﻿namespace Impart.App.WinUI;
 
 /// <summary>
 /// Provides application-specific behavior to supplement the default Application class.

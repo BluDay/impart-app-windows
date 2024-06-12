@@ -1,6 +1,4 @@
-﻿using System.Reflection;
-
-namespace Impart.App.WPF;
+﻿namespace Impart.App.WPF;
 
 /// <summary>
 /// Interaction logic for App.xaml.
