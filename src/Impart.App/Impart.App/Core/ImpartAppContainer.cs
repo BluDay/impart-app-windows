@@ -54,12 +54,13 @@ internal sealed class ImpartAppContainer : IDisposable
     private static IServiceCollection CreateServiceDescriptors()
     {
         return new ServiceCollection()
-            .AddSingleton(WeakReferenceMessenger.Default)
-            .AddSingleton<AppActivationService>()
-            .AddSingleton<AppDialogService>()
-            .AddSingleton<AppNavigationService>()
-            .AddSingleton<AppThemeService>()
-            .AddSingleton<AppWindowService>();
+            .AddSingleton<IMessenger, WeakReferenceMessenger>()
+            .AddSingleton<IAppActivationService, AppActivationService>()
+            .AddSingleton<IAppDialogService, AppDialogService>()
+            .AddSingleton<IAppNavigationService, AppNavigationService>()
+            .AddSingleton<IAppThemeService, AppThemeService>()
+            .AddSingleton<IAppWindowService, AppWindowService>()
+            .AddSingleton<IViewModelProvider, ViewModelProvider>();
     }
 
     /// <summary>
