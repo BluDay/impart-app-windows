@@ -13,13 +13,13 @@
         </NavigationView.AutoSuggestBox>
 
         <NavigationView.MenuItems>
-            <NavigationViewItem Content="Direct messages">
+            <NavigationViewItem Content="Chats">
                 <NavigationViewItem.Icon>
                     <FontIcon Glyph="&#xe8f2;"/>
                 </NavigationViewItem.Icon>
             </NavigationViewItem>
 
-            <NavigationViewItem Content="Groups">
+            <NavigationViewItem Content="Contacts">
                 <NavigationViewItem.Icon>
                     <FontIcon Glyph="&#xe902;"/>
                 </NavigationViewItem.Icon>
