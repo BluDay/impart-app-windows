@@ -13,7 +13,7 @@ public sealed partial class App : Application
     /// Invokes when the applications starts.
     /// </summary>
     /// <param name="e">Event with a command-line args property.</param>
-    private void Application_Startup(object sender, StartupEventArgs e)
+    protected override void OnStartup(StartupEventArgs e)
     {
         _app = new ImpartApp();
 
@@ -25,6 +25,9 @@ public sealed partial class App : Application
         };
 
         _mainWindow.Activate();
+
         _mainWindow.Show();
+
+        base.OnStartup(e);
     }
 }
