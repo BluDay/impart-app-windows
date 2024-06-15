@@ -16,6 +16,7 @@
     <PackageProjectUrl>https://github.com/BluDay/impart</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <Copyright>© BluDay 2024</Copyright>
+    <ApplicationIcon>Assets/Icon_64x64.ico</ApplicationIcon>
   </PropertyGroup>
   
   <ItemGroup>
