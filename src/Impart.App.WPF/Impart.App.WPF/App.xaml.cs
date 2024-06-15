@@ -17,6 +17,11 @@ public sealed partial class App : Application
     {
         _app = new ImpartApp();
 
+        _app.RegisterAppServices(services =>
+        {
+            services.AddTransient<Shell>();
+        });
+
         _app.Initialize();
 
         _mainWindow = new Shell()
