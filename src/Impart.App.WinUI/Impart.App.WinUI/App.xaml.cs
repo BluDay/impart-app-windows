@@ -25,9 +25,9 @@ public sealed partial class App : Application
 
         _app.Initialize();
 
-        _mainWindow = new UI.Controls.Shell()
+        _mainWindow = new Shell()
         {
-            Title = "Impart"
+            Title = nameof(Impart)
         };
 
         _mainWindow.Activate();
