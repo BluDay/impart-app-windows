@@ -1,7 +1,7 @@
 ﻿using Microsoft.UI.Xaml.Input;
 using System.Windows.Input;
 
-namespace Impart.App.WinUI.UI.Controls;
+namespace Impart.App.WinUI.Controls;
 
 public sealed partial class ChatInputBox : UserControl
 {

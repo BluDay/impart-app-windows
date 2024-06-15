@@ -4,7 +4,7 @@
              d:Margin="5"
              d:RequestedTheme="Dark"
              mc:Ignorable="d"
-             x:Class="Impart.App.WinUI.UI.Controls.ChatListItem"
+             x:Class="Impart.App.WinUI.Controls.ChatListItem"
              x:DefaultBindMode="OneWay"
              x:Name="Control"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"

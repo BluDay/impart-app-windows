@@ -1,4 +1,4 @@
-﻿namespace Impart.App.WPF.UI.Controls;
+﻿namespace Impart.App.WPF.Controls;
 
 /// <summary>
 /// Interaction logic for Shell.xaml

@@ -1,4 +1,4 @@
-﻿namespace Impart.App.WinUI.UI.Controls;
+﻿namespace Impart.App.WinUI.Controls;
 
 public sealed partial class UserAvatar : UserControl
 {

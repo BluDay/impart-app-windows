@@ -1,4 +1,4 @@
-namespace Impart.App.WinUI.UI.Views;
+namespace Impart.App.WinUI.Views;
 
 public sealed partial class ChatsView : UserControl
 {

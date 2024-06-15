@@ -38,31 +38,24 @@
   <ItemGroup>
     <ApplicationDefinition Include="Impart.App.WinUI\App.xaml" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="Impart.App.WinUI\UI\Styles\ChatMessageBubbleStyle.xaml" />
-    <Content Include="Impart.App.WinUI\UI\Styles\NavigationViewStyle.xaml" />
-    <Content Include="Impart.App.WinUI\UI\Styles\PersonPictureStyle.xaml" />
-    <Content Include="Impart.App.WinUI\UI\Styles\UserControlStyle.xaml" />
-  </ItemGroup>
   
   <ItemGroup>
-    <Page Update="Impart.App.WinUI.UI\Views\ConversationsPage.xaml">
+    <Page Update="Impart.App.WinUI\Views\ConversationsPage.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
     
-    <Page Update="Impart.App.WinUI.UI\Views\IntroductionPage.xaml">
+    <Page Update="Impart.App.WinUI\Views\IntroductionPage.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
     
-    <Page Update="Impart.App.WinUI.UI\Views\MainPage.xaml">
+    <Page Update="Impart.App.WinUI\Views\MainPage.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
     
-    <Page Update="Impart.App.WinUI.UI\Views\SettingsPage.xaml">
+    <Page Update="Impart.App.WinUI\Views\SettingsPage.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
