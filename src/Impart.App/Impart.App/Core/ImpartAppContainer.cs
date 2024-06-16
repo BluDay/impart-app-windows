@@ -6,13 +6,13 @@ namespace Impart.App.Core;
 /// </summary>
 internal sealed class ImpartAppContainer : IDisposable
 {
+    private ServiceProvider _serviceProvider;
+
     private bool _isDisposed;
 
     private readonly ImpartApp _app;
 
-    private readonly ServiceProvider _serviceProvider;
-
-    private readonly IReadOnlyList<ServiceDescriptor> _serviceDescriptors;
+    internal readonly IServiceCollection _serviceCollection;
 
     /// <summary>
     /// Gets a value indicating whether the container is disposed of.
@@ -27,7 +27,10 @@ internal sealed class ImpartAppContainer : IDisposable
     /// <summary>
     /// Gets a read-only list of descriptors for all registered services.
     /// </summary>
-    public IReadOnlyList<ServiceDescriptor> ServiceDescriptors => _serviceDescriptors;
+    public IReadOnlyList<ServiceDescriptor> ServiceDescriptors
+    {
+        get => _serviceCollection.AsReadOnly();
+    }
 
     /// <summary>
     /// Initializes a new instance for the provided app instance.
@@ -40,11 +43,7 @@ internal sealed class ImpartAppContainer : IDisposable
 
         _app = app;
 
-        IServiceCollection serviceDescriptors = CreateServiceDescriptors();
-
-        _serviceProvider = serviceDescriptors.BuildServiceProvider();
-
-        _serviceDescriptors = serviceDescriptors.AsReadOnly();
+        _serviceCollection = CreateServiceDescriptors();
     }
 
     /// <summary>
@@ -53,13 +52,32 @@ internal sealed class ImpartAppContainer : IDisposable
     /// <returns>A service collection and container builder.</returns>
     private static IServiceCollection CreateServiceDescriptors()
     {
-        return new ServiceCollection()
-            .AddSingleton<IMessenger>(WeakReferenceMessenger.Default)
+        ServiceCollection services = new();
+
+        services.AddSingleton<IMessenger>(WeakReferenceMessenger.Default);
+
+        services
             .AddSingleton<IAppActivationService, AppActivationService>()
             .AddSingleton<IAppDialogService, AppDialogService>()
             .AddSingleton<IAppNavigationService, AppNavigationService>()
             .AddSingleton<IAppThemeService, AppThemeService>()
             .AddSingleton<IAppWindowService, AppWindowService>();
+
+        services
+            .AddTransient<ChatsViewModel>()
+            .AddTransient<IntroViewModel>()
+            .AddTransient<MainViewModel>()
+            .AddTransient<SettingsViewModel>();
+
+        return services;
+    }
+
+    /// <summary>
+    /// Builds the service provider using all registered service descriptors.
+    /// </summary>
+    public void Build()
+    {
+        _serviceProvider = _serviceCollection.BuildServiceProvider();
     }
 
     /// <summary>

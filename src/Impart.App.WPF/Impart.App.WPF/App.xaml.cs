@@ -25,6 +25,11 @@ public sealed partial class App : Application
 
         _app.Initialize();
 
+        Shell shell = new() { Title = nameof(Impart) };
+
+        shell.Activate();
+        shell.Show();
+
         base.OnStartup(e);
     }
 }
