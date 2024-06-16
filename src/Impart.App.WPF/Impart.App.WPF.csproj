@@ -18,6 +18,12 @@
     <Copyright>© BluDay 2024</Copyright>
     <ApplicationIcon>Assets/Icon_64x64.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="BluDay.Net">
+      <HintPath>..\..\..\bluday-dotnet\src\BluDay.Net\bin\x64\Debug\net8.0\BluDay.Net.dll</HintPath>
+    </Reference>
+  </ItemGroup>
   
   <ItemGroup>
     <Page Remove="Impart.App.WPF\App.xaml" />

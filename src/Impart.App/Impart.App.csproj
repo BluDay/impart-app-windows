@@ -38,6 +38,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>ArgumentDescriptions.resx</DependentUpon>
     </Compile>
+    
     <Compile Update="Resources\ArgumentFlagDescriptors.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -50,6 +51,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ArgumentDescriptions.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    
     <EmbeddedResource Update="Resources\ArgumentFlagDescriptors.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ArgumentFlagDescriptors.Designer.cs</LastGenOutput>
