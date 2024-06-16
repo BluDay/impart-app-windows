@@ -12,7 +12,9 @@ public sealed partial class App : Application
     /// </summary>
     public App()
     {
-        _app.RegisterWindowShell<Shell>();
+        _app
+            .RegisterView<MainView, MainViewModel>()
+            .RegisterWindowShell<Shell>();
     }
 
     /// <summary>
