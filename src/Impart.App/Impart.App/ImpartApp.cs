@@ -93,11 +93,12 @@ public sealed class ImpartApp
     /// <summary>
     /// Parses command-line arguments from the provided string literal value.
     /// </summary>
+    /// <remarks>Arguments can only be set once.</remarks>
     /// <param name="args">All arguments as a string.</param>
     /// <returns>The current app instance.</returns>
     public ImpartApp ParseArgs(string args)
     {
-        _args = _argsParser.Parse(args);
+        _args ??= _argsParser.Parse(args);
 
         return this;
     }
@@ -105,11 +106,12 @@ public sealed class ImpartApp
     /// <summary>
     /// Parses command-line arguments from the provided string array.
     /// </summary>
+    /// <remarks>Arguments can only be set once.</remarks>
     /// <param name="args">An array of arguments.</param>
     /// <returns>The current app instance.</returns>
     public ImpartApp ParseArgs(string[] args)
     {
-        _args = _argsParser.Parse(args);
+        _args ??= _argsParser.Parse(args);
 
         return this;
     }
