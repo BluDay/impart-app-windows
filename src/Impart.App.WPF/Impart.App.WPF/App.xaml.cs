@@ -5,9 +5,15 @@
 /// </summary>
 public sealed partial class App : Application
 {
-    private ImpartApp? _app;
+    private readonly ImpartApp _app = new();
 
-    private Window? _mainWindow;
+    /// <summary>
+    /// Initializes the application object.
+    /// </summary>
+    public App()
+    {
+        _app.RegisterWindowShell<Shell>();
+    }
 
     /// <summary>
     /// Invokes when the applications starts.
@@ -15,23 +21,7 @@ public sealed partial class App : Application
     /// <param name="e">Event with a command-line args property.</param>
     protected override void OnStartup(StartupEventArgs e)
     {
-        _app = new ImpartApp();
-
-        _app.RegisterAppServices(services =>
-        {
-            services.AddTransient<Shell>();
-        });
-
-        _app.Initialize();
-
-        _mainWindow = new Shell()
-        {
-            Title = nameof(Impart)
-        };
-
-        _mainWindow.Activate();
-
-        _mainWindow.Show();
+        _app.ParseArgs(e.Args).Initialize();
 
         base.OnStartup(e);
     }
