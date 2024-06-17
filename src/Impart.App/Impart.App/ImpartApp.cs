@@ -36,6 +36,11 @@ public sealed class ImpartApp
     public IReadOnlyDictionary<Type, Type> ViewToViewModelTypeMap => _viewToViewModelTypeMap;
 
     /// <summary>
+    /// Gets a read-only list of registered view types.
+    /// </summary>
+    public IReadOnlyList<Type> RegisteredViews => _viewToViewModelTypeMap.Keys.ToList();
+
+    /// <summary>
     /// Initializes a new instance with a parsed command-line arguments instance.
     /// </summary>
     public ImpartApp()
