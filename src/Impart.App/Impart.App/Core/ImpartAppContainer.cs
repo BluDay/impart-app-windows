@@ -52,24 +52,13 @@ internal sealed class ImpartAppContainer : IDisposable
     /// <returns>A service collection and container builder.</returns>
     private static IServiceCollection CreateServiceDescriptors()
     {
-        ServiceCollection services = new();
-
-        services.AddSingleton<IMessenger>(WeakReferenceMessenger.Default);
-
-        services
+        return new ServiceCollection()
+            .AddSingleton<IMessenger>(WeakReferenceMessenger.Default)
             .AddSingleton<IAppActivationService, AppActivationService>()
             .AddSingleton<IAppDialogService, AppDialogService>()
             .AddSingleton<IAppNavigationService, AppNavigationService>()
             .AddSingleton<IAppThemeService, AppThemeService>()
             .AddSingleton<IAppWindowService, AppWindowService>();
-
-        services
-            .AddTransient<ChatsViewModel>()
-            .AddTransient<IntroViewModel>()
-            .AddTransient<MainViewModel>()
-            .AddTransient<SettingsViewModel>();
-
-        return services;
     }
 
     /// <summary>
