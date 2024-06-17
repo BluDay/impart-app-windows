@@ -34,6 +34,8 @@ public sealed class ImpartApp
     public ImpartApp()
     {
         _container = new ImpartAppContainer(this);
+
+        RegisterCoreServices();
     }
 
     /// <summary>
@@ -50,6 +52,21 @@ public sealed class ImpartApp
     private void InitializeCoreServices()
     {
         // TODO: Resolve core services and activate the whole app.
+    }
+
+    /// <summary>
+    /// Registers service descriptors.
+    /// </summary>
+    /// <returns>A service collection and container builder.</returns>
+    private void RegisterCoreServices()
+    {
+        _container.Services
+            .AddSingleton<IMessenger>(WeakReferenceMessenger.Default)
+            .AddSingleton<IAppActivationService, AppActivationService>()
+            .AddSingleton<IAppDialogService, AppDialogService>()
+            .AddSingleton<IAppNavigationService, AppNavigationService>()
+            .AddSingleton<IAppThemeService, AppThemeService>()
+            .AddSingleton<IAppWindowService, AppWindowService>();
     }
 
     /// <summary>
@@ -115,11 +132,12 @@ public sealed class ImpartApp
     /// <typeparam name="TViewModel">The viewmodel type.</typeparam>
     /// <returns>The current app instance.</returns>
     public ImpartApp RegisterView<TView, TViewModel>()
-        where TView      : new()
-        where TViewModel : IViewModel
+        where TView      : class
+        where TViewModel : class, IViewModel
     {
-        // TODO: Validate viewmodel type.
-        // TODO: Map view type to viewmodel type.
+        _container.Services
+            .AddTransient<TView>()
+            .AddTransient<TViewModel>();
 
         return this;
     }
@@ -130,9 +148,9 @@ public sealed class ImpartApp
     /// <remarks>The shell must be registered before the DI container is built.</remarks>
     /// <typeparam name="TShell">The UI control type of the shell.</typeparam>
     /// <returns>The current app instance.</returns>
-    public ImpartApp RegisterWindowShell<TShell>() where TShell : new()
+    public ImpartApp RegisterWindowShell<TShell>() where TShell : class
     {
-        // TODO: Register shell type.
+        _container.Services.AddTransient<TShell>();
 
         return this;
     }
