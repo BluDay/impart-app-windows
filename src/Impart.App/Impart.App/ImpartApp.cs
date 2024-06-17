@@ -59,7 +59,9 @@ public sealed class ImpartApp
     /// </summary>
     private void InitializeCoreServices()
     {
-        // TODO: Resolve core services and activate the whole app.
+        _container.ServiceProvider!
+            .GetRequiredService<IAppActivationService>()
+            .Activate();
     }
 
     /// <summary>
