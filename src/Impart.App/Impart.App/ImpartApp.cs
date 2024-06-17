@@ -33,7 +33,7 @@ public sealed class ImpartApp
     /// </summary>
     public IReadOnlyList<ServiceDescriptor> RegisteredServices
     {
-        get => _container.Services.AsReadOnly();
+        get => _container.ServiceDescriptors.AsReadOnly();
     }
 
     /// <summary>
@@ -68,7 +68,7 @@ public sealed class ImpartApp
     /// <returns>A service collection and container builder.</returns>
     private void RegisterCoreServices()
     {
-        _container.Services
+        _container.ServiceDescriptors
             .AddSingleton<IMessenger>(WeakReferenceMessenger.Default)
             .AddSingleton<IAppActivationService, AppActivationService>()
             .AddSingleton<IAppDialogService, AppDialogService>()
@@ -143,7 +143,7 @@ public sealed class ImpartApp
         where TView      : class
         where TViewModel : class, IViewModel
     {
-        _container.Services
+        _container.ServiceDescriptors
             .AddTransient<TView>()
             .AddTransient<TViewModel>();
 
@@ -158,7 +158,7 @@ public sealed class ImpartApp
     /// <returns>The current app instance.</returns>
     public ImpartApp RegisterWindowShell<TShell>() where TShell : class
     {
-        _container.Services.AddTransient<TShell>();
+        _container.ServiceDescriptors.AddTransient<TShell>();
 
         return this;
     }

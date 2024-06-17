@@ -12,7 +12,7 @@ internal sealed class ImpartAppContainer : IDisposable
 
     private readonly ImpartApp _app;
 
-    internal readonly IServiceCollection _services;
+    internal readonly IServiceCollection _serviceDescriptors;
 
     /// <summary>
     /// Gets a value indicating whether the container is disposed of.
@@ -22,7 +22,7 @@ internal sealed class ImpartAppContainer : IDisposable
     /// <summary>
     /// Gets a read-only list of descriptors for all registered services.
     /// </summary>
-    public IServiceCollection Services => _services;
+    public IServiceCollection ServiceDescriptors => _serviceDescriptors;
 
     /// <summary>
     /// Gets the service provider for resolving service instances.
@@ -40,7 +40,7 @@ internal sealed class ImpartAppContainer : IDisposable
 
         _app = app;
 
-        _services = new ServiceCollection();
+        _serviceDescriptors = new ServiceCollection();
     }
 
     /// <summary>
@@ -48,7 +48,7 @@ internal sealed class ImpartAppContainer : IDisposable
     /// </summary>
     public void Build()
     {
-        _serviceProvider = _services.BuildServiceProvider();
+        _serviceProvider = _serviceDescriptors.BuildServiceProvider();
     }
 
     /// <summary>
