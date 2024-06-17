@@ -29,6 +29,14 @@ public sealed class ImpartApp
     public bool IsInitialized => _isInitialized;
 
     /// <summary>
+    /// Gets a read-only list with all registered services.
+    /// </summary>
+    public IReadOnlyList<ServiceDescriptor> RegisteredServices
+    {
+        get => _container.Services.AsReadOnly();
+    }
+
+    /// <summary>
     /// Initializes a new instance with a parsed command-line arguments instance.
     /// </summary>
     public ImpartApp()
