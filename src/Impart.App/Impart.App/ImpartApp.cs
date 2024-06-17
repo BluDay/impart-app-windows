@@ -107,6 +107,15 @@ public sealed class ImpartApp
     }
 
     /// <summary>
+    /// Attempts to show the main window.
+    /// </summary>
+    /// <returns>The current app instance.</returns>
+    public void ShowMainWindow()
+    {
+        // TODO: Create and show the main window.
+    }
+
+    /// <summary>
     /// Registers the provided view UI control type and maps it to the specified viewmodel type.
     /// </summary>
     /// <remarks>All views must be registered before the DI container is built.</remarks>
