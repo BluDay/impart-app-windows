@@ -23,7 +23,7 @@ public sealed partial class App : Application
     /// <param name="e">Event with a command-line args property.</param>
     protected override void OnStartup(StartupEventArgs e)
     {
-        ImpartAppArgs args = ImpartAppArgsParser.Default.Parse(e.Arguments);
+        ImpartAppArgs args = ImpartAppArgsParser.Default.Parse(e.Args);
 
         _app.SetArgs(args);
         _app.Initialize();
