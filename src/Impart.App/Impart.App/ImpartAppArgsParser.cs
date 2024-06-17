@@ -6,6 +6,11 @@ namespace Impart.App;
 public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
 {
     /// <summary>
+    /// Gets the singleton instance.
+    /// </summary>
+    public static ImpartAppArgsParser Default { get; } = new();
+
+    /// <summary>
     /// Initializes a new instance with app-specific optional and positional command-line arguments.
     /// </summary>
     public ImpartAppArgsParser() : base(CreateArguments()) { }

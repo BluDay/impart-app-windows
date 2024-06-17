@@ -7,8 +7,6 @@ public sealed class ImpartApp
 {
     private ImpartAppArgs? _args;
 
-    private ImpartAppArgsParser _argsParser;
-
     private bool _isDisposed;
 
     private bool _isInitialized;
@@ -19,11 +17,6 @@ public sealed class ImpartApp
     /// Gets instance of parsed command-line arguments.
     /// </summary>
     public ImpartAppArgs? Args => _args;
-
-    /// <summary>
-    /// The command-line arguments parser.
-    /// </summary>
-    public ImpartAppArgsParser ArgsParser => _argsParser;
 
     /// <summary>
     /// Gets a value indicating whether the app has been disposed.
@@ -40,8 +33,6 @@ public sealed class ImpartApp
     /// </summary>
     public ImpartApp()
     {
-        _argsParser = new ImpartAppArgsParser();
-
         _container = new ImpartAppContainer(this);
     }
 
@@ -98,7 +89,7 @@ public sealed class ImpartApp
     /// <returns>The current app instance.</returns>
     public ImpartApp ParseArgs(string args)
     {
-        _args ??= _argsParser.Parse(args);
+        _args ??= ImpartAppArgsParser.Default.Parse(args);
 
         return this;
     }
@@ -111,7 +102,7 @@ public sealed class ImpartApp
     /// <returns>The current app instance.</returns>
     public ImpartApp ParseArgs(string[] args)
     {
-        _args ??= _argsParser.Parse(args);
+        _args ??= ImpartAppArgsParser.Default.Parse(args);
 
         return this;
     }
