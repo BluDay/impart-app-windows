@@ -12,7 +12,7 @@ internal sealed class ImpartAppContainer : IDisposable
 
     private readonly ImpartApp _app;
 
-    internal readonly IServiceCollection _serviceDescriptors;
+    private readonly IServiceCollection _serviceDescriptors;
 
     /// <summary>
     /// Gets a value indicating whether the container is disposed of.
