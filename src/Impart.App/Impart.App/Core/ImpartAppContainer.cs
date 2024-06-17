@@ -8,16 +8,9 @@ internal sealed class ImpartAppContainer : IDisposable
 {
     private ServiceProvider? _serviceProvider;
 
-    private bool _isDisposed;
-
     private readonly ImpartApp _app;
 
     private readonly IServiceCollection _serviceDescriptors;
-
-    /// <summary>
-    /// Gets a value indicating whether the container is disposed of.
-    /// </summary>
-    public bool IsDisposed => _isDisposed;
 
     /// <summary>
     /// Gets a read-only list of descriptors for all registered services.
@@ -46,8 +39,11 @@ internal sealed class ImpartAppContainer : IDisposable
     /// <summary>
     /// Builds the service provider using all registered service descriptors.
     /// </summary>
+    /// <exception cref="ObjectDisposedException">If the app instance has been disposed of.</exception>
     public void Build()
     {
+        ObjectDisposedException.ThrowIf(_app.IsDisposed, this);
+
         _serviceProvider = _serviceDescriptors.BuildServiceProvider();
     }
 
@@ -56,10 +52,8 @@ internal sealed class ImpartAppContainer : IDisposable
     /// </summary>
     public void Dispose()
     {
-        if (_isDisposed) return;
+        if (_app.IsDisposed) return;
 
         _serviceProvider?.Dispose();
-
-        _isDisposed = true;
     }
 }
