@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "WinUI3": {
+      "commandName": "MsixPackage",
+      "commandLineArgs": "-b -d -vvvv -t Dark --skip-intro"
+    }
+  }
+}
