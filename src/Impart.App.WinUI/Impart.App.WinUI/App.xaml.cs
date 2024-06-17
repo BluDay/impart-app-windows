@@ -29,8 +29,6 @@ public sealed partial class App : Application
     /// <param name="e">Details about the launch request and process.</param>
     protected override void OnLaunched(LaunchActivatedEventArgs e)
     {
-        // TODO: Parse command-line arguments.
-
         _app
             .SetArgs(ImpartAppArgsParser.Default.Parse(e.Arguments))
             .Initialize();

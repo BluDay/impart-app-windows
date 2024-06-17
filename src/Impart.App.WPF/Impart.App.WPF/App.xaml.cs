@@ -23,8 +23,6 @@ public sealed partial class App : Application
     /// <param name="e">Event with a command-line args property.</param>
     protected override void OnStartup(StartupEventArgs e)
     {
-        // TODO: Parse command-line arguments.
-
         _app
             .SetArgs(ImpartAppArgsParser.Default.Parse(e.Args))
             .Initialize();
