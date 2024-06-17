@@ -13,8 +13,6 @@ public sealed class ImpartApp
 
     private readonly ImpartAppContainer _container;
 
-    private readonly Dictionary<Type, Type> _viewToViewModelTypeMap;
-
     /// <summary>
     /// Gets instance of parsed command-line arguments.
     /// </summary>
@@ -31,18 +29,11 @@ public sealed class ImpartApp
     public bool IsInitialized => _isInitialized;
 
     /// <summary>
-    /// Gets a read-only map of the mutable view-to-viewmodel-type map.
-    /// </summary>
-    public IReadOnlyDictionary<Type, Type> ViewToViewModelTypeMap => _viewToViewModelTypeMap;
-
-    /// <summary>
     /// Initializes a new instance with a parsed command-line arguments instance.
     /// </summary>
     public ImpartApp()
     {
         _container = new ImpartAppContainer(this);
-
-        _viewToViewModelTypeMap = new Dictionary<Type, Type>();
     }
 
     /// <summary>
@@ -127,7 +118,8 @@ public sealed class ImpartApp
         where TView      : new()
         where TViewModel : IViewModel
     {
-        _viewToViewModelTypeMap.Add(typeof(TView), typeof(TViewModel));
+        // TODO: Validate viewmodel type.
+        // TODO: Map view type to viewmodel type.
 
         return this;
     }
