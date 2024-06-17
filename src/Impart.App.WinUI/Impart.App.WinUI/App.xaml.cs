@@ -31,7 +31,9 @@ public sealed partial class App : Application
     {
         // TODO: Parse command-line arguments.
 
-        _app.Initialize();
+        _app
+            .SetArgs(ImpartAppArgsParser.Default.Parse(e.Arguments))
+            .Initialize();
 
         Shell shell = new() { Title = nameof(Impart) };
 

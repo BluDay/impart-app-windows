@@ -107,32 +107,6 @@ public sealed class ImpartApp
     }
 
     /// <summary>
-    /// Parses command-line arguments from the provided string literal value.
-    /// </summary>
-    /// <remarks>Arguments can only be set once.</remarks>
-    /// <param name="args">All arguments as a string.</param>
-    /// <returns>The current app instance.</returns>
-    public ImpartApp ParseArgs(string args)
-    {
-        _args ??= ImpartAppArgsParser.Default.Parse(args);
-
-        return this;
-    }
-
-    /// <summary>
-    /// Parses command-line arguments from the provided string array.
-    /// </summary>
-    /// <remarks>Arguments can only be set once.</remarks>
-    /// <param name="args">An array of arguments.</param>
-    /// <returns>The current app instance.</returns>
-    public ImpartApp ParseArgs(string[] args)
-    {
-        _args ??= ImpartAppArgsParser.Default.Parse(args);
-
-        return this;
-    }
-
-    /// <summary>
     /// Registers the provided view UI control type and maps it to the specified viewmodel type.
     /// </summary>
     /// <remarks>All views must be registered before the DI container is built.</remarks>
@@ -159,6 +133,19 @@ public sealed class ImpartApp
     public ImpartApp RegisterWindowShell<TShell>() where TShell : class
     {
         _container.ServiceDescriptors.AddTransient<TShell>();
+
+        return this;
+    }
+
+    /// <summary>
+    /// Sets the parsed command-line arguments object.
+    /// </summary>
+    /// <remarks>Arguments can only be set once.</remarks>
+    /// <param name="args">The parsed arguments object.</param>
+    /// <returns>The current app instance.</returns>
+    public ImpartApp SetArgs(ImpartAppArgs args)
+    {
+        _args ??= args;
 
         return this;
     }
