@@ -31,8 +31,9 @@ public sealed partial class App : Application
     {
         ImpartAppArgs args = ImpartAppArgsParser.Default.Parse(e.Arguments);
 
-        _app.SetArgs(args);
-        _app.Initialize();
-        _app.ShowMainWindow();
+        _app
+            .SetArgs(args)
+            .Initialize()
+            .ShowMainWindow();
     }
 }

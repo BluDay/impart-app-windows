@@ -80,23 +80,6 @@ public sealed class ImpartApp
     }
 
     /// <summary>
-    /// Initializes the entire application.
-    /// </summary>
-    /// <exception cref="ObjectDisposedException"></exception>
-    public void Initialize()
-    {
-        ObjectDisposedException.ThrowIf(_isDisposed, this);
-
-        if (_isInitialized) return;
-
-        BuildContainer();
-
-        InitializeCoreServices();
-
-        _isInitialized = true;
-    }
-
-    /// <summary>
     /// Stops the application and disposed of all services and the DI container.
     /// </summary>
     public void Dispose()
@@ -109,12 +92,23 @@ public sealed class ImpartApp
     }
 
     /// <summary>
-    /// Attempts to show the main window.
+    /// Initializes the entire application.
     /// </summary>
     /// <returns>The current app instance.</returns>
-    public void ShowMainWindow()
+    /// <exception cref="ObjectDisposedException"></exception>
+    public ImpartApp Initialize()
     {
-        // TODO: Create and show the main window.
+        ObjectDisposedException.ThrowIf(_isDisposed, this);
+
+        if (_isInitialized) return this;
+
+        BuildContainer();
+
+        InitializeCoreServices();
+
+        _isInitialized = true;
+
+        return this;
     }
 
     /// <summary>
@@ -157,6 +151,17 @@ public sealed class ImpartApp
     public ImpartApp SetArgs(ImpartAppArgs args)
     {
         _args ??= args;
+
+        return this;
+    }
+
+    /// <summary>
+    /// Attempts to show the main window.
+    /// </summary>
+    /// <returns>The current app instance.</returns>
+    public ImpartApp ShowMainWindow()
+    {
+        // TODO: Create and show the main window.
 
         return this;
     }
