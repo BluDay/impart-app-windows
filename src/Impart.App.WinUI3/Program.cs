@@ -51,7 +51,7 @@ IHost host = new HostBuilder()
     .ConfigureServices(ConfigureServices)
     .Build();
 
-Application.Start(parameters =>
+Application.Start(callbackParams =>
 {
     SynchronizationContext.SetSynchronizationContext(
         new DispatcherQueueSynchronizationContext(DispatcherQueue.GetForCurrentThread())
