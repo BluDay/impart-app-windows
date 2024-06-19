@@ -17,7 +17,8 @@ void ConfigureServices(IServiceCollection services)
     services
         .AddSingleton(LoggerFactory.Create(ConfigureLoggerFactory));
 
-    services.AddSingleton<IMessenger>(WeakReferenceMessenger.Default);
+    services
+        .AddSingleton<IMessenger>(WeakReferenceMessenger.Default);
 
     services
         .AddSingleton<IAppActivationService, AppActivationService>()
