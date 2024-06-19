@@ -11,12 +11,12 @@ public sealed class ImpartApp
 
     private readonly ImpartAppArgs _args;
 
-    private readonly IAppActivationService _appActivationService;
+    private readonly IMessenger _messenger;
 
     /// <summary>
     /// Gets instance of parsed command-line arguments.
     /// </summary>
-    public ImpartAppArgs? Args => _args;
+    public ImpartAppArgs Args => _args;
 
     /// <summary>
     /// Gets a value indicating whether the app has been disposed.
@@ -33,19 +33,11 @@ public sealed class ImpartApp
     /// </summary>
     /// <param name="args">An instance of parsed command-line arguments.</param>
     /// <param name="appActivationService">The app activation service.</param>
-    public ImpartApp(ImpartAppArgs args, IAppActivationService appActivationService)
+    public ImpartApp(ImpartAppArgs args, IMessenger messenger)
     {
         _args = args;
 
-        _appActivationService = appActivationService;
-    }
-
-    /// <summary>
-    /// Resolves and initializes all core services to run the app.
-    /// </summary>
-    private void InitializeCoreServices()
-    {
-        _appActivationService.Activate();
+        _messenger = messenger;
     }
 
     /// <summary>
@@ -70,7 +62,7 @@ public sealed class ImpartApp
 
         if (_isInitialized) return;
 
-        InitializeCoreServices();
+        // TODO: Activate the app.
 
         _isInitialized = true;
     }

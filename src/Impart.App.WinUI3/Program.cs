@@ -28,7 +28,11 @@ void ConfigureServices(IServiceCollection services)
 
     services
         .AddSingleton<App>()
-        .AddSingleton<Shell>();
+        .AddTransient<Shell>()
+        .AddSingleton<Func<Shell>>(provider =>
+        {
+            return () => provider.GetRequiredService<Shell>();
+        });
 
     services
         .AddTransient<ChatsView>()
