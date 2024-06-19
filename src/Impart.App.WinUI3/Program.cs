@@ -3,9 +3,11 @@ static extern void XamlCheckProcessRequirements();
 
 ImpartAppArgs parsedArgs = ImpartAppArgsParser.Default.Parse(args);
 
-void ConfigureLoggerFactory(ILoggingBuilder builder)
+void ConfigureLogging(ILoggingBuilder builder)
 {
-    builder.AddConsole().AddDebug();
+    builder
+        .AddConsole()
+        .AddDebug();
 }
 
 void ConfigureServices(IServiceCollection services)
@@ -13,9 +15,6 @@ void ConfigureServices(IServiceCollection services)
     services
         .AddSingleton<ImpartApp>()
         .AddSingleton(parsedArgs);
-
-    services
-        .AddSingleton(LoggerFactory.Create(ConfigureLoggerFactory));
 
     services
         .AddSingleton<IMessenger>(WeakReferenceMessenger.Default);
@@ -56,6 +55,7 @@ WinRT.ComWrappersSupport.InitializeComWrappers();
 
 IHost host = new HostBuilder()
     .ConfigureServices(ConfigureServices)
+    .ConfigureLogging(ConfigureLogging)
     .Build();
 
 Application.Start(callbackParams =>
