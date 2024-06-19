@@ -1,7 +1,7 @@
 ﻿[DllImport("Microsoft.ui.xaml.dll")]
 static extern void XamlCheckProcessRequirements();
 
-ImpartAppArgs parsedArgs = new(); // ImpartAppArgsParser.Default.Parse(args);
+ImpartAppArgs parsedArgs = ImpartAppArgsParser.Default.Parse(args);
 
 void ConfigureLoggerFactory(ILoggingBuilder builder)
 {
