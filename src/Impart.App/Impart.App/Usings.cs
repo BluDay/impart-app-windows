@@ -2,13 +2,12 @@
 global using BluDay.Net.CommandLine;
 global using BluDay.Net.Domain.Models;
 global using BluDay.Net.Domain.ViewModels;
-global using BluDay.Net.Services;
 global using BluDay.Net.UI.Appearance;
+
 global using CommunityToolkit.Mvvm.ComponentModel;
 global using CommunityToolkit.Mvvm.Messaging;
-global using Impart.App.Core;
+
 global using Impart.App.Domain.Models;
-global using Impart.App.Domain.ViewModels;
 global using Impart.App.Resources;
-global using Microsoft.Extensions.DependencyInjection;
+
 global using System.ComponentModel.DataAnnotations;
