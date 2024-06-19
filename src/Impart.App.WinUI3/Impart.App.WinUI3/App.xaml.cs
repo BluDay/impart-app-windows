@@ -5,20 +5,22 @@
 /// </summary>
 public sealed partial class App : Application
 {
-    private readonly ImpartApp _app = new();
+    private readonly ImpartApp _app;
+
+    private readonly IServiceProvider _serviceProvider;
 
     /// <summary>
     /// Initializes the singleton application object. This is the first line of authored
     /// code executed, and as such is the logical equivalent of main() or WinMain().
     /// </summary>
-    public App()
+    /// <param name="app">The app instance for Impart.</param>
+    /// <param name="mainWindow">The main window shell instance.</param>
+    /// <param name="serviceProvider">The service provider instance.</param>
+    public App(ImpartApp app, IServiceProvider serviceProvider)
     {
-        _app
-            .RegisterView<ChatsView, ChatsViewModel>()
-            .RegisterView<IntroView, IntroViewModel>()
-            .RegisterView<MainView, MainViewModel>()
-            .RegisterView<SettingsView, SettingsViewModel>()
-            .RegisterWindowShell<Shell>();
+        _app = app;
+
+        _serviceProvider = serviceProvider;
 
         InitializeComponent();
     }
@@ -29,11 +31,6 @@ public sealed partial class App : Application
     /// <param name="e">Details about the launch request and process.</param>
     protected override void OnLaunched(LaunchActivatedEventArgs e)
     {
-        ImpartAppArgs args = ImpartAppArgsParser.Default.Parse(e.Arguments);
-
-        _app
-            .SetArgs(args)
-            .Initialize()
-            .ShowMainWindow();
+        _app.Initialize();
     }
 }

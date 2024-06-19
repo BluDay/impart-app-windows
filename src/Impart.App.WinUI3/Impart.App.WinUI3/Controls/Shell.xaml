@@ -24,7 +24,6 @@
                            Title="{x:Bind Title}"/>
 
         <ContentControl x:Name="ContentControl"
-                        ContentTransitions="{StaticResource FrameContentTransitions}"
                         VerticalContentAlignment="Stretch"
                         HorizontalContentAlignment="Stretch"
                         Grid.Row="1"/>

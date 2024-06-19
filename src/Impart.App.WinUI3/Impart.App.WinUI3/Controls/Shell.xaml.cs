@@ -27,11 +27,13 @@ public sealed partial class Shell : Window
         _nonClientPointerSource = _appWindow.GetNonClientPointerSource();
         _displayArea            = _appWindow.GetDisplayArea();
 
+        System.Diagnostics.Debug.WriteLine(DispatcherQueue.GetForCurrentThread());
+
         ConfigureAppWindow();
 
         InitializeComponent();
 
-        ContentControl.Content = new Views.MainView();
+        ContentControl.Content = new MainView();
     }
 
     private void ConfigureAppWindow()

@@ -5,13 +5,13 @@
 /// </summary>
 public sealed class ImpartApp
 {
-    private ImpartAppArgs? _args;
-
     private bool _isDisposed;
 
     private bool _isInitialized;
 
-    private readonly ImpartAppContainer _container;
+    private readonly ImpartAppArgs _args;
+
+    private readonly IAppActivationService _appActivationService;
 
     /// <summary>
     /// Gets instance of parsed command-line arguments.
@@ -29,29 +29,15 @@ public sealed class ImpartApp
     public bool IsInitialized => _isInitialized;
 
     /// <summary>
-    /// Gets a read-only list with all registered services.
-    /// </summary>
-    public IReadOnlyList<ServiceDescriptor> RegisteredServices
-    {
-        get => _container.ServiceDescriptors.AsReadOnly();
-    }
-
-    /// <summary>
     /// Initializes a new instance with a parsed command-line arguments instance.
     /// </summary>
-    public ImpartApp()
+    /// <param name="args">An instance of parsed command-line arguments.</param>
+    /// <param name="appActivationService">The app activation service.</param>
+    public ImpartApp(ImpartAppArgs args, IAppActivationService appActivationService)
     {
-        _container = new ImpartAppContainer(this);
+        _args = args;
 
-        RegisterCoreServices();
-    }
-
-    /// <summary>
-    /// Builds the DI container with all of the registered service descriptors.
-    /// </summary>
-    private void BuildContainer()
-    {
-        _container.Build();
+        _appActivationService = appActivationService;
     }
 
     /// <summary>
@@ -59,24 +45,7 @@ public sealed class ImpartApp
     /// </summary>
     private void InitializeCoreServices()
     {
-        _container.ServiceProvider!
-            .GetRequiredService<IAppActivationService>()
-            .Activate();
-    }
-
-    /// <summary>
-    /// Registers service descriptors.
-    /// </summary>
-    /// <returns>A service collection and container builder.</returns>
-    private void RegisterCoreServices()
-    {
-        _container.ServiceDescriptors
-            .AddSingleton<IMessenger>(WeakReferenceMessenger.Default)
-            .AddSingleton<IAppActivationService, AppActivationService>()
-            .AddSingleton<IAppDialogService, AppDialogService>()
-            .AddSingleton<IAppNavigationService, AppNavigationService>()
-            .AddSingleton<IAppThemeService, AppThemeService>()
-            .AddSingleton<IAppWindowService, AppWindowService>();
+        _appActivationService.Activate();
     }
 
     /// <summary>
@@ -86,7 +55,7 @@ public sealed class ImpartApp
     {
         if (_isDisposed) return;
 
-        _container.Dispose();
+        // TODO: Dispose of important stuff.
 
         _isDisposed = true;
     }
@@ -94,75 +63,15 @@ public sealed class ImpartApp
     /// <summary>
     /// Initializes the entire application.
     /// </summary>
-    /// <returns>The current app instance.</returns>
-    /// <exception cref="ObjectDisposedException"></exception>
-    public ImpartApp Initialize()
+    /// <exception cref="ObjectDisposedException">If the instance has been disposed.</exception>
+    public void Initialize()
     {
         ObjectDisposedException.ThrowIf(_isDisposed, this);
 
-        if (_isInitialized) return this;
-
-        BuildContainer();
+        if (_isInitialized) return;
 
         InitializeCoreServices();
 
         _isInitialized = true;
-
-        return this;
-    }
-
-    /// <summary>
-    /// Registers the provided view UI control type and maps it to the specified viewmodel type.
-    /// </summary>
-    /// <remarks>All views must be registered before the DI container is built.</remarks>
-    /// <typeparam name="TView">The UI control type of the view.</typeparam>
-    /// <typeparam name="TViewModel">The viewmodel type.</typeparam>
-    /// <returns>The current app instance.</returns>
-    public ImpartApp RegisterView<TView, TViewModel>()
-        where TView      : class
-        where TViewModel : class, IViewModel
-    {
-        _container.ServiceDescriptors
-            .AddTransient<TView>()
-            .AddTransient<TViewModel>();
-
-        return this;
-    }
-
-    /// <summary>
-    /// Registers the provided UI control type as the app window shell type.
-    /// </summary>
-    /// <remarks>The shell must be registered before the DI container is built.</remarks>
-    /// <typeparam name="TShell">The UI control type of the shell.</typeparam>
-    /// <returns>The current app instance.</returns>
-    public ImpartApp RegisterWindowShell<TShell>() where TShell : class
-    {
-        _container.ServiceDescriptors.AddTransient<TShell>();
-
-        return this;
-    }
-
-    /// <summary>
-    /// Sets the parsed command-line arguments object.
-    /// </summary>
-    /// <remarks>Arguments can only be set once.</remarks>
-    /// <param name="args">The parsed arguments object.</param>
-    /// <returns>The current app instance.</returns>
-    public ImpartApp SetArgs(ImpartAppArgs args)
-    {
-        _args ??= args;
-
-        return this;
-    }
-
-    /// <summary>
-    /// Attempts to show the main window.
-    /// </summary>
-    /// <returns>The current app instance.</returns>
-    public ImpartApp ShowMainWindow()
-    {
-        // TODO: Create and show the main window.
-
-        return this;
     }
 }
