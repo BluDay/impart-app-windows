@@ -29,7 +29,9 @@ void ConfigureServices(IServiceCollection services)
 
     services
         .AddSingleton<App>()
-        .AddTransient<Shell>()
+        .AddTransient<Shell>();
+
+    services
         .AddSingleton<Func<Shell>>(provider =>
         {
             return () => provider.GetRequiredService<Shell>();
