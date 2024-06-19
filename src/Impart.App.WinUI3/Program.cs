@@ -3,6 +3,11 @@ static extern void XamlCheckProcessRequirements();
 
 ImpartAppArgs parsedArgs = new(); // ImpartAppArgsParser.Default.Parse(args);
 
+void ConfigureLoggerFactory(ILoggingBuilder builder)
+{
+    builder.AddConsole().AddDebug();
+}
+
 void ConfigureServices(IServiceCollection services)
 {
     services
@@ -10,10 +15,7 @@ void ConfigureServices(IServiceCollection services)
         .AddSingleton(parsedArgs);
 
     services
-        .AddSingleton(LoggerFactory.Create(builder =>
-        {
-            builder.AddConsole().AddDebug();
-        }));
+        .AddSingleton(LoggerFactory.Create(ConfigureLoggerFactory));
 
     services.AddSingleton<IMessenger>(WeakReferenceMessenger.Default);
 
