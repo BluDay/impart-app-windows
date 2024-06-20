@@ -26,6 +26,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
+using BluDay.Impart;
+using BluDay.Impart.Domain.ViewModels;
+
 ImpartAppArgs parsedArgs = ImpartAppArgsParser.Default.Parse(args);
 
 void ConfigureLogging(ILoggingBuilder builder)

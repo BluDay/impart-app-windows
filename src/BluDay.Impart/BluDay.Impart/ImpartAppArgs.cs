@@ -1,4 +1,4 @@
-namespace BluDay.Impart.App;
+namespace BluDay.Impart;
 
 /// <summary>
 /// Represents parsed command-line arguments. Parsed arguments will have non-null values.

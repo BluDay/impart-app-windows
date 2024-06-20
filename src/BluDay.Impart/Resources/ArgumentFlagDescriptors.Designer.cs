@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BluDay.Impart.App.Resources {
+namespace BluDay.Impart.Resources {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace BluDay.Impart.App.Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BluDay.Impart.App.Resources.ArgumentFlagDescriptors", typeof(ArgumentFlagDescriptors).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BluDay.Impart.Resources.ArgumentFlagDescriptors", typeof(ArgumentFlagDescriptors).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

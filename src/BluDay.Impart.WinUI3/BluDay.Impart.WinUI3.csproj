@@ -28,7 +28,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BluDay.Impart.App\BluDay.Impart.App.csproj" />
+    <ProjectReference Include="..\BluDay.Impart\BluDay.Impart.csproj" />
   </ItemGroup>
 
   <ItemGroup>

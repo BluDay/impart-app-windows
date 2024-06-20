@@ -1,4 +1,4 @@
-﻿namespace BluDay.Impart.App.Domain.ViewModels;
+﻿namespace BluDay.Impart.Domain.ViewModels;
 
 /// <summary>
 /// View model for the app introduction view.

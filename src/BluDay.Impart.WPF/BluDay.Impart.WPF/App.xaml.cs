@@ -1,4 +1,6 @@
-﻿namespace BluDay.Impart.WPF;
+﻿using BluDay.Impart;
+
+namespace BluDay.Impart.WPF;
 
 /// <summary>
 /// Interaction logic for App.xaml.

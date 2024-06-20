@@ -1,4 +1,4 @@
-namespace BluDay.Impart.App;
+namespace BluDay.Impart;
 
 /// <summary>
 /// The command-line arguments parsing class for <see cref="ImpartApp"/>.

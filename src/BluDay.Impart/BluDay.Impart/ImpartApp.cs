@@ -1,4 +1,4 @@
-﻿namespace BluDay.Impart.App;
+﻿namespace BluDay.Impart;
 
 /// <summary>
 /// The application core for Impart.

@@ -4,7 +4,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <Authors>BluDay</Authors>
-    <Title>BluDay.Impart.App</Title>
+    <Title>BluDay.Impart</Title>
     <PackageVersion>1.0.0</PackageVersion>
     <RepositoryUrl>https://github.com/BluDay/impart-app-windows</RepositoryUrl>
     <Copyright>2024 © BluDay</Copyright>

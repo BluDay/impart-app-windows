@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BluDay.Impart.WPF", "BluDay
 		{24D21082-C261-4350-BFAA-BF0C0F876B6F} = {24D21082-C261-4350-BFAA-BF0C0F876B6F}
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BluDay.Impart.App", "BluDay.Impart.App\BluDay.Impart.App.csproj", "{24D21082-C261-4350-BFAA-BF0C0F876B6F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BluDay.Impart", "BluDay.Impart\BluDay.Impart.csproj", "{24D21082-C261-4350-BFAA-BF0C0F876B6F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

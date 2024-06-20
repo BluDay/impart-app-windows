@@ -1,4 +1,6 @@
-﻿namespace BluDay.Impart.WinUI3;
+﻿using BluDay.Impart;
+
+namespace BluDay.Impart.WinUI3;
 
 /// <summary>
 /// Provides application-specific behavior to supplement the default Application class.
