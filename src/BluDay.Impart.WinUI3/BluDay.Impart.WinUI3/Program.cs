@@ -46,10 +46,10 @@ void ConfigureServices(IServiceCollection services)
 
     services
         .AddSingleton<IAppActivationService, AppActivationService>()
-        .AddSingleton<IAppDialogService,     AppDialogService>()
+        .AddSingleton<IAppDialogService, AppDialogService>()
         .AddSingleton<IAppNavigationService, AppNavigationService>()
-        .AddSingleton<IAppThemeService,      AppThemeService>()
-        .AddSingleton<IAppWindowService,     AppWindowService>();
+        .AddSingleton<IAppThemeService, AppThemeService>()
+        .AddSingleton<IAppWindowService, AppWindowService>();
 
     services
         .AddSingleton<App>()
