@@ -21,32 +21,33 @@ public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
     /// <returns>An <see cref="ArgumentDescriptors"/> instance of different argument descriptors.</returns>
     private static ArgumentDescriptors CreateArguments()
     {
-        return new ArgumentDescriptors(CreateOptionals(), CreatePositionals());
+        return new(CreateOptionals(), CreatePositionals());
     }
 
     /// <summary>
     /// Creates optional argument descriptors to register.
     /// </summary>
     /// <returns>An enumerable of optional argument descriptors.</returns>
-    private static OptionalArgumentDescriptor[] CreateOptionals()
+    private static IEnumerable<OptionalArgumentDescriptor> CreateOptionals()
     {
-        return [
-            new OptionalArgumentDescriptor(nameof(ImpartAppArgs.DemoMode))
+        return new List<OptionalArgumentDescriptor>()
+        {
+            new(nameof(ImpartAppArgs.DemoMode))
             {
                 FlagDescriptor = ArgumentFlagDescriptors.DEMO_MODE,
                 Description    = ArgumentDescriptions.DEMO_MODE
             },
-            new OptionalArgumentDescriptor(nameof(ImpartAppArgs.PerformanceMode))
+            new(nameof(ImpartAppArgs.PerformanceMode))
             {
                 FlagDescriptor = ArgumentFlagDescriptors.PERFORMANCE_MODE,
                 Description    = ArgumentDescriptions.PERFORMANCE_MODE
             },
-            new OptionalArgumentDescriptor(nameof(ImpartAppArgs.SkipIntro))
+            new(nameof(ImpartAppArgs.SkipIntro))
             {
                 FlagDescriptor = ArgumentFlagDescriptors.SKIP_INTRO,
                 Description    = ArgumentDescriptions.SKIP_INTRO
             },
-            new OptionalArgumentDescriptor(nameof(ImpartAppArgs.Verbosity))
+            new(nameof(ImpartAppArgs.Verbosity))
             {
                 FlagDescriptor = ArgumentFlagDescriptors.VERBOSITY,
                 Description    = ArgumentDescriptions.VERBOSITY,
@@ -54,28 +55,29 @@ public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
                 StoreKind      = ArgumentStoreKind.Integer,
                 Constant       = 1
             },
-            new OptionalArgumentDescriptor(nameof(ImpartAppArgs.AppTheme))
+            new(nameof(ImpartAppArgs.AppTheme))
             {
                 FlagDescriptor = ArgumentFlagDescriptors.APP_THEME,
                 Description    = ArgumentDescriptions.APP_THEME,
                 ActionKind     = ArgumentActionKind.StoreValue,
                 StoreKind      = ArgumentStoreKind.String
             }
-        ];
+        };
     }
 
     /// <summary>
     /// Creates positional argument descriptors to register.
     /// </summary>
     /// <returns>An enumerable of positional argument descriptors.</returns>
-    private static PositionalArgumentDescriptor[] CreatePositionals()
+    private static IEnumerable<PositionalArgumentDescriptor> CreatePositionals()
     {
-        return [
-            new PositionalArgumentDescriptor(nameof(PositionalArgumentDescriptor))
+        return new List<PositionalArgumentDescriptor>()
+        {
+            new(nameof(PositionalArgumentDescriptor))
             {
                 ActionKind = ArgumentActionKind.AppendValue,
                 StoreKind  = ArgumentStoreKind.String
             }
-        ];
+        };
     }
 }
