@@ -32,7 +32,7 @@ public sealed class ImpartApp
     /// Initializes a new instance with a parsed command-line arguments instance.
     /// </summary>
     /// <param name="args">An instance of parsed command-line arguments.</param>
-    /// <param name="appActivationService">The app activation service.</param>
+    /// <param name="messenger">The weak reference messaging service.</param>
     public ImpartApp(ImpartAppArgs args, IMessenger messenger)
     {
         _args = args;
