@@ -1,4 +1,4 @@
-﻿namespace BluDay.Impart.WinUI3;
+﻿namespace BluDay.Impart.WinUI3.Factories;
 
 /// <summary>
 /// A wrapper-like class for creating WinUI 3 applications using factories.
