@@ -8,7 +8,8 @@
         Height="600"
         Width="800"
         WindowStartupLocation="CenterScreen">
-    <TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
+    <TextBlock d:Text="Window"
+               Text="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
                Foreground="#FFF"
                HorizontalAlignment="Center"
                VerticalAlignment="Center"/>
