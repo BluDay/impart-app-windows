@@ -81,7 +81,13 @@ IHost host = new HostBuilder()
 
 host.Start();
 
-App app = host.Services.GetRequiredService<App>();
+Thread thread = new(() =>
+{
+    App app = host.Services.GetRequiredService<App>();
 
-app.InitializeComponent();
-app.Run();
+    app.InitializeComponent();
+    app.Run();
+});
+
+thread.SetApartmentState(ApartmentState.STA);
+thread.Start();
