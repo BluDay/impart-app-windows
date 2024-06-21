@@ -20,7 +20,7 @@ public sealed partial class Shell : Window
 
     public bool IsClosed { get; private set; }
 
-    public Shell()
+    public Shell(MainView mainView)
     {
         _appWindow = AppWindow;
 
@@ -31,7 +31,7 @@ public sealed partial class Shell : Window
 
         InitializeComponent();
 
-        ContentControl.Content = new MainView();
+        ContentControl.Content = mainView;
     }
 
     private void ConfigureAppWindow()

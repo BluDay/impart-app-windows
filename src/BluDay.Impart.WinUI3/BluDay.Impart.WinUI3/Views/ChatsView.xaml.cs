@@ -2,5 +2,10 @@ namespace BluDay.Impart.WinUI3.Views;
 
 public sealed partial class ChatsView : UserControl
 {
-    public ChatsView() => InitializeComponent();
+    public ChatsView(ChatsViewModel viewModel)
+    {
+        DataContext = viewModel;
+
+        InitializeComponent();
+    }
 }

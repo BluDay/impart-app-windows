@@ -2,5 +2,10 @@ namespace BluDay.Impart.WinUI3.Views;
 
 public sealed partial class SettingsView : UserControl
 {
-    public SettingsView() => InitializeComponent();
+    public SettingsView(SettingsViewModel viewModel)
+    {
+        DataContext = viewModel;
+
+        InitializeComponent();
+    }
 }
