@@ -42,6 +42,9 @@ void ConfigureServices(IServiceCollection services)
         .AddSingleton(parsedArgs);
 
     services
+        .AddLogging(ConfigureLogging);
+
+    services
         .AddSingleton<IMessenger>(WeakReferenceMessenger.Default);
 
     services
@@ -74,16 +77,15 @@ void ConfigureServices(IServiceCollection services)
         .AddTransient<SettingsViewModel>();
 }
 
-IHost host = new HostBuilder()
-    .ConfigureServices(ConfigureServices)
-    .ConfigureLogging(ConfigureLogging)
-    .Build();
-
-host.Start();
-
 Thread thread = new(() =>
 {
-    App app = host.Services.GetRequiredService<App>();
+    ServiceCollection services = new();
+
+    ConfigureServices(services);
+
+    App app = services
+        .BuildServiceProvider()
+        .GetRequiredService<App>();
 
     app.InitializeComponent();
     app.Run();

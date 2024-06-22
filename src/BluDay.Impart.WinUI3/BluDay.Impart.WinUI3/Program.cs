@@ -42,6 +42,9 @@ void ConfigureServices(IServiceCollection services)
         .AddSingleton(parsedArgs);
 
     services
+        .AddLogging(ConfigureLogging);
+
+    services
         .AddSingleton<IMessenger>(WeakReferenceMessenger.Default);
 
     services
@@ -74,9 +77,13 @@ void ConfigureServices(IServiceCollection services)
         .AddTransient<SettingsViewModel>();
 }
 
-IHost host = new HostBuilder()
-    .ConfigureServices(ConfigureServices)
-    .ConfigureLogging(ConfigureLogging)
-    .Build();
+WinUI3AppFactory.Create(() =>
+{
+    ServiceCollection services = new();
 
-WinUI3AppFactory.Create(host);
+    ConfigureServices(services);
+
+    services
+        .BuildServiceProvider()
+        .GetRequiredService<App>();
+});
