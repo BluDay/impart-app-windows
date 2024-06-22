@@ -8,6 +8,7 @@ global using BluDay.Impart.WinUI3.Controls;
 global using BluDay.Impart.WinUI3.Extensions;
 global using BluDay.Impart.WinUI3.Factories;
 global using BluDay.Impart.WinUI3.Views;
+global using BluDay.Net.Attributes;
 global using BluDay.Net.Services;
 
 global using Microsoft.Extensions.DependencyInjection;
