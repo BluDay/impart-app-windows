@@ -21,30 +21,13 @@ public static class WinUI3AppFactory
 
         WinRT.ComWrappersSupport.InitializeComWrappers();
 
-        Application.Start(callbackParams =>
+        Application.Start(_ =>
         {
             SynchronizationContext.SetSynchronizationContext(
                 new DispatcherQueueSynchronizationContext(DispatcherQueue.GetForCurrentThread())
             );
 
             initializationCallback.Invoke();
-        });
-    }
-
-    /// <summary>
-    /// Calls the necessary functions for initializing the application.
-    /// </summary>
-    /// <param name="host">The program host instance.</param>
-    /// <exception cref="ArgumentNullException">If the program host instance is null.</exception>
-    public static void Create(IHost host)
-    {
-        ArgumentNullException.ThrowIfNull(host);
-
-        Create(() =>
-        {
-            host.Start();
-
-            host.Services.GetRequiredService<App>();
         });
     }
 }
