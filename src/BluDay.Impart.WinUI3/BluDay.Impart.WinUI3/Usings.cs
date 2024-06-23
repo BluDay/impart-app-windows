@@ -25,3 +25,6 @@ global using Microsoft.UI.Xaml.Media.Animation;
 global using System;
 global using System.Runtime.InteropServices;
 global using System.Threading;
+
+global using Windows.Foundation;
+global using Windows.Graphics;

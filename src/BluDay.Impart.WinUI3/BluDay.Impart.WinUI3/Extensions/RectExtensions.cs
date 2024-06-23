@@ -2,7 +2,7 @@
 
 public static class RectExtensions
 {
-    public static Windows.Graphics.RectInt32 GetScaledRect(this Windows.Foundation.Rect source, double scale = 2.0)
+    public static RectInt32 GetScaledRect(this Rect source, double scale = 2.0)
     {
         return new(
             (int)Math.Round(source.X * scale),

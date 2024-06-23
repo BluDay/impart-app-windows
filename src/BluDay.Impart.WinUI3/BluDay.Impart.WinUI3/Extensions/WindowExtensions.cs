@@ -1,6 +1,4 @@
-﻿using Windows.Graphics;
-
-namespace BluDay.Impart.WinUI3.Extensions;
+﻿namespace BluDay.Impart.WinUI3.Extensions;
 
 public static class WindowExtensions
 {
@@ -63,7 +61,7 @@ public static class WindowExtensions
 
     public static PointInt32 GetCenteredPosition(this AppWindow source, DisplayArea displayArea)
     {
-        return new PointInt32(
+        return new(
             _X: (displayArea.WorkArea.Width - source.Size.Width) / 2,
             _Y: (displayArea.WorkArea.Height - source.Size.Height) / 2
         );
