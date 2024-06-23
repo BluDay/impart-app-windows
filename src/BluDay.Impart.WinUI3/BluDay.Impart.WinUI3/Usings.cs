@@ -12,7 +12,6 @@ global using BluDay.Net.Attributes;
 global using BluDay.Net.Services;
 
 global using Microsoft.Extensions.DependencyInjection;
-global using Microsoft.Extensions.Hosting;
 global using Microsoft.Extensions.Logging;
 global using Microsoft.UI;
 global using Microsoft.UI.Dispatching;
