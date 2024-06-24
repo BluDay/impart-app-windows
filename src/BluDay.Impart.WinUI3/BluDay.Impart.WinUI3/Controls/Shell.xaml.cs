@@ -3,13 +3,17 @@ namespace BluDay.Impart.WinUI3.Controls;
 /// <summary>
 /// An empty window that can be used on its own or navigated to within a Frame.
 /// </summary>
-public sealed partial class Shell : Window
+public sealed partial class Shell : Window, INavigableWindow
 {
+    private readonly INavigator _navigator;
+
     private readonly AppWindow _appWindow;
 
     private readonly InputNonClientPointerSource _nonClientPointerSource;
 
     private readonly DisplayArea _displayArea;
+
+    public INavigator Navigator => _navigator;
 
     public WindowActivationState? ActivationState { get; private set; }
 
@@ -20,8 +24,10 @@ public sealed partial class Shell : Window
 
     public bool IsClosed { get; private set; }
 
-    public Shell(MainView mainView)
+    public Shell(IAppNavigationService navigationService)
     {
+        _navigator = null!;
+
         _appWindow = AppWindow;
 
         _nonClientPointerSource = _appWindow.GetNonClientPointerSource();
@@ -30,8 +36,6 @@ public sealed partial class Shell : Window
         ConfigureAppWindow();
 
         InitializeComponent();
-
-        ContentControl.Content = mainView;
     }
 
     private void ConfigureAppWindow()
