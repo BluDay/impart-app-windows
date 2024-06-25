@@ -5,7 +5,7 @@
 /// </summary>
 public sealed partial class App : Application
 {
-    private IWindow? _mainWindow;
+    private INavigableWindow? _mainWindow;
 
     private readonly ImpartApp _app;
 
