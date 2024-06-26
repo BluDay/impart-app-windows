@@ -24,6 +24,8 @@ public sealed partial class Shell : Window, INavigableWindow
 
     public bool IsClosed { get; private set; }
 
+    public Guid Id { get; }
+
     public Shell(IAppNavigationService navigationService)
     {
         _navigator = null!;
@@ -32,6 +34,8 @@ public sealed partial class Shell : Window, INavigableWindow
 
         _nonClientPointerSource = _appWindow.GetNonClientPointerSource();
         _displayArea            = _appWindow.GetDisplayArea();
+
+        Id = Guid.NewGuid();
 
         ConfigureAppWindow();
 
