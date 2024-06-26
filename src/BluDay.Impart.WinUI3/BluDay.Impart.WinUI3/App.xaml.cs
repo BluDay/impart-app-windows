@@ -41,6 +41,10 @@ public sealed partial class App : Application
 
         _mainWindow = _windowFactory.Invoke();
 
+        _mainWindow.Title = nameof(Impart);
+
+        _mainWindow.Resize(1600, 1280);
+
         _mainWindow.Activate();
     }
 }
