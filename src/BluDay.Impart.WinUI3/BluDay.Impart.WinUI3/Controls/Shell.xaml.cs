@@ -46,7 +46,9 @@ public sealed partial class Shell : Window, INavigableWindow
 
         _appWindow.MakeTitleBarTransparent();
         _appWindow.SetIsResizable(false);
-        _appWindow.Resize(1600, 1280);
+
+        Resize(1600, 1280);
+
         _appWindow.MoveToCenter(_displayArea);
     }
 
@@ -62,5 +64,10 @@ public sealed partial class Shell : Window, INavigableWindow
         IsClosed = true;
 
         Closed -= Window_Closed;
+    }
+
+    public void Resize(int width, int height)
+    {
+        _appWindow.Resize(width, height);
     }
 }
