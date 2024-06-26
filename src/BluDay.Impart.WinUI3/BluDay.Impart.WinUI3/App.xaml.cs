@@ -11,22 +11,17 @@ public sealed partial class App : Application
 
     private readonly IAppWindowService _windowService;
 
-    private readonly Func<Shell> _windowFactory;
-
     /// <summary>
     /// Initializes the singleton application object. This is the first line of authored
     /// code executed, and as such is the logical equivalent of main() or WinMain().
     /// </summary>
     /// <param name="app">The app instance for Impart.</param>
     /// <param name="windowService">The window service.</param>
-    /// <param name="windowFactory">The window factory.</param>
-    public App(ImpartApp app, IAppWindowService windowService, Func<Shell> windowFactory)
+    public App(ImpartApp app, IAppWindowService windowService)
     {
         _app = app;
 
         _windowService = windowService;
-
-        _windowFactory = windowFactory;
 
         InitializeComponent();
     }
@@ -39,12 +34,14 @@ public sealed partial class App : Application
     {
         _app.Initialize();
 
-        _mainWindow = _windowFactory.Invoke();
+        #region Main window demo
+        _mainWindow = new Shell(null!);
 
         _mainWindow.Title = nameof(Impart);
 
         _mainWindow.Resize(1600, 1280);
 
         _mainWindow.Activate();
+        #endregion
     }
 }
