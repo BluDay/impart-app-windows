@@ -3,8 +3,12 @@ namespace BluDay.Impart.WinUI3.Controls;
 /// <summary>
 /// An empty window that can be used on its own or navigated to within a Frame.
 /// </summary>
+[ObservableObject]
 public sealed partial class Shell : Window, INavigableWindow
 {
+    [ObservableProperty]
+    private string? _title;
+
     private readonly INavigator _navigator;
 
     private readonly AppWindow _appWindow;
