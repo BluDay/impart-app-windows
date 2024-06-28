@@ -1,6 +1,4 @@
-﻿using BluDay.Impart.Domain.Models;
-
-namespace BluDay.Impart.Domain.ViewModels;
+﻿namespace BluDay.Impart.Domain.ViewModels;
 
 /// <summary>
 /// View model for the main view.
