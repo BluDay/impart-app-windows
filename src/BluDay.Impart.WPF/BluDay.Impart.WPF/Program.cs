@@ -1,5 +1,5 @@
 ﻿/*
-WPF desktop app client for Impart.
+WPF (Windows Presentation Foundation) desktop app client for Impart.
 
 https://github.com/BluDay/impart-app-windows
 
