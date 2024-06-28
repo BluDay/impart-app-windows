@@ -7,7 +7,7 @@ public sealed partial class App : Application
 {
     private INavigableWindow? _mainWindow;
 
-    private readonly ImpartApp _app;
+    private readonly IImpartApp _app;
 
     private readonly IAppWindowService _windowService;
 
@@ -16,7 +16,7 @@ public sealed partial class App : Application
     /// </summary>
     /// <param name="app">The app instance for Impart.</param>
     /// <param name="windowService">The window service.</param>
-    public App(ImpartApp app, IAppWindowService windowService)
+    public App(IImpartApp app, IAppWindowService windowService)
     {
         _app = app;
 
@@ -31,11 +31,13 @@ public sealed partial class App : Application
     {
         _app.Initialize();
 
+        #region Main window demo
         _mainWindow = new Shell();
 
         _mainWindow.Title = nameof(Impart);
 
         _mainWindow.Activate();
+        #endregion
 
         base.OnStartup(e);
     }
