@@ -33,6 +33,8 @@ public sealed partial class App : Application
 
         _mainWindow = new Shell();
 
+        _mainWindow.Title = nameof(Impart);
+
         _mainWindow.Activate();
 
         base.OnStartup(e);
