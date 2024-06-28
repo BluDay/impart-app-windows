@@ -59,12 +59,6 @@ void ConfigureServices(IServiceCollection services)
         .AddTransient<Shell>();
 
     services
-        .AddSingleton<Func<Shell>>(provider =>
-        {
-            return () => provider.GetRequiredService<Shell>();
-        });
-
-    services
         // .AddTransient<ChatsView>()
         // .AddTransient<IntroView>()
         .AddTransient<MainView>();
