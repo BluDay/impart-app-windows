@@ -30,7 +30,7 @@ public sealed partial class Shell : Window, INavigableWindow
 
     public Guid Id { get; }
 
-    public Shell(IAppNavigationService navigationService)
+    public Shell()
     {
         _viewNavigator = null!;
 
