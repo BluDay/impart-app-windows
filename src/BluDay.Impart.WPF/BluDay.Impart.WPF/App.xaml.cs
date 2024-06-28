@@ -5,7 +5,7 @@
 /// </summary>
 public sealed partial class App : Application
 {
-    private Shell? _mainWindow;
+    private INavigableWindow? _mainWindow;
 
     private readonly ImpartApp _app;
 
@@ -31,10 +31,9 @@ public sealed partial class App : Application
     {
         _app.Initialize();
 
-        _mainWindow = _windowFactory.Invoke();
+        _mainWindow = new Shell();
 
         _mainWindow.Activate();
-        _mainWindow.Show();
 
         base.OnStartup(e);
     }
