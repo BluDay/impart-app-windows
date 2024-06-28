@@ -9,4 +9,6 @@ global using BluDay.Net.Domain.Models;
 global using BluDay.Net.Domain.ViewModels;
 global using BluDay.Net.UI.Appearance;
 
+global using Microsoft.Extensions.Logging;
+
 global using System.ComponentModel.DataAnnotations;

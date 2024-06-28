@@ -13,6 +13,8 @@ public sealed class ImpartApp
 
     private readonly IMessenger _messenger;
 
+    private readonly ILogger<ImpartApp> _logger;
+
     /// <summary>
     /// Gets instance of parsed command-line arguments.
     /// </summary>
@@ -33,11 +35,14 @@ public sealed class ImpartApp
     /// </summary>
     /// <param name="args">An instance of parsed command-line arguments.</param>
     /// <param name="messenger">The weak reference messaging service.</param>
-    public ImpartApp(ImpartAppArgs args, IMessenger messenger)
+    /// <param name="logger">The logger instance.</param>
+    public ImpartApp(ImpartAppArgs args, IMessenger messenger, ILogger<ImpartApp> logger)
     {
         _args = args;
 
         _messenger = messenger;
+
+        _logger = logger;
     }
 
     /// <summary>
