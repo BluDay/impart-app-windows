@@ -9,18 +9,18 @@ public sealed partial class App : Application
 
     private readonly ImpartApp _app;
 
-    private readonly Func<Shell> _windowFactory;
+    private readonly IAppWindowService _windowService;
 
     /// <summary>
     /// Initializes the application object.
     /// </summary>
     /// <param name="app">The app instance for Impart.</param>
-    /// <param name="windowFactory">The window factory.</param>
-    public App(ImpartApp app, Func<Shell> windowFactory)
+    /// <param name="windowService">The window service.</param>
+    public App(ImpartApp app, IAppWindowService windowService)
     {
         _app = app;
 
-        _windowFactory = windowFactory;
+        _windowService = windowService;
     }
 
     /// <summary>
