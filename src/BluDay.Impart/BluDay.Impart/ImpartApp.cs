@@ -3,22 +3,22 @@
 /// <summary>
 /// The application core for Impart.
 /// </summary>
-public sealed class ImpartApp
+public sealed class ImpartApp : IImpartApp
 {
     private bool _isDisposed;
 
     private bool _isInitialized;
 
-    private readonly ImpartAppArgs _args;
+    private readonly IImpartAppArgs _args;
 
     private readonly IMessenger _messenger;
 
-    private readonly ILogger<ImpartApp> _logger;
+    private readonly ILogger<IImpartApp> _logger;
 
     /// <summary>
     /// Gets instance of parsed command-line arguments.
     /// </summary>
-    public ImpartAppArgs Args => _args;
+    public IImpartAppArgs Args => _args;
 
     /// <summary>
     /// Gets a value indicating whether the app has been disposed.
@@ -36,7 +36,7 @@ public sealed class ImpartApp
     /// <param name="args">An instance of parsed command-line arguments.</param>
     /// <param name="messenger">The weak reference messaging service.</param>
     /// <param name="logger">The logger instance.</param>
-    public ImpartApp(ImpartAppArgs args, IMessenger messenger, ILogger<ImpartApp> logger)
+    public ImpartApp(IImpartAppArgs args, IMessenger messenger, ILogger<IImpartApp> logger)
     {
         _args = args;
 

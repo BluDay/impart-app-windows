@@ -38,8 +38,8 @@ void ConfigureLogging(ILoggingBuilder builder)
 void ConfigureServices(IServiceCollection services)
 {
     services
-        .AddSingleton<ImpartApp>()
-        .AddSingleton(parsedArgs);
+        .AddSingleton<IImpartApp, ImpartApp>()
+        .AddSingleton<IImpartAppArgs>(parsedArgs);
 
     services
         .AddLogging(ConfigureLogging);
