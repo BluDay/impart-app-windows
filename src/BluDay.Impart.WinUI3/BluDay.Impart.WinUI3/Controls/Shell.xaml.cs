@@ -9,7 +9,7 @@ public sealed partial class Shell : Window, INavigableWindow
     [ObservableProperty]
     private string? _title;
 
-    private readonly INavigator _navigator;
+    private readonly IViewNavigator _viewNavigator;
 
     private readonly AppWindow _appWindow;
 
@@ -17,7 +17,7 @@ public sealed partial class Shell : Window, INavigableWindow
 
     private readonly DisplayArea _displayArea;
 
-    public INavigator Navigator => _navigator;
+    public IViewNavigator ViewNavigator => _viewNavigator;
 
     public WindowActivationState? ActivationState { get; private set; }
 
@@ -32,7 +32,7 @@ public sealed partial class Shell : Window, INavigableWindow
 
     public Shell(IAppNavigationService navigationService)
     {
-        _navigator = null!;
+        _viewNavigator = null!;
 
         _appWindow = AppWindow;
 
@@ -44,6 +44,8 @@ public sealed partial class Shell : Window, INavigableWindow
         ConfigureAppWindow();
 
         InitializeComponent();
+
+        ContentControl.Content = new MainView();
     }
 
     private void ConfigureAppWindow()
