@@ -12,7 +12,7 @@ public sealed partial class App : Application
     private readonly IAppWindowService _windowService;
 
     /// <summary>
-    /// Initializes the application object.
+    /// Initializes a new instance of the <see cref="App"/> class.
     /// </summary>
     /// <param name="app">The app instance for Impart.</param>
     /// <param name="windowService">The window service.</param>

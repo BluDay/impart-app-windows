@@ -15,6 +15,9 @@ public sealed partial class Shell : Window, INavigableWindow
 
     public Guid Id { get; }
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="Shell"/> class.
+    /// </summary>
     public Shell()
     {
         _viewNavigator = null!;
