@@ -3,12 +3,8 @@ namespace BluDay.Impart.WinUI3.Controls;
 /// <summary>
 /// An empty window that can be used on its own or navigated to within a Frame.
 /// </summary>
-[ObservableObject]
 public sealed partial class Shell : Window, INavigableWindow
 {
-    [ObservableProperty]
-    private string? _title;
-
     private readonly IViewNavigator _viewNavigator;
 
     private readonly AppWindow _appWindow;
@@ -62,14 +58,14 @@ public sealed partial class Shell : Window, INavigableWindow
         _appWindow.MoveToCenter(_displayArea);
     }
 
-    private void Window_Activated(object sender, WindowActivatedEventArgs args)
+    private void Window_Activated(object sender, WindowActivatedEventArgs e)
     {
-        ActivationState = args.WindowActivationState;
+        ActivationState = e.WindowActivationState;
 
         Activated -= Window_Activated;
     }
 
-    private void Window_Closed(object sender, WindowEventArgs args)
+    private void Window_Closed(object sender, WindowEventArgs e)
     {
         IsClosed = true;
 
