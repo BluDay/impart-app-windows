@@ -3,12 +3,8 @@
 /// <summary>
 /// Interaction logic for Shell.xaml
 /// </summary>
-[ObservableObject]
 public sealed partial class Shell : Window, INavigableWindow
 {
-    [ObservableProperty]
-    private string? _title;
-
     private readonly IViewNavigator _viewNavigator;
 
     public IViewNavigator ViewNavigator => _viewNavigator;
@@ -26,6 +22,12 @@ public sealed partial class Shell : Window, INavigableWindow
 
     public Guid Id { get; }
 
+    string? IWindow.Title
+    {
+        get => Title;
+        set => Title = value;
+    }
+
     /// <summary>
     /// Initializes a new instance of the <see cref="Shell"/> class.
     /// </summary>
@@ -42,11 +44,6 @@ public sealed partial class Shell : Window, INavigableWindow
     {
         Activate();
         Show();
-    }
-
-    partial void OnTitleChanged(string? value)
-    {
-        base.Title = value;
     }
 
     public void Resize(int width, int height)
