@@ -38,6 +38,8 @@ public sealed partial class App : Application
 
         _mainWindow.Title = nameof(Impart);
 
+        _mainWindow.IsResizable = true;
+
         _mainWindow.Resize(1600, 1280);
 
         _mainWindow.Activate();

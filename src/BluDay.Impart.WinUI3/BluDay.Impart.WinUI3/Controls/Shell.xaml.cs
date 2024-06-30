@@ -9,6 +9,8 @@ public sealed partial class Shell : Window, INavigableWindow
 
     private readonly AppWindow _appWindow;
 
+    private readonly OverlappedPresenter _appWindowOverlappedPresenter;
+
     private readonly InputNonClientPointerSource _nonClientPointerSource;
 
     private readonly DisplayArea _displayArea;
@@ -24,6 +26,12 @@ public sealed partial class Shell : Window, INavigableWindow
 
     public bool IsClosed { get; private set; }
 
+    public bool IsResizable
+    {
+        get => _appWindowOverlappedPresenter.IsResizable;
+        set => _appWindowOverlappedPresenter.IsResizable = value;
+    }
+
     public Guid Id { get; }
 
     /// <summary>
@@ -34,6 +42,8 @@ public sealed partial class Shell : Window, INavigableWindow
         _viewNavigator = null!;
 
         _appWindow = AppWindow;
+
+        _appWindowOverlappedPresenter = _appWindow.GetOverlappedPresenter();
 
         _nonClientPointerSource = _appWindow.GetNonClientPointerSource();
         _displayArea            = _appWindow.GetDisplayArea();
@@ -54,7 +64,6 @@ public sealed partial class Shell : Window, INavigableWindow
         SetTitleBar(TitleBar);
 
         _appWindow.MakeTitleBarTransparent();
-        _appWindow.SetIsResizable(false);
         _appWindow.MoveToCenter(_displayArea);
     }
 
