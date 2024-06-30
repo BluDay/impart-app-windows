@@ -13,6 +13,17 @@ public sealed partial class Shell : Window, INavigableWindow
 
     public IViewNavigator ViewNavigator => _viewNavigator;
 
+    public bool IsResizable
+    {
+        get => ResizeMode is not ResizeMode.NoResize;
+        set
+        {
+            ResizeMode = value
+                ? ResizeMode.CanResize
+                : ResizeMode.NoResize;
+        }
+    }
+
     public Guid Id { get; }
 
     /// <summary>
