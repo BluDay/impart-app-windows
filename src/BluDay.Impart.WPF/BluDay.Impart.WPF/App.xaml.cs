@@ -11,16 +11,21 @@ public sealed partial class App : Application
 
     private readonly IAppWindowService _windowService;
 
+    private readonly ILogger _logger;
+
     /// <summary>
     /// Initializes a new instance of the <see cref="App"/> class.
     /// </summary>
     /// <param name="app">The app instance for Impart.</param>
     /// <param name="windowService">The window service.</param>
-    public App(IImpartApp app, IAppWindowService windowService)
+    /// <param name="logger">The logger instance.</param>
+    public App(IImpartApp app, IAppWindowService windowService, ILogger<App> logger)
     {
         _app = app;
 
         _windowService = windowService;
+
+        _logger = logger;
     }
 
     /// <summary>
@@ -32,11 +37,15 @@ public sealed partial class App : Application
         _app.Initialize();
 
         #region Main window demo
+        _logger.LogInformation("Creating the main window...");
+
         _mainWindow = new Shell();
 
         _mainWindow.Title = nameof(Impart);
 
         _mainWindow.Activate();
+
+        _logger.LogInformation("Main window created.");
         #endregion
 
         base.OnStartup(e);
