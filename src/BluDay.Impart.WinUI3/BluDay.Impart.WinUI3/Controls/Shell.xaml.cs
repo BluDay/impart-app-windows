@@ -5,7 +5,7 @@ namespace BluDay.Impart.WinUI3.Controls;
 /// </summary>
 public sealed partial class Shell : Window, IWindow
 {
-    private readonly IViewNavigator _viewNavigator;
+    private readonly ViewNavigator _viewNavigator;
 
     private readonly AppWindow _appWindow;
 
@@ -39,7 +39,7 @@ public sealed partial class Shell : Window, IWindow
     /// </summary>
     public Shell()
     {
-        _viewNavigator = null!;
+        _viewNavigator = new ViewNavigator(this);
 
         _appWindow = AppWindow;
 

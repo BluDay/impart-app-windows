@@ -5,7 +5,7 @@
 /// </summary>
 public sealed partial class Shell : Window, IWindow
 {
-    private readonly IViewNavigator _viewNavigator;
+    private readonly ViewNavigator _viewNavigator;
 
     public IViewNavigator ViewNavigator => _viewNavigator;
 
@@ -33,7 +33,7 @@ public sealed partial class Shell : Window, IWindow
     /// </summary>
     public Shell()
     {
-        _viewNavigator = null!;
+        _viewNavigator = new ViewNavigator(this);
 
         Id = Guid.NewGuid();
 
