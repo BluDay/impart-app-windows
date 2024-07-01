@@ -3,7 +3,7 @@
 /// <summary>
 /// Interaction logic for Shell.xaml
 /// </summary>
-public sealed partial class Shell : Window, INavigableWindow
+public sealed partial class Shell : Window, IWindow
 {
     private readonly IViewNavigator _viewNavigator;
 

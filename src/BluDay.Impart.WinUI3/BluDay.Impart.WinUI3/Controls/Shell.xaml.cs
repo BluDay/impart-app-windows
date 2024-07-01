@@ -3,7 +3,7 @@ namespace BluDay.Impart.WinUI3.Controls;
 /// <summary>
 /// An empty window that can be used on its own or navigated to within a Frame.
 /// </summary>
-public sealed partial class Shell : Window, INavigableWindow
+public sealed partial class Shell : Window, IWindow
 {
     private readonly IViewNavigator _viewNavigator;
 
