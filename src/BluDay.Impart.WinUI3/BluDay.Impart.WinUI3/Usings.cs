@@ -12,7 +12,7 @@ global using BluDay.Impart.WinUI3.Views;
 global using BluDay.Net.Attributes;
 global using BluDay.Net.Services;
 global using BluDay.Net.UI.Navigation;
-global using BluDay.Net.UI.WindowManagement;
+global using BluDay.Net.UI.Windowing;
 
 global using Microsoft.Extensions.DependencyInjection;
 global using Microsoft.Extensions.Logging;
