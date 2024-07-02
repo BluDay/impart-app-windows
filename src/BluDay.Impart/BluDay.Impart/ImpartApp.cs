@@ -11,7 +11,7 @@ public sealed class ImpartApp : IImpartApp
 
     private readonly IMessenger _messenger;
 
-    private readonly ILogger<IImpartApp> _logger;
+    private readonly ILogger _logger;
 
     public IImpartAppArgs Args => _args;
 
