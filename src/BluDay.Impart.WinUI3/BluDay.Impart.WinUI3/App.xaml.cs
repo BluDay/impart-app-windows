@@ -39,8 +39,6 @@ public sealed partial class App : Application
         _app.Initialize();
 
         #region Main window demo
-        _logger.LogInformation("Creating the main window...");
-
         _mainWindow = new Shell();
 
         _mainWindow.Title = nameof(Impart);
@@ -50,8 +48,6 @@ public sealed partial class App : Application
         _mainWindow.Resize(1600, 1280);
 
         _mainWindow.Activate();
-
-        _logger.LogInformation("Main window created.");
         #endregion
     }
 }

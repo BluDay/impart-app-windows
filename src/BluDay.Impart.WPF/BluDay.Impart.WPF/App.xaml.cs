@@ -37,15 +37,11 @@ public sealed partial class App : Application
         _app.Initialize();
 
         #region Main window demo
-        _logger.LogInformation("Creating the main window...");
-
         _mainWindow = new Shell();
 
         _mainWindow.Title = nameof(Impart);
 
         _mainWindow.Activate();
-
-        _logger.LogInformation("Main window created.");
         #endregion
 
         base.OnStartup(e);
