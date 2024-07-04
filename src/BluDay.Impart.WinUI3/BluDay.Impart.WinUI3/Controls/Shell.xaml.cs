@@ -60,14 +60,14 @@ public sealed partial class Shell : Window, IWindow
 
         Id = Guid.NewGuid();
 
-        ConfigureAppWindow();
+        ConfigureTitleBar();
 
         InitializeComponent();
 
         ContentControl.Content = new MainView();
     }
 
-    private void ConfigureAppWindow()
+    private void ConfigureTitleBar()
     {
         ExtendsContentIntoTitleBar = true;
 
