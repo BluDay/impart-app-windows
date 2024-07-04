@@ -74,7 +74,6 @@ public sealed partial class Shell : Window, IWindow
         SetTitleBar(TitleBar);
 
         _appWindow.MakeTitleBarTransparent();
-        _appWindow.MoveToCenter(_displayArea);
     }
 
     private void Window_Activated(object sender, WindowActivatedEventArgs e)
