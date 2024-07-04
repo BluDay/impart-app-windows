@@ -22,6 +22,11 @@ public sealed partial class Shell : Window, IWindow
 
     public Guid Id { get; }
 
+    public System.Drawing.Size Size
+    {
+        get => new System.Drawing.Size((int)Width, (int)Height);
+    }
+
     string? IWindow.Title
     {
         get => Title;

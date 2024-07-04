@@ -34,6 +34,16 @@ public sealed partial class Shell : Window, IWindow
 
     public Guid Id { get; }
 
+    public System.Drawing.Size Size
+    {
+        get
+        {
+            SizeInt32 size = _appWindow.Size;
+
+            return new(size.Width, size.Height);
+        }
+    }
+
     /// <summary>
     /// Initializes a new instance of the <see cref="Shell"/> class.
     /// </summary>
