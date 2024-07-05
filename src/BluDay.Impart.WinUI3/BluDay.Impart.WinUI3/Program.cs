@@ -26,65 +26,39 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-ImpartAppArgsParser argsParser = new();
+ImpartAppArgs parsedArgs = new ImpartAppArgsParser().Parse(args);
 
-IImpartAppArgs parsedArgs = argsParser.Parse(args);
-
-void ConfigureLogging(ILoggingBuilder builder)
-{
-    builder
-        .AddConsole()
-        .AddDebug()
-        .SetMinimumLevel(LogLevel.Debug);
-}
-
-void ConfigureServices(IServiceCollection services)
-{
-    services
-        .AddSingleton<IImpartApp, ImpartApp>()
-        .AddSingleton(parsedArgs)
-        .AddSingleton(argsParser);
-
-    services
-        .AddLogging(ConfigureLogging);
-
-    services
-        .AddSingleton<IMessenger>(WeakReferenceMessenger.Default);
-
-    services
-        .AddSingleton<IAppActivationService, AppActivationService>()
-        .AddSingleton<IAppDialogService, AppDialogService>()
-        .AddSingleton<IAppNavigationService, AppNavigationService>()
-        .AddSingleton<IAppThemeService, AppThemeService>()
-        .AddSingleton<IAppWindowService, AppWindowService>();
-
-    services
-        .AddSingleton<ResourceLoader>();
-
-    services
-        .AddSingleton<App>()
-        .AddTransient<Shell>();
-
-    services
-        .AddTransient<ChatsView>()
-        .AddTransient<IntroView>()
-        .AddTransient<MainView>()
-        .AddTransient<SettingsView>();
-
-    services
-        .AddTransient<ChatsViewModel>()
-        .AddTransient<IntroViewModel>()
-        .AddTransient<MainViewModel>()
-        .AddTransient<SettingsViewModel>();
-}
-
-WinUI3AppFactory.Create(() =>
-{
-    ServiceCollection services = new();
-
-    ConfigureServices(services);
-
-    services
-        .BuildServiceProvider()
-        .GetRequiredService<App>();
-});
+new ServiceCollection()
+    // BluDay.Impart
+    .AddSingleton<IImpartApp, ImpartApp>()
+    .AddSingleton<IImpartAppArgs>(parsedArgs)
+    .AddTransient<ChatsViewModel>()
+    .AddTransient<IntroViewModel>()
+    .AddTransient<MainViewModel>()
+    .AddTransient<SettingsViewModel>()
+    // BluDay.Impart.WinUI3
+    .AddSingleton<App>()
+    .AddSingleton<ResourceLoader>()
+    .AddTransient<Shell>()
+    .AddTransient<ChatsView>()
+    .AddTransient<IntroView>()
+    .AddTransient<MainView>()
+    .AddTransient<SettingsView>()
+    // BluDay.Net
+    .AddSingleton<IAppActivationService, AppActivationService>()
+    .AddSingleton<IAppDialogService, AppDialogService>()
+    .AddSingleton<IAppNavigationService, AppNavigationService>()
+    .AddSingleton<IAppThemeService, AppThemeService>()
+    .AddSingleton<IAppWindowService, AppWindowService>()
+    // CommunityToolkit.Mvvm
+    .AddSingleton(WeakReferenceMessenger.Default)
+    // Microsoft.Extensions.Logging
+    .AddLogging(loggerBuilder =>
+    {
+        loggerBuilder
+            .AddConsole()
+            .AddDebug()
+            .SetMinimumLevel(LogLevel.Debug);
+    })
+    .BuildServiceProvider()
+    .CreateWinUI3App();

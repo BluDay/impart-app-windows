@@ -9,7 +9,7 @@ public sealed class ImpartApp : IImpartApp
 
     private readonly IImpartAppArgs _args;
 
-    private readonly IMessenger _messenger;
+    private readonly WeakReferenceMessenger _messenger;
 
     private readonly ILogger _logger;
 
@@ -25,7 +25,10 @@ public sealed class ImpartApp : IImpartApp
     /// <param name="args">An instance of parsed command-line arguments.</param>
     /// <param name="messenger">The weak reference messaging service.</param>
     /// <param name="logger">The logger instance.</param>
-    public ImpartApp(IImpartAppArgs args, IMessenger messenger, ILogger<IImpartApp> logger)
+    public ImpartApp(
+        IImpartAppArgs         args,
+        WeakReferenceMessenger messenger,
+        ILogger<IImpartApp>    logger)
     {
         _args = args;
 
