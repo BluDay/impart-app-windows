@@ -119,11 +119,18 @@
   </resheader>
   <data name="AppDisplayName" xml:space="preserve">
     <value>Impart</value>
+    <comment>The default display name.</comment>
+  </data>
+  <data name="AppDisplayNameExplicit" xml:space="preserve">
+    <value>Impart (WinUI 3)</value>
+    <comment>The default display name but with the platform name included.</comment>
   </data>
   <data name="MainWindowTitle" xml:space="preserve">
     <value>Impart</value>
+    <comment>The default title of the main window.</comment>
   </data>
   <data name="MainWindowTitleExplicit" xml:space="preserve">
     <value>Impart (WinUI 3)</value>
+    <comment>The default title of the main window but with the platform name included.</comment>
   </data>
 </root>
