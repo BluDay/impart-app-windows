@@ -39,11 +39,11 @@ public sealed partial class App : Application
         _app.Initialize();
 
         #region Main window demo
-        _mainWindow = new Shell();
-
-        _mainWindow.Title = nameof(Impart);
-
-        _mainWindow.IsResizable = true;
+        _mainWindow = new Shell
+        {
+            Title       = DefaultControlValues.MAIN_WINDOW_TITLE,
+            IsResizable = true
+        };
 
         _mainWindow.Resize(1600, 1280);
 

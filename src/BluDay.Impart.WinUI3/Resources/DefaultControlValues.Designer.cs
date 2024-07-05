@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BluDay.Impart.Resources {
+namespace BluDay.Impart.WinUI3.Resources {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace BluDay.Impart.Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BluDay.Impart.Resources.DefaultControlValues", typeof(DefaultControlValues).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BluDay.Impart.WinUI3.Resources.DefaultControlValues", typeof(DefaultControlValues).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,7 +61,7 @@ namespace BluDay.Impart.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Impart (WinUI).
+        ///   Looks up a localized string similar to Impart (WinUI 3).
         /// </summary>
         internal static string MAIN_WINDOW_TITLE {
             get {

@@ -47,12 +47,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>ArgumentFlagDescriptors.resx</DependentUpon>
     </Compile>
-    
-    <Compile Update="Resources\DefaultControlValues.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>DefaultControlValues.resx</DependentUpon>
-    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -64,11 +58,6 @@
     <EmbeddedResource Update="Resources\ArgumentFlagDescriptors.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ArgumentFlagDescriptors.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    
-    <EmbeddedResource Update="Resources\DefaultControlValues.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>DefaultControlValues.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
 </Project>
