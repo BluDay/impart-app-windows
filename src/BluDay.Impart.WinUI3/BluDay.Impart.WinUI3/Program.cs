@@ -32,7 +32,8 @@ void ConfigureLogging(ILoggingBuilder builder)
 {
     builder
         .AddConsole()
-        .AddDebug();
+        .AddDebug()
+        .SetMinimumLevel(LogLevel.Debug);
 }
 
 void ConfigureServices(IServiceCollection services)
