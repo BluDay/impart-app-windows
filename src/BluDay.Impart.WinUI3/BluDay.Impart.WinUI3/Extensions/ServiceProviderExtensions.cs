@@ -14,10 +14,14 @@ public static class ServiceProviderExtensions
     /// <exception cref="ArgumentNullException">
     /// If <paramref name="source"/> is null.
     /// </exception>
-    public static void CreateWinUI3App(this IServiceProvider source)
+    public static App CreateWinUI3App(this IServiceProvider source)
     {
         ArgumentNullException.ThrowIfNull(source);
 
-        WinUI3AppFactory.Create(() => source.GetRequiredService<App>());
+        App app = null!;
+
+        WinUI3AppFactory.Create(() => app = source.GetRequiredService<App>());
+
+        return app;
     }
 }
