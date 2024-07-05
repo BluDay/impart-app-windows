@@ -28,7 +28,7 @@ SOFTWARE.
 
 ImpartAppArgs parsedArgs = new ImpartAppArgsParser().Parse(args);
 
-new ServiceCollection()
+IServiceProvider services = new ServiceCollection()
     // BluDay.Impart
     .AddSingleton<IImpartApp, ImpartApp>()
     .AddSingleton<IImpartAppArgs>(parsedArgs)
@@ -60,5 +60,6 @@ new ServiceCollection()
             .AddDebug()
             .SetMinimumLevel(LogLevel.Debug);
     })
-    .BuildServiceProvider()
-    .CreateWinUI3App();
+    .BuildServiceProvider();
+
+App app = services.CreateWinUI3App();
