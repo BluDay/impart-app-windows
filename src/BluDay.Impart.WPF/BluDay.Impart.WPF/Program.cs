@@ -26,20 +26,24 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-ImpartAppArgs parsedArgs = ImpartAppArgsParser.Default.Parse(args);
+ImpartAppArgsParser argsParser = new();
+
+IImpartAppArgs parsedArgs = argsParser.Parse(args);
 
 void ConfigureLogging(ILoggingBuilder builder)
 {
     builder
         .AddConsole()
-        .AddDebug();
+        .AddDebug()
+        .SetMinimumLevel(LogLevel.Debug);
 }
 
 void ConfigureServices(IServiceCollection services)
 {
     services
         .AddSingleton<IImpartApp, ImpartApp>()
-        .AddSingleton<IImpartAppArgs>(parsedArgs);
+        .AddSingleton(parsedArgs)
+        .AddSingleton(argsParser);
 
     services
         .AddLogging(ConfigureLogging);

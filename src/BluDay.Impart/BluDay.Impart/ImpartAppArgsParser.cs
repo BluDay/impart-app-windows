@@ -6,11 +6,6 @@ namespace BluDay.Impart;
 public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
 {
     /// <summary>
-    /// Gets the singleton instance.
-    /// </summary>
-    public static ImpartAppArgsParser Default { get; } = new();
-
-    /// <summary>
     /// Initializes a new instance of the <see cref="ImpartAppArgs"/> class with app-specific
     /// optional and positional command-line arguments.
     /// </summary>
@@ -29,17 +24,14 @@ public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
                 .Name(nameof(ImpartAppArgs.DemoMode))
                 .Description(ArgumentDescriptions.DEMO_MODE)
                 .Flags(ArgumentFlagDescriptors.DEMO_MODE)
-                .Descriptors
             .AddOptional()
                 .Name(nameof(ImpartAppArgs.PerformanceMode))
                 .Description(ArgumentDescriptions.PERFORMANCE_MODE)
                 .Flags(ArgumentFlagDescriptors.PERFORMANCE_MODE)
-                .Descriptors
             .AddOptional()
                 .Name(nameof(ImpartAppArgs.SkipIntro))
                 .Description(ArgumentDescriptions.SKIP_INTRO)
                 .Flags(ArgumentFlagDescriptors.SKIP_INTRO)
-                .Descriptors
             .AddOptional()
                 .Name(nameof(ImpartAppArgs.Verbosity))
                 .Description(ArgumentDescriptions.VERBOSITY)
@@ -47,14 +39,12 @@ public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
                 .ActionKind(ArgumentActionKind.CountFlag)
                 .StoreKind(ArgumentStoreKind.Integer)
                 .Constant(1)
-                .Descriptors
             .AddOptional()
                 .Name(nameof(ImpartAppArgs.AppTheme))
                 .Description(ArgumentDescriptions.APP_THEME)
                 .Flags(ArgumentFlagDescriptors.APP_THEME)
                 .ActionKind(ArgumentActionKind.StoreValue)
                 .StoreKind(ArgumentStoreKind.String)
-                .Descriptors
             .AddPositional()
                 .ActionKind(ArgumentActionKind.AppendValue)
                 .StoreKind(ArgumentStoreKind.String)
