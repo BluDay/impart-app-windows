@@ -36,12 +36,7 @@ public sealed partial class Shell : Window, IWindow
 
     public System.Drawing.Size Size
     {
-        get
-        {
-            SizeInt32 size = _appWindow.Size;
-
-            return new(size.Width, size.Height);
-        }
+        get => new(_appWindow.Size.Width, _appWindow.Size.Height);
     }
 
     /// <summary>
