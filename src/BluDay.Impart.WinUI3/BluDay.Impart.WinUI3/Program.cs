@@ -55,6 +55,9 @@ void ConfigureServices(IServiceCollection services)
         .AddSingleton<IAppWindowService, AppWindowService>();
 
     services
+        .AddSingleton<ResourceLoader>();
+
+    services
         .AddSingleton<App>()
         .AddTransient<Shell>();
 

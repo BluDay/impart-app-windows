@@ -13,19 +13,28 @@ public sealed partial class App : Application
 
     private readonly ILogger _logger;
 
+    private readonly ResourceLoader _resourceLoader;
+
     /// <summary>
     /// Initializes a new instance of the <see cref="App"/> class.
     /// </summary>
     /// <param name="app">The app instance for Impart.</param>
     /// <param name="windowService">The window service.</param>
     /// <param name="logger">The logger instance.</param>
-    public App(IImpartApp app, IAppWindowService windowService, ILogger<App> logger)
+    /// <param name="resourceLoader">The default app resource loader instance.</param>
+    public App(
+        IImpartApp        app,
+        IAppWindowService windowService,
+        ILogger<App>      logger,
+        ResourceLoader    resourceLoader)
     {
         _app = app;
 
         _windowService = windowService;
 
         _logger = logger;
+
+        _resourceLoader = resourceLoader;
 
         InitializeComponent();
     }
@@ -39,11 +48,9 @@ public sealed partial class App : Application
         _app.Initialize();
 
         #region Main window demo
-        ResourceLoader resourceLoader = new();
-
         _mainWindow = new Shell
         {
-            Title       = resourceLoader.GetString("MainWindowTitle"),
+            Title       = _resourceLoader.GetString("MainWindowTitle"),
             IsResizable = true
         };
 
