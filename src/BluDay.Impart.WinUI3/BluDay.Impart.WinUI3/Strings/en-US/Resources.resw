@@ -117,7 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="MAIN_WINDOW_TITLE" xml:space="preserve">
+  <data name="AppDisplayName" xml:space="preserve">
+    <value>Impart</value>
+  </data>
+  <data name="MainWindowTitle" xml:space="preserve">
+    <value>Impart</value>
+  </data>
+  <data name="MainWindowTitleExplicit" xml:space="preserve">
     <value>Impart (WinUI 3)</value>
   </data>
 </root>

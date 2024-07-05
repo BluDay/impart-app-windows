@@ -39,9 +39,11 @@ public sealed partial class App : Application
         _app.Initialize();
 
         #region Main window demo
+        ResourceLoader resourceLoader = new();
+
         _mainWindow = new Shell
         {
-            Title       = DefaultControlValues.MAIN_WINDOW_TITLE,
+            Title       = resourceLoader.GetString("MainWindowTitle"),
             IsResizable = true
         };
 
