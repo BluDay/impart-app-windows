@@ -25,37 +25,32 @@ public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
     private static ArgumentDescriptors CreateDescriptors()
     {
         return new ArgumentDescriptorsBuilder()
-            .Optional()
+            .AddOptional()
                 .Name(nameof(ImpartAppArgs.DemoMode))
                 .Description(ArgumentDescriptions.DEMO_MODE)
                 .Flags(ArgumentFlagDescriptors.DEMO_MODE)
-                .Descriptors
-            .Optional()
+            .AddOptional()
                 .Name(nameof(ImpartAppArgs.PerformanceMode))
                 .Description(ArgumentDescriptions.PERFORMANCE_MODE)
                 .Flags(ArgumentFlagDescriptors.PERFORMANCE_MODE)
-                .Descriptors
-            .Optional()
+            .AddOptional()
                 .Name(nameof(ImpartAppArgs.SkipIntro))
                 .Description(ArgumentDescriptions.SKIP_INTRO)
                 .Flags(ArgumentFlagDescriptors.SKIP_INTRO)
-                .Descriptors
-            .Optional()
+            .AddOptional()
                 .Name(nameof(ImpartAppArgs.Verbosity))
                 .Description(ArgumentDescriptions.VERBOSITY)
                 .Flags(ArgumentFlagDescriptors.VERBOSITY)
                 .ActionKind(ArgumentActionKind.CountFlag)
                 .StoreKind(ArgumentStoreKind.Integer)
                 .Constant(1)
-                .Descriptors
-            .Optional()
+            .AddOptional()
                 .Name(nameof(ImpartAppArgs.AppTheme))
                 .Description(ArgumentDescriptions.APP_THEME)
                 .Flags(ArgumentFlagDescriptors.APP_THEME)
                 .ActionKind(ArgumentActionKind.StoreValue)
                 .StoreKind(ArgumentStoreKind.String)
-                .Descriptors
-            .Positional()
+            .AddPositional()
                 .ActionKind(ArgumentActionKind.AppendValue)
                 .StoreKind(ArgumentStoreKind.String)
                 .Descriptors
