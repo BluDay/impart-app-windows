@@ -26,6 +26,8 @@ public sealed partial class App : Application
         _windowService = windowService;
 
         _logger = logger;
+
+        InitializeComponent();
     }
 
     /// <summary>
@@ -37,9 +39,11 @@ public sealed partial class App : Application
         _app.Initialize();
 
         #region Main window demo
-        _mainWindow = new Shell();
-
-        _mainWindow.Title = nameof(Impart);
+        _mainWindow = new Shell
+        {
+            Title       = nameof(Impart),
+            IsResizable = true
+        };
 
         _mainWindow.Activate();
         #endregion
