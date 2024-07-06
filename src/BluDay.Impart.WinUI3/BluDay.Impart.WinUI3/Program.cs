@@ -30,7 +30,7 @@ ImpartAppArgs parsedArgs = new ImpartAppArgsParser().Parse(args);
 
 IServiceProvider services = new ServiceCollection()
     // BluDay.Impart
-    .AddSingleton<IImpartApp, ImpartApp>()
+    .AddSingleton<ImpartApp>()
     .AddSingleton(parsedArgs)
     .AddTransient<ChatsViewModel>()
     .AddTransient<IntroViewModel>()
