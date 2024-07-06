@@ -26,68 +26,36 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-ImpartAppArgsParser argsParser = new();
+ImpartAppArgs parsedArgs = new ImpartAppArgsParser().Parse(args);
 
-IImpartAppArgs parsedArgs = argsParser.Parse(args);
+IServiceProvider services = new ServiceCollection()
+    // BluDay.Impart
+    .AddSingleton<IImpartApp, ImpartApp>()
+    .AddSingleton<IImpartAppArgs>(parsedArgs)
+    .AddTransient<ChatsViewModel>()
+    .AddTransient<IntroViewModel>()
+    .AddTransient<MainViewModel>()
+    .AddTransient<SettingsViewModel>()
+    // BluDay.Impart.WPF
+    .AddSingleton<App>()
+    .AddTransient<Shell>()
+    .AddTransient<MainView>()
+    // BluDay.Net
+    .AddSingleton<IAppActivationService, AppActivationService>()
+    .AddSingleton<IAppDialogService, AppDialogService>()
+    .AddSingleton<IAppNavigationService, AppNavigationService>()
+    .AddSingleton<IAppThemeService, AppThemeService>()
+    .AddSingleton<IAppWindowService, AppWindowService>()
+    // CommunityToolkit.Mvvm
+    .AddSingleton(WeakReferenceMessenger.Default)
+    // Microsoft.Extensions.Logging
+    .AddLogging(loggerBuilder =>
+    {
+        loggerBuilder
+            .AddConsole()
+            .AddDebug()
+            .SetMinimumLevel(LogLevel.Debug);
+    })
+    .BuildServiceProvider();
 
-void ConfigureLogging(ILoggingBuilder builder)
-{
-    builder
-        .AddConsole()
-        .AddDebug()
-        .SetMinimumLevel(LogLevel.Debug);
-}
-
-void ConfigureServices(IServiceCollection services)
-{
-    services
-        .AddSingleton<IImpartApp, ImpartApp>()
-        .AddSingleton(parsedArgs)
-        .AddSingleton(argsParser);
-
-    services
-        .AddLogging(ConfigureLogging);
-
-    services
-        .AddSingleton<IMessenger>(WeakReferenceMessenger.Default);
-
-    services
-        .AddSingleton<IAppActivationService, AppActivationService>()
-        .AddSingleton<IAppDialogService, AppDialogService>()
-        .AddSingleton<IAppNavigationService, AppNavigationService>()
-        .AddSingleton<IAppThemeService, AppThemeService>()
-        .AddSingleton<IAppWindowService, AppWindowService>();
-
-    services
-        .AddSingleton<App>()
-        .AddTransient<Shell>();
-
-    services
-        // .AddTransient<ChatsView>()
-        // .AddTransient<IntroView>()
-        .AddTransient<MainView>();
-        // .AddTransient<SettingsView>();
-
-    services
-        .AddTransient<ChatsViewModel>()
-        .AddTransient<IntroViewModel>()
-        .AddTransient<MainViewModel>()
-        .AddTransient<SettingsViewModel>();
-}
-
-Thread thread = new(() =>
-{
-    ServiceCollection services = new();
-
-    ConfigureServices(services);
-
-    App app = services
-        .BuildServiceProvider()
-        .GetRequiredService<App>();
-
-    app.InitializeComponent();
-    app.Run();
-});
-
-thread.SetApartmentState(ApartmentState.STA);
-thread.Start();
+(App app, Thread thread) = services.CreateWPFApp();
