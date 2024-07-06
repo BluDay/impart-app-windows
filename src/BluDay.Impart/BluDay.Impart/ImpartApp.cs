@@ -7,13 +7,13 @@ public sealed class ImpartApp : IImpartApp
 
     private bool _isInitialized;
 
-    private readonly IImpartAppArgs _args;
+    private readonly ImpartAppArgs _args;
 
     private readonly WeakReferenceMessenger _messenger;
 
     private readonly ILogger _logger;
 
-    public IImpartAppArgs Args => _args;
+    public ImpartAppArgs Args => _args;
 
     public bool IsDisposed => _isDisposed;
 
@@ -26,7 +26,7 @@ public sealed class ImpartApp : IImpartApp
     /// <param name="messenger">The weak reference messaging service.</param>
     /// <param name="logger">The logger instance.</param>
     public ImpartApp(
-        IImpartAppArgs         args,
+        ImpartAppArgs          args,
         WeakReferenceMessenger messenger,
         ILogger<IImpartApp>    logger)
     {

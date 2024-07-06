@@ -8,7 +8,7 @@ public interface IImpartApp
     /// <summary>
     /// Gets instance of parsed command-line arguments.
     /// </summary>
-    IImpartAppArgs Args { get; }
+    ImpartAppArgs Args { get; }
 
     /// <summary>
     /// Gets a value indicating whether the app has been disposed.
