@@ -41,11 +41,11 @@ IServiceProvider services = new ServiceCollection()
     .AddTransient<Shell>()
     .AddTransient<MainView>()
     // BluDay.Net
-    .AddSingleton<IAppActivationService, AppActivationService>()
-    .AddSingleton<IAppDialogService, AppDialogService>()
-    .AddSingleton<IAppNavigationService, AppNavigationService>()
-    .AddSingleton<IAppThemeService, AppThemeService>()
-    .AddSingleton<IAppWindowService, AppWindowService>()
+    .AddSingleton<AppActivationService>()
+    .AddSingleton<AppDialogService>()
+    .AddSingleton<AppNavigationService>()
+    .AddSingleton<AppThemeService>()
+    .AddSingleton<AppWindowService>()
     // CommunityToolkit.Mvvm
     .AddSingleton(WeakReferenceMessenger.Default)
     // Microsoft.Extensions.Logging

@@ -9,7 +9,7 @@ public sealed partial class App : Application
 
     private readonly ImpartApp _app;
 
-    private readonly IAppWindowService _windowService;
+    private readonly AppWindowService _windowService;
 
     private readonly ILogger _logger;
 
@@ -19,7 +19,7 @@ public sealed partial class App : Application
     /// <param name="app">The app instance for Impart.</param>
     /// <param name="windowService">The window service.</param>
     /// <param name="logger">The logger instance.</param>
-    public App(ImpartApp app, IAppWindowService windowService, ILogger<App> logger)
+    public App(ImpartApp app, AppWindowService windowService, ILogger<App> logger)
     {
         _app = app;
 

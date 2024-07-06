@@ -9,7 +9,7 @@ public sealed partial class App : Application
 
     private readonly ImpartApp _app;
 
-    private readonly IAppWindowService _windowService;
+    private readonly AppWindowService _windowService;
 
     private readonly ILogger _logger;
 
@@ -23,10 +23,10 @@ public sealed partial class App : Application
     /// <param name="logger">The logger instance.</param>
     /// <param name="resourceLoader">The default app resource loader instance.</param>
     public App(
-        ImpartApp         app,
-        IAppWindowService windowService,
-        ILogger<App>      logger,
-        ResourceLoader    resourceLoader)
+        ImpartApp        app,
+        AppWindowService windowService,
+        ILogger<App>     logger,
+        ResourceLoader   resourceLoader)
     {
         _app = app;
 
