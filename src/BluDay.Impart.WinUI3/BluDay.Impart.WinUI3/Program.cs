@@ -28,13 +28,7 @@ SOFTWARE.
 
 ImpartApp app = new ImpartAppBuilder()
     .ParseArgs(args)
-    .RegisterPlatformSpecificServices(services =>
-    {
-        services
-            .AddSingleton<App>()
-            .AddSingleton<ResourceLoader>()
-            .AddTransient<Shell>();
-    })
+    .RegisterPlatformSpecificServices()
     .RegisterView<ChatsView, ChatsViewModel>()
     .RegisterView<IntroView, IntroViewModel>()
     .RegisterView<MainView, MainViewModel>()

@@ -28,12 +28,7 @@ SOFTWARE.
 
 ImpartApp app = new ImpartAppBuilder()
     .ParseArgs(args)
-    .RegisterPlatformSpecificServices(services =>
-    {
-        services
-            .AddSingleton<App>()
-            .AddTransient<Shell>();
-    })
+    .RegisterPlatformSpecificServices()
     .RegisterView<MainView, MainViewModel>()
     .Build()
     .CreateWpfApp();
