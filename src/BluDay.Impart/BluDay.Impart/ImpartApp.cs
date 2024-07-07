@@ -11,8 +11,6 @@ public sealed class ImpartApp
 
     private readonly ImpartAppArgs _args;
 
-    private readonly AppActivationService _appActivationService;
-
     private readonly WeakReferenceMessenger _messenger;
 
     private readonly ILogger _logger;
@@ -38,9 +36,6 @@ public sealed class ImpartApp
     /// <param name="args">
     /// An instance of parsed command-line arguments.
     /// </param>
-    /// <param name="appActivationService">
-    /// The application service.
-    /// </param>
     /// <param name="messenger">
     /// The weak reference messaging service.
     /// </param>
@@ -49,13 +44,10 @@ public sealed class ImpartApp
     /// </param>
     public ImpartApp(
         ImpartAppArgs          args,
-        AppActivationService   appActivationService,
         WeakReferenceMessenger messenger,
         ILogger<ImpartApp>     logger)
     {
         _args = args;
-
-        _appActivationService = appActivationService;
 
         _messenger = messenger;
 
@@ -69,7 +61,9 @@ public sealed class ImpartApp
     {
         if (_isDisposed) return;
 
-        // TODO: Dispose of important stuff.
+        _messenger.Send<AppDeactivationRequestMessage>();
+
+        // TODO: Dispose of other important stuff.
 
         _isDisposed = true;
     }
@@ -84,7 +78,7 @@ public sealed class ImpartApp
 
         if (_isInitialized) return;
 
-        _appActivationService.Activate();
+        _messenger.Send<AppActivationRequestMessage>();
 
         // TODO: Activate other parts of the app.
 

@@ -7,6 +7,7 @@ global using BluDay.Net.Common.Attributes;
 global using BluDay.Net.Common.CommandLine;
 global using BluDay.Net.Domain.Models;
 global using BluDay.Net.Domain.ViewModels;
+global using BluDay.Net.Messaging;
 global using BluDay.Net.Services;
 global using BluDay.Net.UI.Appearance;
 global using BluDay.Net.UI.Navigation;
