@@ -35,9 +35,7 @@ ImpartApp app = new ImpartAppBuilder()
             .AddTransient<Shell>();
     })
     .RegisterView<MainView, MainViewModel>()
-    .Build();
+    .Build()
+    .CreateWpfApp();
 
-Thread thread = new(app.Initialize);
-
-thread.SetApartmentState(ApartmentState.STA);
-thread.Start();
+app.Initialize();

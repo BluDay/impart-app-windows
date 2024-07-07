@@ -39,20 +39,7 @@ ImpartApp app = new ImpartAppBuilder()
     .RegisterView<IntroView, IntroViewModel>()
     .RegisterView<MainView, MainViewModel>()
     .RegisterView<SettingsView, SettingsViewModel>()
-    .Build();
+    .Build()
+    .CreateWinui3App();
 
-[DllImport("Microsoft.UI.Xaml.dll")]
-static extern void XamlCheckProcessRequirements();
-
-XamlCheckProcessRequirements();
-
-WinRT.ComWrappersSupport.InitializeComWrappers();
-
-Application.Start(callback =>
-{
-    SynchronizationContext.SetSynchronizationContext(
-        new DispatcherQueueSynchronizationContext(DispatcherQueue.GetForCurrentThread())
-    );
-
-    app.Initialize();
-});
+app.Initialize();
