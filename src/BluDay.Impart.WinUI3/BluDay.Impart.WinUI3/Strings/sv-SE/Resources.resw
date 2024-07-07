@@ -133,4 +133,7 @@
     <value>Impart (WinUI 3)</value>
     <comment>The default title of the main window but with the platform name included.</comment>
   </data>
+  <data name="NavigationView.AutoSuggestBox.PlaceholderText" xml:space="preserve">
+    <value>Sök på chatter, användare, eller filer</value>
+  </data>
 </root>
