@@ -7,8 +7,6 @@ public sealed partial class App : Application
 {
     private Shell? _mainWindow;
 
-    private readonly ImpartApp _app;
-
     private readonly AppWindowService _windowService;
 
     private readonly ILogger _logger;
@@ -18,18 +16,14 @@ public sealed partial class App : Application
     /// <summary>
     /// Initializes a new instance of the <see cref="App"/> class.
     /// </summary>
-    /// <param name="app">The app instance for Impart.</param>
     /// <param name="windowService">The window service.</param>
     /// <param name="logger">The logger instance.</param>
     /// <param name="resourceLoader">The default app resource loader instance.</param>
     public App(
-        ImpartApp        app,
         AppWindowService windowService,
         ILogger<App>     logger,
         ResourceLoader   resourceLoader)
     {
-        _app = app;
-
         _windowService = windowService;
 
         _logger = logger;
@@ -45,9 +39,6 @@ public sealed partial class App : Application
     /// <param name="e">Details about the launch request and process.</param>
     protected override void OnLaunched(LaunchActivatedEventArgs e)
     {
-        _app.Initialize();
-
-        #region Main window demo
         _mainWindow = new Shell
         {
             Title       = _resourceLoader.GetString("MainWindowTitle"),
@@ -57,6 +48,5 @@ public sealed partial class App : Application
         _mainWindow.Resize(1600, 1280);
 
         _mainWindow.Activate();
-        #endregion
     }
 }
