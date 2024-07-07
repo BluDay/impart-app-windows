@@ -26,36 +26,18 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-ImpartAppArgs parsedArgs = new ImpartAppArgsParser().Parse(args);
-
-IServiceProvider services = new ServiceCollection()
-    // BluDay.Impart
-    .AddSingleton<ImpartApp>()
-    .AddSingleton(parsedArgs)
-    .AddTransient<ChatsViewModel>()
-    .AddTransient<IntroViewModel>()
-    .AddTransient<MainViewModel>()
-    .AddTransient<SettingsViewModel>()
-    // BluDay.Impart.WPF
-    .AddSingleton<App>()
-    .AddTransient<Shell>()
-    .AddTransient<MainView>()
-    // BluDay.Net
-    .AddSingleton<AppActivationService>()
-    .AddSingleton<AppDialogService>()
-    .AddSingleton<AppNavigationService>()
-    .AddSingleton<AppThemeService>()
-    .AddSingleton<AppWindowService>()
-    // CommunityToolkit.Mvvm
-    .AddSingleton(WeakReferenceMessenger.Default)
-    // Microsoft.Extensions.Logging
-    .AddLogging(loggerBuilder =>
+ImpartApp app = new ImpartAppBuilder()
+    .ParseArgs(args)
+    .RegisterPlatformSpecificServices(services =>
     {
-        loggerBuilder
-            .AddConsole()
-            .AddDebug()
-            .SetMinimumLevel(LogLevel.Debug);
+        services
+            .AddSingleton<App>()
+            .AddTransient<Shell>();
     })
-    .BuildServiceProvider();
+    .RegisterView<MainView, MainViewModel>()
+    .Build();
 
-(App app, Thread thread) = services.CreateWPFApp();
+Thread thread = new(app.Initialize);
+
+thread.SetApartmentState(ApartmentState.STA);
+thread.Start();

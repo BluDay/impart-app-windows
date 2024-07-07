@@ -26,40 +26,33 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-ImpartAppArgs parsedArgs = new ImpartAppArgsParser().Parse(args);
-
-IServiceProvider services = new ServiceCollection()
-    // BluDay.Impart
-    .AddSingleton<ImpartApp>()
-    .AddSingleton(parsedArgs)
-    .AddTransient<ChatsViewModel>()
-    .AddTransient<IntroViewModel>()
-    .AddTransient<MainViewModel>()
-    .AddTransient<SettingsViewModel>()
-    // BluDay.Impart.WinUI3
-    .AddSingleton<App>()
-    .AddSingleton<ResourceLoader>()
-    .AddTransient<Shell>()
-    .AddTransient<ChatsView>()
-    .AddTransient<IntroView>()
-    .AddTransient<MainView>()
-    .AddTransient<SettingsView>()
-    // BluDay.Net
-    .AddSingleton<AppActivationService>()
-    .AddSingleton<AppDialogService>()
-    .AddSingleton<AppNavigationService>()
-    .AddSingleton<AppThemeService>()
-    .AddSingleton<AppWindowService>()
-    // CommunityToolkit.Mvvm
-    .AddSingleton(WeakReferenceMessenger.Default)
-    // Microsoft.Extensions.Logging
-    .AddLogging(loggerBuilder =>
+ImpartApp app = new ImpartAppBuilder()
+    .ParseArgs(args)
+    .RegisterPlatformSpecificServices(services =>
     {
-        loggerBuilder
-            .AddConsole()
-            .AddDebug()
-            .SetMinimumLevel(LogLevel.Debug);
+        services
+            .AddSingleton<App>()
+            .AddSingleton<ResourceLoader>()
+            .AddTransient<Shell>();
     })
-    .BuildServiceProvider();
+    .RegisterView<ChatsView, ChatsViewModel>()
+    .RegisterView<IntroView, IntroViewModel>()
+    .RegisterView<MainView, MainViewModel>()
+    .RegisterView<SettingsView, SettingsViewModel>()
+    .Build();
 
-App app = services.CreateWinUI3App();
+[DllImport("Microsoft.UI.Xaml.dll")]
+static extern void XamlCheckProcessRequirements();
+
+XamlCheckProcessRequirements();
+
+WinRT.ComWrappersSupport.InitializeComWrappers();
+
+Application.Start(callback =>
+{
+    SynchronizationContext.SetSynchronizationContext(
+        new DispatcherQueueSynchronizationContext(DispatcherQueue.GetForCurrentThread())
+    );
+
+    app.Initialize();
+});
