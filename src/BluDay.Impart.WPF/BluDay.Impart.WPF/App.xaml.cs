@@ -46,6 +46,7 @@ public sealed partial class App : Application
         };
 
         _mainWindow.Activate();
+        _mainWindow.Show();
         #endregion
 
         base.OnStartup(e);
