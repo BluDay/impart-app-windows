@@ -22,18 +22,21 @@ public sealed partial class Shell : Window
     {
         _viewModel = viewModel;
 
-        ExtendsContentIntoTitleBar = true;
-
         InitializeComponent();
+
+        ConfigureTitleBar();
+
+        viewModel.SetWindow(this);
+
+        ContentControl.Content = new MainView();
+    }
+
+    private void ConfigureTitleBar()
+    {
+        ExtendsContentIntoTitleBar = true;
 
         SetTitleBar(TitleBar);
 
         AppWindow.MakeTitleBarTransparent();
-
-        viewModel.SetWindow(this);
-
-        RootGrid.DataContext = viewModel;
-
-        ContentControl.Content = new MainView();
     }
 }

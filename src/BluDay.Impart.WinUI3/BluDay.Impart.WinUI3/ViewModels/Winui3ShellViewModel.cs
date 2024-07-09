@@ -82,8 +82,9 @@ public sealed partial class Winui3ShellViewModel : ShellViewModel
 
     private void RegisterEventHandlers()
     {
-        _window!.Activated += _window_Activated;
-        _window!.Closed    += _window_Closed;
+        _window!.Activated   += _window_Activated;
+        _window!.Closed      += _window_Closed;
+        _window!.SizeChanged += _window_SizeChanged;
     }
 
     private void _window_Activated(object sender, WindowActivatedEventArgs e)
@@ -100,9 +101,9 @@ public sealed partial class Winui3ShellViewModel : ShellViewModel
         _window!.Closed -= _window_Closed;
     }
 
-    public override void Resize(int width, int height)
+    private void _window_SizeChanged(object sender, WindowSizeChangedEventArgs args)
     {
-        _appWindow?.Resize(new SizeInt32(width, height));
+        OnPropertyChanged(nameof(Size));
     }
 
     /// <summary>
@@ -134,5 +135,10 @@ public sealed partial class Winui3ShellViewModel : ShellViewModel
         RegisterEventHandlers();
 
         return true;
+    }
+
+    public override void Resize(int width, int height)
+    {
+        _appWindow?.Resize(new SizeInt32(width, height));
     }
 }
