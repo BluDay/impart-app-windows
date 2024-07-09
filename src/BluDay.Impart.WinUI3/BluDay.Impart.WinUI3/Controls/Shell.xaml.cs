@@ -15,7 +15,7 @@ public sealed partial class Shell : Window, IWindow
 
     private readonly DisplayArea _displayArea;
 
-    public IViewNavigator ViewNavigator => _viewNavigator;
+    public ViewNavigator ViewNavigator => _viewNavigator;
 
     public WindowActivationState? ActivationState { get; private set; }
 

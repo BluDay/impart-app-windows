@@ -8,7 +8,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Activated="Window_Activated"
-        Closed="Window_Closed">
+        Closed="Window_Closed"
+        Title="{x:Bind TitleBar.Title}">
     <Window.SystemBackdrop>
         <MicaBackdrop Kind="Base"/>
     </Window.SystemBackdrop>
@@ -20,8 +21,8 @@
         </Grid.RowDefinitions>
 
         <controls:TitleBar x:Name="TitleBar"
-                           Icon="{StaticResource AppIconImageSource}"
-                           Title="{x:Bind Title}"/>
+                           x:Uid="MainWindowTitleBar"
+                           Icon="{StaticResource AppIconImageSource}"/>
 
         <ContentControl x:Name="ContentControl"
                         VerticalContentAlignment="Stretch"

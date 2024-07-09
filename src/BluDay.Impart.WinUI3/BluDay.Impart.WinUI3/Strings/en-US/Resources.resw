@@ -125,11 +125,11 @@
     <value>Impart (WinUI 3)</value>
     <comment>The default display name but with the platform name included.</comment>
   </data>
-  <data name="MainWindowTitle" xml:space="preserve">
+  <data name="MainWindowTitleBar.Title" xml:space="preserve">
     <value>Impart</value>
     <comment>The default title of the main window.</comment>
   </data>
-  <data name="MainWindowTitleExplicit" xml:space="preserve">
+  <data name="MainWindowTitleBarExplicit.Title" xml:space="preserve">
     <value>Impart (WinUI 3)</value>
     <comment>The default title of the main window but with the platform name included.</comment>
   </data>
