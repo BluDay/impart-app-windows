@@ -164,6 +164,8 @@ public sealed partial class Winui3ShellViewModel : ShellViewModel
         _nonClientPointerSource       = _appWindow.GetNonClientPointerSource();
         _displayArea                  = _appWindow.GetDisplayArea();
 
+        RegisterEventHandlers();
+
         return true;
     }
 }
