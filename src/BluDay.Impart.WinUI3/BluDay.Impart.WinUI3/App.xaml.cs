@@ -39,13 +39,13 @@ public sealed partial class App : Application
     /// <param name="e">Details about the launch request and process.</param>
     protected override void OnLaunched(LaunchActivatedEventArgs e)
     {
-        _mainWindow = new Shell
-        {
-            Title       = _resourceLoader.GetString("MainWindowTitle"),
-            IsResizable = true
-        };
+        Winui3ShellViewModel viewModel = new();
 
-        _mainWindow.Resize(1600, 1280);
+        _mainWindow = new Shell(viewModel);
+
+        viewModel.IsResizable = true;
+
+        viewModel.Resize(1600, 1280);
 
         _mainWindow.Activate();
     }

@@ -18,7 +18,7 @@
     <Copyright>© BluDay 2024</Copyright>
     <Description>Developed by BluDay.</Description>
     <RepositoryUrl>https://github.com/BluDay/impart-app-windows</RepositoryUrl>
-    <ApplicationIcon>Assets\Icon_64x64.ico</ApplicationIcon>
+    <ApplicationIcon>Assets\Icon-64.ico</ApplicationIcon>
     <DefineConstants>DISABLE_XAML_GENERATED_MAIN</DefineConstants>
   </PropertyGroup>
   

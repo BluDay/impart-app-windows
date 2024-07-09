@@ -7,9 +7,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Activated="Window_Activated"
-        Closed="Window_Closed"
-        Title="{x:Bind TitleBar.Title}">
+        Title="{x:Bind ViewModel.Title}">
     <Window.SystemBackdrop>
         <MicaBackdrop Kind="Base"/>
     </Window.SystemBackdrop>
@@ -22,7 +20,8 @@
 
         <controls:TitleBar x:Name="TitleBar"
                            x:Uid="MainWindowTitleBar"
-                           Icon="{StaticResource AppIconImageSource}"/>
+                           Icon="{StaticResource AppIconImageSource}"
+                           Title="{Binding Title, Mode=OneWay}"/>
 
         <ContentControl x:Name="ContentControl"
                         VerticalContentAlignment="Stretch"

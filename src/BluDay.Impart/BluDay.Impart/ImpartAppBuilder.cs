@@ -72,6 +72,8 @@ public sealed class ImpartAppBuilder
 
         _args = _argsParser.Parse(values);
 
+        // TODO: Register _args as a singleton service.
+
         return this;
     }
 }

@@ -5,9 +5,13 @@
 /// </summary>
 public sealed partial class Shell : Window, IWindow
 {
+    private readonly ShellViewModel _viewModel;
+
     private readonly ViewNavigator _viewNavigator;
 
-    public IViewNavigator ViewNavigator => _viewNavigator;
+    public ShellViewModel ViewModel => _viewModel;
+
+    public ViewNavigator ViewNavigator => _viewNavigator;
 
     public bool IsResizable
     {
@@ -29,15 +33,17 @@ public sealed partial class Shell : Window, IWindow
 
     string? IWindow.Title
     {
-        get => Title;
-        set => Title = value;
+        get => _viewModel.Title;
+        set => _viewModel.Title = value;
     }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="Shell"/> class.
     /// </summary>
-    public Shell()
+    public Shell(ShellViewModel viewModel)
     {
+        _viewModel = viewModel;
+
         _viewNavigator = new ViewNavigator(this);
 
         Id = Guid.NewGuid();
