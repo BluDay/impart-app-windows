@@ -43,6 +43,8 @@ public sealed partial class App : Application
 
         _mainWindow = new Shell(viewModel);
 
+        viewModel.Title = _resourceLoader.GetString("MainWindow/DefaultTitle");
+
         viewModel.IsResizable = true;
 
         viewModel.Resize(1600, 1280);
