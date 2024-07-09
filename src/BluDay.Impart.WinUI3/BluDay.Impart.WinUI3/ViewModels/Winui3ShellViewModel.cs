@@ -78,7 +78,7 @@ public sealed partial class Winui3ShellViewModel : ShellViewModel
     /// <summary>
     /// Initializes a new instance of the <see cref="Winui3ShellViewModel"/> class.
     /// </summary>
-    public Winui3ShellViewModel() { }
+    public Winui3ShellViewModel(WeakReferenceMessenger messenger) : base(messenger) { }
 
     private void RegisterEventHandlers()
     {

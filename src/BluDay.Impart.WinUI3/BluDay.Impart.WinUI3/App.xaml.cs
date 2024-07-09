@@ -39,7 +39,7 @@ public sealed partial class App : Application
     /// <param name="e">Details about the launch request and process.</param>
     protected override void OnLaunched(LaunchActivatedEventArgs e)
     {
-        Winui3ShellViewModel viewModel = new();
+        Winui3ShellViewModel viewModel = new(WeakReferenceMessenger.Default);
 
         _mainWindow = new Shell(viewModel);
 

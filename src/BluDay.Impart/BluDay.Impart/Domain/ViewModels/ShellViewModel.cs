@@ -5,6 +5,13 @@
 /// </summary>
 public abstract class ShellViewModel : ViewModel
 {
+    private readonly WeakReferenceMessenger _messenger;
+
+    /// <summary>
+    /// Gets the messaging service.
+    /// </summary>
+    public WeakReferenceMessenger Messenger => _messenger;
+
     /// <summary>
     /// Gets the navigator instance for handling view navigation within the window.
     /// </summary>
@@ -33,8 +40,13 @@ public abstract class ShellViewModel : ViewModel
     /// <summary>
     /// Initializes a new instance of the <see cref="ShellViewModel"/> class.
     /// </summary>
-    public ShellViewModel()
+    /// <param name="messenger">
+    /// The messaging service.
+    /// </param>
+    public ShellViewModel(WeakReferenceMessenger messenger)
     {
+        _messenger = messenger;
+
         ViewNavigator = new ViewNavigator();
 
         Id = Guid.NewGuid();
