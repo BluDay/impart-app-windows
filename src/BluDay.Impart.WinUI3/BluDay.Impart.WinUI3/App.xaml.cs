@@ -49,6 +49,6 @@ public sealed partial class App : Application
 
         viewModel.Resize(1600, 1280);
 
-        _mainWindow.Activate();
+        viewModel.Activate();
     }
 }
