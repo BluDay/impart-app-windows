@@ -134,6 +134,6 @@
     <comment>The default title of the main window but with the platform name included.</comment>
   </data>
   <data name="NavigationView.AutoSuggestBox.PlaceholderText" xml:space="preserve">
-    <value>Search for chats, users, or files</value>
+    <value>Search for chats, users, or files.</value>
   </data>
 </root>
