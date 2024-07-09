@@ -6,8 +6,6 @@
 /// <inheritdoc cref="ShellViewModel"/>
 public sealed partial class Winui3ShellViewModel : ShellViewModel
 {
-    private TitleBar? _titleBar;
-
     private Window? _window;
 
     private WindowActivationState? _activationState;
@@ -82,15 +80,6 @@ public sealed partial class Winui3ShellViewModel : ShellViewModel
     /// </summary>
     public Winui3ShellViewModel() { }
 
-    private void ConfigureTitleBar()
-    {
-        _window!.ExtendsContentIntoTitleBar = true;
-
-        _window.SetTitleBar(_titleBar);
-
-        _appWindow!.MakeTitleBarTransparent();
-    }
-
     private void RegisterEventHandlers()
     {
         _window!.Activated += _window_Activated;
@@ -114,28 +103,6 @@ public sealed partial class Winui3ShellViewModel : ShellViewModel
     public override void Resize(int width, int height)
     {
         _appWindow?.Resize(new SizeInt32(width, height));
-    }
-
-    /// <summary>
-    /// Sets the <see cref="TitleBar"/> control instance of the current <see cref="Window"/> instance.
-    /// </summary>
-    /// <param name="value">
-    /// The title bar control instance.
-    /// </param>
-    /// <returns>
-    /// <c>true</c> if set, <c>false</c> otherwise.
-    /// </returns>
-    public bool SetTitleBar(TitleBar value)
-    {
-        if (_titleBar is not null) return false;
-
-        ArgumentNullException.ThrowIfNull(value);
-
-        _titleBar = value;
-
-        ConfigureTitleBar();
-
-        return true;
     }
 
     /// <summary>

@@ -22,10 +22,15 @@ public sealed partial class Shell : Window
     {
         _viewModel = viewModel;
 
+        ExtendsContentIntoTitleBar = true;
+
         InitializeComponent();
 
+        SetTitleBar(TitleBar);
+
+        AppWindow.MakeTitleBarTransparent();
+
         viewModel.SetWindow(this);
-        viewModel.SetTitleBar(TitleBar);
 
         RootGrid.DataContext = viewModel;
 
