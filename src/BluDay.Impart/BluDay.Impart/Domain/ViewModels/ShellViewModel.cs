@@ -52,6 +52,10 @@ public abstract class ShellViewModel : ViewModel
         Id = Guid.NewGuid();
     }
 
-    /// <inheritdoc cref="IWindow.Resize(int, int)"/>
+    /// <summary>
+    /// Resizes the window using the provided width and height values.
+    /// </summary>
+    /// <param name="width">The width, in pixels.</param>
+    /// <param name="height">The height, in pixels.</param>
     public abstract void Resize(int width, int height);
 }
