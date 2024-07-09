@@ -53,6 +53,16 @@ public abstract class ShellViewModel : ViewModel
     }
 
     /// <summary>
+    /// Activates the current window.
+    /// </summary>
+    public abstract void Activate();
+
+    /// <summary>
+    /// Attempts to close the current window.
+    /// </summary>
+    public abstract void Close();
+
+    /// <summary>
     /// Resizes the window using the provided width and height values.
     /// </summary>
     /// <param name="width">The width, in pixels.</param>

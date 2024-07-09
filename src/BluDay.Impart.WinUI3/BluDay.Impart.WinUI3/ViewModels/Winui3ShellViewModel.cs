@@ -137,6 +137,16 @@ public sealed partial class Winui3ShellViewModel : ShellViewModel
         return true;
     }
 
+    public override void Activate()
+    {
+        _window!.Activate();
+    }
+
+    public override void Close()
+    {
+        _window!.Close();
+    }
+
     public override void Resize(int width, int height)
     {
         _appWindow?.Resize(new SizeInt32(width, height));
