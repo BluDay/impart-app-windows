@@ -9,7 +9,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <NavigationView x:Name="NavigationView" PaneDisplayMode="Left">
         <NavigationView.AutoSuggestBox>
-            <AutoSuggestBox x:Uid="NavigationView.AutoSuggestBox"/>
+            <AutoSuggestBox x:Uid="NavigationView/AutoSuggestBox"/>
         </NavigationView.AutoSuggestBox>
 
         <NavigationView.MenuItems>
