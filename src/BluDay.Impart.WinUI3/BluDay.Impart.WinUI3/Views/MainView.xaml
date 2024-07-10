@@ -13,13 +13,13 @@
         </NavigationView.AutoSuggestBox>
 
         <NavigationView.MenuItems>
-            <NavigationViewItem Content="Chats">
+            <NavigationViewItem x:Uid="NavigationView/Items/Chats">
                 <NavigationViewItem.Icon>
                     <FontIcon Glyph="&#xe8f2;"/>
                 </NavigationViewItem.Icon>
             </NavigationViewItem>
 
-            <NavigationViewItem Content="Contacts">
+            <NavigationViewItem x:Uid="NavigationView/Items/Contacts">
                 <NavigationViewItem.Icon>
                     <FontIcon Glyph="&#xe902;"/>
                 </NavigationViewItem.Icon>
@@ -31,9 +31,11 @@
         </NavigationView.Content>
 
         <NavigationView.FooterMenuItems>
-            <NavigationViewItem Icon="Add" Content="New chat" SelectsOnInvoked="False"/>
+            <NavigationViewItem x:Uid="NavigationView/Items/NewChat"
+                                Icon="Add"
+                                SelectsOnInvoked="False"/>
 
-            <NavigationViewItem Content="User">
+            <NavigationViewItem x:Uid="NavigationView/Items/User">
                 <NavigationViewItem.Icon>
                     <FontIcon Glyph="&#xe77b;"/>
                 </NavigationViewItem.Icon>

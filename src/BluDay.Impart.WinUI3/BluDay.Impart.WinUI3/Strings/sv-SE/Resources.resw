@@ -136,4 +136,16 @@
   <data name="NavigationView.AutoSuggestBox.PlaceholderText" xml:space="preserve">
     <value>Sök på chatter, användare, eller filer.</value>
   </data>
+  <data name="NavigationView.Items.Chats.Content" xml:space="preserve">
+    <value>Chatter</value>
+  </data>
+  <data name="NavigationView.Items.Contacts.Content" xml:space="preserve">
+    <value>Kontakter</value>
+  </data>
+  <data name="NavigationView.Items.NewChat.Content" xml:space="preserve">
+    <value>Ny chatt</value>
+  </data>
+  <data name="NavigationView.Items.User.Content" xml:space="preserve">
+    <value>Användare</value>
+  </data>
 </root>

@@ -136,4 +136,16 @@
   <data name="NavigationView.AutoSuggestBox.PlaceholderText" xml:space="preserve">
     <value>Search for chats, users, or files.</value>
   </data>
+  <data name="NavigationView.Items.Chats.Content" xml:space="preserve">
+    <value>Chats</value>
+  </data>
+  <data name="NavigationView.Items.Contacts.Content" xml:space="preserve">
+    <value>Contacts</value>
+  </data>
+  <data name="NavigationView.Items.NewChat.Content" xml:space="preserve">
+    <value>New chat</value>
+  </data>
+  <data name="NavigationView.Items.User.Content" xml:space="preserve">
+    <value>User</value>
+  </data>
 </root>
