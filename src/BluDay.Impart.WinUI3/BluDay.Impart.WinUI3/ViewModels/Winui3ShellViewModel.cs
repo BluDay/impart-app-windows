@@ -10,7 +10,7 @@ public sealed partial class Winui3ShellViewModel : ShellViewModel
 
     private WindowActivationState? _activationState;
 
-    private bool _isClosed;
+    private bool? _isClosed;
 
     private AppWindow? _appWindow;
 
@@ -23,7 +23,7 @@ public sealed partial class Winui3ShellViewModel : ShellViewModel
     /// <summary>
     /// Gets a value indicating whether the current window has been closed.
     /// </summary>
-    public bool IsClosed
+    public bool? IsClosed
     {
         get => _isClosed;
         private set
