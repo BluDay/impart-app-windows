@@ -4,13 +4,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        Background="#444"
         Height="600"
         Width="800"
         WindowStartupLocation="CenterScreen">
     <TextBlock d:Text="Window"
                Text="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
-               Foreground="#FFF"
                HorizontalAlignment="Center"
                VerticalAlignment="Center"/>
 </Window>
