@@ -29,6 +29,8 @@ public sealed partial class Shell : Window, IWindow
 
     public Guid Id { get; }
 
+    public System.Drawing.Size Size { get; }
+
     /// <summary>
     /// Initializes a new instance of the <see cref="Shell"/> class.
     /// </summary>
@@ -58,6 +60,21 @@ public sealed partial class Shell : Window, IWindow
         SetTitleBar(TitleBar);
 
         AppWindow.MakeTitleBarTransparent();
+    }
+
+    public void Configure(WindowConfiguration config)
+    {
+        ArgumentNullException.ThrowIfNull(config);
+
+        IsResizable = config.IsResizable;
+        Title       = config.Title;
+
+        if (config.Size.HasValue)
+        {
+            System.Drawing.Size size = config.Size.Value;
+
+            Resize(size.Width, size.Height);
+        }
     }
 
     public void Resize(int width, int height)

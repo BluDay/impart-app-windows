@@ -24,17 +24,17 @@ public sealed partial class App : Application
     /// <param name="windowService">
     /// The window service.
     /// </param>
-    /// <param name="logger">
-    /// The logger instance.
-    /// </param>
     /// <param name="resourceLoader">
     /// The default app resource loader instance.
+    /// </param>
+    /// <param name="logger">
+    /// The logger instance.
     /// </param>
     public App(
         AppNavigationService navigationService,
         AppWindowService     windowService,
-        ILogger<App>         logger,
-        ResourceLoader       resourceLoader)
+        ResourceLoader       resourceLoader,
+        ILogger<App>         logger)
     {
         _navigationService = navigationService;
 
@@ -57,13 +57,14 @@ public sealed partial class App : Application
     {
         if (_mainWindow is not null) return;
 
-        _mainWindow = new Shell
+        _mainWindow = _windowService.CreateWindow<Shell>();
+
+        _mainWindow.Configure(new WindowConfiguration()
         {
             Title       = _resourceLoader.GetString("MainWindow/DefaultTitle"),
-            IsResizable = true
-        };
-
-        _mainWindow.Resize(1600, 1280);
+            IsResizable = true,
+            Size        = new System.Drawing.Size(1600, 1280)
+        });
     }
 
     /// <summary>
@@ -75,5 +76,7 @@ public sealed partial class App : Application
         CreateMainWindow();
 
         _mainWindow!.Activate();
+
+        _mainWindow.ViewNavigator.Push<MainView>();
     }
 }
