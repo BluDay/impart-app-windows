@@ -1,8 +1,23 @@
 namespace BluDay.Impart.WinUI3.Views;
 
-[View]
-[ViewModel(typeof(SettingsViewModel))]
-public sealed partial class SettingsView : UserControl
+/// <summary>
+/// Interaction logic for SettingsView.xaml
+/// </summary>
+/// <inheritdoc cref="IView{TViewModel}"/>
+public sealed partial class SettingsView : UserControl, IView<SettingsViewModel>
 {
-    public SettingsView() => InitializeComponent();
+    public SettingsViewModel ViewModel { get; }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="SettingsView"/> class.
+    /// </summary>
+    /// <param name="viewModel">
+    /// A transient <see cref="SettingsViewModel"/> instance.
+    /// </param>
+    public SettingsView(SettingsViewModel viewModel)
+    {
+        DataContext = ViewModel = viewModel;
+
+        InitializeComponent();
+    }
 }

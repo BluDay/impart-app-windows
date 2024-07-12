@@ -1,8 +1,23 @@
 namespace BluDay.Impart.WinUI3.Views;
 
-[View]
-[ViewModel(typeof(ChatsViewModel))]
-public sealed partial class ChatsView : UserControl
+/// <summary>
+/// Interaction logic for ChatsView.xaml
+/// </summary>
+/// <inheritdoc cref="IView{TViewModel}"/>
+public sealed partial class ChatsView : UserControl, IView<ChatsViewModel>
 {
-    public ChatsView() => InitializeComponent();
+    public ChatsViewModel ViewModel { get; }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="ChatsView"/> class.
+    /// </summary>
+    /// <param name="viewModel">
+    /// A transient <see cref="ChatsViewModel"/> instance.
+    /// </param>
+    public ChatsView(ChatsViewModel viewModel)
+    {
+        DataContext = ViewModel = viewModel;
+
+        InitializeComponent();
+    }
 }
