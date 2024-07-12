@@ -5,7 +5,7 @@
 /// </summary>
 public sealed partial class App : Application
 {
-    private Shell? _mainWindow;
+    private IWindow? _mainWindow;
 
     private readonly AppWindowService _windowService;
 
@@ -38,7 +38,6 @@ public sealed partial class App : Application
         };
 
         _mainWindow.Activate();
-        _mainWindow.Show();
 
         base.OnStartup(e);
     }

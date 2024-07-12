@@ -5,7 +5,7 @@
 /// </summary>
 public sealed partial class App : Application
 {
-    private Shell? _mainWindow;
+    private IWindow? _mainWindow;
 
     private readonly AppWindowService _windowService;
 
@@ -39,16 +39,14 @@ public sealed partial class App : Application
     /// <param name="e">Details about the launch request and process.</param>
     protected override void OnLaunched(LaunchActivatedEventArgs e)
     {
-        Winui3ShellViewModel viewModel = new(WeakReferenceMessenger.Default);
+        _mainWindow = new Shell
+        {
+            Title       = _resourceLoader.GetString("MainWindow/DefaultTitle"),
+            IsResizable = true
+        };
 
-        _mainWindow = new Shell(viewModel);
+        _mainWindow.Resize(1600, 1280);
 
-        viewModel.Title = _resourceLoader.GetString("MainWindow/DefaultTitle");
-
-        viewModel.IsResizable = true;
-
-        viewModel.Resize(1600, 1280);
-
-        viewModel.Activate();
+        _mainWindow.Activate();
     }
 }

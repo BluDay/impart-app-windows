@@ -11,6 +11,8 @@ global using BluDay.Impart.WinUI3.ViewModels;
 global using BluDay.Net.Common.Attributes;
 global using BluDay.Net.Services;
 global using BluDay.Net.UI.Navigation;
+global using BluDay.Net.UI.Views;
+global using BluDay.Net.UI.Windowing;
 
 global using Microsoft.Extensions.DependencyInjection;
 global using Microsoft.Extensions.Logging;

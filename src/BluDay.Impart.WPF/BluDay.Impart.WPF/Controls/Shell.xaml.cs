@@ -5,11 +5,7 @@
 /// </summary>
 public sealed partial class Shell : Window, IWindow
 {
-    private readonly ShellViewModel _viewModel;
-
     private readonly ViewNavigator _viewNavigator;
-
-    public ShellViewModel ViewModel => _viewModel;
 
     public ViewNavigator ViewNavigator => _viewNavigator;
 
@@ -26,26 +22,13 @@ public sealed partial class Shell : Window, IWindow
 
     public Guid Id { get; }
 
-    public System.Drawing.Size Size
-    {
-        get => new System.Drawing.Size((int)Width, (int)Height);
-    }
-
-    string? IWindow.Title
-    {
-        get => _viewModel.Title;
-        set => _viewModel.Title = value;
-    }
-
     /// <summary>
     /// Initializes a new instance of the <see cref="Shell"/> class.
     /// </summary>
-    public Shell(ShellViewModel viewModel)
+    public Shell()
     {
-        _viewModel = viewModel;
-
-        _viewNavigator = new ViewNavigator(this);
-
+        _viewNavigator = new ViewNavigator();
+        
         Id = Guid.NewGuid();
 
         InitializeComponent();

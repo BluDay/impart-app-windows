@@ -6,8 +6,7 @@
         xmlns:controls="using:BluDay.Impart.WinUI3.Controls"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="{x:Bind ViewModel.Title}">
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Window.SystemBackdrop>
         <MicaBackdrop Kind="Base"/>
     </Window.SystemBackdrop>
@@ -20,7 +19,7 @@
 
         <controls:TitleBar x:Name="TitleBar"
                            Icon="{StaticResource AppIconImageSource}"
-                           Title="{x:Bind ViewModel.Title}"/>
+                           Title="{x:Bind Title}"/>
 
         <ContentControl x:Name="ContentControl"
                         VerticalContentAlignment="Stretch"
