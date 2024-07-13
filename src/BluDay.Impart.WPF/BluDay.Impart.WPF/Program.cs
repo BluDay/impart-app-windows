@@ -29,7 +29,7 @@ SOFTWARE.
 ImpartApp app = new ImpartAppBuilder()
     .ParseArgs(args)
     .RegisterPlatformSpecificServices()
-    .RegisterView<MainView, MainViewModel>()
+    .RegisterView<MainView>()
     .Build()
     .CreateWpfApp();
 

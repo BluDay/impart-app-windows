@@ -13,6 +13,8 @@ public sealed class ImpartApp
 
     private readonly WeakReferenceMessenger _messenger;
 
+    private readonly IServiceProvider _rootServiceProvider;
+
     private readonly ILogger _logger;
 
     // <summary>
@@ -31,6 +33,11 @@ public sealed class ImpartApp
     public bool IsInitialized => _isInitialized;
 
     /// <summary>
+    /// Gets the root service provider.
+    /// </summary>
+    public IServiceProvider RootServiceProvider => _rootServiceProvider;
+
+    /// <summary>
     /// Initializes a new instance with a parsed command-line arguments instance.
     /// </summary>
     /// <param name="args">
@@ -39,17 +46,23 @@ public sealed class ImpartApp
     /// <param name="messenger">
     /// The weak reference messaging service.
     /// </param>
+    /// <param name="rootServiceProvider">
+    /// The DI container instance, with the root service provider.
+    /// </param>
     /// <param name="logger">
     /// The logger instance.
     /// </param>
     public ImpartApp(
         ImpartAppArgs          args,
         WeakReferenceMessenger messenger,
+        IServiceProvider       rootServiceProvider,
         ILogger<ImpartApp>     logger)
     {
         _args = args;
 
         _messenger = messenger;
+
+        _rootServiceProvider = rootServiceProvider;
 
         _logger = logger;
     }

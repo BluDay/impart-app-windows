@@ -5,9 +5,85 @@
 /// </summary>
 public sealed class ImpartAppBuilder
 {
+    private ImpartApp? _app;
+
     private ImpartAppArgs? _args;
 
     private readonly ImpartAppArgsParser _argsParser = new();
+
+    private readonly ServiceCollection _services = new();
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="ImpartAppBuilder"/> class.
+    /// </summary>
+    public ImpartAppBuilder()
+    {
+        RegisterCoreServices();
+    }
+
+    /// <summary>
+    /// Configures the logger factory and provider.
+    /// </summary>
+    /// <param name="builder">
+    /// The logger builder instance.
+    /// </param>
+    private void ConfigureLogger(ILoggingBuilder builder)
+    {
+        builder
+            .AddConsole()
+            .AddDebug()
+            .SetMinimumLevel(LogLevel.Debug);
+    }
+
+    /// <summary>
+    /// Registeres all core services for the app.
+    /// </summary>
+    private void RegisterCoreServices()
+    {
+        _services
+            .AddSingleton<ImpartApp>()
+            .AddSingleton(_ => _args!)
+            .AddSingleton(_argsParser);
+
+        _services
+            .AddSingleton(WeakReferenceMessenger.Default);
+
+        _services
+            .AddSingleton<AppActivationService>()
+            .AddSingleton<AppDialogService>()
+            .AddSingleton<AppNavigationService>()
+            .AddSingleton<AppThemeService>()
+            .AddSingleton<AppWindowService>();
+
+        _services
+            .AddTransient<ChatsViewModel>()
+            .AddTransient<IntroViewModel>()
+            .AddTransient<MainViewModel>()
+            .AddTransient<SettingsViewModel>();
+
+        _services
+            .AddLogging(ConfigureLogger);
+    }
+
+    /// <summary>
+    /// Gets the concrete view model type from the first constructor of the given <see cref="IView"/> type.
+    /// </summary>
+    /// <typeparam name="TView">
+    /// The view type.
+    /// </typeparam>
+    /// <returns>
+    /// The derived <see cref="IViewModel"/> type if found, null otherwise.
+    /// </returns>
+    private Type? GetDerivedViewModelTypeFromConstructor<TView>() where TView : IView
+    {
+        return typeof(TView)
+            .GetConstructors()[0]
+            .GetParameters()
+            .FirstOrDefault(
+                parameterInfo => parameterInfo.ParameterType.IsAssignableTo(typeof(IViewModel))
+            )?
+            .ParameterType;
+    }
 
     /// <summary>
     /// Constructs a new <see cref="ImpartApp"/> instance with the set values.
@@ -15,10 +91,11 @@ public sealed class ImpartAppBuilder
     /// <returns>
     /// The constructed instance.
     /// </returns>
-    /// <exception cref="NotImplementedException"></exception>
     public ImpartApp Build()
     {
-        throw new NotImplementedException();
+        return _app ??= _services
+            .BuildServiceProvider()
+            .GetRequiredService<ImpartApp>();
     }
 
     /// <summary>
@@ -30,30 +107,27 @@ public sealed class ImpartAppBuilder
     /// <returns>
     /// The <see cref="ImpartAppBuilder"/> so that additional calls can be chained.
     /// </returns>
-    /// <exception cref="NotImplementedException"></exception>
     public ImpartAppBuilder RegisterPlatformSpecificServices(Action<IServiceCollection> factory)
     {
-        throw new NotImplementedException();
+        factory(_services);
+
+        return this;
     }
 
     /// <summary>
-    /// Registers a view type and maps it to a pre-registered view model type.
+    /// Registers a view type.
     /// </summary>
     /// <typeparam name="TView">
     /// The view type.
     /// </typeparam>
-    /// <typeparam name="TViewModel">
-    /// The view model type.
-    /// </typeparam>
     /// <returns>
     /// The <see cref="ImpartAppBuilder"/> so that additional calls can be chained.
     /// </returns>
-    /// <exception cref="NotImplementedException"></exception>
-    public ImpartAppBuilder RegisterView<TView, TViewModel>()
-        where TView      : class
-        where TViewModel : class
+    public ImpartAppBuilder RegisterView<TView>() where TView : class, IView
     {
-        throw new NotImplementedException();
+        _services.TryAddTransient<TView>();
+
+        return this;
     }
 
     /// <summary>
@@ -65,14 +139,11 @@ public sealed class ImpartAppBuilder
     /// <returns>
     /// The <see cref="ImpartAppBuilder"/> so that additional calls can be chained.
     /// </returns>
-    /// <exception cref="NotImplementedException"></exception>
     public ImpartAppBuilder ParseArgs(params string[] values)
     {
         ArgumentNullException.ThrowIfNull(values);
 
         _args = _argsParser.Parse(values);
-
-        // TODO: Register _args as a singleton service.
 
         return this;
     }

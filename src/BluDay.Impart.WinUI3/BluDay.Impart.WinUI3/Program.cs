@@ -26,38 +26,13 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-[DllImport("Microsoft.UI.Xaml.dll")]
-static extern void XamlCheckProcessRequirements();
-
-XamlCheckProcessRequirements();
-
-WinRT.ComWrappersSupport.InitializeComWrappers();
-
-Application.Start(callback =>
-{
-    SynchronizationContext.SetSynchronizationContext(
-        new DispatcherQueueSynchronizationContext(DispatcherQueue.GetForCurrentThread())
-    );
-
-    Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride = "en-US";
-
-    new App(
-        null!,
-        new AppWindowService(WeakReferenceMessenger.Default),
-        new ResourceLoader(),
-        new LoggerFactory().CreateLogger<App>()
-    );
-});
-
-return;
-
 ImpartApp app = new ImpartAppBuilder()
     .ParseArgs(args)
     .RegisterPlatformSpecificServices()
-    .RegisterView<ChatsView, ChatsViewModel>()
-    .RegisterView<IntroView, IntroViewModel>()
-    .RegisterView<MainView, MainViewModel>()
-    .RegisterView<SettingsView, SettingsViewModel>()
+    .RegisterView<ChatsView>()
+    .RegisterView<IntroView>()
+    .RegisterView<MainView>()
+    .RegisterView<SettingsView>()
     .Build()
     .CreateWinui3App();
 

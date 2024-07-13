@@ -21,7 +21,10 @@ public static class ImpartAppExtensions
     {
         ArgumentNullException.ThrowIfNull(source);
 
-        Thread thread = new(source.Initialize);
+        Thread thread = new(() =>
+        {
+            source.RootServiceProvider.GetRequiredService<App>();
+        });
 
         thread.SetApartmentState(ApartmentState.STA);
         thread.Start();
