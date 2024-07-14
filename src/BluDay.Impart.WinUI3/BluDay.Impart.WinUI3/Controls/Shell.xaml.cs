@@ -5,6 +5,8 @@ namespace BluDay.Impart.WinUI3.Controls;
 /// </summary>
 public sealed partial class Shell : Window, IWindow
 {
+    private readonly ShellViewModel _viewModel;
+
     private readonly ViewNavigator _viewNavigator;
 
     private readonly AppWindow _appWindow;
@@ -14,6 +16,8 @@ public sealed partial class Shell : Window, IWindow
     private readonly InputNonClientPointerSource _nonClientPointerSource;
 
     private readonly DisplayArea? _displayArea;
+
+    public ShellViewModel ViewModel => _viewModel;
 
     public ViewNavigator ViewNavigator => _viewNavigator;
 
@@ -34,8 +38,10 @@ public sealed partial class Shell : Window, IWindow
     /// <summary>
     /// Initializes a new instance of the <see cref="Shell"/> class.
     /// </summary>
-    public Shell()
+    public Shell(ShellViewModel viewModel)
     {
+        _viewModel = viewModel;
+
         _viewNavigator = new ViewNavigator();
 
         _appWindow = AppWindow;
@@ -47,6 +53,8 @@ public sealed partial class Shell : Window, IWindow
         Id = Guid.NewGuid();
 
         InitializeComponent();
+
+        RootGrid.DataContext = viewModel;
 
         ConfigureTitleBar();
 
