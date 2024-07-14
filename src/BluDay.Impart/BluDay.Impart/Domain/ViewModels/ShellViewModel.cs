@@ -3,39 +3,52 @@
 /// <summary>
 /// View model for an window or shell.
 /// </summary>
-public abstract class ShellViewModel : ViewModel
+public sealed class ShellViewModel : ViewModel
 {
-    private readonly WeakReferenceMessenger _messenger;
-
-    /// <summary>
-    /// Gets the messaging service.
-    /// </summary>
-    public WeakReferenceMessenger Messenger => _messenger;
+    private IWindow _window;
 
     /// <summary>
     /// Gets the navigator instance for handling view navigation within the window.
     /// </summary>
-    public ViewNavigator ViewNavigator { get; }
+    public ViewNavigator ViewNavigator => _window!.ViewNavigator;
 
     /// <summary>
     /// Gets the ID of the window.
     /// </summary>
-    public Guid Id { get; }
+    public Guid Id => _window!.Id;
 
     /// <summary>
     /// Gets a value indicating whether the window is resizable.
     /// </summary>
-    public abstract bool IsResizable { get; set; }
+    public bool IsResizable
+    {
+        get => _window!.IsResizable;
+        set
+        {
+            _window!.IsResizable = value;
+
+            OnPropertyChanged(nameof(IsResizable));
+        }
+    }
 
     /// <summary>
     /// Gets the title of the window.
     /// </summary>
-    public abstract string? Title { get; set; }
+    public string? Title
+    {
+        get => _window!.Title;
+        set
+        {
+            _window!.Title = value;
+
+            OnPropertyChanged(nameof(Title));
+        }
+    }
 
     /// <summary>
     /// Gets the size of the window.
     /// </summary>
-    public abstract Size Size { get; }
+    public Size Size => _window!.Size;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="ShellViewModel"/> class.
@@ -43,29 +56,41 @@ public abstract class ShellViewModel : ViewModel
     /// <param name="messenger">
     /// The messaging service.
     /// </param>
-    public ShellViewModel(WeakReferenceMessenger messenger)
+    public ShellViewModel(WeakReferenceMessenger messenger) : base(messenger)
     {
-        _messenger = messenger;
-
-        ViewNavigator = new ViewNavigator();
-
-        Id = Guid.NewGuid();
+        _window = null!;
     }
 
     /// <summary>
     /// Activates the current window.
     /// </summary>
-    public abstract void Activate();
+    public void Activate() => _window!.Activate();
 
     /// <summary>
     /// Attempts to close the current window.
     /// </summary>
-    public abstract void Close();
+    public void Close() => _window!.Close();
 
     /// <summary>
     /// Resizes the window using the provided width and height values.
     /// </summary>
     /// <param name="width">The width, in pixels.</param>
     /// <param name="height">The height, in pixels.</param>
-    public abstract void Resize(int width, int height);
+    public void Resize(int width, int height)
+    {
+        _window!.Resize(width, height);
+    }
+
+    /// <summary>
+    /// Sets the target window instance of type <see cref="IWindow"/>.
+    /// </summary>
+    /// <param name="window">
+    /// The window instance.
+    /// </param>
+    public void SetWindow(IWindow window)
+    {
+        ArgumentNullException.ThrowIfNull(window);
+
+        _window = window;
+    }
 }
