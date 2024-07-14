@@ -14,8 +14,12 @@ public sealed partial class App : Application
     /// <summary>
     /// Initializes a new instance of the <see cref="App"/> class.
     /// </summary>
-    /// <param name="windowService">The window service.</param>
-    /// <param name="logger">The logger instance.</param>
+    /// <param name="windowService">
+    /// The window service.
+    /// </param>
+    /// <param name="logger">
+    /// The logger instance.
+    /// </param>
     public App(AppWindowService windowService, ILogger<App> logger)
     {
         _windowService = windowService;
@@ -26,18 +30,36 @@ public sealed partial class App : Application
     }
 
     /// <summary>
+    /// Creates a new <see cref="IWindow"/> instance for the main window.
+    /// </summary>
+    /// <remarks>
+    /// Returns if <see cref="_mainWindow"/> is not null.
+    /// </remarks>
+    private void CreateMainWindow()
+    {
+        if (_mainWindow is not null) return;
+
+        _mainWindow = _windowService.CreateWindow<Shell>();
+
+        _mainWindow.Configure(new WindowConfiguration()
+        {
+            Title       = nameof(Impart),
+            IsResizable = true,
+            Size        = new System.Drawing.Size(800, 600)
+        });
+    }
+
+    /// <summary>
     /// Invokes when the applications starts.
     /// </summary>
     /// <param name="e">Event with a command-line args property.</param>
     protected override void OnStartup(StartupEventArgs e)
     {
-        _mainWindow = new Shell
-        {
-            Title       = nameof(Impart),
-            IsResizable = true
-        };
+        CreateMainWindow();
 
-        _mainWindow.Activate();
+        _mainWindow!.Activate();
+
+        _mainWindow.ViewNavigator.Push<MainView>();
 
         base.OnStartup(e);
     }
