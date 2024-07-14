@@ -77,7 +77,9 @@ public sealed partial class Shell : Window, IWindow
 
         SetTitleBar(TitleBar);
 
-        AppWindow.MakeTitleBarTransparent();
+        _appWindow.SetIcon("Assets/Icon-64.ico");
+
+        _appWindow.MakeTitleBarTransparent();
     }
 
     public void Configure(WindowConfiguration config)
