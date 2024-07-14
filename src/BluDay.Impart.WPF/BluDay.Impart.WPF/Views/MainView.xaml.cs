@@ -3,7 +3,7 @@
 /// <summary>
 /// Interaction logic for MainView.xaml
 /// </summary>
-/// <inheritdoc cref="IView{TViewModel}"/>
+/// <inheritdoc/>
 public sealed partial class MainView : View
 {
     /// <summary>
