@@ -7,8 +7,6 @@ public sealed partial class App : Application
 {
     private IWindow? _mainWindow;
 
-    private readonly AppNavigationService _navigationService;
-
     private readonly AppWindowService _windowService;
 
     private readonly ILogger _logger;
@@ -18,9 +16,6 @@ public sealed partial class App : Application
     /// <summary>
     /// Initializes a new instance of the <see cref="App"/> class.
     /// </summary>
-    /// <param name="navigationService">
-    /// The navigation service.
-    /// </param>
     /// <param name="windowService">
     /// The window service.
     /// </param>
@@ -31,13 +26,10 @@ public sealed partial class App : Application
     /// The logger instance.
     /// </param>
     public App(
-        AppNavigationService navigationService,
-        AppWindowService     windowService,
-        ResourceLoader       resourceLoader,
-        ILogger<App>         logger)
+        AppWindowService windowService,
+        ResourceLoader   resourceLoader,
+        ILogger<App>     logger)
     {
-        _navigationService = navigationService;
-
         _windowService = windowService;
 
         _logger = logger;
