@@ -7,7 +7,6 @@ global using BluDay.Impart.WinUI3;
 global using BluDay.Impart.WinUI3.Controls;
 global using BluDay.Impart.WinUI3.Extensions;
 global using BluDay.Impart.WinUI3.Views;
-global using BluDay.Impart.WinUI3.ViewModels;
 global using BluDay.Net.Common.Attributes;
 global using BluDay.Net.Domain.ViewModels;
 global using BluDay.Net.Services;
