@@ -54,7 +54,7 @@ public sealed class ShellViewModel : ViewModel
     /// Initializes a new instance of the <see cref="ShellViewModel"/> class.
     /// </summary>
     /// <param name="messenger">
-    /// The messaging service.
+    /// The default <see cref="WeakReferenceMessenger"/> instnace.
     /// </param>
     public ShellViewModel(WeakReferenceMessenger messenger) : base(messenger)
     {
