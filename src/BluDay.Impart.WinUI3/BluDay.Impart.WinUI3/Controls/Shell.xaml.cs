@@ -50,7 +50,9 @@ public sealed partial class Shell : Window, IWindow
 
         ConfigureTitleBar();
 
-        ContentControl.Content = new MainView(new MainViewModel());
+        #region Content test for demo purposes
+        ContentControl.Content = new MainView(new MainViewModel(WeakReferenceMessenger.Default));
+        #endregion
     }
 
     private void ConfigureTitleBar()
