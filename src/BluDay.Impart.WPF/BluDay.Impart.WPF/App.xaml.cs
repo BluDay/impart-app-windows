@@ -45,7 +45,7 @@ public sealed partial class App : Application
         {
             Title       = nameof(Impart),
             IsResizable = true,
-            Size        = new System.Drawing.Size(800, 640)
+            Size        = new Size(800, 640)
         });
     }
 

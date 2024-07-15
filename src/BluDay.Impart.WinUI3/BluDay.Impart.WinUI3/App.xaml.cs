@@ -55,7 +55,7 @@ public sealed partial class App : Application
         {
             Title       = _resourceLoader.GetString("MainWindow/DefaultTitle"),
             IsResizable = true,
-            Size        = new System.Drawing.Size(1600, 1280)
+            Size        = new Size(1600, 1280)
         });
     }
 
