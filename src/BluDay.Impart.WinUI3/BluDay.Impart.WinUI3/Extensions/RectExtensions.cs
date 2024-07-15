@@ -1,4 +1,7 @@
-﻿namespace BluDay.Net.Extensions;
+﻿using Windows.Foundation;
+using Windows.Graphics;
+
+namespace BluDay.Net.Extensions;
 
 public static class RectExtensions
 {

@@ -1,4 +1,6 @@
-﻿namespace BluDay.Impart.WinUI3.Extensions;
+﻿using Windows.Graphics;
+
+namespace BluDay.Impart.WinUI3.Extensions;
 
 public static class WindowExtensions
 {
