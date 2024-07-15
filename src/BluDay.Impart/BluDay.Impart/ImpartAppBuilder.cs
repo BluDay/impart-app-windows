@@ -7,17 +7,30 @@ public sealed class ImpartAppBuilder
 {
     private ImpartApp? _app;
 
-    private ImpartAppArgs? _args;
-
-    private readonly ImpartAppArgsParser _argsParser = new();
+    private readonly ImpartAppArgs _args;
 
     private readonly ServiceCollection _services = new();
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="ImpartAppBuilder"/> class.
+    /// Initializes a new instance of the <see cref="ImpartAppBuilder"/> class with a
+    /// default, non-parsed command-line arguments instance.
     /// </summary>
-    public ImpartAppBuilder()
+    public ImpartAppBuilder() : this(new ImpartAppArgs()) { }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="ImpartAppBuilder"/> class using
+    /// the provided parsed command-line arguments instance.
+    /// </summary>
+    /// <param name="args">
+    /// An <see cref="ImpartAppArgs"/> instance.
+    /// </param>
+    /// <exception cref="ArgumentNullException">
+    /// If <paramref name="args"/> is null.
+    /// </exception>
+    public ImpartAppBuilder(ImpartAppArgs args)
     {
+        _args = args;
+
         RegisterCoreServices();
     }
 
@@ -42,8 +55,8 @@ public sealed class ImpartAppBuilder
     {
         _services
             .AddSingleton<ImpartApp>()
-            .AddSingleton(_ => _args!)
-            .AddSingleton(_argsParser);
+            .AddSingleton(_args)
+            .AddSingleton(ImpartAppArgsParser.Default);
 
         _services
             .AddSingleton(WeakReferenceMessenger.Default);
@@ -66,26 +79,6 @@ public sealed class ImpartAppBuilder
     }
 
     /// <summary>
-    /// Gets the concrete view model type from the first constructor of the given <see cref="IView"/> type.
-    /// </summary>
-    /// <typeparam name="TView">
-    /// The view type.
-    /// </typeparam>
-    /// <returns>
-    /// The derived <see cref="IViewModel"/> type if found, null otherwise.
-    /// </returns>
-    private Type? GetDerivedViewModelTypeFromConstructor<TView>() where TView : IView
-    {
-        return typeof(TView)
-            .GetConstructors()[0]
-            .GetParameters()
-            .FirstOrDefault(
-                parameterInfo => parameterInfo.ParameterType.IsAssignableTo(typeof(IViewModel))
-            )?
-            .ParameterType;
-    }
-
-    /// <summary>
     /// Constructs a new <see cref="ImpartApp"/> instance with the set values.
     /// </summary>
     /// <returns>
@@ -93,9 +86,7 @@ public sealed class ImpartAppBuilder
     /// </returns>
     public ImpartApp Build()
     {
-        return _app ??= _services
-            .BuildServiceProvider()
-            .GetRequiredService<ImpartApp>();
+        return _app ??= _services.BuildServiceProvider().GetRequiredService<ImpartApp>();
     }
 
     /// <summary>
@@ -126,24 +117,6 @@ public sealed class ImpartAppBuilder
     public ImpartAppBuilder RegisterView<TView>() where TView : class, IView
     {
         _services.TryAddTransient<TView>();
-
-        return this;
-    }
-
-    /// <summary>
-    /// Parses command-line arguments into an instance of type <see cref="ImpartAppArgs"/>.
-    /// </summary>
-    /// <param name="values">
-    /// A <see cref="string"/> array instance of unparsed command-line arguments.
-    /// </param>
-    /// <returns>
-    /// The <see cref="ImpartAppBuilder"/> so that additional calls can be chained.
-    /// </returns>
-    public ImpartAppBuilder ParseArgs(params string[] values)
-    {
-        ArgumentNullException.ThrowIfNull(values);
-
-        _args = _argsParser.Parse(values);
 
         return this;
     }

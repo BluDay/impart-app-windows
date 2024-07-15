@@ -102,20 +102,17 @@ public sealed class ImpartApp
     /// Creates a <see cref="ImpartAppBuilder"/> builder instance for building an <see cref="ImpartApp"/>
     /// instance.
     /// </summary>
-    /// <param name="args">
-    /// A <see cref="string"/> array of command-line arguments.
-    /// </param>
     /// <returns>
     /// A <see cref="ImpartAppBuilder"/> instance for creating the app.
     /// </returns>
     public static ImpartAppBuilder CreateBuilder() => new();
 
     /// <param name="args">
-    /// A <see cref="string"/> array of command-line arguments.
+    /// An <see cref="ImpartAppArgs"/> instance with parsed command-line arguments.
     /// </param>
-    /// /// <inheritdoc cref="Create()"/>
+    /// <inheritdoc cref="CreateBuilder()"/>
     public static ImpartAppBuilder CreateBuilder(string[] args)
     {
-        return CreateBuilder().ParseArgs(args);
+        return new(ImpartAppArgsParser.Default.Parse(args));
     }
 }
