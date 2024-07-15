@@ -26,14 +26,13 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-ImpartApp app = new ImpartAppBuilder()
-    .ParseArgs(args)
+ImpartApp
+    .CreateBuilder(args)
     .RegisterPlatformSpecificServices()
     .RegisterView<ChatsView>()
     .RegisterView<IntroView>()
     .RegisterView<MainView>()
     .RegisterView<SettingsView>()
     .Build()
-    .CreateWinui3App();
-
-app.Initialize();
+    .CreateWinui3App()
+    .Initialize();

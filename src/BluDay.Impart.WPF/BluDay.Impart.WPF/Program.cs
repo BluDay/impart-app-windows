@@ -26,11 +26,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-ImpartApp app = new ImpartAppBuilder()
-    .ParseArgs(args)
+ImpartApp
+    .CreateBuilder(args)
     .RegisterPlatformSpecificServices()
     .RegisterView<MainView>()
     .Build()
-    .CreateWpfApp();
-
-app.Initialize();
+    .CreateWpfApp()
+    .Initialize();
