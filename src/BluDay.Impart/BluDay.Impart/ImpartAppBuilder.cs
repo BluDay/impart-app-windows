@@ -7,8 +7,6 @@ public sealed class ImpartAppBuilder
 {
     private ImpartApp? _app;
 
-    private readonly ImpartAppArgs _args;
-
     private readonly ServiceCollection _services = new();
 
     /// <summary>
@@ -29,53 +27,9 @@ public sealed class ImpartAppBuilder
     /// </exception>
     public ImpartAppBuilder(ImpartAppArgs args)
     {
-        _args = args;
+        ArgumentNullException.ThrowIfNull(args);
 
-        RegisterCoreServices();
-    }
-
-    /// <summary>
-    /// Configures the logger factory and provider.
-    /// </summary>
-    /// <param name="builder">
-    /// The logger builder instance.
-    /// </param>
-    private void ConfigureLogger(ILoggingBuilder builder)
-    {
-        builder
-            .AddConsole()
-            .AddDebug()
-            .SetMinimumLevel(LogLevel.Debug);
-    }
-
-    /// <summary>
-    /// Registeres all core services for the app.
-    /// </summary>
-    private void RegisterCoreServices()
-    {
-        _services
-            .AddSingleton<ImpartApp>()
-            .AddSingleton(_args)
-            .AddSingleton(ImpartAppArgsParser.Default);
-
-        _services
-            .AddSingleton(WeakReferenceMessenger.Default);
-
-        _services
-            .AddSingleton<AppActivationService>()
-            .AddSingleton<AppDialogService>()
-            .AddSingleton<AppNavigationService>()
-            .AddSingleton<AppThemeService>()
-            .AddSingleton<AppWindowService>();
-
-        _services
-            .AddTransient<ChatsViewModel>()
-            .AddTransient<IntroViewModel>()
-            .AddTransient<MainViewModel>()
-            .AddTransient<SettingsViewModel>();
-
-        _services
-            .AddLogging(ConfigureLogger);
+        ImpartApp.ConfigureServices(_services, args);
     }
 
     /// <summary>

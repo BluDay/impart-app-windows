@@ -99,6 +99,56 @@ public sealed class ImpartApp
     }
 
     /// <summary>
+    /// Configures the logger factory and provider.
+    /// </summary>
+    /// <param name="logging">
+    /// The logger builder instance.
+    /// </param>
+    private static void ConfigureLogger(ILoggingBuilder logging)
+    {
+        logging
+            .AddConsole()
+            .AddDebug()
+            .SetMinimumLevel(LogLevel.Debug);
+    }
+
+    /// <summary>
+    /// Registers all core services for the app to function.
+    /// </summary>
+    /// <param name="services">
+    /// The service descriptor collection instance.
+    /// </param>
+    /// <param name="args">
+    /// An <see cref="ImpartAppArgs"/> instance with parsed command-line arguments.
+    /// </param>
+    public static void ConfigureServices(IServiceCollection services, ImpartAppArgs args)
+    {
+        services
+            .AddSingleton<ImpartApp>()
+            .AddSingleton(args)
+            .AddSingleton(ImpartAppArgsParser.Default);
+
+        services
+            .AddSingleton(WeakReferenceMessenger.Default);
+
+        services
+            .AddSingleton<AppActivationService>()
+            .AddSingleton<AppDialogService>()
+            .AddSingleton<AppNavigationService>()
+            .AddSingleton<AppThemeService>()
+            .AddSingleton<AppWindowService>();
+
+        services
+            .AddTransient<ChatsViewModel>()
+            .AddTransient<IntroViewModel>()
+            .AddTransient<MainViewModel>()
+            .AddTransient<SettingsViewModel>();
+
+        services
+            .AddLogging(ConfigureLogger);
+    }
+
+    /// <summary>
     /// Creates a <see cref="ImpartAppBuilder"/> builder instance for building an <see cref="ImpartApp"/>
     /// instance.
     /// </summary>
