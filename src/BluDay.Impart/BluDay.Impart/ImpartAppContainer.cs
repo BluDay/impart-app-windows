@@ -3,11 +3,11 @@ namespace BluDay.Impart;
 /// <summary>
 /// Represents the Dependency Injection (DI) container for the app.
 /// </summary>
-public sealed class ImpartAppContainer : IServiceProvider
+public sealed class ImpartAppContainer : IKeyedServiceProvider
 {
     private bool _isActivated;
 
-    private IServiceProvider? _rootServiceProvider;
+    private IKeyedServiceProvider? _rootServiceProvider;
 
     private readonly ImpartAppArgs _args;
 
@@ -113,5 +113,15 @@ public sealed class ImpartAppContainer : IServiceProvider
     public object? GetService(Type serviceType)
     {
         return _rootServiceProvider?.GetService(serviceType);
+    }
+
+    public object? GetKeyedService(Type serviceType, object? serviceKey)
+    {
+        return _rootServiceProvider?.GetKeyedService(serviceType, serviceKey);
+    }
+
+    public object GetRequiredKeyedService(Type serviceType, object? serviceKey)
+    {
+        return _rootServiceProvider!.GetRequiredKeyedService(serviceType, serviceKey);
     }
 }
