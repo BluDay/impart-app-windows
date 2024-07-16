@@ -89,6 +89,21 @@ public sealed class ImpartAppContainer : IKeyedServiceProvider
         _isActivated = true;
     }
 
+    public object? GetService(Type serviceType)
+    {
+        return _rootServiceProvider?.GetService(serviceType);
+    }
+
+    public object? GetKeyedService(Type serviceType, object? serviceKey)
+    {
+        return _rootServiceProvider?.GetKeyedService(serviceType, serviceKey);
+    }
+
+    public object GetRequiredKeyedService(Type serviceType, object? serviceKey)
+    {
+        return _rootServiceProvider!.GetRequiredKeyedService(serviceType, serviceKey);
+    }
+
     /// <summary>
     /// Registers additional services.
     /// </summary>
@@ -108,20 +123,5 @@ public sealed class ImpartAppContainer : IKeyedServiceProvider
         {
             _services.TryAdd(descriptor);
         }
-    }
-
-    public object? GetService(Type serviceType)
-    {
-        return _rootServiceProvider?.GetService(serviceType);
-    }
-
-    public object? GetKeyedService(Type serviceType, object? serviceKey)
-    {
-        return _rootServiceProvider?.GetKeyedService(serviceType, serviceKey);
-    }
-
-    public object GetRequiredKeyedService(Type serviceType, object? serviceKey)
-    {
-        return _rootServiceProvider!.GetRequiredKeyedService(serviceType, serviceKey);
     }
 }
