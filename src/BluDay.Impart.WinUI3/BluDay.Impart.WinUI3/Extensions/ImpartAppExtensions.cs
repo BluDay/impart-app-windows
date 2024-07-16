@@ -34,7 +34,7 @@ public static class ImpartAppExtensions
                 new DispatcherQueueSynchronizationContext(DispatcherQueue.GetForCurrentThread())
             );
 
-            source.Container.RootServiceProvider!.GetRequiredService<App>();
+            source.Container.GetRequiredService<App>();
         });
 
         return source;

@@ -17,7 +17,7 @@ public sealed class ImpartApp
 
     private readonly ILogger _logger;
 
-    // <summary>
+    /// <summary>
     /// Gets instance of parsed command-line arguments.
     /// </summary>
     public ImpartAppArgs Args => _args;
@@ -43,7 +43,7 @@ public sealed class ImpartApp
     /// <param name="args">
     /// An instance of parsed command-line arguments.
     /// </param>
-    /// <param name="rootServiceProvider">
+    /// <param name="container">
     /// The app-specific DI container instance.
     /// </param>
     /// <param name="messenger">

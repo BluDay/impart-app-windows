@@ -23,7 +23,7 @@ public static class ImpartAppExtensions
 
         Thread thread = new(() =>
         {
-            source.Container.RootServiceProvider!.GetRequiredService<App>().Run();
+            source.Container.GetRequiredService<App>().Run();
         });
 
         thread.SetApartmentState(ApartmentState.STA);

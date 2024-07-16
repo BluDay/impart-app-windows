@@ -9,8 +9,6 @@ public sealed class ImpartAppBuilder
 
     private readonly ImpartAppContainer _container;
 
-    private readonly ServiceCollection _services = new();
-
     /// <summary>
     /// Initializes a new instance of the <see cref="ImpartAppBuilder"/> class with a
     /// default, non-parsed command-line arguments instance.
@@ -31,9 +29,7 @@ public sealed class ImpartAppBuilder
     {
         ArgumentNullException.ThrowIfNull(args);
 
-        _container = new(_services);
-
-        ImpartAppContainer.ConfigureServices(_services, args, _container);
+        _container = new ImpartAppContainer(args);
     }
 
     /// <summary>
@@ -48,7 +44,7 @@ public sealed class ImpartAppBuilder
         {
             _container.CreateServiceProvider();
 
-            _app = _container.RootServiceProvider!.GetRequiredService<ImpartApp>();
+            _app = _container.GetRequiredService<ImpartApp>();
         }
 
         return _app;
@@ -65,7 +61,7 @@ public sealed class ImpartAppBuilder
     /// </returns>
     public ImpartAppBuilder RegisterPlatformSpecificServices(Action<IServiceCollection> factory)
     {
-        factory(_services);
+        _container.RegisterAdditionalServices(factory);
 
         return this;
     }
@@ -81,8 +77,6 @@ public sealed class ImpartAppBuilder
     /// </returns>
     public ImpartAppBuilder RegisterView<TView>() where TView : class, IView
     {
-        _services.TryAddTransient<TView>();
-
-        return this;
+        return RegisterPlatformSpecificServices(services => services.AddTransient<TView>());
     }
 }
