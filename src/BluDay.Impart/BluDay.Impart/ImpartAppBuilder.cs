@@ -7,6 +7,8 @@ public sealed class ImpartAppBuilder
 {
     private ImpartApp? _app;
 
+    private readonly ImpartAppContainer _container;
+
     private readonly ServiceCollection _services = new();
 
     /// <summary>
@@ -29,7 +31,9 @@ public sealed class ImpartAppBuilder
     {
         ArgumentNullException.ThrowIfNull(args);
 
-        ImpartApp.ConfigureServices(_services, args);
+        _container = new(_services);
+
+        ImpartAppContainer.ConfigureServices(_services, args, _container);
     }
 
     /// <summary>
@@ -40,7 +44,14 @@ public sealed class ImpartAppBuilder
     /// </returns>
     public ImpartApp Build()
     {
-        return _app ??= _services.BuildServiceProvider().GetRequiredService<ImpartApp>();
+        if (_app is null)
+        {
+            _container.CreateServiceProvider();
+
+            _app = _container.RootServiceProvider!.GetRequiredService<ImpartApp>();
+        }
+
+        return _app;
     }
 
     /// <summary>

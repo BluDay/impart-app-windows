@@ -11,9 +11,9 @@ public sealed class ImpartApp
 
     private readonly ImpartAppArgs _args;
 
-    private readonly WeakReferenceMessenger _messenger;
+    private readonly ImpartAppContainer _container;
 
-    private readonly IServiceProvider _rootServiceProvider;
+    private readonly WeakReferenceMessenger _messenger;
 
     private readonly ILogger _logger;
 
@@ -21,6 +21,11 @@ public sealed class ImpartApp
     /// Gets instance of parsed command-line arguments.
     /// </summary>
     public ImpartAppArgs Args => _args;
+
+    /// <summary>
+    /// Gets the DI container instance.
+    /// </summary>
+    public ImpartAppContainer Container => _container;
 
     /// <summary>
     /// Gets a value indicating whether the app has been disposed.
@@ -33,36 +38,31 @@ public sealed class ImpartApp
     public bool IsInitialized => _isInitialized;
 
     /// <summary>
-    /// Gets the root service provider.
-    /// </summary>
-    public IServiceProvider RootServiceProvider => _rootServiceProvider;
-
-    /// <summary>
     /// Initializes a new instance with a parsed command-line arguments instance.
     /// </summary>
     /// <param name="args">
     /// An instance of parsed command-line arguments.
     /// </param>
+    /// <param name="rootServiceProvider">
+    /// The app-specific DI container instance.
+    /// </param>
     /// <param name="messenger">
     /// The weak reference messaging service.
-    /// </param>
-    /// <param name="rootServiceProvider">
-    /// The DI container instance, with the root service provider.
     /// </param>
     /// <param name="logger">
     /// The logger instance.
     /// </param>
     public ImpartApp(
         ImpartAppArgs          args,
+        ImpartAppContainer     container,
         WeakReferenceMessenger messenger,
-        IServiceProvider       rootServiceProvider,
         ILogger<ImpartApp>     logger)
     {
         _args = args;
 
-        _messenger = messenger;
+        _container = container;
 
-        _rootServiceProvider = rootServiceProvider;
+        _messenger = messenger;
 
         _logger = logger;
     }
@@ -104,48 +104,12 @@ public sealed class ImpartApp
     /// <param name="logging">
     /// The logger builder instance.
     /// </param>
-    private static void ConfigureLogger(ILoggingBuilder logging)
+    public static void ConfigureLogger(ILoggingBuilder logging)
     {
         logging
             .AddConsole()
             .AddDebug()
             .SetMinimumLevel(LogLevel.Debug);
-    }
-
-    /// <summary>
-    /// Registers all core services for the app to function.
-    /// </summary>
-    /// <param name="services">
-    /// The service descriptor collection instance.
-    /// </param>
-    /// <param name="args">
-    /// An <see cref="ImpartAppArgs"/> instance with parsed command-line arguments.
-    /// </param>
-    public static void ConfigureServices(IServiceCollection services, ImpartAppArgs args)
-    {
-        services
-            .AddSingleton<ImpartApp>()
-            .AddSingleton(args)
-            .AddSingleton(ImpartAppArgsParser.Default);
-
-        services
-            .AddSingleton(WeakReferenceMessenger.Default);
-
-        services
-            .AddSingleton<AppActivationService>()
-            .AddSingleton<AppDialogService>()
-            .AddSingleton<AppNavigationService>()
-            .AddSingleton<AppThemeService>()
-            .AddSingleton<AppWindowService>();
-
-        services
-            .AddTransient<ChatsViewModel>()
-            .AddTransient<IntroViewModel>()
-            .AddTransient<MainViewModel>()
-            .AddTransient<SettingsViewModel>();
-
-        services
-            .AddLogging(ConfigureLogger);
     }
 
     /// <summary>
