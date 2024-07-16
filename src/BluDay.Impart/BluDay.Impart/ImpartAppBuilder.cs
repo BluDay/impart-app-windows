@@ -40,14 +40,7 @@ public sealed class ImpartAppBuilder
     /// </returns>
     public ImpartApp Build()
     {
-        if (_app is null)
-        {
-            _container.CreateServiceProvider();
-
-            _app = _container.GetRequiredService<ImpartApp>();
-        }
-
-        return _app;
+        return _app ??= _container.CreateServiceProvider().GetRequiredService<ImpartApp>();
     }
 
     /// <summary>
@@ -61,7 +54,11 @@ public sealed class ImpartAppBuilder
     /// </returns>
     public ImpartAppBuilder RegisterPlatformSpecificServices(Action<IServiceCollection> factory)
     {
-        _container.RegisterAdditionalServices(factory);
+        ServiceCollection services = new();
+
+        factory(services);
+
+        _container.RegisterUserServices(services);
 
         return this;
     }

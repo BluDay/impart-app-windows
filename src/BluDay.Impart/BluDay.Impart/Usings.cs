@@ -9,6 +9,7 @@ global using BluDay.Net.Abstractions.Models;
 global using BluDay.Net.Abstractions.ViewModels;
 global using BluDay.Net.Common.Attributes;
 global using BluDay.Net.Common.CommandLine;
+global using BluDay.Net.DependencyInjection;
 global using BluDay.Net.Messaging;
 global using BluDay.Net.Services;
 global using BluDay.Net.UI.Appearance;
