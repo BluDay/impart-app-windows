@@ -4,10 +4,11 @@ global using CommunityToolkit.Mvvm.Messaging;
 global using BluDay.Impart.Domain.Models;
 global using BluDay.Impart.Domain.ViewModels;
 global using BluDay.Impart.Resources;
+
+global using BluDay.Net.Abstractions.Models;
+global using BluDay.Net.Abstractions.ViewModels;
 global using BluDay.Net.Common.Attributes;
 global using BluDay.Net.Common.CommandLine;
-global using BluDay.Net.Domain.Models;
-global using BluDay.Net.Domain.ViewModels;
 global using BluDay.Net.Messaging;
 global using BluDay.Net.Services;
 global using BluDay.Net.UI.Appearance;
