@@ -33,7 +33,7 @@ public sealed class ImpartAppBuilder
     }
 
     /// <summary>
-    /// Constructs a new <see cref="ImpartApp"/> instance with the set values.
+    /// Constructs a new <see cref="ImpartApp"/> instance and returns it.
     /// </summary>
     /// <returns>
     /// The constructed instance.
