@@ -51,6 +51,6 @@ public sealed class ImpartAppContainer : BluContainer
             .AddTransient<MainViewModel>()
             .AddTransient<SettingsViewModel>()
             // Logging.
-            .AddLogging(ImpartApp.ConfigureLogger);
+            .AddLogging(ImpartApp.ConfigureLogging);
     }
 }

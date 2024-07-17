@@ -104,7 +104,7 @@ public sealed class ImpartApp
     /// <param name="logging">
     /// The logger builder instance.
     /// </param>
-    public static void ConfigureLogger(ILoggingBuilder logging)
+    public static void ConfigureLogging(ILoggingBuilder logging)
     {
         logging
             .AddConsole()
