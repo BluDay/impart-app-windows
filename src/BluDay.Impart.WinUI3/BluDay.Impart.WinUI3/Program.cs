@@ -26,7 +26,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-ImpartAppArgs parsedArgs = ImpartAppArgsParser.Default.Parse(args);
+ImpartAppArgs parsedArgs = new ImpartAppArgsParser().Parse(args);
 
 ImpartApp
     .CreateBuilder(parsedArgs)

@@ -36,7 +36,6 @@ public sealed class ImpartAppContainer : BluContainer
             .AddSingleton<ImpartApp>()
             .AddSingleton(args)
             .AddSingleton(this)
-            .AddSingleton(ImpartAppArgsParser.Default)
             // Messaging.
             .AddSingleton(WeakReferenceMessenger.Default)
             // App services.

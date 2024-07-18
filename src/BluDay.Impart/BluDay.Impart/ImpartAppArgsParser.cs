@@ -6,11 +6,6 @@ namespace BluDay.Impart;
 public sealed class ImpartAppArgsParser : ArgumentsParser<ImpartAppArgs>
 {
     /// <summary>
-    /// The default (singleton) args-parser instance.
-    /// </summary>
-    public static ImpartAppArgsParser Default { get; } = new();
-
-    /// <summary>
     /// Initializes a new instance of the <see cref="ImpartAppArgs"/> class with app-specific
     /// optional and positional command-line arguments.
     /// </summary>
