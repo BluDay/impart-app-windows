@@ -26,8 +26,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
+ImpartAppArgs parsedArgs = ImpartAppArgsParser.Default.Parse(args);
+
 ImpartApp
-    .CreateBuilder(args)
+    .CreateBuilder(parsedArgs)
     .RegisterPlatformSpecificServices()
     .RegisterView<MainView>()
     .Build()

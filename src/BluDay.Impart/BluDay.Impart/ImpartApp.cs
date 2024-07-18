@@ -125,8 +125,5 @@ public sealed class ImpartApp
     /// An <see cref="ImpartAppArgs"/> instance with parsed command-line arguments.
     /// </param>
     /// <inheritdoc cref="CreateBuilder()"/>
-    public static ImpartAppBuilder CreateBuilder(string[] args)
-    {
-        return new(ImpartAppArgsParser.Default.Parse(args));
-    }
+    public static ImpartAppBuilder CreateBuilder(ImpartAppArgs args) => new(args);
 }
