@@ -84,7 +84,9 @@ public sealed class ImpartApp
     /// <summary>
     /// Initializes the entire application.
     /// </summary>
-    /// <exception cref="ObjectDisposedException">If the instance has been disposed.</exception>
+    /// <exception cref="ObjectDisposedException">
+    /// If the instance has been disposed.
+    /// </exception>
     public void Initialize()
     {
         ObjectDisposedException.ThrowIf(_isDisposed, this);
@@ -113,8 +115,8 @@ public sealed class ImpartApp
     }
 
     /// <summary>
-    /// Creates a <see cref="ImpartAppBuilder"/> builder instance for building an <see cref="ImpartApp"/>
-    /// instance.
+    /// Creates a <see cref="ImpartAppBuilder"/> builder instance for building
+    /// an <see cref="ImpartApp"/> instance.
     /// </summary>
     /// <returns>
     /// A <see cref="ImpartAppBuilder"/> instance for creating the app.
@@ -125,5 +127,8 @@ public sealed class ImpartApp
     /// An <see cref="ImpartAppArgs"/> instance with parsed command-line arguments.
     /// </param>
     /// <inheritdoc cref="CreateBuilder()"/>
-    public static ImpartAppBuilder CreateBuilder(ImpartAppArgs args) => new(args);
+    public static ImpartAppBuilder CreateBuilder(ImpartAppArgs args)
+    {
+        return new(args);
+    }
 }

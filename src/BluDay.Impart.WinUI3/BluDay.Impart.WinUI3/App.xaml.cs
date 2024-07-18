@@ -49,14 +49,16 @@ public sealed partial class App : Application
     {
         if (_mainWindow is not null) return;
 
-        _mainWindow = new Shell(new ShellViewModel(WeakReferenceMessenger.Default)); // _windowService.CreateWindow<Shell>();
+        _mainWindow = _windowService.CreateWindow<Shell>();
 
-        _mainWindow.Configure(new WindowConfiguration()
+        WindowConfiguration config = new()
         {
             Title       = _resourceLoader.GetString("MainWindow/DefaultTitle"),
             IsResizable = true,
             Size        = new Size(1600, 1280)
-        });
+        };
+
+        _mainWindow.Configure(config);
     }
 
     /// <summary>
