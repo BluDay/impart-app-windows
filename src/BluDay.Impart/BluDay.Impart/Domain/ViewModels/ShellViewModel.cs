@@ -3,73 +3,67 @@
 /// <summary>
 /// View model for an window or shell.
 /// </summary>
-public sealed class ShellViewModel : ViewModel
+public sealed partial class ShellViewModel : ViewModel
 {
-    private IWindow _window;
-
-    /// <summary>
-    /// Gets the navigator instance for handling view navigation within the window.
-    /// </summary>
-    public ViewNavigator ViewNavigator => _window!.ViewNavigator;
-
-    /// <summary>
-    /// Gets the ID of the window.
-    /// </summary>
-    public Guid Id => _window!.Id;
-
-    /// <summary>
-    /// Gets a value indicating whether the window is resizable.
-    /// </summary>
-    public bool IsResizable
-    {
-        get => _window!.IsResizable;
-        set
-        {
-            _window!.IsResizable = value;
-
-            OnPropertyChanged(nameof(IsResizable));
-        }
-    }
+    private IWindow? _window;
 
     /// <summary>
     /// Gets the title of the window.
     /// </summary>
-    public string? Title
+    [ObservableProperty]
+    private string? _title;
+
+    /// <summary>
+    /// Gets the navigator instance for handling view navigation within the window.
+    /// </summary>
+    public ViewNavigator? ViewNavigator => _window?.ViewNavigator;
+
+    /// <summary>
+    /// Gets the ID of the window.
+    /// </summary>
+    public Guid? Id => _window?.Id;
+
+    /// <summary>
+    /// Gets a value indicating whether the window is resizable.
+    /// </summary>
+    public bool? IsResizable
     {
-        get => _window!.Title;
+        get => _window?.IsResizable;
         set
         {
-            _window!.Title = value;
+            if (_window is null) return;
 
-            OnPropertyChanged(nameof(Title));
+            _window.IsResizable = value!.Value;
         }
     }
 
     /// <summary>
     /// Gets the size of the window.
     /// </summary>
-    public Size Size => _window!.Size;
+    public Size? Size => _window?.Size;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="ShellViewModel"/> class.
     /// </summary>
     /// <param name="messenger">
-    /// The default <see cref="WeakReferenceMessenger"/> instnace.
+    /// The default <see cref="WeakReferenceMessenger"/> instance.
     /// </param>
-    public ShellViewModel(WeakReferenceMessenger messenger) : base(messenger)
-    {
-        _window = null!;
-    }
+    public ShellViewModel(WeakReferenceMessenger messenger) : base(messenger) { }
 
     /// <summary>
     /// Activates the current window.
     /// </summary>
-    public void Activate() => _window!.Activate();
+    public void Activate() => _window?.Activate();
+
+    public void Configure(WindowConfiguration config)
+    {
+        _window?.Configure(config);
+    }
 
     /// <summary>
     /// Attempts to close the current window.
     /// </summary>
-    public void Close() => _window!.Close();
+    public void Close() => _window?.Close();
 
     /// <summary>
     /// Resizes the window using the provided width and height values.
@@ -78,7 +72,9 @@ public sealed class ShellViewModel : ViewModel
     /// <param name="height">The height, in pixels.</param>
     public void Resize(int width, int height)
     {
-        _window!.Resize(width, height);
+        _window?.Resize(width, height);
+
+        OnPropertyChanged(nameof(Size));
     }
 
     /// <summary>

@@ -5,9 +5,7 @@ namespace BluDay.Impart.WinUI3.Controls;
 /// </summary>
 public sealed partial class Shell : Window, IWindow
 {
-    private readonly ShellViewModel _viewModel;
-
-    private readonly ViewNavigator _viewNavigator;
+    private readonly ViewNavigator _viewNavigator = new();
 
     private readonly AppWindow _appWindow;
 
@@ -15,9 +13,7 @@ public sealed partial class Shell : Window, IWindow
 
     private readonly InputNonClientPointerSource _nonClientPointerSource;
 
-    private readonly DisplayArea? _displayArea;
-
-    public ShellViewModel ViewModel => _viewModel;
+    private readonly DisplayArea _displayArea;
 
     public ViewNavigator ViewNavigator => _viewNavigator;
 
@@ -31,34 +27,20 @@ public sealed partial class Shell : Window, IWindow
         set => _appWindowOverlappedPresenter.IsResizable = value;
     }
 
-    public Guid Id { get; }
+    public Guid Id { get; } = Guid.NewGuid();
 
-    public System.Drawing.Size Size { get; }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="Shell"/> class.
-    /// </summary>
-    /// <remarks>
-    /// Temporary solution.
-    /// </remarks>
-    public Shell() : this(new ShellViewModel(WeakReferenceMessenger.Default)) { }
+    public Size Size { get; }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="Shell"/> class.
     /// </summary>
     public Shell(ShellViewModel viewModel)
     {
-        _viewModel = viewModel;
-
-        _viewNavigator = new ViewNavigator();
-
         _appWindow = AppWindow;
 
         _appWindowOverlappedPresenter = _appWindow.GetOverlappedPresenter();
         _nonClientPointerSource       = _appWindow.GetNonClientPointerSource();
         _displayArea                  = _appWindow.GetDisplayArea();
-
-        Id = Guid.NewGuid();
 
         InitializeComponent();
 
@@ -91,7 +73,7 @@ public sealed partial class Shell : Window, IWindow
 
         if (config.Size.HasValue)
         {
-            System.Drawing.Size size = config.Size.Value;
+            Size size = config.Size.Value;
 
             Resize(size.Width, size.Height);
         }
@@ -99,6 +81,6 @@ public sealed partial class Shell : Window, IWindow
 
     public void Resize(int width, int height)
     {
-        _appWindow.Resize(new SizeInt32(width, height));
+        _appWindow.Resize(new Windows.Graphics.SizeInt32(width, height));
     }
 }
