@@ -8,12 +8,18 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BluDay.Impart.WinUI3", "Blu
 		{24D21082-C261-4350-BFAA-BF0C0F876B6F} = {24D21082-C261-4350-BFAA-BF0C0F876B6F}
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BluDay.Impart.WinUI3.Tests", "..\tests\BluDay.Impart.WinUI3.Tests\BluDay.Impart.WinUI3.Tests.csproj", "{0C968C02-4347-46D8-9DA7-F832B3F60652}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BluDay.Impart.WPF", "BluDay.Impart.WPF\BluDay.Impart.WPF.csproj", "{771235F8-471C-41CC-B895-ED5C97503C88}"
 	ProjectSection(ProjectDependencies) = postProject
 		{24D21082-C261-4350-BFAA-BF0C0F876B6F} = {24D21082-C261-4350-BFAA-BF0C0F876B6F}
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BluDay.Impart.WPF.Tests", "..\tests\BluDay.Impart.WPF.Tests\BluDay.Impart.WPF.Tests.csproj", "{771235F8-471C-41CC-B895-ED5C97503C88}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BluDay.Impart", "BluDay.Impart\BluDay.Impart.csproj", "{24D21082-C261-4350-BFAA-BF0C0F876B6F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BluDay.Impart.Tests", "..\tests\BluDay.Impart.Tests\BluDay.Impart.Tests.csproj", "{24D21082-C261-4350-BFAA-BF0C0F876B6F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
