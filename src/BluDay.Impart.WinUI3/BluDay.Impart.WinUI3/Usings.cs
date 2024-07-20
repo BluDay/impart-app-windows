@@ -3,9 +3,10 @@
 global using BluDay.Impart;
 global using BluDay.Impart.ViewModels;
 global using BluDay.Impart.WinUI3;
-global using BluDay.Impart.WinUI3.Controls;
 global using BluDay.Impart.WinUI3.Extensions;
+global using BluDay.Impart.WinUI3.Controls;
 global using BluDay.Impart.WinUI3.Views;
+global using BluDay.Impart.WinUI3.Windows;
 
 global using BluDay.Net.Abstractions.Models;
 global using BluDay.Net.Abstractions.ViewModels;
@@ -29,3 +30,5 @@ global using System;
 global using System.Drawing;
 global using System.Runtime.InteropServices;
 global using System.Threading;
+
+global using Windows.Graphics;

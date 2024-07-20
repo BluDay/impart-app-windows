@@ -1,4 +1,4 @@
-namespace BluDay.Impart.WinUI3.Controls;
+namespace BluDay.Impart.WinUI3.Windows;
 
 /// <summary>
 /// An empty window that can be used on its own or navigated to within a Frame.
@@ -81,6 +81,6 @@ public sealed partial class Shell : Window, IWindow
 
     public void Resize(int width, int height)
     {
-        _appWindow.Resize(new Windows.Graphics.SizeInt32(width, height));
+        _appWindow.Resize(new SizeInt32(width, height));
     }
 }

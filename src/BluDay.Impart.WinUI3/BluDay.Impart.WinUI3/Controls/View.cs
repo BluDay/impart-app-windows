@@ -1,7 +1,7 @@
 ﻿namespace BluDay.Impart.WinUI3.Controls;
 
 /// <summary>
-/// Represents a <see cref="UserControl"/> instance for a view.
+/// Represents a control for a view.
 /// </summary>
 public abstract partial class View : UserControl, IView
 {
