@@ -5,6 +5,7 @@ global using BluDay.Impart.ViewModels;
 global using BluDay.Impart.WPF;
 global using BluDay.Impart.WPF.Controls;
 global using BluDay.Impart.WPF.Views;
+global using BluDay.Impart.WPF.Windows;
 
 global using BluDay.Net.Abstractions.Models;
 global using BluDay.Net.Abstractions.ViewModels;

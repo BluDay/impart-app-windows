@@ -1,4 +1,4 @@
-﻿namespace BluDay.Impart.WPF.Controls;
+﻿namespace BluDay.Impart.WPF.Windows;
 
 /// <summary>
 /// Interaction logic for Shell.xaml
