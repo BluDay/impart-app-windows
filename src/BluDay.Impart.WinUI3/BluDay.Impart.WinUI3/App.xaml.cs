@@ -49,7 +49,7 @@ public sealed partial class App : Application
     {
         if (_mainWindow is not null) return;
 
-        _mainWindow = _windowService.CreateWindow<Shell>();
+        _mainWindow = new Shell(new ShellViewModel(WeakReferenceMessenger.Default)); // _windowService.CreateWindow<Shell>();
 
         WindowConfiguration config = new()
         {

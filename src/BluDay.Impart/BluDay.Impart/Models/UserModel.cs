@@ -1,4 +1,4 @@
-﻿namespace BluDay.Impart.Domain.Models;
+﻿namespace BluDay.Impart.Models;
 
 /// <summary>
 /// Domain class for a user.

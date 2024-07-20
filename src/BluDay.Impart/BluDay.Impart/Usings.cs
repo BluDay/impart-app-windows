@@ -1,9 +1,9 @@
 ﻿global using CommunityToolkit.Mvvm.ComponentModel;
 global using CommunityToolkit.Mvvm.Messaging;
 
-global using BluDay.Impart.Domain.Models;
-global using BluDay.Impart.Domain.ViewModels;
+global using BluDay.Impart.Models;
 global using BluDay.Impart.Resources;
+global using BluDay.Impart.ViewModels;
 
 global using BluDay.Net.Abstractions.Models;
 global using BluDay.Net.Abstractions.ViewModels;
