@@ -54,7 +54,7 @@ public sealed class ImpartAppBuilder
     /// </returns>
     public ImpartAppBuilder RegisterPlatformSpecificServices(Action<IServiceCollection> factory)
     {
-        ServiceCollection services = new();
+        ServiceCollection services = [];
 
         factory(services);
 
