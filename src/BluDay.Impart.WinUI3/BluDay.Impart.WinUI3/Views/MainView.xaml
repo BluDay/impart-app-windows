@@ -8,7 +8,7 @@
                xmlns:controls="using:BluDay.Impart.WinUI3.Controls"
                xmlns:viewModels="using:BluDay.Impart.ViewModels"
                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <NavigationView x:Name="NavigationView" PaneDisplayMode="Left">
+    <NavigationView x:Name="NavigationView" PaneDisplayMode="Left" OpenPaneLength="250">
         <NavigationView.AutoSuggestBox>
             <AutoSuggestBox x:Uid="NavigationView/AutoSuggestBox"/>
         </NavigationView.AutoSuggestBox>
