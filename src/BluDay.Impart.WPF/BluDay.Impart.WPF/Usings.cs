@@ -8,10 +8,11 @@ global using BluDay.Impart.WPF.Views;
 global using BluDay.Impart.WPF.Windows;
 
 global using BluDay.Net.Abstractions.Models;
+global using BluDay.Net.Abstractions.UI.Views;
+global using BluDay.Net.Abstractions.UI.Windowing;
 global using BluDay.Net.Abstractions.ViewModels;
 global using BluDay.Net.UI.Navigation;
 global using BluDay.Net.UI.Windowing;
-global using BluDay.Net.UI.Views;
 global using BluDay.Net.Services;
 
 global using Microsoft.Extensions.DependencyInjection;
