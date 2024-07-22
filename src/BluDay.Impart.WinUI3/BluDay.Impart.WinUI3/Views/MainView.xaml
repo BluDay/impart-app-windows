@@ -13,7 +13,7 @@
                     PaneDisplayMode="Left"
                     IsPaneOpen="False">
         <NavigationView.MenuItems>
-            <NavigationViewItem x:Uid="NavigationView/Items/Chats">
+            <NavigationViewItem x:Uid="NavigationView/Items/Chats" IsSelected="True">
                 <NavigationViewItem.Icon>
                     <FontIcon Glyph="&#xe8f2;"/>
                 </NavigationViewItem.Icon>
