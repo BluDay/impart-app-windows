@@ -69,6 +69,8 @@ public sealed partial class App : Application
     {
         CreateMainWindow();
 
+        (_mainWindow as Shell)!.AppWindow.MoveToCenter();
+
         _mainWindow!.Activate();
 
         _mainWindow.ViewNavigator.Push<MainView>();
