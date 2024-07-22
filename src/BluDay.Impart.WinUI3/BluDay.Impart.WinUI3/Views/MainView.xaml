@@ -26,9 +26,15 @@
             </NavigationViewItem>
         </NavigationView.MenuItems>
 
-        <NavigationView.Content>
-            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{x:Bind}"/>
-        </NavigationView.Content>
+        <ContentControl x:Name="ContentControl"
+                        VerticalContentAlignment="Stretch"
+                        HorizontalContentAlignment="Stretch">
+            <ContentControl.ContentTransitions>
+                <TransitionCollection>
+                    <EntranceThemeTransition/>
+                </TransitionCollection>
+            </ContentControl.ContentTransitions>
+        </ContentControl>
 
         <NavigationView.FooterMenuItems>
             <NavigationViewItem x:Uid="NavigationView/Items/User">

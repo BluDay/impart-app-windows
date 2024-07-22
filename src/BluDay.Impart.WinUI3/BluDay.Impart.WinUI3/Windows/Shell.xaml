@@ -24,8 +24,14 @@
         <ContentControl x:Name="ContentControl"
                         VerticalContentAlignment="Stretch"
                         HorizontalContentAlignment="Stretch"
-                        Grid.Row="1"/>
-
+                        Grid.Row="1">
+            <ContentControl.ContentTransitions>
+                <TransitionCollection>
+                    <EntranceThemeTransition/>
+                </TransitionCollection>
+            </ContentControl.ContentTransitions>
+        </ContentControl>
+        
         <ContentDialog Grid.RowSpan="2"/>
     </Grid>
 </Window>
