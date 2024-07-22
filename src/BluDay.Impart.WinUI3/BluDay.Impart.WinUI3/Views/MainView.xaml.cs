@@ -14,5 +14,7 @@ public sealed partial class MainView : View
     public MainView(MainViewModel viewModel) : base(viewModel)
     {
         InitializeComponent();
+
+        NavigationView.Content = new ChatsView(new ChatsViewModel(WeakReferenceMessenger.Default));
     }
 }

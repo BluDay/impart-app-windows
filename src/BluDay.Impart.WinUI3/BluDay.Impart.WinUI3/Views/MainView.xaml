@@ -8,11 +8,10 @@
                xmlns:controls="using:BluDay.Impart.WinUI3.Controls"
                xmlns:viewModels="using:BluDay.Impart.ViewModels"
                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <NavigationView x:Name="NavigationView" PaneDisplayMode="Left" OpenPaneLength="250">
-        <NavigationView.AutoSuggestBox>
-            <AutoSuggestBox x:Uid="NavigationView/AutoSuggestBox"/>
-        </NavigationView.AutoSuggestBox>
-
+    <NavigationView x:Name="NavigationView"
+                    IsPaneOpen="False"
+                    OpenPaneLength="200"
+                    PaneDisplayMode="LeftCompact">
         <NavigationView.MenuItems>
             <NavigationViewItem x:Uid="NavigationView/Items/Chats">
                 <NavigationViewItem.Icon>
@@ -32,10 +31,6 @@
         </NavigationView.Content>
 
         <NavigationView.FooterMenuItems>
-            <NavigationViewItem x:Uid="NavigationView/Items/NewChat"
-                                Icon="Add"
-                                SelectsOnInvoked="False"/>
-
             <NavigationViewItem x:Uid="NavigationView/Items/User">
                 <NavigationViewItem.Icon>
                     <FontIcon Glyph="&#xe77b;"/>
