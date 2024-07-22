@@ -9,9 +9,9 @@
                xmlns:viewModels="using:BluDay.Impart.ViewModels"
                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <NavigationView x:Name="NavigationView"
-                    IsPaneOpen="False"
                     OpenPaneLength="200"
-                    PaneDisplayMode="LeftCompact">
+                    PaneDisplayMode="Left"
+                    IsPaneOpen="False">
         <NavigationView.MenuItems>
             <NavigationViewItem x:Uid="NavigationView/Items/Chats">
                 <NavigationViewItem.Icon>
