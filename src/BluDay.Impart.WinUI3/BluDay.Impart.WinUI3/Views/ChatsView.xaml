@@ -31,19 +31,37 @@
                         <ColumnDefinition/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    
+
                     <TextBlock FontSize="18"
                                Style="{ThemeResource TitleTextBlockStyle}"
                                Text="Chats"/>
 
-                    <Button Background="Transparent"
-                            BorderBrush="Transparent"
-                            Padding="4"
-                            Grid.Column="1">
-                        <Viewbox Height="16" Width="16">
-                            <FontIcon Glyph="&#xe932;"/>
-                        </Viewbox>
-                    </Button>
+                    <StackPanel Orientation="Horizontal" Spacing="4" Grid.Column="1">
+                        <StackPanel.Resources>
+                            <Style BasedOn="{StaticResource DefaultButtonStyle}" TargetType="Button">
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Setter Property="BorderBrush" Value="Transparent"/>
+                                <Setter Property="Padding" Value="4"/>
+                            </Style>
+
+                            <Style TargetType="Viewbox">
+                                <Setter Property="Height" Value="16"/>
+                                <Setter Property="Width" Value="16"/>
+                            </Style>
+                        </StackPanel.Resources>
+                        
+                        <Button>
+                            <Viewbox>
+                                <FontIcon Glyph="&#xe932;"/>
+                            </Viewbox>
+                        </Button>
+
+                        <Button>
+                            <Viewbox>
+                                <FontIcon Glyph="&#xe712;"/>
+                            </Viewbox>
+                        </Button>
+                    </StackPanel>
                 </Grid>
 
                 <AutoSuggestBox PlaceholderText="Search for chats"
