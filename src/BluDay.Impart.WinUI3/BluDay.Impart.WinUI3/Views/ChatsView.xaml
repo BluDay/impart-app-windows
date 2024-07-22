@@ -50,13 +50,13 @@
                             </Style>
                         </StackPanel.Resources>
                         
-                        <Button>
+                        <Button ToolTipService.ToolTip="New chat">
                             <Viewbox>
                                 <FontIcon Glyph="&#xe932;"/>
                             </Viewbox>
                         </Button>
 
-                        <Button>
+                        <Button ToolTipService.ToolTip="More">
                             <Viewbox>
                                 <FontIcon Glyph="&#xe712;"/>
                             </Viewbox>
