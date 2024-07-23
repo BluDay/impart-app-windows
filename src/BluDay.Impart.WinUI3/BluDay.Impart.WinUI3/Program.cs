@@ -31,10 +31,7 @@ ImpartAppArgs parsedArgs = new ImpartAppArgsParser().Parse(args);
 ImpartApp
     .CreateBuilder(parsedArgs)
     .RegisterPlatformSpecificServices()
-    .RegisterView<ChatsView>()
-    .RegisterView<IntroView>()
     .RegisterView<MainView>()
-    .RegisterView<SettingsView>()
     .Build()
     .CreateWinui3App()
     .Initialize();
