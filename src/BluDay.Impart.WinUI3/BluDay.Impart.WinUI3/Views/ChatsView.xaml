@@ -69,66 +69,71 @@
                                 Grid.Row="1"/>
             </Grid>
 
-            <ListView Margin="0" Padding="0" Grid.Row="1">
-                <ListViewItem Padding="4,2">
-                    <Grid BorderBrush="{ThemeResource ControlElevationBorderBrush}"
-                          BorderThickness="0"
-                          CornerRadius="{ThemeResource ListViewItemCornerRadius}"
-                          Padding="8,4">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-
-                        <Border BorderBrush="{ThemeResource ControlElevationBorderBrush}"
-                                BorderThickness="1"
-                                CornerRadius="40"
-                                Height="40"
-                                Margin="0,0,8,0"
-                                Width="40">
-                            <Border.Background>
-                                <ImageBrush ImageSource="https://avatarfiles.alphacoders.com/246/thumb-246644.jpg"/>
-                            </Border.Background>
-                        </Border>
-
-                        <Grid Grid.Column="1">
+            <ListView ItemsSource="{x:Bind Items}" Margin="0" Padding="0" Grid.Row="1">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem" BasedOn="{StaticResource DefaultListViewItemStyle}">
+                        <Setter Property="Padding" Value="12,8"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="x:Int32">
+                        <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
                                 <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
 
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition/>
-                            </Grid.RowDefinitions>
+                            <Border BorderBrush="{ThemeResource ControlElevationBorderBrush}"
+                                    BorderThickness="1"
+                                    CornerRadius="40"
+                                    Height="40"
+                                    Margin="0,0,8,0"
+                                    Width="40">
+                                <Border.Background>
+                                    <ImageBrush ImageSource="https://avatarfiles.alphacoders.com/246/thumb-246644.jpg"/>
+                                </Border.Background>
+                            </Border>
 
-                            <TextBlock FontSize="14"
-                                       FontWeight="SemiBold"
-                                       Margin="0,0,0,2"
-                                       Text="Master Chief"/>
+                            <Grid Grid.Column="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
 
-                            <TextBlock FontSize="12"
-                                       Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                       Text="20:00"
-                                       Grid.Column="1"/>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
 
-                            <TextBlock FontSize="12"
-                                       Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                       Text="I need a weapon."
-                                       VerticalAlignment="Stretch"
-                                       Grid.Row="1"/>
+                                <TextBlock FontSize="14"
+                                           FontWeight="SemiBold"
+                                           Margin="0,0,0,2"
+                                           Text="Master Chief"/>
 
-                            <Ellipse Fill="{ThemeResource SystemAccentColor}"
-                                     Height="8"
-                                     HorizontalAlignment="Right"
-                                     Margin="0,4"
-                                     VerticalAlignment="Bottom"
-                                     Width="8"
-                                     Grid.Column="1"
-                                     Grid.Row="1"/>
+                                <TextBlock FontSize="12"
+                                           Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                           Text="20:00"
+                                           Grid.Column="1"/>
+
+                                <TextBlock FontSize="12"
+                                           Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                           Text="I need a weapon."
+                                           VerticalAlignment="Stretch"
+                                           Grid.Row="1"/>
+
+                                <Ellipse Fill="{ThemeResource SystemAccentColor}"
+                                         Height="8"
+                                         HorizontalAlignment="Right"
+                                         Margin="0,4"
+                                         VerticalAlignment="Bottom"
+                                         Width="8"
+                                         Grid.Column="1"
+                                         Grid.Row="1"/>
+                            </Grid>
                         </Grid>
-                    </Grid>
-                </ListViewItem>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
             </ListView>
         </Grid>
 

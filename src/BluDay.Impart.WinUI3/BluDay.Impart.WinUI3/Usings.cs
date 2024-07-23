@@ -28,6 +28,7 @@ global using Microsoft.UI.Xaml.Media;
 global using Microsoft.Windows.ApplicationModel.Resources;
 
 global using System;
+global using System.Collections.ObjectModel;
 global using System.Drawing;
 global using System.Runtime.InteropServices;
 global using System.Threading;
