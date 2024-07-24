@@ -5,20 +5,21 @@
 /// </summary>
 public static class ImpartAppBuilderExtensions
 {
+    private static void RegisterServices(IServiceCollection services)
+    {
+        services
+            .AddSingleton<App>()
+            .AddSingleton(provider => DispatcherQueue.GetForCurrentThread())
+            .AddSingleton<ResourceLoader>()
+            .AddTransient<Shell>();
+    }
+
     /// <param name="source">
     /// The <see cref="ImpartAppBuilder"/> instance.
     /// </param>
     /// <inheritdoc cref="ImpartAppBuilder.RegisterPlatformSpecificServices(Action{IServiceCollection})"/>
     public static ImpartAppBuilder RegisterPlatformSpecificServices(this ImpartAppBuilder source)
     {
-        ArgumentNullException.ThrowIfNull(source);
-
-        return source.RegisterPlatformSpecificServices(services =>
-        {
-            services
-                .AddSingleton<App>()
-                .AddSingleton<ResourceLoader>()
-                .AddTransient<Shell>();
-        });
+        return source.RegisterPlatformSpecificServices(RegisterServices);
     }
 }
