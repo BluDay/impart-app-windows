@@ -8,7 +8,7 @@ public sealed partial class ChatsView : View
     /// <summary>
     /// Gets the items. (Demo thing)
     /// </summary>
-    public ObservableCollection<int> Items { get; } = new([0]);
+    public ObservableCollection<int> Items { get; } = [0];
 
     /// <summary>
     /// Initializes a new instance of the <see cref="ChatsView"/> class.
