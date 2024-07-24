@@ -44,11 +44,14 @@ public sealed class ImpartAppContainer : BluContainer
             .AddSingleton<AppNavigationService>()
             .AddSingleton<AppThemeService>()
             .AddSingleton<AppWindowService>()
+            // Implementation factories.
+            .AddSingleton<ImplementationProvider<IWindow>>()
             // View models.
             .AddTransient<ChatsViewModel>()
             .AddTransient<IntroViewModel>()
             .AddTransient<MainViewModel>()
             .AddTransient<SettingsViewModel>()
+            .AddTransient<ShellViewModel>()
             // Logging.
             .AddLogging(ImpartApp.ConfigureLogging);
     }
