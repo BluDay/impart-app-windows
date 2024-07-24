@@ -9,7 +9,7 @@
                xmlns:viewModels="using:BluDay.Impart.ViewModels"
                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <NavigationView x:Name="NavigationView"
-                    OpenPaneLength="260"
+                    OpenPaneLength="200"
                     PaneDisplayMode="Left"
                     IsPaneOpen="False">
         <NavigationView.MenuItems>
