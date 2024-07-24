@@ -11,11 +11,16 @@ public sealed partial class App : Application
 
     private readonly ILogger _logger;
 
+    private readonly DispatcherQueue _dispatcherQueue;
+
     private readonly ResourceLoader _resourceLoader;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="App"/> class.
     /// </summary>
+    /// <param name="dispatcherQueue">
+    /// The main <see cref="DispatcherQueue"/> instance for the app.
+    /// </param>
     /// <param name="windowService">
     /// The window service.
     /// </param>
@@ -26,6 +31,7 @@ public sealed partial class App : Application
     /// The logger instance.
     /// </param>
     public App(
+        DispatcherQueue  dispatcherQueue,
         AppWindowService windowService,
         ResourceLoader   resourceLoader,
         ILogger<App>     logger)
@@ -33,6 +39,8 @@ public sealed partial class App : Application
         _windowService = windowService;
 
         _logger = logger;
+
+        _dispatcherQueue = dispatcherQueue;
 
         _resourceLoader = resourceLoader;
 
@@ -49,8 +57,6 @@ public sealed partial class App : Application
     {
         if (_mainWindow is not null) return;
 
-        _mainWindow = new Shell(new ShellViewModel(WeakReferenceMessenger.Default)); // _windowService.CreateWindow<Shell>();
-
         WindowConfiguration config = new()
         {
             Title       = _resourceLoader.GetString("MainWindow/DefaultTitle"),
@@ -58,7 +64,7 @@ public sealed partial class App : Application
             Size        = new Size(1600, 1280)
         };
 
-        _mainWindow.Configure(config);
+        _mainWindow = _windowService.CreateWindow<Shell>(config);
     }
 
     /// <summary>
@@ -67,12 +73,15 @@ public sealed partial class App : Application
     /// <param name="e">Details about the launch request and process.</param>
     protected override void OnLaunched(LaunchActivatedEventArgs e)
     {
-        CreateMainWindow();
+        _dispatcherQueue.TryEnqueue(() =>
+        {
+            CreateMainWindow();
 
-        (_mainWindow as Shell)!.AppWindow.MoveToCenter();
+            ((Shell)_mainWindow!).AppWindow.MoveToCenter();
 
-        _mainWindow!.Activate();
+            _mainWindow.Activate();
 
-        _mainWindow.ViewNavigator.Push<MainView>();
+            _mainWindow.ViewNavigator.Push<MainView>();
+        });
     }
 }
