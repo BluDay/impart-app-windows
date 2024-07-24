@@ -34,6 +34,9 @@ public sealed partial class Shell : Window, IWindow
     /// <summary>
     /// Initializes a new instance of the <see cref="Shell"/> class.
     /// </summary>
+    /// <param name="viewModel">
+    /// A transient <see cref="ShellViewModel"/> instance.
+    /// </param>
     public Shell(ShellViewModel viewModel)
     {
         _appWindow = AppWindow;
