@@ -30,11 +30,15 @@ public static class ImpartAppExtensions
 
         Application.Start(callback =>
         {
+            IServiceProvider serviceProvider = source.Container.ServiceProvider!;
+
+            var dispatcherQueue = serviceProvider.GetRequiredService<DispatcherQueue>();
+
             SynchronizationContext.SetSynchronizationContext(
-                new DispatcherQueueSynchronizationContext(DispatcherQueue.GetForCurrentThread())
+                new DispatcherQueueSynchronizationContext(dispatcherQueue)
             );
 
-            source.Container.ServiceProvider!.GetRequiredService<App>();
+            serviceProvider.GetRequiredService<App>();
         });
 
         return source;
