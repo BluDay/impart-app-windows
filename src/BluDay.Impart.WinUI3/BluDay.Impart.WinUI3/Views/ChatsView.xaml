@@ -77,7 +77,7 @@
 
             <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                        Margin="16,0"
-                       Text="Direct messages"
+                       Text="All chats"
                        Style="{StaticResource NavigationViewItemHeaderTextStyle}"
                        Grid.Row="1"/>
 
