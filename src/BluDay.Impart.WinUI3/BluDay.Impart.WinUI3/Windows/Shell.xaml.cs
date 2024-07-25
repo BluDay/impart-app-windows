@@ -29,7 +29,7 @@ public sealed partial class Shell : Window, IWindow
 
     public Guid Id { get; } = Guid.NewGuid();
 
-    public Size Size { get; }
+    public System.Drawing.Size Size { get; }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="Shell"/> class.
@@ -76,7 +76,7 @@ public sealed partial class Shell : Window, IWindow
 
         if (config.Size.HasValue)
         {
-            Size size = config.Size.Value;
+            System.Drawing.Size size = config.Size.Value;
 
             Resize(size.Width, size.Height);
         }
