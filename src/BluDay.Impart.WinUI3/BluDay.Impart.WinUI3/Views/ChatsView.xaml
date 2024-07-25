@@ -206,8 +206,8 @@
 
                                     <TextBlock FontSize="12"
                                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                                               MaxLines="4"
-                                               Text="I need a weapon. I need a weapon. I need a weapon. I need a weapon. I need a weapon. I need a weapon. I need a weapon. I need a weapon. I need a weapon. I need a weapon. I need a weapon."
+                                               MaxLines="1"
+                                               Text="I need a weapon."
                                                TextWrapping="Wrap"
                                                TextTrimming="CharacterEllipsis"
                                                Grid.Row="1"/>
