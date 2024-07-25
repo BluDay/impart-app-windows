@@ -54,15 +54,19 @@
                         
                         <Button ToolTipService.ToolTip="New chat">
                             <Viewbox>
+                                <!-- e710 (Add) -->
+                                
                                 <FontIcon Glyph="&#xe932;"/>
                             </Viewbox>
                         </Button>
 
+                        <!--
                         <Button ToolTipService.ToolTip="More">
                             <Viewbox>
                                 <FontIcon Glyph="&#xe712;"/>
                             </Viewbox>
                         </Button>
+                        -->
                     </StackPanel>
                 </Grid>
 
