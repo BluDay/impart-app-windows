@@ -19,11 +19,13 @@
                 </NavigationViewItem.Icon>
             </NavigationViewItem>
 
+            <!--
             <NavigationViewItem x:Uid="NavigationView/Items/Contacts">
                 <NavigationViewItem.Icon>
                     <FontIcon Glyph="&#xe902;"/>
                 </NavigationViewItem.Icon>
             </NavigationViewItem>
+            -->
         </NavigationView.MenuItems>
 
         <ContentControl x:Name="ContentControl"
