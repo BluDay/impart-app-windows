@@ -184,14 +184,14 @@
                                              Width="14"/>
                                 </Grid>
 
-                                <Grid Grid.Column="1" Padding="4,0">
+                                <Grid Grid.Column="1" MinHeight="36" Padding="4,0">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition/>
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
 
                                     <Grid.RowDefinitions>
-                                        <RowDefinition/>
+                                        <RowDefinition Height="18"/>
                                         <RowDefinition/>
                                     </Grid.RowDefinitions>
 
@@ -206,20 +206,24 @@
 
                                     <TextBlock FontSize="12"
                                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                                               MaxLines="1"
-                                               Text="I need a weapon."
+                                               MaxLines="4"
+                                               Text="I need a weapon. I need a weapon. I need a weapon. I need a weapon. I need a weapon. I need a weapon. I need a weapon. I need a weapon. I need a weapon. I need a weapon. I need a weapon."
                                                TextWrapping="Wrap"
                                                TextTrimming="CharacterEllipsis"
                                                Grid.Row="1"/>
 
-                                    <Ellipse Fill="{ThemeResource SystemAccentColor}"
-                                             Height="10"
-                                             HorizontalAlignment="Right"
-                                             Margin="0,2"
-                                             VerticalAlignment="Bottom"
-                                             Width="10"
-                                             Grid.Column="1"
-                                             Grid.Row="1"/>
+                                    <Grid Height="18"
+                                          HorizontalAlignment="Right"
+                                          VerticalAlignment="Top"
+                                          Grid.Column="1"
+                                          Grid.Row="1">
+                                        <Ellipse Fill="{ThemeResource SystemAccentColor}"
+                                                 Height="10"
+                                                 HorizontalAlignment="Center"
+                                                 Margin="0,2"
+                                                 VerticalAlignment="Center"
+                                                 Width="10"/>
+                                    </Grid>
                                 </Grid>
                             </Grid>
                         </DataTemplate>
