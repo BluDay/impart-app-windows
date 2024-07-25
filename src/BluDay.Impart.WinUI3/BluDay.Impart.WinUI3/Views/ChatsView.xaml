@@ -120,6 +120,14 @@
                                             <ToggleMenuFlyoutItem Text="Until I turn it back on"/>
                                         </MenuFlyoutSubItem>
 
+                                        <MenuFlyoutItem Text="Pin">
+                                            <MenuFlyoutItem.Icon>
+                                                <!-- e77a (Unpin) -->
+                                                
+                                                <FontIcon Glyph="&#xe718;"/>
+                                            </MenuFlyoutItem.Icon>
+                                        </MenuFlyoutItem>
+
                                         <MenuFlyoutItem Text="Rename">
                                             <MenuFlyoutItem.Icon>
                                                 <FontIcon Glyph="&#xe8ac;"/>
