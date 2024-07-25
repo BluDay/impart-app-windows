@@ -27,14 +27,6 @@ public sealed partial class Shell : Window, IWindow
     /// <summary>
     /// Initializes a new instance of the <see cref="Shell"/> class.
     /// </summary>
-    /// <remarks>
-    /// Temporary solution.
-    /// </remarks>
-    public Shell() : this(new ShellViewModel(WeakReferenceMessenger.Default)) { }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="Shell"/> class.
-    /// </summary>
     public Shell(ShellViewModel viewModel)
     {
         _viewNavigator = new ViewNavigator();
