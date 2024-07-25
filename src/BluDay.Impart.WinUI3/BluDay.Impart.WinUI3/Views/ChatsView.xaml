@@ -184,14 +184,14 @@
                                              Width="14"/>
                                 </Grid>
 
-                                <Grid Grid.Column="1" MinHeight="36" Padding="4,0">
+                                <Grid Padding="4,0" Grid.Column="1">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition/>
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
 
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="18"/>
+                                        <RowDefinition/>
                                         <RowDefinition/>
                                     </Grid.RowDefinitions>
 
@@ -212,16 +212,16 @@
                                                TextTrimming="CharacterEllipsis"
                                                Grid.Row="1"/>
 
-                                    <Grid Height="18"
+                                    <Grid MinHeight="16"
                                           HorizontalAlignment="Right"
                                           VerticalAlignment="Top"
                                           Grid.Column="1"
                                           Grid.Row="1">
                                         <Ellipse Fill="{ThemeResource SystemAccentColor}"
                                                  Height="10"
-                                                 HorizontalAlignment="Center"
-                                                 Margin="0,2"
-                                                 VerticalAlignment="Center"
+                                                 HorizontalAlignment="Right"
+                                                 Margin="0,1"
+                                                 VerticalAlignment="Bottom"
                                                  Width="10"/>
                                     </Grid>
                                 </Grid>
