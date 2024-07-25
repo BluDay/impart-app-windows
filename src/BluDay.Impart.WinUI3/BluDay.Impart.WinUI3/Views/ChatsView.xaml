@@ -232,7 +232,7 @@
                     </ListView.ItemTemplate>
 
                     <ListView.Resources>
-                        <x:Boolean x:Key="ListViewItemSelectionIndicatorVisualEnabled">False</x:Boolean>
+                        <x:Boolean x:Key="ListViewItemSelectionIndicatorVisualEnabled">True</x:Boolean>
                     </ListView.Resources>
                 </ListView>
             </RefreshContainer>
