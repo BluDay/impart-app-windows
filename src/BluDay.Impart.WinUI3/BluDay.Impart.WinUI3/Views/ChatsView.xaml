@@ -15,7 +15,13 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         
-        <StackPanel Background="{ThemeResource CardStrokeColorDefaultBrush}" Orientation="Vertical">
+        <Grid Background="{ThemeResource CardStrokeColorDefaultBrush}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
             <Grid Margin="16">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -70,13 +76,13 @@
             </Grid>
 
             <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                       Margin="16,4"
-                       Text="All chats"
+                       Margin="16,0"
+                       Text="Direct messages"
                        Style="{StaticResource NavigationViewItemHeaderTextStyle}"
-                       Grid.Row="2"/>
+                       Grid.Row="1"/>
 
-            <RefreshContainer Grid.Row="3">
-                <ListView ItemsSource="{x:Bind Items}" Margin="4,0">
+            <RefreshContainer Grid.Row="2">
+                <ListView ItemsSource="{x:Bind Items}" Margin="4,8,4,0">
                     <ListView.ItemContainerStyle>
                         <Style TargetType="ListViewItem" BasedOn="{StaticResource DefaultListViewItemStyle}">
                             <Setter Property="Padding" Value="12,10"/>
@@ -230,7 +236,7 @@
                     </ListView.Resources>
                 </ListView>
             </RefreshContainer>
-        </StackPanel>
+        </Grid>
 
         <TextBlock HorizontalAlignment="Center"
                    Text="{x:Bind}"
