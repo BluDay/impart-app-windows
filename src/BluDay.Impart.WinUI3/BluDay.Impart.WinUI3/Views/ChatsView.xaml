@@ -136,12 +136,6 @@
 
                                         <MenuFlyoutSeparator/>
 
-                                        <MenuFlyoutItem Text="Info">
-                                            <MenuFlyoutItem.Icon>
-                                                <FontIcon Glyph="&#xe946;"/>
-                                            </MenuFlyoutItem.Icon>
-                                        </MenuFlyoutItem>
-
                                         <MenuFlyoutItem Text="Show profile">
                                             <MenuFlyoutItem.Icon>
                                                 <FontIcon Glyph="&#xe77b;"/>
@@ -152,7 +146,7 @@
 
                                         <MenuFlyoutItem Text="Archive">
                                             <MenuFlyoutItem.Icon>
-                                                <FontIcon Glyph="&#xe838;"/>
+                                                <FontIcon Glyph="&#xe7b8;"/>
                                             </MenuFlyoutItem.Icon>
                                         </MenuFlyoutItem>
 
