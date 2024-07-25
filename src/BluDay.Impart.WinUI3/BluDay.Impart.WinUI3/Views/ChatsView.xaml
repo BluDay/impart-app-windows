@@ -82,7 +82,7 @@
                        Grid.Row="1"/>
 
             <RefreshContainer Grid.Row="2">
-                <ListView ItemsSource="{x:Bind Items}" Margin="4,8">
+                <ListView ItemsSource="{x:Bind Items}" Margin="4,8,4,0">
                     <ListView.ItemContainerStyle>
                         <Style TargetType="ListViewItem" BasedOn="{StaticResource DefaultListViewItemStyle}">
                             <Setter Property="Padding" Value="12,10"/>
