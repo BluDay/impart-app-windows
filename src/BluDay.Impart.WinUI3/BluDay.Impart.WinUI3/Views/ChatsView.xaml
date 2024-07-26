@@ -201,6 +201,7 @@
 
                                     <TextBlock FontSize="12"
                                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                               HorizontalAlignment="Right"
                                                Text="20:00"
                                                Grid.Column="1"/>
 
