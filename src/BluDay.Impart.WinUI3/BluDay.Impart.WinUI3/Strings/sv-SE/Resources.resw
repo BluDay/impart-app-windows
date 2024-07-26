@@ -125,6 +125,18 @@
     <value>Impart (WinUI 3)</value>
     <comment>The default display name but with the platform name included.</comment>
   </data>
+  <data name="ChatsView.AllChatsGroupHeader.Text" xml:space="preserve">
+    <value>Alla chatter</value>
+  </data>
+  <data name="ChatsView.MainHeaderTextBlock.Text" xml:space="preserve">
+    <value>Chatter</value>
+  </data>
+  <data name="ChatsView.NewChatButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Ny chatt</value>
+  </data>
+  <data name="ChatsView.SearchChatsAutoSuggestBox.PlaceholderText" xml:space="preserve">
+    <value>Sök på chatter</value>
+  </data>
   <data name="MainWindow.DefaultTitle" xml:space="preserve">
     <value>Impart</value>
     <comment>The default title of the main window.</comment>
@@ -133,17 +145,11 @@
     <value>Impart (WinUI 3)</value>
     <comment>The default title of the main window but with the platform name included.</comment>
   </data>
-  <data name="NavigationView.AutoSuggestBox.PlaceholderText" xml:space="preserve">
-    <value>Sök på chatter, användare, eller filer.</value>
-  </data>
   <data name="NavigationView.Items.Chats.Content" xml:space="preserve">
     <value>Chatter</value>
   </data>
   <data name="NavigationView.Items.Contacts.Content" xml:space="preserve">
     <value>Kontakter</value>
-  </data>
-  <data name="NavigationView.Items.NewChat.Content" xml:space="preserve">
-    <value>Ny chatt</value>
   </data>
   <data name="NavigationView.Items.User.Content" xml:space="preserve">
     <value>Användare</value>

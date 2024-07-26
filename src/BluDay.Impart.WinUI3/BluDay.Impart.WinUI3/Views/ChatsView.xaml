@@ -34,7 +34,8 @@
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
 
-                    <TextBlock FontSize="20"
+                    <TextBlock x:Uid="ChatsView/MainHeaderTextBlock"
+                               FontSize="20"
                                Style="{ThemeResource TitleTextBlockStyle}"
                                Text="Chats"/>
 
@@ -52,7 +53,7 @@
                             </Style>
                         </StackPanel.Resources>
                         
-                        <Button ToolTipService.ToolTip="New chat">
+                        <Button x:Uid="ChatsView/NewChatButton" ToolTipService.ToolTip="New chat">
                             <Viewbox>
                                 <!-- e710 (Add) -->
                                 
@@ -70,14 +71,14 @@
                     </StackPanel>
                 </Grid>
 
-                <AutoSuggestBox PlaceholderText="Search for chats"
+                <AutoSuggestBox x:Uid="ChatsView/SearchChatsAutoSuggestBox"
                                 QueryIcon="Find"
                                 Grid.Row="1"/>
             </Grid>
 
-            <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+            <TextBlock x:Uid="ChatsView/AllChatsGroupHeader"
+                       Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                        Margin="16,0"
-                       Text="All chats"
                        Style="{StaticResource NavigationViewItemHeaderTextStyle}"
                        Grid.Row="1"/>
 
