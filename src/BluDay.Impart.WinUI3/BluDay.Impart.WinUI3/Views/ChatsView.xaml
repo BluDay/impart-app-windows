@@ -98,28 +98,28 @@
                                                     Title="Master Chief">
                                 <controls:ChatsListItem.ContextFlyout>
                                     <MenuFlyout>
-                                        <MenuFlyoutItem Text="Export">
+                                        <MenuFlyoutItem x:Uid="ChatsListItem/MenuFlyoutItem/Export">
                                             <MenuFlyoutItem.Icon>
                                                 <FontIcon Glyph="&#xede1;"/>
                                             </MenuFlyoutItem.Icon>
                                         </MenuFlyoutItem>
 
-                                        <MenuFlyoutSubItem Text="Mute">
+                                        <MenuFlyoutSubItem x:Uid="ChatsListItem/MenuFlyoutItem/Mute">
                                             <MenuFlyoutSubItem.Icon>
                                                 <!-- e767 (Volume) (Unmute) -->
 
                                                 <FontIcon Glyph="&#xe74f;"/>
                                             </MenuFlyoutSubItem.Icon>
 
-                                            <ToggleMenuFlyoutItem Text="For 10 minutes"/>
-                                            <ToggleMenuFlyoutItem Text="For 1 hour"/>
-                                            <ToggleMenuFlyoutItem Text="For 4 hours"/>
-                                            <ToggleMenuFlyoutItem Text="For 12 hours"/>
-                                            <ToggleMenuFlyoutItem Text="For 24 hours"/>
-                                            <ToggleMenuFlyoutItem Text="Until I turn it back on"/>
+                                            <ToggleMenuFlyoutItem x:Uid="ChatsListItem/MenuFlyoutItem/MuteItems/TenMinutes"/>
+                                            <ToggleMenuFlyoutItem x:Uid="ChatsListItem/MenuFlyoutItem/MuteItems/OneHour"/>
+                                            <ToggleMenuFlyoutItem x:Uid="ChatsListItem/MenuFlyoutItem/MuteItems/FourHours"/>
+                                            <ToggleMenuFlyoutItem x:Uid="ChatsListItem/MenuFlyoutItem/MuteItems/TwelveHours"/>
+                                            <ToggleMenuFlyoutItem x:Uid="ChatsListItem/MenuFlyoutItem/MuteItems/TwentyFourHours"/>
+                                            <ToggleMenuFlyoutItem x:Uid="ChatsListItem/MenuFlyoutItem/MuteItems/UntilITurnItBackOff"/>
                                         </MenuFlyoutSubItem>
 
-                                        <MenuFlyoutItem Text="Pin">
+                                        <MenuFlyoutItem x:Uid="ChatsListItem/MenuFlyoutItem/Pin">
                                             <MenuFlyoutItem.Icon>
                                                 <!-- e77a (Unpin) -->
 
@@ -127,7 +127,7 @@
                                             </MenuFlyoutItem.Icon>
                                         </MenuFlyoutItem>
 
-                                        <MenuFlyoutItem Text="Rename">
+                                        <MenuFlyoutItem x:Uid="ChatsListItem/MenuFlyoutItem/Rename">
                                             <MenuFlyoutItem.Icon>
                                                 <FontIcon Glyph="&#xe8ac;"/>
                                             </MenuFlyoutItem.Icon>
@@ -135,7 +135,7 @@
 
                                         <MenuFlyoutSeparator/>
 
-                                        <MenuFlyoutItem Text="Show profile">
+                                        <MenuFlyoutItem x:Uid="ChatsListItem/MenuFlyoutItem/ShowProfile">
                                             <MenuFlyoutItem.Icon>
                                                 <FontIcon Glyph="&#xe77b;"/>
                                             </MenuFlyoutItem.Icon>
@@ -143,13 +143,13 @@
 
                                         <MenuFlyoutSeparator/>
 
-                                        <MenuFlyoutItem Text="Archive">
+                                        <MenuFlyoutItem x:Uid="ChatsListItem/MenuFlyoutItem/Archive">
                                             <MenuFlyoutItem.Icon>
                                                 <FontIcon Glyph="&#xe7b8;"/>
                                             </MenuFlyoutItem.Icon>
                                         </MenuFlyoutItem>
 
-                                        <MenuFlyoutItem Text="Delete">
+                                        <MenuFlyoutItem x:Uid="ChatsListItem/MenuFlyoutItem/Delete">
                                             <MenuFlyoutItem.Icon>
                                                 <FontIcon Glyph="&#xe74d;"/>
                                             </MenuFlyoutItem.Icon>

@@ -137,6 +137,30 @@
   <data name="ChatsView.SearchChatsAutoSuggestBox.PlaceholderText" xml:space="preserve">
     <value>Search for chats</value>
   </data>
+  <data name="ChatsListItem.MenuFlyoutItem.Archive.Text" xml:space="preserve">
+    <value>Archive</value>
+  </data>
+  <data name="ChatsListItem.MenuFlyoutItem.Delete.Text" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="ChatsListItem.MenuFlyoutItem.Export.Text" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="ChatsListItem.MenuFlyoutItem.Mute.Text" xml:space="preserve">
+    <value>Mute</value>
+  </data>
+  <data name="ChatsListItem.MenuFlyoutItem.Pin.Text" xml:space="preserve">
+    <value>Pin</value>
+  </data>
+  <data name="ChatsListItem.MenuFlyoutItem.Rename.Text" xml:space="preserve">
+    <value>Rename</value>
+  </data>
+  <data name="ChatsListItem.MenuFlyoutItem.ShowProfile.Text" xml:space="preserve">
+    <value>Show profile</value>
+  </data>
+  <data name="ChatsListItem.MenuFlyoutItem.Unpin.Text" xml:space="preserve">
+    <value>Unpin</value>
+  </data>
   <data name="MainWindow.DefaultTitle" xml:space="preserve">
     <value>Impart</value>
     <comment>The default title of the main window.</comment>
@@ -153,5 +177,23 @@
   </data>
   <data name="NavigationView.Items.User.Content" xml:space="preserve">
     <value>User</value>
+  </data>
+  <data name="ChatsListItem.MenuFlyoutItem.MuteItems.FourHours.Text" xml:space="preserve">
+    <value>For 4 hours</value>
+  </data>
+  <data name="ChatsListItem.MenuFlyoutItem.MuteItems.OneHour.Text" xml:space="preserve">
+    <value>For 1 hour</value>
+  </data>
+  <data name="ChatsListItem.MenuFlyoutItem.MuteItems.TenMinutes.Text" xml:space="preserve">
+    <value>For 10 minutes</value>
+  </data>
+  <data name="ChatsListItem.MenuFlyoutItem.MuteItems.TwelveHours.Text" xml:space="preserve">
+    <value>For 12 hours</value>
+  </data>
+  <data name="ChatsListItem.MenuFlyoutItem.MuteItems.TwentyFourHours.Text" xml:space="preserve">
+    <value>For 24 hours</value>
+  </data>
+  <data name="ChatsListItem.MenuFlyoutItem.MuteItems.UntilITurnItBackOff.Text" xml:space="preserve">
+    <value>Until i turn it back off</value>
   </data>
 </root>
