@@ -92,13 +92,11 @@
 
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="x:Int32">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
-
-                                <Grid.ContextFlyout>
+                            <controls:ChatsListItem AvatarImage="https://avatarfiles.alphacoders.com/246/thumb-246644.jpg"
+                                                    ContentPreview="I need a weapon."
+                                                    DateTime="20:00"
+                                                    Title="Master Chief">
+                                <controls:ChatsListItem.ContextFlyout>
                                     <MenuFlyout>
                                         <MenuFlyoutItem Text="Export">
                                             <MenuFlyoutItem.Icon>
@@ -109,7 +107,7 @@
                                         <MenuFlyoutSubItem Text="Mute">
                                             <MenuFlyoutSubItem.Icon>
                                                 <!-- e767 (Volume) (Unmute) -->
-                                                
+
                                                 <FontIcon Glyph="&#xe74f;"/>
                                             </MenuFlyoutSubItem.Icon>
 
@@ -124,7 +122,7 @@
                                         <MenuFlyoutItem Text="Pin">
                                             <MenuFlyoutItem.Icon>
                                                 <!-- e77a (Unpin) -->
-                                                
+
                                                 <FontIcon Glyph="&#xe718;"/>
                                             </MenuFlyoutItem.Icon>
                                         </MenuFlyoutItem>
@@ -161,68 +159,8 @@
                                             </MenuFlyoutItem.KeyboardAccelerators>
                                         </MenuFlyoutItem>
                                     </MenuFlyout>
-                                </Grid.ContextFlyout>
-                                
-                                <Grid Height="36" Margin="0,0,4,0" Width="36">
-                                    <PersonPicture CornerRadius="32"
-                                                   DisplayName="Master Chief"
-                                                   Height="32"
-                                                   HorizontalAlignment="Center"
-                                                   ProfilePicture="https://avatarfiles.alphacoders.com/246/thumb-246644.jpg"
-                                                   VerticalAlignment="Center"
-                                                   Width="32"/>
-
-                                    <Ellipse Fill="Lime"
-                                             Height="14"
-                                             HorizontalAlignment="Right"
-                                             Stroke="#282828"
-                                             StrokeThickness="3"
-                                             VerticalAlignment="Bottom"
-                                             Width="14"/>
-                                </Grid>
-
-                                <Grid Padding="4,0" Grid.Column="1">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition/>
-                                        <ColumnDefinition Width="Auto"/>
-                                    </Grid.ColumnDefinitions>
-
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition/>
-                                        <RowDefinition/>
-                                    </Grid.RowDefinitions>
-
-                                    <TextBlock FontSize="14"
-                                               FontWeight="SemiBold"
-                                               Text="Master Chief"/>
-
-                                    <TextBlock FontSize="12"
-                                               Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                                               HorizontalAlignment="Right"
-                                               Text="20:00"
-                                               Grid.Column="1"/>
-
-                                    <TextBlock FontSize="12"
-                                               Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                                               MaxLines="1"
-                                               Text="I need a weapon."
-                                               TextWrapping="Wrap"
-                                               TextTrimming="CharacterEllipsis"
-                                               Grid.Row="1"/>
-
-                                    <Grid MinHeight="16"
-                                          HorizontalAlignment="Right"
-                                          Grid.Column="1"
-                                          Grid.Row="1">
-                                        <Ellipse Fill="{ThemeResource SystemAccentColor}"
-                                                 Height="10"
-                                                 HorizontalAlignment="Right"
-                                                 Margin="0,1"
-                                                 VerticalAlignment="Bottom"
-                                                 Width="10"/>
-                                    </Grid>
-                                </Grid>
-                            </Grid>
+                                </controls:ChatsListItem.ContextFlyout>
+                            </controls:ChatsListItem>
                         </DataTemplate>
                     </ListView.ItemTemplate>
 
