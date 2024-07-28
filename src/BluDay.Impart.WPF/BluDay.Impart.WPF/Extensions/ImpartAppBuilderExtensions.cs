@@ -5,6 +5,24 @@
 /// </summary>
 public static class ImpartAppBuilderExtensions
 {
+    /// <summary>
+    /// Builds and instantiates a core instance and creates an <see cref="App"/> instance.
+    /// </summary>
+    /// <param name="source">
+    /// The <see cref="ImpartAppBuilder"/> instance.
+    /// </param>
+    /// <returns>
+    /// An <see cref="ImpartApp"/> instance of the built app.
+    /// </returns>
+    public static ImpartApp CreateWpfApp(this ImpartAppBuilder source)
+    {
+        ImpartApp app = source.Build();
+
+        app.Initialize();
+
+        return app.CreateWpfApp();
+    }
+
     /// <param name="source">
     /// The <see cref="ImpartAppBuilder"/> instance.
     /// </param>
