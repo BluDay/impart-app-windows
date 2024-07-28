@@ -50,9 +50,11 @@ public sealed partial class App : Application
     }
 
     /// <summary>
-    /// Invokes when the applications starts.
+    /// Invoked when the application starts.
     /// </summary>
-    /// <param name="e">Event with a command-line args property.</param>
+    /// <param name="e">
+    /// An event with a command-line args property.
+    /// </param>
     protected override void OnStartup(StartupEventArgs e)
     {
         CreateMainWindow();
