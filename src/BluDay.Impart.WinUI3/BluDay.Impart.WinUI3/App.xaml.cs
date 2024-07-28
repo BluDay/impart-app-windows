@@ -66,6 +66,9 @@ public sealed partial class App : Application
 
         _mainWindow = _windowService.CreateWindow<Shell>(config);
 
+        // Temporary. Should configure this in the WindowConfiguration instance above.
+        (_mainWindow as Shell)!.AppWindow.MoveToCenter();
+
         _mainWindow.Activate();
     }
 
