@@ -65,6 +65,8 @@ public sealed partial class App : Application
         };
 
         _mainWindow = _windowService.CreateWindow<Shell>(config);
+
+        _mainWindow.Activate();
     }
 
     /// <summary>
@@ -75,15 +77,6 @@ public sealed partial class App : Application
     /// </param>
     protected override void OnLaunched(LaunchActivatedEventArgs e)
     {
-        _dispatcherQueue.TryEnqueue(() =>
-        {
-            CreateMainWindow();
-
-            ((Shell)_mainWindow!).AppWindow.MoveToCenter();
-
-            _mainWindow.Activate();
-
-            _mainWindow.ViewNavigator.Push<MainView>();
-        });
+        _dispatcherQueue.TryEnqueue(CreateMainWindow);
     }
 }

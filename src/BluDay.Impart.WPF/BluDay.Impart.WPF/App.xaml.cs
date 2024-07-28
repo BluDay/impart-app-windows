@@ -47,6 +47,8 @@ public sealed partial class App : Application
         };
 
         _mainWindow = _windowService.CreateWindow<Shell>(config);
+
+        _mainWindow.Activate();
     }
 
     /// <summary>
@@ -58,10 +60,6 @@ public sealed partial class App : Application
     protected override void OnStartup(StartupEventArgs e)
     {
         CreateMainWindow();
-
-        _mainWindow!.Activate();
-
-        _mainWindow.ViewNavigator.Push<MainView>();
 
         base.OnStartup(e);
     }
