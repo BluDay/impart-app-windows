@@ -32,6 +32,4 @@ ImpartApp
     .CreateBuilder(parsedArgs)
     .RegisterPlatformSpecificServices()
     .RegisterView<MainView>()
-    .Build()
-    .CreateWinui3App()
-    .Initialize();
+    .CreateWinui3App();
