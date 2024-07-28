@@ -39,14 +39,14 @@ public sealed partial class App : Application
     {
         if (_mainWindow is not null) return;
 
-        _mainWindow = _windowService.CreateWindow<Shell>();
-
-        _mainWindow.Configure(new WindowConfiguration()
+        WindowConfiguration config = new()
         {
             Title       = nameof(Impart),
             IsResizable = true,
             Size        = new Size(800, 640)
-        });
+        };
+
+        _mainWindow = _windowService.CreateWindow<Shell>(config);
     }
 
     /// <summary>
