@@ -53,6 +53,20 @@ public sealed class ImpartAppContainer : BluContainer
             .AddTransient<SettingsViewModel>()
             .AddTransient<ShellViewModel>()
             // Logging.
-            .AddLogging(ImpartApp.ConfigureLogging);
+            .AddLogging(ConfigureLogging);
+    }
+
+    /// <summary>
+    /// Configures the logger factory and provider.
+    /// </summary>
+    /// <param name="logging">
+    /// The logger builder instance.
+    /// </param>
+    private static void ConfigureLogging(ILoggingBuilder logging)
+    {
+        logging
+            .AddConsole()
+            .AddDebug()
+            .SetMinimumLevel(LogLevel.Debug);
     }
 }

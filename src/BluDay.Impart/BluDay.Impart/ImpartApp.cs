@@ -101,20 +101,6 @@ public sealed class ImpartApp
     }
 
     /// <summary>
-    /// Configures the logger factory and provider.
-    /// </summary>
-    /// <param name="logging">
-    /// The logger builder instance.
-    /// </param>
-    public static void ConfigureLogging(ILoggingBuilder logging)
-    {
-        logging
-            .AddConsole()
-            .AddDebug()
-            .SetMinimumLevel(LogLevel.Debug);
-    }
-
-    /// <summary>
     /// Creates a <see cref="ImpartAppBuilder"/> builder instance for building
     /// an <see cref="ImpartApp"/> instance.
     /// </summary>
