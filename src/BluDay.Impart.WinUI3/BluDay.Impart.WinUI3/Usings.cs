@@ -8,12 +8,11 @@ global using BluDay.Impart.WinUI3.Controls;
 global using BluDay.Impart.WinUI3.Views;
 global using BluDay.Impart.WinUI3.Windows;
 
-global using BluDay.Net.Abstractions.UI.Views;
-global using BluDay.Net.Abstractions.UI.Windowing;
-global using BluDay.Net.Abstractions.ViewModels;
 global using BluDay.Net.DependencyInjection;
 global using BluDay.Net.Services;
+global using BluDay.Net.ViewModels;
 global using BluDay.Net.UI.Navigation;
+global using BluDay.Net.UI.Views;
 global using BluDay.Net.UI.Windowing;
 
 global using Microsoft.Extensions.DependencyInjection;

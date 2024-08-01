@@ -8,13 +8,12 @@ global using BluDay.Impart.WPF.Extensions;
 global using BluDay.Impart.WPF.Views;
 global using BluDay.Impart.WPF.Windows;
 
-global using BluDay.Net.Abstractions.UI.Views;
-global using BluDay.Net.Abstractions.UI.Windowing;
-global using BluDay.Net.Abstractions.ViewModels;
 global using BluDay.Net.DependencyInjection;
-global using BluDay.Net.UI.Navigation;
-global using BluDay.Net.UI.Windowing;
 global using BluDay.Net.Services;
+global using BluDay.Net.ViewModels;
+global using BluDay.Net.UI.Navigation;
+global using BluDay.Net.UI.Views;
+global using BluDay.Net.UI.Windowing;
 
 global using Microsoft.Extensions.DependencyInjection;
 global using Microsoft.Extensions.Hosting;
