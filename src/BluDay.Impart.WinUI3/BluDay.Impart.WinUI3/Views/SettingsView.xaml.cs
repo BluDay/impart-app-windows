@@ -1,5 +1,3 @@
-using BluDay.Impart.Domain.ViewModels;
-
 namespace BluDay.Impart.WinUI3.Views;
 
 /// <summary>
