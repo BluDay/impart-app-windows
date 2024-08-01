@@ -28,7 +28,53 @@ SOFTWARE.
 
 ImpartAppArgs parsedArgs = new ImpartAppArgsParser().Parse(args);
 
-ImpartApp
-    .CreateBuilder(parsedArgs)
-    .RegisterPlatformSpecificServices()
-    .CreateWinui3App();
+HostApplicationBuilder builder = Host.CreateApplicationBuilder();
+
+IServiceCollection services = builder.Services;
+
+services
+    .AddSingleton<ImpartApp>()
+    .AddSingleton(parsedArgs);
+
+services
+    .AddSingleton<AppActivationService>()
+    .AddSingleton<AppDialogService>()
+    .AddSingleton<AppNavigationService>()
+    .AddSingleton<AppThemeService>()
+    .AddSingleton<AppWindowService>();
+
+services
+    .AddSingleton<App>()
+    .AddSingleton<ResourceLoader>()
+    .AddSingleton(WeakReferenceMessenger.Default);
+
+services
+    .AddSingleton<ImplementationProvider<IWindow>>();
+
+services
+    .AddScoped(_ => DispatcherQueue.GetForCurrentThread());
+
+services
+    .AddScoped<ChatsViewModel>()
+    .AddScoped<IntroViewModel>()
+    .AddScoped<MainViewModel>()
+    .AddScoped<SettingsViewModel>()
+    .AddScoped<ShellViewModel>();
+
+services
+    .AddTransient<Shell>()
+    .AddTransient<MainView>()
+    .AddTransient<SettingsView>();
+
+services
+    .AddLogging();
+
+builder.Logging
+    .AddConsole()
+    .AddDebug()
+    .SetMinimumLevel(LogLevel.Debug);
+
+IHost host = builder.Build();
+
+host.Start();
+host.CreateWinui3App<App>();

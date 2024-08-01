@@ -11,21 +11,16 @@ public sealed class ImpartApp
 
     private readonly ImpartAppArgs _args;
 
-    private readonly ImpartAppContainer _container;
-
     private readonly WeakReferenceMessenger _messenger;
 
     private readonly ILogger _logger;
+
+    private readonly IServiceProvider _services;
 
     /// <summary>
     /// Gets instance of parsed command-line arguments.
     /// </summary>
     public ImpartAppArgs Args => _args;
-
-    /// <summary>
-    /// Gets the DI container instance.
-    /// </summary>
-    public ImpartAppContainer Container => _container;
 
     /// <summary>
     /// Gets a value indicating whether the app has been disposed.
@@ -38,13 +33,15 @@ public sealed class ImpartApp
     public bool IsInitialized => _isInitialized;
 
     /// <summary>
+    /// Gets the service provider for the root scope of the DI container.
+    /// </summary>
+    public IServiceProvider Services => _services;
+
+    /// <summary>
     /// Initializes a new instance with a parsed command-line arguments instance.
     /// </summary>
     /// <param name="args">
     /// An instance of parsed command-line arguments.
-    /// </param>
-    /// <param name="container">
-    /// The app-specific DI container instance.
     /// </param>
     /// <param name="messenger">
     /// The weak reference messaging service.
@@ -52,19 +49,22 @@ public sealed class ImpartApp
     /// <param name="logger">
     /// The logger instance.
     /// </param>
+    /// <param name="services">
+    /// The root service provider of the DI container
+    /// </param>
     public ImpartApp(
         ImpartAppArgs          args,
-        ImpartAppContainer     container,
         WeakReferenceMessenger messenger,
-        ILogger<ImpartApp>     logger)
+        ILogger<ImpartApp>     logger,
+        IServiceProvider       services)
     {
         _args = args;
-
-        _container = container;
 
         _messenger = messenger;
 
         _logger = logger;
+
+        _services = services;
     }
 
     /// <summary>
@@ -99,19 +99,4 @@ public sealed class ImpartApp
 
         _isInitialized = true;
     }
-
-    /// <summary>
-    /// Creates a <see cref="ImpartAppBuilder"/> builder instance for building
-    /// an <see cref="ImpartApp"/> instance.
-    /// </summary>
-    /// <returns>
-    /// A <see cref="ImpartAppBuilder"/> instance for creating the app.
-    /// </returns>
-    public static ImpartAppBuilder CreateBuilder() => new();
-
-    /// <param name="args">
-    /// An <see cref="ImpartAppArgs"/> instance with parsed command-line arguments.
-    /// </param>
-    /// <inheritdoc cref="CreateBuilder()"/>
-    public static ImpartAppBuilder CreateBuilder(ImpartAppArgs args) => new(args);
 }
