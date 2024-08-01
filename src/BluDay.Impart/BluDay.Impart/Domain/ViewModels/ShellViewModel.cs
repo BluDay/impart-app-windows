@@ -1,4 +1,4 @@
-﻿namespace BluDay.Impart.ViewModels;
+﻿namespace BluDay.Impart.Domain.ViewModels;
 
 /// <summary>
 /// View model for an window or shell.

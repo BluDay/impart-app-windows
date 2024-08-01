@@ -26,6 +26,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
+using BluDay.Impart.Domain.ViewModels;
+
 ImpartAppArgs parsedArgs = new ImpartAppArgsParser().Parse(args);
 
 HostApplicationBuilder builder = Host.CreateApplicationBuilder();
