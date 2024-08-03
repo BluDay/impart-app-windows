@@ -19,10 +19,10 @@ public sealed partial class ChatsView : View
     // Temporary. Used to prevent the spinner loading animation from glitching.
     private async void RefreshContainer_RefreshRequested(RefreshContainer sender, RefreshRequestedEventArgs args)
     {
-        Deferral defferal = args.GetDeferral();
+        Deferral deferral = args.GetDeferral();
 
         await System.Threading.Tasks.Task.Delay(1000);
 
-        defferal.Complete();
+        deferral.Complete();
     }
 }
