@@ -7,6 +7,7 @@
                xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                xmlns:controls="using:BluDay.Impart.WinUI3.Controls"
+               xmlns:models="using:BluDay.Impart.Domain.Models"
                xmlns:viewModels="using:BluDay.Impart.Domain.ViewModels"
                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Grid>
@@ -91,11 +92,11 @@
                     </ListView.ItemContainerStyle>
 
                     <ListView.ItemTemplate>
-                        <DataTemplate x:DataType="x:Int32">
-                            <controls:ChatsListItem AvatarImage="https://avatarfiles.alphacoders.com/246/thumb-246644.jpg"
-                                                    ContentPreview="I need a weapon."
+                        <DataTemplate x:DataType="models:ChatModel">
+                            <controls:ChatsListItem AvatarImage="{x:Bind AvatarImageUrl}"
+                                                    ContentPreview="{x:Bind ContentPreview}"
                                                     DateTime="20:00"
-                                                    Title="Master Chief">
+                                                    Title="{x:Bind Title}">
                                 <controls:ChatsListItem.ContextFlyout>
                                     <MenuFlyout>
                                         <MenuFlyoutItem x:Uid="ChatsListItem/MenuFlyoutItem/Export">
