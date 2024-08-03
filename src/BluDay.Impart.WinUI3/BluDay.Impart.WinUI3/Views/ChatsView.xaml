@@ -83,6 +83,20 @@
                        Style="{StaticResource NavigationViewItemHeaderTextStyle}"
                        Grid.Row="1"/>
 
+            <RichTextBlock FontSize="12"
+                           Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                           HorizontalAlignment="Center"
+                           TextAlignment="Center"
+                           VerticalAlignment="Center"
+                           Visibility="Collapsed"
+                           Grid.Row="2">
+                <Paragraph>
+                    No chats.
+                    <LineBreak/>
+                    Let's create some!
+                </Paragraph>
+            </RichTextBlock>
+
             <RefreshContainer RefreshRequested="RefreshContainer_RefreshRequested" Grid.Row="2">
                 <ListView ItemsSource="{Binding Items}" Margin="4,8,4,0">
                     <ListView.ItemContainerStyle>
