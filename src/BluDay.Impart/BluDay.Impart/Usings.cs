@@ -13,4 +13,5 @@ global using BluDay.Net.UI.Appearance;
 
 global using Microsoft.Extensions.Logging;
 
+global using System.Collections.ObjectModel;
 global using System.ComponentModel.DataAnnotations;
