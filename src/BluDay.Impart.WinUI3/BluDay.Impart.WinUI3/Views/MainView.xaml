@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<controls:View d:DataContext="{d:DesignInstance Type=viewModels:MainViewModel}"
-               mc:Ignorable="d"
-               x:Class="BluDay.Impart.WinUI3.Views.MainView"
-               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-               xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-               xmlns:controls="using:BluDay.Impart.WinUI3.Controls"
-               xmlns:viewModels="using:BluDay.Impart.Domain.ViewModels"
-               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<bluControls:View d:DataContext="{d:DesignInstance Type=impartViewModels:MainViewModel}"
+                  mc:Ignorable="d"
+                  x:Class="BluDay.Impart.WinUI3.Views.MainView"
+                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                  xmlns:bluControls="using:BluDay.Net.WinUI3.Controls"
+                  xmlns:impartViewModels="using:BluDay.Impart.Domain.ViewModels"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <NavigationView x:Name="NavigationView"
                     OpenPaneLength="200"
                     PaneDisplayMode="Left"
@@ -46,4 +46,4 @@
             </NavigationViewItem>
         </NavigationView.FooterMenuItems>
     </NavigationView>
-</controls:View>
+</bluControls:View>

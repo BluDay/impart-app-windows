@@ -5,7 +5,7 @@
 /// </summary>
 public sealed partial class App : Application
 {
-    private IWindow? _mainWindow;
+    private Shell? _mainWindow;
 
     private readonly AppWindowService _windowService;
 
@@ -14,6 +14,8 @@ public sealed partial class App : Application
     private readonly DispatcherQueue _dispatcherQueue;
 
     private readonly ResourceLoader _resourceLoader;
+
+    private readonly IServiceProvider _rootServiceProvider;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="App"/> class.
@@ -30,11 +32,15 @@ public sealed partial class App : Application
     /// <param name="logger">
     /// The logger instance.
     /// </param>
+    /// <param name="rootServiceProvider">
+    /// The service provider instance for the root scope of the DI container.
+    /// </param>
     public App(
         DispatcherQueue  dispatcherQueue,
         AppWindowService windowService,
         ResourceLoader   resourceLoader,
-        ILogger<App>     logger)
+        ILogger<App>     logger,
+        IServiceProvider rootServiceProvider)
     {
         _windowService = windowService;
 
@@ -43,6 +49,8 @@ public sealed partial class App : Application
         _dispatcherQueue = dispatcherQueue;
 
         _resourceLoader = resourceLoader;
+
+        _rootServiceProvider = rootServiceProvider;
 
         InitializeComponent();
     }
@@ -57,19 +65,22 @@ public sealed partial class App : Application
     {
         if (_mainWindow is not null) return;
 
-        WindowConfiguration config = new()
+        // TODO: Use AppWindowService to instantiate a tracked window instance.
+        _mainWindow = _rootServiceProvider.GetRequiredService<Shell>();
+
+        ShellViewModel viewModel = _mainWindow.ViewModel;
+
+        viewModel.DefaultConfiguration = new WindowConfiguration
         {
-            Title       = _resourceLoader.GetString("MainWindow/DefaultTitle"),
-            IsResizable = true,
-            Size        = new System.Drawing.Size(1600, 1280)
+            Title                      = _resourceLoader.GetString("MainWindow/DefaultTitle"),
+            ExtendsContentIntoTitleBar = true,
+            IconPath                   = "Assets/Icon-64.ico",
+            Size                       = new SizeInt32(1600, 1200),
+            Alignment                  = ContentAlignment.MiddleCenter
         };
 
-        _mainWindow = _windowService.CreateWindow<Shell>(config);
-
-        // Temporary. Should configure this in the WindowConfiguration instance above.
-        (_mainWindow as Shell)!.AppWindow.MoveToCenter();
-
-        _mainWindow.Activate();
+        viewModel.ApplyDefaultConfiguration();
+        viewModel.Activate();
     }
 
     /// <summary>
