@@ -44,12 +44,12 @@ services
     .AddSingleton<AppWindowService>();
 
 services
+    .AddSingleton<ImplementationProvider<IBluWindow>>();
+
+services
     .AddSingleton<App>()
     .AddSingleton<ResourceLoader>()
     .AddSingleton(WeakReferenceMessenger.Default);
-
-services
-    .AddSingleton<ImplementationProvider<IBluWindow>>();
 
 services
     .AddScoped(_ => DispatcherQueue.GetForCurrentThread());
