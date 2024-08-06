@@ -22,9 +22,6 @@
     <DefineConstants>DISABLE_XAML_GENERATED_MAIN</DefineConstants>
     <UseCommonOutputDirectory>true</UseCommonOutputDirectory>
   </PropertyGroup>
-  <ItemGroup>
-    <None Remove="BluDay.Impart.WinUI3\Controls\Shell.xaml" />
-  </ItemGroup>
   
   <ItemGroup>
     <Reference Include="BluDay.Net">
@@ -50,42 +47,6 @@
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.1" />
     <PackageReference Include="System.Drawing.Common" Version="8.0.7" />
     <Manifest Include="$(ApplicationManifest)" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Page Remove="BluDay.Impart.WinUI3\App.xaml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ApplicationDefinition Include="BluDay.Impart.WinUI3\App.xaml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Page Update="BluDay.Impart.WinUI3\Controls\Shell.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  
-  <ItemGroup>
-    <Page Update="BluDay.Impart.WinUI3\Views\ConversationsPage.xaml">
-      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-      <SubType>Designer</SubType>
-    </Page>
-    
-    <Page Update="BluDay.Impart.WinUI3\Views\IntroductionPage.xaml">
-      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-      <SubType>Designer</SubType>
-    </Page>
-    
-    <Page Update="BluDay.Impart.WinUI3\Views\MainPage.xaml">
-      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-      <SubType>Designer</SubType>
-    </Page>
-    
-    <Page Update="BluDay.Impart.WinUI3\Views\SettingsPage.xaml">
-      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-      <SubType>Designer</SubType>
-    </Page>
   </ItemGroup>
   
   <!-- 

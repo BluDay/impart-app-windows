@@ -3,10 +3,8 @@
 /// <summary>
 /// Represents a <see cref="UserControl"/> instance for a view.
 /// </summary>
-public abstract partial class View : UserControl, IView
+public abstract partial class View : UserControl
 {
-    public IViewModel? ViewModel { get; }
-
     public Guid? WindowId { get; private set; }
 
     /// <summary>
@@ -18,11 +16,11 @@ public abstract partial class View : UserControl, IView
     /// <exception cref="ArgumentNullException">
     /// If <paramref name="viewModel"/> is null.
     /// </exception>
-    public View(IViewModel viewModel)
+    public View(ViewModel viewModel)
     {
         ArgumentNullException.ThrowIfNull(viewModel);
 
-        DataContext = ViewModel = viewModel;
+        DataContext = viewModel;
     }
 
     /// <summary>
