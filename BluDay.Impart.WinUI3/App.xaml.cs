@@ -15,8 +15,6 @@ public sealed partial class App : Application
 
     private readonly ResourceLoader _resourceLoader;
 
-    private readonly IServiceProvider _rootServiceProvider;
-
     /// <summary>
     /// Initializes a new instance of the <see cref="App"/> class.
     /// </summary>
@@ -32,15 +30,11 @@ public sealed partial class App : Application
     /// <param name="logger">
     /// The logger instance.
     /// </param>
-    /// <param name="rootServiceProvider">
-    /// The service provider instance for the root scope of the DI container.
-    /// </param>
     public App(
         AppWindowService windowService,
         DispatcherQueue  dispatcherQueue,
         ResourceLoader   resourceLoader,
-        ILogger<App>     logger,
-        IServiceProvider rootServiceProvider)
+        ILogger<App>     logger)
     {
         _windowService = windowService;
 
@@ -49,8 +43,6 @@ public sealed partial class App : Application
         _dispatcherQueue = dispatcherQueue;
 
         _resourceLoader = resourceLoader;
-
-        _rootServiceProvider = rootServiceProvider;
 
         InitializeComponent();
     }
