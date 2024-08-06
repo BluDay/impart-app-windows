@@ -26,8 +26,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-using BluDay.Impart.Domain.ViewModels;
-
 ImpartAppArgs parsedArgs = new ImpartAppArgsParser().Parse(args);
 
 HostApplicationBuilder builder = Host.CreateApplicationBuilder();
@@ -50,14 +48,13 @@ services
     .AddSingleton(WeakReferenceMessenger.Default);
 
 services
-    .AddSingleton<ImplementationProvider<IWindow>>();
+    .AddSingleton<ImplementationProvider<IBluWindow>>();
 
 services
     .AddScoped<ChatsViewModel>()
     .AddScoped<IntroViewModel>()
     .AddScoped<MainViewModel>()
-    .AddScoped<SettingsViewModel>()
-    .AddScoped<ShellViewModel>();
+    .AddScoped<SettingsViewModel>();
 
 services
     .AddTransient<Shell>()
