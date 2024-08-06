@@ -1,5 +1,5 @@
 ﻿<Window mc:Ignorable="d"
-        x:Class="BluDay.Impart.WPF.Windows.Shell"
+        x:Class="BluDay.Impart.WPF.Controls.Shell"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,8 +7,7 @@
         Height="600"
         Width="800"
         WindowStartupLocation="CenterScreen">
-    <TextBlock d:Text="Window"
-               Text="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
+    <TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
                HorizontalAlignment="Center"
                VerticalAlignment="Center"/>
 </Window>
