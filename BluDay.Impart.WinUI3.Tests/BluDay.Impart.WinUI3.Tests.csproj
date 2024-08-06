@@ -11,7 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\BluDay.Impart.WinUI3\BluDay.Impart.WinUI3.csproj" />
+    <ProjectReference Include="..\BluDay.Impart.WinUI3\BluDay.Impart.WinUI3.csproj" />
   </ItemGroup>
 
   <ItemGroup>

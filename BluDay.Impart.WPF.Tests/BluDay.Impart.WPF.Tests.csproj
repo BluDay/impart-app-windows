@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\BluDay.Impart.WPF\BluDay.Impart.WPF.csproj" />
+    <ProjectReference Include="..\BluDay.Impart.WPF\BluDay.Impart.WPF.csproj" />
   </ItemGroup>
 
   <ItemGroup>
