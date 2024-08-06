@@ -3,7 +3,7 @@
 /// <summary>
 /// Interaction logic for ChatsView.xaml
 /// </summary>
-public sealed partial class ChatsView : View
+public sealed partial class ChatsView : BluControls.View
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="ChatsView"/> class.

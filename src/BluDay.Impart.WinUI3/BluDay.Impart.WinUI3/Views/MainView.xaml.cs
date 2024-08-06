@@ -3,7 +3,7 @@ namespace BluDay.Impart.WinUI3.Views;
 /// <summary>
 /// Interaction logic for MainView.xaml
 /// </summary>
-public sealed partial class MainView : View
+public sealed partial class MainView : BluControls.View
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="MainView"/> class.
@@ -14,7 +14,5 @@ public sealed partial class MainView : View
     public MainView(MainViewModel viewModel) : base(viewModel)
     {
         InitializeComponent();
-
-        ContentControl.Content = new ChatsView(new ChatsViewModel(WeakReferenceMessenger.Default));
     }
 }
