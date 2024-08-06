@@ -13,29 +13,21 @@
     <Product>$(Title)</Product>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageProjectUrl>https://github.com/BluDay/impart</PackageProjectUrl>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
     <Copyright>© BluDay 2024</Copyright>
     <ApplicationIcon>Assets\Icon-64.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <Reference Include="BluDay.Net">
-      <HintPath>..\..\..\bluday-dotnet\src\BluDay.Net\bin\x64\Debug\net8.0\BluDay.Net.dll</HintPath>
+      <HintPath>..\..\bluday-dotnet\BluDay.Net\bin\x64\Debug\net8.0\BluDay.Net.dll</HintPath>
     </Reference>
-  </ItemGroup>
-  
-  <ItemGroup>
-    <None Include="..\..\README.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-  </ItemGroup>
-  
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\BluDay.Impart\BluDay.Impart.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
   </ItemGroup>
 </Project>
