@@ -5,6 +5,48 @@ namespace BluDay.Impart.WinUI3.Controls;
 /// </summary>
 public sealed partial class ChatsListItem : UserControl
 {
+    #region Dependency properties
+    /// <summary>
+    /// Identifies the AvatarImage dependency property.
+    /// </summary>
+    public static DependencyProperty AvatarImageProperty = DependencyProperty.Register(
+        nameof(AvatarImage),
+        typeof(ImageSource),
+        typeof(ChatsListItem),
+        new PropertyMetadata(defaultValue: null)
+    );
+
+    /// <summary>
+    /// Identifies the ContentPreview dependency property.
+    /// </summary>
+    public static DependencyProperty ContentPreviewProperty = DependencyProperty.Register(
+        nameof(ContentPreview),
+        typeof(string),
+        typeof(ChatsListItem),
+        new PropertyMetadata(defaultValue: null)
+    );
+
+    /// <summary>
+    /// Identifies the DateTime dependency property.
+    /// </summary>
+    public static DependencyProperty DateTimeProperty = DependencyProperty.Register(
+        nameof(DateTime),
+        typeof(string),
+        typeof(ChatsListItem),
+        new PropertyMetadata(defaultValue: null)
+    );
+
+    /// <summary>
+    /// Identifies the Title dependency property.
+    /// </summary>
+    public static DependencyProperty TitleProperty = DependencyProperty.Register(
+        nameof(Title),
+        typeof(string),
+        typeof(ChatsListItem),
+        new PropertyMetadata(defaultValue: null)
+    );
+    #endregion
+
     /// <summary>
     /// Gets the avatar image URL.
     /// </summary>
@@ -45,47 +87,4 @@ public sealed partial class ChatsListItem : UserControl
     /// Initializes a new instance of the <see cref="ChatsListItem"/> class.
     /// </summary>
     public ChatsListItem() => InitializeComponent();
-}
-
-public sealed partial class ChatsListItem
-{
-    /// <summary>
-    /// Identifies the AvatarImage dependency property.
-    /// </summary>
-    public static DependencyProperty AvatarImageProperty = DependencyProperty.Register(
-        nameof(AvatarImage),
-        typeof(ImageSource),
-        typeof(ChatsListItem),
-        new PropertyMetadata(defaultValue: null)
-    );
-
-    /// <summary>
-    /// Identifies the ContentPreview dependency property.
-    /// </summary>
-    public static DependencyProperty ContentPreviewProperty = DependencyProperty.Register(
-        nameof(ContentPreview),
-        typeof(string),
-        typeof(ChatsListItem),
-        new PropertyMetadata(defaultValue: null)
-    );
-
-    /// <summary>
-    /// Identifies the DateTime dependency property.
-    /// </summary>
-    public static DependencyProperty DateTimeProperty = DependencyProperty.Register(
-        nameof(DateTime),
-        typeof(string),
-        typeof(ChatsListItem),
-        new PropertyMetadata(defaultValue: null)
-    );
-
-    /// <summary>
-    /// Identifies the Title dependency property.
-    /// </summary>
-    public static DependencyProperty TitleProperty = DependencyProperty.Register(
-        nameof(Title),
-        typeof(string),
-        typeof(ChatsListItem),
-        new PropertyMetadata(defaultValue: null)
-    );
 }
