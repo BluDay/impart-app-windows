@@ -20,7 +20,6 @@
     <RepositoryUrl>https://github.com/BluDay/impart-app-windows</RepositoryUrl>
     <ApplicationIcon>Assets\Icon-64.ico</ApplicationIcon>
     <DefineConstants>DISABLE_XAML_GENERATED_MAIN</DefineConstants>
-    <UseCommonOutputDirectory>true</UseCommonOutputDirectory>
   </PropertyGroup>
   
   <ItemGroup>
