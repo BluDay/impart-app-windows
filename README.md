@@ -14,4 +14,4 @@ Windows desktop clients for [Impart](https://github.com/BluDay/impart).
 
 Screenshot from 2024-07-27:
 
-<img src="/assets/screenshots/0.png?raw=true" width="800"/>
+<img src="https://raw.githubusercontent.com/BluDay/impart/main/assets/screenshots/2.png?raw=true" width="800"/>
