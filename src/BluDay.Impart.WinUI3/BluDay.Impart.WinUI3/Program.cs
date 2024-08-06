@@ -49,7 +49,7 @@ services
     .AddSingleton(WeakReferenceMessenger.Default);
 
 services
-    .AddSingleton<ImplementationProvider<IWindow>>();
+    .AddSingleton<ImplementationProvider<IBluWindow>>();
 
 services
     .AddScoped(_ => DispatcherQueue.GetForCurrentThread());

@@ -20,11 +20,11 @@ public sealed partial class App : Application
     /// <summary>
     /// Initializes a new instance of the <see cref="App"/> class.
     /// </summary>
-    /// <param name="dispatcherQueue">
-    /// The main <see cref="DispatcherQueue"/> instance for the app.
-    /// </param>
     /// <param name="windowService">
     /// The window service.
+    /// </param>
+    /// <param name="dispatcherQueue">
+    /// The main <see cref="DispatcherQueue"/> instance for the app.
     /// </param>
     /// <param name="resourceLoader">
     /// The default app resource loader instance.
@@ -36,8 +36,8 @@ public sealed partial class App : Application
     /// The service provider instance for the root scope of the DI container.
     /// </param>
     public App(
-        DispatcherQueue  dispatcherQueue,
         AppWindowService windowService,
+        DispatcherQueue  dispatcherQueue,
         ResourceLoader   resourceLoader,
         ILogger<App>     logger,
         IServiceProvider rootServiceProvider)
@@ -65,8 +65,7 @@ public sealed partial class App : Application
     {
         if (_mainWindow is not null) return;
 
-        // TODO: Use AppWindowService to instantiate a tracked window instance.
-        _mainWindow = _rootServiceProvider.GetRequiredService<Shell>();
+        _mainWindow = _windowService.CreateWindow<Shell>();
 
         ShellViewModel viewModel = _mainWindow.ViewModel;
 
@@ -75,7 +74,7 @@ public sealed partial class App : Application
             Title                      = _resourceLoader.GetString("MainWindow/DefaultTitle"),
             ExtendsContentIntoTitleBar = true,
             IconPath                   = "Assets/Icon-64.ico",
-            Size                       = new SizeInt32(1600, 1200),
+            Size                       = new SizeInt32(1600, 1280),
             Alignment                  = ContentAlignment.MiddleCenter
         };
 

@@ -20,7 +20,11 @@
     <RepositoryUrl>https://github.com/BluDay/impart-app-windows</RepositoryUrl>
     <ApplicationIcon>Assets\Icon-64.ico</ApplicationIcon>
     <DefineConstants>DISABLE_XAML_GENERATED_MAIN</DefineConstants>
+    <UseCommonOutputDirectory>true</UseCommonOutputDirectory>
   </PropertyGroup>
+  <ItemGroup>
+    <None Remove="BluDay.Impart.WinUI3\Controls\Shell.xaml" />
+  </ItemGroup>
   
   <ItemGroup>
     <Reference Include="BluDay.Net">
@@ -54,6 +58,12 @@
 
   <ItemGroup>
     <ApplicationDefinition Include="BluDay.Impart.WinUI3\App.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="BluDay.Impart.WinUI3\Controls\Shell.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   
   <ItemGroup>
