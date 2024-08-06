@@ -5,7 +5,7 @@
 /// </summary>
 public sealed partial class App : Application
 {
-    private IWindow? _mainWindow;
+    private Shell? _mainWindow;
 
     private readonly AppWindowService _windowService;
 
@@ -39,14 +39,9 @@ public sealed partial class App : Application
     {
         if (_mainWindow is not null) return;
 
-        WindowConfiguration config = new()
-        {
-            Title       = nameof(Impart),
-            IsResizable = true,
-            Size        = new Size(800, 640)
-        };
+        _mainWindow = _windowService.CreateWindow<Shell>();
 
-        _mainWindow = _windowService.CreateWindow<Shell>(config);
+        // TODO: Configure the window.
 
         _mainWindow.Activate();
     }
