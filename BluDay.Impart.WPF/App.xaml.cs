@@ -43,7 +43,10 @@ public sealed partial class App : Application
 
         // TODO: Configure the window.
 
+        _mainWindow.Title = nameof(Impart);
+
         _mainWindow.Activate();
+        _mainWindow.Show();
     }
 
     /// <summary>
