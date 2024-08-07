@@ -15,7 +15,7 @@ public sealed class ImpartApp
 
     private readonly ILogger _logger;
 
-    private readonly IServiceProvider _services;
+    private readonly IServiceProvider _rootServiceProvider;
 
     /// <summary>
     /// Gets instance of parsed command-line arguments.
@@ -35,7 +35,7 @@ public sealed class ImpartApp
     /// <summary>
     /// Gets the service provider for the root scope of the DI container.
     /// </summary>
-    public IServiceProvider Services => _services;
+    public IServiceProvider Services => _rootServiceProvider;
 
     /// <summary>
     /// Initializes a new instance with a parsed command-line arguments instance.
@@ -49,14 +49,14 @@ public sealed class ImpartApp
     /// <param name="logger">
     /// The logger instance.
     /// </param>
-    /// <param name="services">
+    /// <param name="rootServiceProvider">
     /// The root service provider of the DI container
     /// </param>
     public ImpartApp(
         ImpartAppArgs          args,
         WeakReferenceMessenger messenger,
         ILogger<ImpartApp>     logger,
-        IServiceProvider       services)
+        IServiceProvider       rootServiceProvider)
     {
         _args = args;
 
@@ -64,7 +64,7 @@ public sealed class ImpartApp
 
         _logger = logger;
 
-        _services = services;
+        _rootServiceProvider = rootServiceProvider;
     }
 
     /// <summary>
