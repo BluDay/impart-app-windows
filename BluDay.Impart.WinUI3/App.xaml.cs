@@ -67,7 +67,7 @@ public sealed partial class App : Application
         {
             Title                      = _resourceLoader.GetString("MainWindow/DefaultTitle"),
             ExtendsContentIntoTitleBar = true,
-            IconPath                   = "Assets/Icon-64.ico",
+            IconPath                   = "ms-appx:///Assets/Icon-64.ico",
             Size                       = new SizeInt32(1600, 1280),
             Alignment                  = ContentAlignment.MiddleCenter
         };
