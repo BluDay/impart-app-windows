@@ -7,4 +7,7 @@
                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                    xmlns:bluControls="using:BluDay.Net.WinUI3.Controls">
+    <bluControls:Shell.SystemBackdrop>
+        <MicaBackdrop Kind="Base"/>
+    </bluControls:Shell.SystemBackdrop>
 </bluControls:Shell>
