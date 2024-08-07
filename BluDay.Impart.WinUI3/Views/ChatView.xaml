@@ -10,9 +10,25 @@
              xmlns:viewModels="using:BluDay.Impart.Domain.ViewModels"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Grid>
-        <TextBlock HorizontalAlignment="Center"
-                   Text="{x:Bind}"
-                   VerticalAlignment="Center"
-                   Grid.Column="1"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <StackPanel Margin="16" Orientation="Horizontal" Spacing="8">
+            <TextBlock FontSize="24"
+                       Margin="4,0,0,0"
+                       Text="Master Chief"
+                       Style="{ThemeResource TitleTextBlockStyle}"/>
+        </StackPanel>
+
+        <ListView Grid.Row="1">
+            <!-- ( 0 _ o ) -->
+        </ListView>
+        
+        <Grid Margin="20" Grid.Row="2">
+            <RichEditBox MaxHeight="200" PlaceholderText="Enter message"/>
+        </Grid>
     </Grid>
 </UserControl>
