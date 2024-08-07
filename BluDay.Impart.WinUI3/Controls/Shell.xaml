@@ -23,7 +23,7 @@
                            Icon="{x:Bind ViewModel.IconPath}"
                            Title="{x:Bind ViewModel.Title}"/>
 
-        <ContentControl Content="{x:Bind ViewModel.CurrentChild}"
+        <ContentControl x:Name="ViewContentControl"
                         HorizontalContentAlignment="Stretch"
                         VerticalContentAlignment="Stretch"
                         Grid.Row="1">

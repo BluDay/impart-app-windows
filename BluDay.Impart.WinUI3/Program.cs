@@ -63,6 +63,8 @@ services
 
 services
     .AddTransient<Shell>()
+    .AddTransient<ChatsView>()
+    .AddTransient<IntroView>()
     .AddTransient<MainView>()
     .AddTransient<SettingsView>();
 

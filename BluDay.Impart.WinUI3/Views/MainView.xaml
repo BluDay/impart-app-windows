@@ -19,7 +19,7 @@
             </NavigationViewItem>
         </NavigationView.MenuItems>
 
-        <ContentControl x:Name="ContentControl"
+        <ContentControl x:Name="ViewContentControl"
                         VerticalContentAlignment="Stretch"
                         HorizontalContentAlignment="Stretch">
             <ContentControl.ContentTransitions>

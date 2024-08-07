@@ -21,15 +21,17 @@ public sealed partial class Shell : Window, IBluNavigableWindow
     /// <param name="viewModel">
     /// The view model instance.
     /// </param>
-    public Shell(ShellViewModel viewModel)
+    public Shell(ShellViewModel viewModel, MainView mainView)
     {
         ViewModel = viewModel;
+
+        InitializeComponent();
 
         viewModel.SetWindow(this);
 
         viewModel.TitleBarControl = AppTitleBar;
 
-        InitializeComponent();
+        ViewContentControl.Content = mainView;
     }
 
     public void Resize(int width, int height)
