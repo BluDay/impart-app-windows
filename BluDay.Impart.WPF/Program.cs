@@ -44,11 +44,11 @@ services
     .AddSingleton<AppWindowService>();
 
 services
-    .AddSingleton<App>()
+    .AddSingleton<ImplementationProvider<IBluWindow>>()
     .AddSingleton(WeakReferenceMessenger.Default);
 
 services
-    .AddSingleton<ImplementationProvider<IBluWindow>>();
+    .AddSingleton<App>();
 
 services
     .AddScoped<ChatsViewModel>()
