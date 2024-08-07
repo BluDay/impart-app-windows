@@ -12,7 +12,7 @@ public sealed partial class MainView : View
     /// <param name="viewModel">
     /// A transient <see cref="MainViewModel"/> instance.
     /// </param>
-    public MainView(MainViewModel viewModel) : base(viewModel)
+    public MainView(MainViewModel viewModel)
     {
         InitializeComponent();
     }

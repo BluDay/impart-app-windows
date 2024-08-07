@@ -33,7 +33,7 @@
       <HintPath>..\..\bluday-dotnet-winui3\BluDay.Net.WinUI3\bin\x64\Debug\net8.0-windows10.0.22000.0\BluDay.Net.WinUI3.dll</HintPath>
     </Reference>
   </ItemGroup>
-
+  
   <ItemGroup>
     <ProjectReference Include="..\BluDay.Impart\BluDay.Impart.csproj" />
   </ItemGroup>
