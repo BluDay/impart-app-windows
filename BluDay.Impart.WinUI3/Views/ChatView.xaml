@@ -20,7 +20,7 @@
             <controls:UserAvatar DisplayName="{x:Bind Recipient.DisplayName}"
                                  Image="{x:Bind Recipient.AvatarImageUrl}"/>
             
-            <TextBlock FontSize="20"
+            <TextBlock FontSize="16"
                        Text="Master Chief"
                        Style="{ThemeResource TitleTextBlockStyle}"
                        VerticalAlignment="Center"/>
