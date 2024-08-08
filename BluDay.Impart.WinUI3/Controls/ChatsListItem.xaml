@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<UserControl x:Class="BluDay.Impart.WinUI3.Controls.ChatsListItem"
+<UserControl mc:Ignorable="d"
+             x:Class="BluDay.Impart.WinUI3.Controls.ChatsListItem"
              x:DefaultBindMode="OneWay"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="using:BluDay.Impart.WinUI3.Controls"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d">
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -13,21 +14,7 @@
         </Grid.ColumnDefinitions>
 
         <Grid Height="36" Margin="0,0,4,0" Width="36">
-            <PersonPicture CornerRadius="32"
-                           DisplayName="{x:Bind Title}"
-                           Height="32"
-                           HorizontalAlignment="Center"
-                           ProfilePicture="{x:Bind AvatarImage}"
-                           VerticalAlignment="Center"
-                           Width="32"/>
-
-            <Ellipse Fill="Lime"
-                     Height="14"
-                     HorizontalAlignment="Right"
-                     Stroke="#282828"
-                     StrokeThickness="3"
-                     VerticalAlignment="Bottom"
-                     Width="14"/>
+            <controls:UserAvatar DisplayName="{x:Bind Title}" Image="{x:Bind AvatarImage}"/>
         </Grid>
 
         <Grid Padding="4,0" Grid.Column="1">
