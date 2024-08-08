@@ -16,25 +16,27 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Grid Padding="10">
+        <Grid Margin="10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
-            <StackPanel Orientation="Horizontal" Spacing="4">
-                <controls:UserAvatar DisplayName="{x:Bind Recipient.DisplayName}"
-                                     Image="{x:Bind Recipient.AvatarImageUrl}"/>
+            <Button Background="Transparent"
+                    BorderBrush="Transparent"
+                    Padding="4">
+                <StackPanel Orientation="Horizontal" Spacing="4">
+                    <controls:UserAvatar DisplayName="{x:Bind Recipient.DisplayName}"
+                                         Image="{x:Bind Recipient.AvatarImageUrl}"
+                                         Size="28"/>
 
-                <Button Background="Transparent"
-                        BorderBrush="Transparent"
-                        BorderThickness="0"
-                        Content="Master Chief"
-                        FontSize="18"
-                        FontWeight="SemiBold"
-                        Padding="4,2"
-                        VerticalAlignment="Center"/>
-            </StackPanel>
+                    <TextBlock FontSize="18"
+                               FontWeight="SemiBold"
+                               Padding="4,2"
+                               Text="Master Chief"
+                               VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
 
             <StackPanel Orientation="Horizontal"
                         Padding="4,0"
@@ -47,22 +49,17 @@
                         <Setter Property="Padding" Value="4"/>
                     </Style>
 
-                    <Style TargetType="Viewbox">
-                        <Setter Property="Height" Value="16"/>
-                        <Setter Property="Width" Value="16"/>
+                    <Style TargetType="FontIcon">
+                        <Setter Property="FontSize" Value="16"/>
                     </Style>
                 </StackPanel.Resources>
                 
                 <Button ToolTipService.ToolTip="Open in a new window">
-                    <Viewbox>
-                        <FontIcon Glyph="&#xe8a7;"/>
-                    </Viewbox>
+                    <FontIcon Glyph="&#xe8a7;"/>
                 </Button>
 
                 <Button ToolTipService.ToolTip="Chat settings">
-                    <Viewbox>
-                        <FontIcon Glyph="&#xe713;"/>
-                    </Viewbox>
+                    <FontIcon Glyph="&#xe713;"/>
                 </Button>
             </StackPanel>
         </Grid>

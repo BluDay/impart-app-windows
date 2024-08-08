@@ -14,7 +14,9 @@
         </Grid.ColumnDefinitions>
 
         <Grid Height="36" Margin="0,0,4,0" Width="36">
-            <controls:UserAvatar DisplayName="{x:Bind Title}" Image="{x:Bind AvatarImage}"/>
+            <controls:UserAvatar DisplayName="{x:Bind Title}"
+                                 Image="{x:Bind AvatarImage}"
+                                 Size="32"/>
         </Grid>
 
         <Grid Padding="4,0" Grid.Column="1">

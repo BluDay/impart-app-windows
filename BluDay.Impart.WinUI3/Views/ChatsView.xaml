@@ -49,25 +49,18 @@
                                 <Setter Property="Padding" Value="4"/>
                             </Style>
 
-                            <Style TargetType="Viewbox">
-                                <Setter Property="Height" Value="16"/>
-                                <Setter Property="Width" Value="16"/>
+                            <Style TargetType="FontIcon">
+                                <Setter Property="FontSize" Value="16"/>
                             </Style>
                         </StackPanel.Resources>
                         
                         <Button x:Uid="ChatsView/NewChatButton" ToolTipService.ToolTip="New chat">
-                            <Viewbox>
-                                <!-- e710 (Add) -->
-                                
-                                <FontIcon Glyph="&#xe932;"/>
-                            </Viewbox>
+                            <FontIcon Glyph="&#xe932;"/>
                         </Button>
 
                         <!--
                         <Button ToolTipService.ToolTip="More">
-                            <Viewbox>
-                                <FontIcon Glyph="&#xe712;"/>
-                            </Viewbox>
+                            <FontIcon Glyph="&#xe712;"/>
                         </Button>
                         -->
                     </StackPanel>
