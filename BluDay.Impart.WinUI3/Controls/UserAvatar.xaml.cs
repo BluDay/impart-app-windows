@@ -25,7 +25,26 @@ public sealed partial class UserAvatar : UserControl
         typeof(UserAvatar),
         new PropertyMetadata(defaultValue: null)
     );
+
+    /// <summary>
+    /// Identifies the <see cref="Size"> dependency property.
+    /// </summary>
+    public static DependencyProperty SizeProperty = DependencyProperty.Register(
+        nameof(Size),
+        typeof(int),
+        typeof(UserAvatar),
+        new PropertyMetadata(defaultValue: 32)
+    );
     #endregion
+
+    /// <summary>
+    /// Gets the uniform size of the avatar.
+    /// </summary>
+    public int Size
+    {
+        get => (int)GetValue(SizeProperty);
+        set => SetValue(SizeProperty, value);
+    }
 
     /// <summary>
     /// Gets the display name of the user.
