@@ -10,9 +10,12 @@
     <NavigationView x:Name="NavigationView"
                     OpenPaneLength="200"
                     PaneDisplayMode="Left"
-                    IsPaneOpen="False">
+                    IsPaneOpen="False"
+                    ItemInvoked="NavigationView_ItemInvoked">
         <NavigationView.MenuItems>
-            <NavigationViewItem x:Uid="NavigationView/Items/Chats" IsSelected="True">
+            <NavigationViewItem x:Uid="NavigationView/Items/Chats"
+                                IsSelected="True"
+                                Tag="BluDay.Impart.WinUI3.Views.ChatsView">
                 <NavigationViewItem.Icon>
                     <FontIcon Glyph="&#xe8f2;"/>
                 </NavigationViewItem.Icon>
@@ -30,7 +33,8 @@
         </ContentControl>
 
         <NavigationView.FooterMenuItems>
-            <NavigationViewItem x:Uid="NavigationView/Items/User">
+            <NavigationViewItem x:Uid="NavigationView/Items/User"
+                                Tag="BluDay.Impart.WinUI3.Views.UserView">
                 <NavigationViewItem.Icon>
                     <FontIcon Glyph="&#xe77b;"/>
                 </NavigationViewItem.Icon>
