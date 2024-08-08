@@ -5,8 +5,6 @@ namespace BluDay.Impart.WinUI3.Views;
 /// </summary>
 public sealed partial class MainView : UserControl
 {
-    private readonly IServiceProvider _serviceProvider;
-
     private readonly Lazy<ChatsView> _chatsView;
 
     private readonly Lazy<SettingsView> _settingsView;
@@ -21,8 +19,6 @@ public sealed partial class MainView : UserControl
     /// </param>
     public MainView(MainViewModel viewModel, IServiceProvider serviceProvider)
     {
-        _serviceProvider = serviceProvider;
-
         _chatsView = new Lazy<ChatsView>(
             serviceProvider.GetRequiredService<ChatsView>
         );
@@ -59,7 +55,7 @@ public sealed partial class MainView : UserControl
         }
         else if (viewName is nameof(UserView))
         {
-            ViewContentControl.Content = _settingsView.Value;
+            ViewContentControl.Content = _userView.Value;
         }
     }
 }
