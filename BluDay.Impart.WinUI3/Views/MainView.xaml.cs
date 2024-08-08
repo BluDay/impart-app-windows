@@ -7,6 +7,12 @@ public sealed partial class MainView : UserControl
 {
     private readonly IServiceProvider _serviceProvider;
 
+    private readonly Lazy<ChatsView> _chatsView;
+
+    private readonly Lazy<SettingsView> _settingsView;
+
+    private readonly Lazy<UserView> _userView;
+
     /// <summary>
     /// Initializes a new instance of the <see cref="MainView"/> class.
     /// </summary>
@@ -17,30 +23,43 @@ public sealed partial class MainView : UserControl
     {
         _serviceProvider = serviceProvider;
 
+        _chatsView = new Lazy<ChatsView>(
+            serviceProvider.GetRequiredService<ChatsView>
+        );
+
+        _settingsView = new Lazy<SettingsView>(
+            serviceProvider.GetRequiredService<SettingsView>
+        );
+
+        _userView = new Lazy<UserView>(
+            serviceProvider.GetRequiredService<UserView>
+        );
+
         DataContext = viewModel;
 
         InitializeComponent();
 
-        ViewContentControl.Content = serviceProvider.GetRequiredService<ChatsView>();
+        ViewContentControl.Content = _chatsView.Value;
     }
 
     private void NavigationView_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
     {
         if (args.IsSettingsInvoked)
         {
-            ViewContentControl.Content = _serviceProvider.GetRequiredService<SettingsView>();
+            ViewContentControl.Content = _settingsView.Value;
 
             return;
         }
 
-        string? viewTypeName = ((FrameworkElement)args.InvokedItemContainer)?.Tag as string;
+        string? viewName = ((FrameworkElement)args.InvokedItemContainer)?.Tag as string;
 
-        if (viewTypeName is null) return;
-
-        Type? viewType = Type.GetType(viewTypeName);
-
-        if (viewType is null) return;
-
-        ViewContentControl.Content = _serviceProvider.GetRequiredService(viewType);
+        if (viewName is nameof(ChatsView))
+        {
+            ViewContentControl.Content = _chatsView.Value;
+        }
+        else if (viewName is nameof(UserView))
+        {
+            ViewContentControl.Content = _settingsView.Value;
+        }
     }
 }
