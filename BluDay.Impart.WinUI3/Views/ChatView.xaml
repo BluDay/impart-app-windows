@@ -25,17 +25,27 @@
             <Button Background="Transparent"
                     BorderBrush="Transparent"
                     Padding="4">
-                <StackPanel Orientation="Horizontal" Spacing="4">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="4"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
                     <controls:UserAvatar DisplayName="{x:Bind Recipient.DisplayName}"
                                          Image="{x:Bind Recipient.AvatarImageUrl}"
                                          Size="28"/>
 
                     <TextBlock FontSize="18"
                                FontWeight="SemiBold"
+                               MaxLines="1"
                                Padding="4,2"
                                Text="Master Chief"
-                               VerticalAlignment="Center"/>
-                </StackPanel>
+                               TextWrapping="NoWrap"
+                               TextTrimming="WordEllipsis"
+                               VerticalAlignment="Center"
+                               Grid.Column="2"/>
+                </Grid>
             </Button>
 
             <StackPanel Orientation="Horizontal"
