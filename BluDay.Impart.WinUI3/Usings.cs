@@ -1,6 +1,7 @@
 ﻿global using CommunityToolkit.Mvvm.Messaging;
 
 global using BluDay.Impart;
+global using BluDay.Impart.Domain.Models;
 global using BluDay.Impart.Domain.ViewModels;
 global using BluDay.Impart.WinUI3;
 global using BluDay.Impart.WinUI3.Controls;
