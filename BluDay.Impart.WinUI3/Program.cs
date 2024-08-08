@@ -48,6 +48,14 @@ services
     .AddSingleton(WeakReferenceMessenger.Default);
 
 services
+    .AddScoped<ChatsViewModel>()
+    .AddScoped<IntroViewModel>()
+    .AddScoped<MainViewModel>()
+    .AddScoped<SettingsViewModel>()
+    .AddScoped<ShellViewModel>()
+    .AddScoped<UserViewModel>();
+
+services
     .AddSingleton<App>()
     .AddSingleton<ResourceLoader>();
 
@@ -55,18 +63,15 @@ services
     .AddScoped(_ => DispatcherQueue.GetForCurrentThread());
 
 services
-    .AddScoped<ChatsViewModel>()
-    .AddScoped<IntroViewModel>()
-    .AddScoped<MainViewModel>()
-    .AddScoped<SettingsViewModel>()
-    .AddScoped<ShellViewModel>();
+    .AddTransient<Shell>();
 
 services
-    .AddTransient<Shell>()
+    .AddTransient<ChatView>()
     .AddTransient<ChatsView>()
     .AddTransient<IntroView>()
     .AddTransient<MainView>()
-    .AddTransient<SettingsView>();
+    .AddTransient<SettingsView>()
+    .AddTransient<UserView>();
 
 services
     .AddLogging();

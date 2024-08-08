@@ -11,11 +11,13 @@ public sealed partial class ChatsView : UserControl
     /// <param name="viewModel">
     /// A transient <see cref="ChatsViewModel"/> instance.
     /// </param>
-    public ChatsView(ChatsViewModel viewModel)
+    public ChatsView(ChatsViewModel viewModel, ChatView chatView)
     {
         DataContext = viewModel;
 
         InitializeComponent();
+
+        ViewContentControl.Content = chatView;
     }
 
     // Temporary. Used to prevent the spinner loading animation from glitching.

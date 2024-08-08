@@ -3,13 +3,18 @@
 /// <summary>
 /// Domain class for a user.
 /// </summary>
-public sealed class UserModel : Model
+[ObservableObject]
+public sealed partial class UserModel : Model
 {
     /// <summary>
-    /// Gets the username.
+    /// Gets the avatar image URL.
     /// </summary>
-    [Required]
-    [MaxLength(1024)]
-    [MinLength(1)]
-    public string Username { get; set; } = null!;
+    [ObservableProperty]
+    private string? _avatarImageUrl;
+
+    /// <summary>
+    /// Gets the display name of the user.
+    /// </summary>
+    [ObservableProperty]
+    private string? _displayName;
 }

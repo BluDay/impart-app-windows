@@ -125,8 +125,8 @@
     <value>Impart (WinUI 3)</value>
     <comment>The default display name but with the platform name included.</comment>
   </data>
-  <data name="ChatsView.AllChatsGroupHeader.Text" xml:space="preserve">
-    <value>All chats</value>
+  <data name="ChatsView.RecentChatsGroupHeader.Text" xml:space="preserve">
+    <value>Recent</value>
   </data>
   <data name="ChatsView.MainHeaderTextBlock.Text" xml:space="preserve">
     <value>Chats</value>

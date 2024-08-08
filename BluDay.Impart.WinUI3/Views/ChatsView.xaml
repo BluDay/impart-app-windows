@@ -9,6 +9,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:models="using:BluDay.Impart.Domain.Models"
              xmlns:viewModels="using:BluDay.Impart.Domain.ViewModels"
+             xmlns:views="using:BluDay.Impart.WinUI3.Views"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -36,7 +37,7 @@
                     </Grid.ColumnDefinitions>
 
                     <TextBlock x:Uid="ChatsView/MainHeaderTextBlock"
-                               FontSize="20"
+                               FontSize="18"
                                Style="{ThemeResource TitleTextBlockStyle}"
                                Text="Chats"/>
 
@@ -48,25 +49,18 @@
                                 <Setter Property="Padding" Value="4"/>
                             </Style>
 
-                            <Style TargetType="Viewbox">
-                                <Setter Property="Height" Value="16"/>
-                                <Setter Property="Width" Value="16"/>
+                            <Style TargetType="FontIcon">
+                                <Setter Property="FontSize" Value="16"/>
                             </Style>
                         </StackPanel.Resources>
                         
                         <Button x:Uid="ChatsView/NewChatButton" ToolTipService.ToolTip="New chat">
-                            <Viewbox>
-                                <!-- e710 (Add) -->
-                                
-                                <FontIcon Glyph="&#xe932;"/>
-                            </Viewbox>
+                            <FontIcon Glyph="&#xe932;"/>
                         </Button>
 
                         <!--
                         <Button ToolTipService.ToolTip="More">
-                            <Viewbox>
-                                <FontIcon Glyph="&#xe712;"/>
-                            </Viewbox>
+                            <FontIcon Glyph="&#xe712;"/>
                         </Button>
                         -->
                     </StackPanel>
@@ -77,7 +71,7 @@
                                 Grid.Row="1"/>
             </Grid>
 
-            <TextBlock x:Uid="ChatsView/AllChatsGroupHeader"
+            <TextBlock x:Uid="ChatsView/RecentChatsGroupHeader"
                        Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                        Margin="16,0"
                        Style="{StaticResource NavigationViewItemHeaderTextStyle}"
@@ -186,9 +180,15 @@
             </RefreshContainer>
         </Grid>
 
-        <TextBlock HorizontalAlignment="Center"
-                   Text="{x:Bind}"
-                   VerticalAlignment="Center"
-                   Grid.Column="1"/>
+        <ContentControl x:Name="ViewContentControl"
+                        VerticalContentAlignment="Stretch"
+                        HorizontalContentAlignment="Stretch"
+                        Grid.Column="1">
+            <ContentControl.ContentTransitions>
+                <TransitionCollection>
+                    <EntranceThemeTransition/>
+                </TransitionCollection>
+            </ContentControl.ContentTransitions>
+        </ContentControl>
     </Grid>
 </UserControl>

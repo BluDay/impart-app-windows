@@ -10,9 +10,10 @@
     <NavigationView x:Name="NavigationView"
                     OpenPaneLength="200"
                     PaneDisplayMode="Left"
-                    IsPaneOpen="False">
+                    IsPaneOpen="False"
+                    ItemInvoked="NavigationView_ItemInvoked">
         <NavigationView.MenuItems>
-            <NavigationViewItem x:Uid="NavigationView/Items/Chats" IsSelected="True">
+            <NavigationViewItem x:Uid="NavigationView/Items/Chats" IsSelected="True" Tag="ChatsView">
                 <NavigationViewItem.Icon>
                     <FontIcon Glyph="&#xe8f2;"/>
                 </NavigationViewItem.Icon>
@@ -30,7 +31,7 @@
         </ContentControl>
 
         <NavigationView.FooterMenuItems>
-            <NavigationViewItem x:Uid="NavigationView/Items/User">
+            <NavigationViewItem x:Uid="NavigationView/Items/User" Tag="UserView">
                 <NavigationViewItem.Icon>
                     <FontIcon Glyph="&#xe77b;"/>
                 </NavigationViewItem.Icon>
