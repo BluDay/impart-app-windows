@@ -71,7 +71,7 @@
                                 Grid.Row="1"/>
             </Grid>
 
-            <TextBlock x:Uid="ChatsView/AllChatsGroupHeader"
+            <TextBlock x:Uid="ChatsView/RecentChatsGroupHeader"
                        Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                        Margin="16,0"
                        Style="{StaticResource NavigationViewItemHeaderTextStyle}"
