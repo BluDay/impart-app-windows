@@ -37,7 +37,7 @@
                     </Grid.ColumnDefinitions>
 
                     <TextBlock x:Uid="ChatsView/MainHeaderTextBlock"
-                               FontSize="20"
+                               FontSize="18"
                                Style="{ThemeResource TitleTextBlockStyle}"
                                Text="Chats"/>
 
