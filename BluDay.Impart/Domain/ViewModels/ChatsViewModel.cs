@@ -16,7 +16,7 @@ public sealed partial class ChatsViewModel : ViewModel
         new ChatModel
         {
             AvatarImageUrl        = "https://dlassets-ssl.xboxlive.com/public/content/ppl/gamerpics/00021-00006-xl.png",
-            ContentPreview        = "Hello 💙",
+            ContentPreview        = "I need you.",
             Title                 = "Cortana",
             LatestMessageDateTime = new DateTime(2024, 1, 17, 16, 16, 16)
         },

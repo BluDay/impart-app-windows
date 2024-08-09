@@ -28,7 +28,7 @@
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="4"/>
+                        <ColumnDefinition Width="8"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
@@ -41,6 +41,7 @@
                                MaxLines="1"
                                Padding="4,2"
                                Text="Master Chief"
+                               TextLineBounds="Tight"
                                TextWrapping="NoWrap"
                                TextTrimming="WordEllipsis"
                                VerticalAlignment="Center"

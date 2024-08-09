@@ -53,16 +53,18 @@
                                 <Setter Property="FontSize" Value="16"/>
                             </Style>
                         </StackPanel.Resources>
-                        
+
                         <Button x:Uid="ChatsView/NewChatButton" ToolTipService.ToolTip="New chat">
                             <FontIcon Glyph="&#xe932;"/>
                         </Button>
 
-                        <!--
                         <Button ToolTipService.ToolTip="More">
-                            <FontIcon Glyph="&#xe712;"/>
+                            <FontIcon Glyph="&#xe712;" RenderTransformOrigin="0.5,0.5">
+                                <FontIcon.RenderTransform>
+                                    <RotateTransform Angle="90"/>
+                                </FontIcon.RenderTransform>
+                            </FontIcon>
                         </Button>
-                        -->
                     </StackPanel>
                 </Grid>
 
